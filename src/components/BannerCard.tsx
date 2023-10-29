@@ -12,7 +12,7 @@ const BannerCard = (props: BannerCardProperties) => {
       <p className="text-center text-4xl">
         {props.title}
       </p>
-      <div>
+      <div className="w-1/2 m-auto space-y-8">
         {props.children}
       </div>
     </div>
