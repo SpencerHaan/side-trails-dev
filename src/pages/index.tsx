@@ -23,7 +23,11 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>,
     }}>
-      <BannerCard title="Side Trailing" className="bg-gray-200">
+      <BannerCard
+        title="Side Trailing"
+        description="The Side Trails Software Development process."
+        className="bg-gray-200"
+      >
         <p>
           A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
           In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
@@ -89,10 +93,11 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>
       </BannerCard>
-      <BannerCard title="Let's Chat" className="bg-gray-200">
-        <p className="pb-4 text-center text-gray-400">
-          Need help with a project? Send me some details.
-        </p>
+      <BannerCard
+        title="Let's Chat"
+        description="Need help with a project? Send me some details."
+        className="bg-gray-200"
+      >
         <div>
           <form className="grid grid-cols-2 gap-4">
             <input type="text" placeholder="Name" name="contactName" className="p-2 rounded-md flex-1"/>
