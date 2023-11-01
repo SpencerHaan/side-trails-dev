@@ -4,6 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import BannerCard from "../components/BannerCard"
 import { TestimonialCard } from "../components/TestimonialCard"
+import Carousel, { Slide } from "../components/Carousel"
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -34,7 +35,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <p>
           Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
         </p>
-        <div className="bg-gray-100 p-2 space-y-4 rounded-xl">
+        <div className="p-2 space-y-4 rounded-xl drop-shadow-lg bg-zinc-100">
           <p className="text-center text-3xl">
             Process
           </p>
@@ -85,12 +86,24 @@ const IndexPage: React.FC<PageProps> = () => {
 
       </BannerCard>
       <BannerCard title="What Clients Think">
-        <TestimonialCard
-          contact="John Smith"
-          company="Company Inc."
-        >
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
-        </TestimonialCard>
+        <Carousel>
+          <Slide key="company_inc">
+            <TestimonialCard
+              contact="John Smith"
+              company="Company Inc."
+            >
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
+            </TestimonialCard>
+          </Slide>
+          <Slide key="company_org">
+            <TestimonialCard
+              contact="John Smith"
+              company="Company Inc."
+            >
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
+            </TestimonialCard>
+          </Slide>
+        </Carousel>
       </BannerCard>
       <BannerCard
         title="Let's Chat"
