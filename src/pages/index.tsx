@@ -3,21 +3,78 @@ import { Link, type HeadFC, type PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import BannerCard from "../components/BannerCard"
+import { Navigator } from "../components/Navigator"
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
-    <Layout>
-      <BannerCard title="Methodology" className="bg-gray-200">
+    <Layout hero={{
+      image: <StaticImage src="../images/hero.png" alt="" layout="fullWidth"/>,
+      content: 
+        <div className="h-full flex flex-col">
+          <p className="m-auto text-white text-center text-5xl uppercase font-extrabold leading-relaxed">
+            Building, and Rebuilding,
+            <br/>
+            Software Systems
+          </p>
+          <div className="w-1/2 mx-auto mb-16 text-center">
+            <button className="w-36 transition ease-in-out p-3 bg-white hover:bg-lion hover:font-extrabold rounded-xl">
+              Let's Chat
+            </button>
+          </div>
+        </div>,
+    }}>
+      <BannerCard title="Side Trailing" className="bg-gray-200">
         <p>
-          I believe that it's better to optimize delivering what my clients need over what it's going to cost and how much time it will take.
-          That is, while the latter is an important consideration, the former is considerably more important.
+          A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
+          In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
         </p>
         <p>
-          Why would you spend money on a solution that doesn't meet your needs?
+          Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
         </p>
-        <button className="w-36 transition ease-in-out p-3 bg-gray-400 hover:bg-gray-500 rounded-xl">
-          Find Out More
-        </button>
+        <div className="bg-gray-100 p-2 space-y-4 rounded-xl">
+          <p className="text-center text-3xl">
+            Process
+          </p>
+          <div className="flex flex-row space-x-4">
+            <div>
+              <StaticImage src="https://placehold.co/128/png?text=Discover" alt="" height={128} width={128} layout="fixed" className="rounded-xl"/>
+            </div>
+            <div className="space-y-4">
+              <p className="text-xl">
+                First, let's discover what your business needs/technical challenges are all about.
+              </p>
+              <p className="text-gray-400">
+                What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row space-x-4">
+            <div>
+              <StaticImage src="https://placehold.co/256/png?text=Explore" alt="" height={128} layout="fixed" className="rounded-xl"/>
+            </div>
+            <div className="space-y-4">
+              <p className="text-xl">
+                Second, let's explore these business needs/technical challenges to establish a shared and deep understanding.
+              </p>
+              <p className="text-gray-400">
+                What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key.
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-row space-x-4">
+            <div>
+              <StaticImage src="https://placehold.co/256/png?text=Build" alt="" height={128} layout="fixed" className="rounded-xl"/>
+            </div>
+            <div className="space-y-4">
+              <p className="text-xl">
+                Third, let's build the solution.
+              </p>
+              <p className="text-gray-400">
+                Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore.
+              </p>
+            </div>
+          </div>
+        </div>
       </BannerCard>
       <BannerCard title="What Clients Think">
         <div className="p-1 w-full rounded-xl col-span-2 bg-gray-300">
