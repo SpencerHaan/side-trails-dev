@@ -1,9 +1,9 @@
 import * as React from "react"
-import { Link, type HeadFC, type PageProps } from "gatsby"
+import { type HeadFC, type PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import BannerCard from "../components/BannerCard"
-import { Navigator } from "../components/Navigator"
+import { TestimonialCard } from "../components/TestimonialCard"
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -26,7 +26,6 @@ const IndexPage: React.FC<PageProps> = () => {
       <BannerCard
         title="Side Trailing"
         description="The Side Trails Software Development process."
-        className="bg-gray-200"
       >
         <p>
           A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
@@ -80,18 +79,18 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>
       </BannerCard>
+      <BannerCard
+        title="Expertise" 
+        className="bg-gray-200">
+
+      </BannerCard>
       <BannerCard title="What Clients Think">
-        <div className="p-1 w-full rounded-xl col-span-2 bg-gray-300">
-          <div className="w-full h-full rounded-lg p-6 space-y-4 bg-white">
-            <StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed" className="m-auto rounded-xl"/>
-            <p className="text-center">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
-            </p>
-            <p className="italic text-lg text-center text-gray-400">
-              John Smith - Company Inc.
-            </p>
-          </div>
-        </div>
+        <TestimonialCard
+          contact="John Smith"
+          company="Company Inc."
+        >
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
+        </TestimonialCard>
       </BannerCard>
       <BannerCard
         title="Let's Chat"
