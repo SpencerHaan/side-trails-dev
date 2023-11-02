@@ -87,7 +87,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </BannerCard>
       <BannerCard title="What Clients Think">
         <Carousel>
-          <Slide key="company_inc">
+          <Slide>
             <TestimonialCard
               contact="John Smith"
               company="Company Inc."
@@ -95,7 +95,7 @@ const IndexPage: React.FC<PageProps> = () => {
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
             </TestimonialCard>
           </Slide>
-          <Slide key="company_org">
+          <Slide>
             <TestimonialCard
               contact="John Smith"
               company="Company Inc."
