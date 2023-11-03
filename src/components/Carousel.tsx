@@ -1,4 +1,8 @@
 import * as React from 'react'
+import {
+  TbSquareRoundedChevronLeftFilled as LeftArrow,
+  TbSquareRoundedChevronRightFilled as RightArrow,
+} from "react-icons/tb"
 
 export interface SlideProperties {
   children: React.ReactElement
@@ -18,69 +22,52 @@ export interface CarouselProperties {
 
 export default function Carousel({children}: CarouselProperties) {
   const [currentIndex, setCurrentIndex] = React.useState(0);
-  const carouselReference = React.useRef<HTMLDivElement | null>(null);
-  const slideReferences = children.map((_) => React.useRef<HTMLDivElement | null>(null))
 
-  React.useEffect(() => {
-    const carousel = carouselReference.current
-    if (!carousel) {
-      return
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) =>  {
-        if (entry.isIntersecting) {
-          const index = slideReferences.map((ref) => ref.current).indexOf(entry.target as HTMLDivElement)
-          setCurrentIndex(index)
-        }
-      })
-    }, {
-      root: carousel,
-      threshold: 0.5,
-    })
-    children.forEach((_, index) => {
-      const slide = slideReferences[index].current
-      if (slide) {
-        observer.observe(slide)
-      }
-    })
-    return () => children.forEach((_, index) => {
-      const slide = slideReferences[index].current
-      if (slide) {
-        observer.unobserve(slide)
-      }
-    })
-  }, [carouselReference, slideReferences])
+  const previousSlide = () => setCurrentIndex(currentIndex === 0 ? children.length - 1 : currentIndex - 1)
+  const nextSlide = () => setCurrentIndex(currentIndex === children.length - 1 ? 0 : currentIndex + 1)
 
   return (
-    <div className="w-full mx-auto rounded-xl drop-shadow-lg bg-zinc-100">
-      <div
-        ref={carouselReference}
-        className="flex flex-row overflow-x-scroll snap-x snap-mandatory"
-        style={{
-          paddingBottom: "15px",
-          clipPath: "inset(0 0 15px 0)",
-        }}
-      >
-        {
-          children.map((child, index) => {
-            return (
-              <div key={index} ref={slideReferences[index]} className="w-full flex-shrink-0 snap-start">
-                {child}
-              </div>
-            )
-          })
-        }
-      </div>
-      <div className="pb-4 space-x-2 text-center">
-        {
-          slideReferences.map((_, index) => {
-            return (index === currentIndex
-              ? <button className="w-6 h-3 bg-zinc-600 rounded-full" />
-              : <button className="w-3 h-3 bg-zinc-300 rounded-full" />
-            )
-          })
-        }
+    <div className="w-full mx-auto rounded-xl bg-zinc-100 drop-shadow-lg">
+      <div className="flex">
+        <button onClick={previousSlide} className="text-zinc-600 text-3xl">
+          <LeftArrow/>
+        </button>
+        <div className="overflow-hidden relative">
+          <div
+            className="flex transition ease-out duration-500"
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`
+            }}
+          >
+            {
+              children.map((child, index) => {
+                return (
+                  <div key={index} className="w-full flex-shrink-0">
+                    {child}
+                  </div>
+                )
+              })
+            }
+          </div>
+        <div className="w-full pb-4 flex justify-center gap-2">
+            {
+              children.map((_, index) => {
+                const style = index === currentIndex
+                  ? "w-6 bg-zinc-600"
+                  : "w-3 bg-zinc-300"
+                return <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  disabled={index === currentIndex}
+                  className={`h-3 rounded-full ${style}`}
+                />
+              })
+            }
+          </div>
+        </div>
+        <button onClick={nextSlide} className="text-zinc-600 text-3xl">
+          <RightArrow/>
+        </button>
       </div>
     </div>
   )

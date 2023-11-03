@@ -97,7 +97,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </Slide>
           <Slide>
             <TestimonialCard
-              contact="John Smith"
+              contact="Jane Doe"
               company="Company Inc."
             >
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
