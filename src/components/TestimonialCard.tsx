@@ -2,15 +2,18 @@ import * as React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 
 export interface TestimonialCardProperties {
-  contact: string,
-  company: string,
-  children: string,
+  image: React.ReactElement<typeof StaticImage>
+  contact: string
+  company: string
+  children: string
 }
 
-export function TestimonialCard({contact, company, children}: TestimonialCardProperties) {
+export function TestimonialCard({image, contact, company, children}: TestimonialCardProperties) {
   return (
     <div className="p-4 space-y-4 w-full col-span-2">
-      <StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed" className="m-auto rounded-xl"/>
+      <div className="w-fit m-auto rounded-2xl overflow-clip">
+        {image}
+      </div>
       <p className="text-center text-lg">
         {children}
       </p>

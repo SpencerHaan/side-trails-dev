@@ -90,6 +90,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <Carousel>
           <Slide>
             <TestimonialCard
+              image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
               contact="John Smith"
               company="Company Inc."
             >
@@ -98,6 +99,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </Slide>
           <Slide>
             <TestimonialCard
+              image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed" className="m-auto rounded-xl"/>}
               contact="Jane Doe"
               company="Company Inc."
             >
