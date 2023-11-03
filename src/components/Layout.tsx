@@ -19,13 +19,13 @@ const Layout = ({hero, children}: LayoutProperties) => {
       <header>
         {hero
           ? (
-            <div className="grid">
+            <div className="grid shadow-xl">
               <div className="col-start-1 col-end-1 row-start-1 row-end-1">
                 {hero.image}
               </div>
               <div className="col-start-1 col-end-1 row-start-1 row-end-1 relative">
                 <div className="h-full flex flex-col">
-                  <div className="shadow-xl bg-zinc-800/20">
+                  <div className="shadow-xl bg-zinc-800/20 backdrop-blur-[1px]">
                     <Navigator overlay={true} className="w-1/2 mx-auto py-5 text-white text-xl" />
                   </div>
                   {hero.content}
