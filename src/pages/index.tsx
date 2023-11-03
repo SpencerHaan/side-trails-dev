@@ -5,6 +5,7 @@ import Layout from "../components/Layout"
 import BannerCard from "../components/BannerCard"
 import { TestimonialCard } from "../components/TestimonialCard"
 import Carousel, { Slide } from "../components/Carousel"
+import ListCard from "../components/ListCard"
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -35,50 +36,50 @@ const IndexPage: React.FC<PageProps> = () => {
         <p>
           Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
         </p>
-        <div className="p-2 space-y-4 rounded-xl drop-shadow-lg bg-zinc-100">
-          <p className="text-center text-3xl">
-            Process
-          </p>
-          <div className="flex flex-row space-x-4">
-            <div>
-              <StaticImage src="https://placehold.co/128/png?text=Discover" alt="" height={128} width={128} layout="fixed" className="rounded-xl"/>
-            </div>
-            <div className="space-y-4">
+        <ListCard title="Process">
+          <ListCard.Item
+            image={<StaticImage src="../images/discover.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+            justify={ListCard.Item.Justify.Right}
+          >
+              <p className="text-lg text-gray-400">
+                Discover
+              </p>
               <p className="text-xl">
                 First, let's discover what your business needs/technical challenges are all about.
               </p>
               <p className="text-gray-400">
                 What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?
               </p>
-            </div>
-          </div>
-          <div className="flex flex-row space-x-4">
-            <div>
-              <StaticImage src="https://placehold.co/256/png?text=Explore" alt="" height={128} layout="fixed" className="rounded-xl"/>
-            </div>
-            <div className="space-y-4">
+          </ListCard.Item>
+          <ListCard.Item
+            image={<StaticImage src="../images/explore.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+            justify={ListCard.Item.Justify.Left}
+          >
+              <p className="text-lg text-gray-400">
+                Explore
+              </p>
               <p className="text-xl">
                 Second, let's explore these business needs/technical challenges to establish a shared and deep understanding.
               </p>
               <p className="text-gray-400">
                 What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key.
               </p>
-            </div>
-          </div>
-          <div className="flex flex-row space-x-4">
-            <div>
-              <StaticImage src="https://placehold.co/256/png?text=Build" alt="" height={128} layout="fixed" className="rounded-xl"/>
-            </div>
-            <div className="space-y-4">
+          </ListCard.Item>
+          <ListCard.Item
+            image={<StaticImage src="../images/build.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+            justify={ListCard.Item.Justify.Right}
+          >
+              <p className="text-lg text-gray-400">
+                Build
+              </p>
               <p className="text-xl">
                 Third, let's build the solution.
               </p>
               <p className="text-gray-400">
                 Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore.
               </p>
-            </div>
-          </div>
-        </div>
+          </ListCard.Item>
+        </ListCard>
       </BannerCard>
       <BannerCard
         title="Expertise" 

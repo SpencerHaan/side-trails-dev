@@ -21,7 +21,14 @@ const config: GatsbyConfig = {
       __key: "pages"
     },
     "gatsby-plugin-image",
-    "gatsby-plugin-sharp",
+    {
+      resolve: "gatsby-plugin-sharp",
+      options: {
+        defaults: {
+          quality: 90
+        }
+      }
+    },
     {
       resolve: `gatsby-omni-font-loader`,
       options: {
