@@ -1,13 +1,13 @@
 import * as React from 'react'
 
-export interface BannerCardProperties {
+export interface SectionProperties {
   title: string
   description?: string
   className?: string
   children: React.ReactElement | React.ReactElement[]
 }
 
-const BannerCard = ({title, description, className, children}: BannerCardProperties) => {
+const Section = ({title, description, className, children}: SectionProperties) => {
   return (
     <div className={"py-12 space-y-8 " + className}>
       <p className="text-center text-4xl">
@@ -27,4 +27,4 @@ const BannerCard = ({title, description, className, children}: BannerCardPropert
   )
 }
 
-export default BannerCard
+export default Section

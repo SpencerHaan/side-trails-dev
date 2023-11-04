@@ -2,7 +2,7 @@ import * as React from "react"
 import { type HeadFC, type PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
-import BannerCard from "../components/BannerCard"
+import Section from "../components/Section"
 import { TestimonialCard } from "../components/TestimonialCard"
 import Carousel, { Slide } from "../components/Carousel"
 import ListCard from "../components/ListCard"
@@ -25,7 +25,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>,
     }}>
-      <BannerCard
+      <Section
         title="Side Trailing"
         description="The Side Trails Software Development process."
       >
@@ -80,13 +80,13 @@ const IndexPage: React.FC<PageProps> = () => {
               </p>
           </ListCard.Item>
         </ListCard>
-      </BannerCard>
-      <BannerCard
+      </Section>
+      <Section
         title="Expertise" 
         className="bg-gray-200">
 
-      </BannerCard>
-      <BannerCard title="What Clients Think">
+      </Section>
+      <Section title="What Clients Think">
         <Carousel>
           <Slide>
             <TestimonialCard
@@ -107,8 +107,8 @@ const IndexPage: React.FC<PageProps> = () => {
             </TestimonialCard>
           </Slide>
         </Carousel>
-      </BannerCard>
-      <BannerCard
+      </Section>
+      <Section
         title="Let's Chat"
         description="Need help with a project? Send me some details."
         className="bg-gray-200"
@@ -130,7 +130,7 @@ const IndexPage: React.FC<PageProps> = () => {
             Submit
           </button>
         </div>
-      </BannerCard>
+      </Section>
     </Layout>
   )
 }
