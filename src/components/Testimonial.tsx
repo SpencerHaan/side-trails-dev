@@ -1,14 +1,14 @@
 import * as React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
 
-export interface TestimonialCardProperties {
+interface TestimonialProperties {
   image?: React.ReactElement<typeof StaticImage>
   contact: string
   company?: string
   children: string
 }
 
-export function Testimonial({image, contact, company, children}: TestimonialCardProperties) {
+const Testimonial = ({image, contact, company, children}: TestimonialProperties) => {
   return (
     <div className="p-4 space-y-4 w-full col-span-2">
       { image
@@ -24,3 +24,5 @@ export function Testimonial({image, contact, company, children}: TestimonialCard
     </div>
   )
 }
+
+export default Testimonial

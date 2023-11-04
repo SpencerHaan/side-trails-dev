@@ -3,7 +3,7 @@ import { type HeadFC, type PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
-import { Testimonial } from "../components/Testimonial"
+import Testimonial from "../components/Testimonial"
 import Carousel from "../components/Carousel"
 import ListCard from "../components/ListCard"
 

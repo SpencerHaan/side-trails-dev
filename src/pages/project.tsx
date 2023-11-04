@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import Section from "../components/Section"
 import Card from "../components/Card"
 import { StaticImage } from "gatsby-plugin-image"
-import { Testimonial } from "../components/Testimonial"
+import Testimonial from "../components/Testimonial"
 
 interface TagProperties {
   text: string
