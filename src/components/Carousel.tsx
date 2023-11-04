@@ -3,6 +3,7 @@ import {
   TbSquareRoundedChevronLeftFilled as LeftArrow,
   TbSquareRoundedChevronRightFilled as RightArrow,
 } from "react-icons/tb"
+import Card from './Card'
 
 export interface SlideProperties {
   children: React.ReactElement
@@ -27,7 +28,7 @@ export default function Carousel({children}: CarouselProperties) {
   const nextSlide = () => setCurrentIndex(currentIndex === children.length - 1 ? 0 : currentIndex + 1)
 
   return (
-    <div className="w-full mx-auto rounded-xl bg-zinc-100 drop-shadow-lg">
+    <Card>
       <div className="flex">
         <button onClick={previousSlide} className="text-zinc-600 text-3xl">
           <LeftArrow/>
@@ -69,6 +70,6 @@ export default function Carousel({children}: CarouselProperties) {
           <RightArrow/>
         </button>
       </div>
-    </div>
+    </Card>
   )
 }

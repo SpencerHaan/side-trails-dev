@@ -1,5 +1,6 @@
 import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
+import Card from "./Card"
 
 export interface ListCardProperties {
   title: string
@@ -8,12 +9,14 @@ export interface ListCardProperties {
 
 const ListCard = ({title, children}: ListCardProperties) => {
   return (
-    <div className="p-4 space-y-4 rounded-xl drop-shadow-lg bg-zinc-100">
+    <Card>
       <p className="text-center text-3xl">
         {title}
       </p>
-      {children}
-    </div>
+      <div>
+        {children}
+      </div>
+    </Card>
   )
 }
 

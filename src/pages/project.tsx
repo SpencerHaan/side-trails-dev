@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import Section from "../components/Section"
 import Card from "../components/Card"
 import { StaticImage } from "gatsby-plugin-image"
-import { TestimonialCard } from "../components/TestimonialCard"
+import { Testimonial } from "../components/Testimonial"
 
 interface TagProperties {
   text: string
@@ -86,9 +86,9 @@ const ProjectPage: React.FC<PageProps> = () => {
       <Section
         title="Testimonial"
       >
-        <TestimonialCard contact="John Smith">
+        <Testimonial contact="John Smith">
           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
-        </TestimonialCard>
+        </Testimonial>
       </Section>
     </Layout>
   )

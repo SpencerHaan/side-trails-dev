@@ -3,7 +3,7 @@ import { type HeadFC, type PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
-import { TestimonialCard } from "../components/TestimonialCard"
+import { Testimonial } from "../components/Testimonial"
 import Carousel, { Slide } from "../components/Carousel"
 import ListCard from "../components/ListCard"
 
@@ -89,22 +89,22 @@ const IndexPage: React.FC<PageProps> = () => {
       <Section title="What Clients Think">
         <Carousel>
           <Slide>
-            <TestimonialCard
+            <Testimonial
               image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
               contact="John Smith"
               company="Company Inc."
             >
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
-            </TestimonialCard>
+            </Testimonial>
           </Slide>
           <Slide>
-            <TestimonialCard
+            <Testimonial
               image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed" className="m-auto rounded-xl"/>}
               contact="Jane Doe"
               company="Company Inc."
             >
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
-            </TestimonialCard>
+            </Testimonial>
           </Slide>
         </Carousel>
       </Section>

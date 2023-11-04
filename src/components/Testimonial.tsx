@@ -8,7 +8,7 @@ export interface TestimonialCardProperties {
   children: string
 }
 
-export function TestimonialCard({image, contact, company, children}: TestimonialCardProperties) {
+export function Testimonial({image, contact, company, children}: TestimonialCardProperties) {
   return (
     <div className="p-4 space-y-4 w-full col-span-2">
       { image
