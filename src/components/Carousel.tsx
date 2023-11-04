@@ -5,11 +5,11 @@ import {
 } from "react-icons/tb"
 import Card from './Card'
 
-export interface SlideProperties {
+interface ItemProperties {
   children: React.ReactElement
 }
 
-export function Slide({children}: SlideProperties) {
+const Item = ({children}: ItemProperties) => {
   return (
     <div className="w-full">
       {children}
@@ -17,11 +17,11 @@ export function Slide({children}: SlideProperties) {
   )
 }
 
-export interface CarouselProperties {
-  children: React.ReactElement<typeof Slide>[]
+interface CarouselProperties {
+  children: React.ReactElement<typeof Item>[]
 }
 
-export default function Carousel({children}: CarouselProperties) {
+const Carousel = ({children}: CarouselProperties) => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
 
   const previousSlide = () => setCurrentIndex(currentIndex === 0 ? children.length - 1 : currentIndex - 1)
@@ -73,3 +73,7 @@ export default function Carousel({children}: CarouselProperties) {
     </Card>
   )
 }
+
+Carousel.Item = Item
+
+export default Carousel

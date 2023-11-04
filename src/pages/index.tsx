@@ -4,7 +4,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
 import { Testimonial } from "../components/Testimonial"
-import Carousel, { Slide } from "../components/Carousel"
+import Carousel from "../components/Carousel"
 import ListCard from "../components/ListCard"
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -88,7 +88,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </Section>
       <Section title="What Clients Think">
         <Carousel>
-          <Slide>
+          <Carousel.Item>
             <Testimonial
               image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
               contact="John Smith"
@@ -96,8 +96,8 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
             </Testimonial>
-          </Slide>
-          <Slide>
+          </Carousel.Item>
+          <Carousel.Item>
             <Testimonial
               image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed" className="m-auto rounded-xl"/>}
               contact="Jane Doe"
@@ -105,7 +105,7 @@ const IndexPage: React.FC<PageProps> = () => {
             >
               "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies."
             </Testimonial>
-          </Slide>
+          </Carousel.Item>
         </Carousel>
       </Section>
       <Section
