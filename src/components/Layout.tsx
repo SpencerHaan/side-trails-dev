@@ -62,7 +62,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
       <footer className="p-4 grid grid-cols-3 bg-zinc-800 text-white">
         <div></div>
         <p className="text-center text-sm italic">
-          &copy; 2023 Side Trails Software Development
+          &copy; 2023 Side Trails Software Development, Spencer Haan. All rights reserved.
         </p>
         <ul className="ml-auto space-x-2 flex">
           <li>
