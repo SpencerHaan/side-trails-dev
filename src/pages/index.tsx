@@ -6,6 +6,16 @@ import Section from "../components/Section"
 import Testimonial from "../components/Testimonial"
 import Carousel from "../components/Carousel"
 import ListCard from "../components/ListCard"
+import {
+  FaMicroscope as AnalysisIcon,
+  FaCompassDrafting as ArchitectureIcon,
+  FaMap as PrototypeIcon,
+  FaCode as DevelopmentIcon,
+  FaCloud as CloudIcon,
+} from "react-icons/fa6"
+import {
+  BiSolidBackpack as RucksackIcon
+} from "react-icons/bi"
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -83,8 +93,106 @@ const IndexPage: React.FC<PageProps> = () => {
       </Section>
       <Section
         title="Expertise" 
-        className="bg-gray-200">
+        description="Some of the things I can do."
+        className="bg-gray-200"
+      >
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+          <div className="flex flex-row gap-6">
+            <div className="flex flex-col text-center gap-4">
+              <div className="text-zinc-500">
+                System Analysis
+              </div>
+              <div>
+                Develop an understanding of the breadth of your system, and the relationships and interactions between the various parts.
+              </div>
+            </div>
+            <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <AnalysisIcon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+          </div>
 
+          <div className="flex flex-row gap-6">
+            <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <ArchitectureIcon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+            <div className="flex flex-col text-center gap-4">
+              <div className="text-zinc-500">
+                System Architecture
+              </div>
+              <div>
+                Design solutions that incorporate and consider all aspects of a system.
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row gap-6">
+            <div className="flex flex-col text-center gap-4">
+              <div className="text-zinc-500">
+                Software Prototyping
+              </div>
+              <div>
+                Exploratory software development to better understand the solution you want, and need.
+              </div>
+            </div>
+            <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <PrototypeIcon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row gap-6">
+            <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <DevelopmentIcon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+            <div className="flex flex-col text-center gap-4">
+              <div className="text-zinc-500">
+                Software Design and Development
+              </div>
+              <div>
+                Implement well-designed code and abstractions to enable future growth while reducing maintenance and development overhead.
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row gap-6">
+            <div className="flex flex-col text-center gap-4">
+              <div className="text-zinc-500">
+                Cloud Integration
+              </div>
+              <div>
+                Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud.
+              </div>
+            </div>
+            <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <CloudIcon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row gap-6">
+            <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <RucksackIcon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+            <div className="flex flex-col text-center gap-4">
+              <div className="text-zinc-500">
+                Rucksack
+              </div>
+              <div>
+                Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…
+              </div>
+            </div>
+          </div>
+        </div>
       </Section>
       <Section title="What Clients Think">
         <Carousel>
