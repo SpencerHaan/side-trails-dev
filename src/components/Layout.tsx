@@ -48,7 +48,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
       >
         <Navigator overlay={overlayNavigator} className="w-1/2 mx-auto py-5 text-xl"/>
       </header>
-      <main className="mb-auto">
+      <main className="flex flex-col flex-1">
         {hero
           ?  <div ref={heroReference} className="grid shadow-xl">
               <div className="col-start-1 col-end-1 row-start-1 row-end-1">
