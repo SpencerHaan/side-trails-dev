@@ -16,6 +16,50 @@ import {
 import {
   BiSolidBackpack as RucksackIcon
 } from "react-icons/bi"
+import { IconBaseProps } from "react-icons"
+
+enum Justify {
+  Left,
+  Right
+}
+
+interface ExpertiseProperties {
+  title: string
+  iconType: React.ElementType<IconBaseProps>
+  justifyIcon: Justify
+  children: string
+}
+
+const ExpertiseTile = ({title, iconType: Icon, justifyIcon, children}: ExpertiseProperties) => {
+  return (
+    <div className="flex flex-row gap-6">
+      { justifyIcon === Justify.Left
+          ? <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <Icon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+          : ""
+      }
+      <div className="flex flex-col text-center gap-4">
+        <div className="text-zinc-500">
+          {title}
+        </div>
+        <div>
+          {children}
+        </div>
+      </div>
+      { justifyIcon === Justify.Right
+          ? <div className="my-auto">
+              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
+                <Icon size={32} className="text-zinc-500"/>
+              </div>
+            </div>
+          : ""
+      }
+    </div>
+  )
+}
 
 const IndexPage: React.FC<PageProps> = () => {
   return (
@@ -96,102 +140,25 @@ const IndexPage: React.FC<PageProps> = () => {
         description="Some of the things I can do."
         className="bg-gray-200"
       >
-        <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-          <div className="flex flex-row gap-6">
-            <div className="flex flex-col text-center gap-4">
-              <div className="text-zinc-500">
-                System Analysis
-              </div>
-              <div>
-                Develop an understanding of the breadth of your system, and the relationships and interactions between the various parts.
-              </div>
-            </div>
-            <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <AnalysisIcon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-6">
-            <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <ArchitectureIcon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
-            <div className="flex flex-col text-center gap-4">
-              <div className="text-zinc-500">
-                System Architecture
-              </div>
-              <div>
-                Design solutions that incorporate and consider all aspects of a system.
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-6">
-            <div className="flex flex-col text-center gap-4">
-              <div className="text-zinc-500">
-                Software Prototyping
-              </div>
-              <div>
-                Exploratory software development to better understand the solution you want, and need.
-              </div>
-            </div>
-            <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <PrototypeIcon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-6">
-            <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <DevelopmentIcon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
-            <div className="flex flex-col text-center gap-4">
-              <div className="text-zinc-500">
-                Software Design and Development
-              </div>
-              <div>
-                Implement well-designed code and abstractions to enable future growth while reducing maintenance and development overhead.
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-6">
-            <div className="flex flex-col text-center gap-4">
-              <div className="text-zinc-500">
-                Cloud Integration
-              </div>
-              <div>
-                Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud.
-              </div>
-            </div>
-            <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <CloudIcon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-row gap-6">
-            <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <RucksackIcon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
-            <div className="flex flex-col text-center gap-4">
-              <div className="text-zinc-500">
-                Rucksack
-              </div>
-              <div>
-                Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…
-              </div>
-            </div>
-          </div>
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8">
+          <ExpertiseTile title="System Anaylsis" iconType={AnalysisIcon} justifyIcon={Justify.Left}>
+            Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts.
+          </ExpertiseTile>
+          <ExpertiseTile title="System Architecture" iconType={ArchitectureIcon} justifyIcon={Justify.Right}>
+            Design solutions that incorporate and consider all aspects of a system.
+          </ExpertiseTile>
+          <ExpertiseTile title="Software Prototyping" iconType={PrototypeIcon} justifyIcon={Justify.Left}>
+            Exploratory software development to better understand the solution you want, and need.
+          </ExpertiseTile>
+          <ExpertiseTile title="Software Design and Development" iconType={DevelopmentIcon} justifyIcon={Justify.Right}>
+            Implement well-designed code and abstractions to enable future growth while reducing maintenance and development overhead.
+          </ExpertiseTile>
+          <ExpertiseTile title="Cloud Integration" iconType={CloudIcon} justifyIcon={Justify.Left}>
+            Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud.
+          </ExpertiseTile>
+          <ExpertiseTile title="Rucksack" iconType={RucksackIcon} justifyIcon={Justify.Right}>
+            Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…
+          </ExpertiseTile>
         </div>
       </Section>
       <Section
