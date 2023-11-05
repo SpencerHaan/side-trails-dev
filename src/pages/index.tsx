@@ -194,7 +194,10 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
         </div>
       </Section>
-      <Section title="What Clients Think">
+      <Section
+        title="What Clients Think"
+        description="And colleagues, too!"
+      >
         <Carousel>
           <Carousel.Item>
             <Testimonial
