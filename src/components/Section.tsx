@@ -12,15 +12,15 @@ const Section = ({title, subtitle, description, className, children}: SectionPro
   return (
     <div className={"py-12 space-y-8 " + className}>
       { subtitle
-        ? <p className="text-center text-zinc-400">{subtitle}</p>
+        ? <p className="text-lg text-center text-zinc-400">{subtitle}</p>
         : ""
       }
-      <p className="text-center text-4xl">
+      <p className="text-center text-5xl">
         {title}
       </p>
       <div className="w-1/2 m-auto space-y-8">
         { description
-          ? <p className="pb-4 text-center text-zinc-400">{description}</p>
+          ? <p className="pb-4 text-lg text-center text-zinc-400">{description}</p>
           : ""
         }
         {children}

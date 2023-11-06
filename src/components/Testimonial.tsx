@@ -22,15 +22,15 @@ const Testimonial = ({image, contact, company, children}: TestimonialProperties)
       <p className="grid">
         <div className="col-start-1 col-end-1 row-start-1 row-end-1 text-zinc-200">
           <div className="flex h-full justify-between items-center">
-            <LeftQuote size={64}/>
-            <RightQuote size={64}/>
+            <LeftQuote size={80}/>
+            <RightQuote size={80}/>
           </div>
         </div>
-        <div className="col-start-1 col-end-1 row-start-1 row-end-1 text-center text-lg">
+        <div className="col-start-1 col-end-1 row-start-1 row-end-1 text-center text-xl">
           {children}
         </div>
       </p>
-      <p className="italic text-center text-gray-400">
+      <p className="italic text-center text-lg text-gray-400">
         {contact} {company ? `- ${company} ` : ""}
       </p>
     </div>
