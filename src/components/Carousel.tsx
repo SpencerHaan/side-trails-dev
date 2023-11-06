@@ -54,19 +54,19 @@ const Carousel = ({children}: CarouselProperties) => {
             {
               children.map((_, index) => {
                 const style = index === currentIndex
-                  ? "w-8 bg-zinc-600"
-                  : "w-4 bg-zinc-300"
+                  ? "w-6 3xl:w-8 bg-zinc-600"
+                  : "w-3 3xl:w-4 bg-zinc-300"
                 return <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
                   disabled={index === currentIndex}
-                  className={`h-4 rounded-full ${style}`}
+                  className={`h-3 3xl:h-4 rounded-full ${style}`}
                 />
               })
             }
           </div>
         </div>
-        <button onClick={nextSlide} className="text-zinc-600 text-3xl">
+        <button onClick={nextSlide} className="text-zinc-600">
           <RightArrow size={36}/>
         </button>
       </div>

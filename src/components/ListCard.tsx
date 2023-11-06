@@ -11,7 +11,7 @@ export interface ListCardProperties {
 const ListCard = ({title, children}: ListCardProperties) => {
   return (
     <Card>
-      <p className="text-center text-4xl">
+      <p className="text-center text-3xl 3xl:text-4xl">
         {title}
       </p>
       <div>

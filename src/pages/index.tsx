@@ -34,13 +34,13 @@ const ProcessTile = ({image, imageOrientation, title, text, subtext}: ProcessTil
       image={image}
       imageOrientation={imageOrientation}
     >
-        <p className="text-xl text-gray-400">
+        <p className="text-lg 3xl:text-xl text-gray-400">
           {title}
         </p>
-        <p className="text-2xl">
+        <p className="text-xl 3xl:text-2xl">
           {text}
         </p>
-        <p className="text-lg text-gray-400">
+        <p className="test-base 3xl:text-lg text-gray-400">
           {subtext}
         </p>
     </ListCard.Item>
@@ -65,11 +65,11 @@ const ExpertiseTile = ({title, iconType: Icon, iconOrientation, children}: Exper
             </div>
           : ""
       }
-      <div className="flex flex-col flex-1 text-center gap-4">
-        <div className="text-lg text-zinc-500">
+      <div className="flex flex-col flex-1 text-center gap-3 3xl:gap-4">
+        <div className="text-base 3xl:text-lg text-zinc-500">
           {title}
         </div>
-        <div className="text-xl">
+        <div className="text-lg 3xl:text-xl">
           {children}
         </div>
       </div>
@@ -91,25 +91,25 @@ const IndexPage: React.FC<PageProps> = () => {
       image: <StaticImage src="../images/hero.jpeg" alt="" layout="constrained"/>,
       content: 
         <div className="h-full flex flex-col">
-          <p className="m-auto mt-48 text-white text-center text-6xl uppercase font-extrabold leading-relaxed">
+          <p className="m-auto mt-32 3xl:mt-48 text-white text-center text-5xl 3xl:text-6xl uppercase font-extrabold leading-relaxed">
             Building, and Rebuilding,
             <br/>
             Software Systems
           </p>
-          <div className="w-1/2 mx-auto mb-24 text-center">
+          <div className="mx-auto mb-8 3xl:mb-24 text-center">
             <Button label="Let's Chat"/>
           </div>
-        </div>,
+        </div>
     }}>
       <Section
         title="Side Trailing"
         description="The Side Trails Software Development process."
       >
-        <p className="text-xl">
+        <p className="text-lg 3xl:text-xl">
           A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
           In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
         </p>
-        <p className="text-xl">
+        <p className="text-lg 3xl:text-xl">
           Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
         </p>
         <ListCard title="Process">
@@ -205,7 +205,9 @@ const IndexPage: React.FC<PageProps> = () => {
             </select>
             <textarea placeholder="What's your project about?" rows={10} className="p-2 rounded-md flex-1 col-span-2"/>
           </form>
-          <Button label="Submit"/>
+          <div className="text-center">
+            <Button label="Submit"/>
+          </div>
         </div>
       </Section>
     </Layout>

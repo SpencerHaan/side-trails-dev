@@ -10,7 +10,7 @@ export interface NavigatorProperties {
 export function Navigator({className, overlay = false}: NavigatorProperties) {
   return (
     <nav className={`${className}`}>
-      <ul className="flex flex-row gap-10 items-center text-2xl">
+      <ul className="flex flex-row gap-10 items-center text-xl 3xl:text-2xl">
         <li className="flex-1">
           <Link to="/">
             {

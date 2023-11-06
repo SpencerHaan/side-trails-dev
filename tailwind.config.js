@@ -8,6 +8,9 @@ module.exports = {
     extend: {
       colors: {
         "lion": '#9F8E6F',
+      },
+      screens: {
+        '3xl': '2080px',
       }
     },
     fontFamily: {

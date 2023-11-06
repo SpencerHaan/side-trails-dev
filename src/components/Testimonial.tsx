@@ -26,11 +26,11 @@ const Testimonial = ({image, contact, company, children}: TestimonialProperties)
             <RightQuote size={80}/>
           </div>
         </div>
-        <div className="col-start-1 col-end-1 row-start-1 row-end-1 text-center text-xl">
+        <div className="col-start-1 col-end-1 row-start-1 row-end-1 text-center text-lg 3xl:text-xl">
           {children}
         </div>
       </p>
-      <p className="italic text-center text-lg text-gray-400">
+      <p className="italic text-center text-base 3xl:text-lg text-gray-400">
         {contact} {company ? `- ${company} ` : ""}
       </p>
     </div>
