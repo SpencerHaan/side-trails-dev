@@ -192,18 +192,28 @@ const IndexPage: React.FC<PageProps> = () => {
         description="Need help with a project? Send me some details."
         className="bg-gray-200"
       >
-        <div>
+        <div className="space-y-4">
           <form className="grid grid-cols-2 gap-4">
-            <input type="text" placeholder="Name" name="contactName" className="p-2 rounded-md flex-1"/>
-            <input type="text" placeholder="Company" name="contactCompany" className="p-2 rounded-md flex-1"/>
-            <input type="text" placeholder="Email" name="contactEmail" className="p-2 rounded-md flex-1"/>
-            <select className="p-2 rounded-md flex-1 bg-white text-gray-400">
-              <option disabled selected hidden>Budget</option>
-              <option>$25,000-$50,000</option>
-              <option>$50,000-$100,000</option>
-              <option>$100,000+</option>
-            </select>
-            <textarea placeholder="What's your project about?" rows={10} className="p-2 rounded-md flex-1 col-span-2"/>
+            <div>
+              <input type="text" placeholder="Name" name="contactName" className="w-full p-2 rounded-md"/>
+            </div>
+            <div>
+              <input type="text" placeholder="Company" name="contactCompany" className="w-full p-2 rounded-md"/>
+            </div>
+            <div>
+              <input type="text" placeholder="Email" name="contactEmail" className="w-full p-2 rounded-md"/>
+            </div>
+            <div>
+              <select className="w-full p-2 rounded-md bg-white text-gray-400">
+                <option disabled selected hidden>Budget</option>
+                <option>$25,000-$50,000</option>
+                <option>$50,000-$100,000</option>
+                <option>$100,000+</option>
+              </select>
+            </div>
+            <div className="flex-1 col-span-2">
+              <textarea placeholder="What's your project about?" rows={10} className="w-full p-2 rounded-md"/>
+            </div>
           </form>
           <div className="text-center">
             <Button label="Submit"/>
