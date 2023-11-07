@@ -1,5 +1,5 @@
 import * as React from "react"
-import { type HeadFC, type PageProps } from "gatsby"
+import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import Layout from "../components/Layout"
 import Section from "../components/Section"
@@ -19,6 +19,7 @@ import {
 import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
 import Button from "../components/Button"
+import MdxRenderer from "../components/MdxRenderer"
 
 interface ProcessTileProperties {
   image: React.ReactElement
@@ -86,6 +87,39 @@ const ExpertiseTile = ({title, iconType: Icon, iconOrientation, children}: Exper
 }
 
 const IndexPage: React.FC<PageProps> = () => {
+  // const [testimonials, setTestimonials] = React.useState([])
+  const data = useStaticQuery(graphql`
+  query MyQuery {
+    allFile(filter: {sourceInstanceName: {eq: "testimonials"}}, sort: {name: ASC}) {
+      nodes {
+        name
+        childMdx {
+          frontmatter {
+            id
+            company
+            contact
+          }
+          body
+        }
+      }
+    }
+  }
+  `)
+
+  const testimonials = data.allFile.nodes.map(({childMdx}: any) => {
+    return (
+      <Testimonial
+        key={childMdx.frontmatter.id}
+        image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
+        contact={childMdx.frontmatter.contact}
+        company={childMdx.frontmatter.company}
+      >
+        <MdxRenderer>
+          {childMdx.body}
+        </MdxRenderer>
+      </Testimonial>
+    )
+  })
   return (
     <Layout hero={{
       image: <StaticImage src="../images/hero.jpeg" alt="" layout="constrained"/>,
@@ -165,26 +199,23 @@ const IndexPage: React.FC<PageProps> = () => {
       <Section
         title="What Clients Think"
         description="And colleagues, too!"
-      >
+        >
         <Carousel>
-          <Carousel.Item>
-            <Testimonial
-              image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
-              contact="John Smith"
-              company="Company Inc."
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies.
-            </Testimonial>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Testimonial
-              image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed" className="m-auto rounded-xl"/>}
-              contact="Jane Doe"
-              company="Company Inc."
-            >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies.
-            </Testimonial>
-          </Carousel.Item>
+          {data.allFile.nodes.map(({childMdx}: any) => {
+            return (
+              <Carousel.Item key={childMdx.frontmatter.id}>
+                <Testimonial
+                image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
+                contact={childMdx.frontmatter.contact}
+                company={childMdx.frontmatter.company}
+                >
+                  <MdxRenderer>
+                    {childMdx.body}
+                  </MdxRenderer>
+                </Testimonial>
+              </Carousel.Item>
+            )
+          })}
         </Carousel>
       </Section>
       <Section

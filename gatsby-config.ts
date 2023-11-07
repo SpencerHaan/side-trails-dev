@@ -20,6 +20,14 @@ const config: GatsbyConfig = {
       },
       __key: "pages"
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "testimonials",
+        "path": "./content/testimonials"
+      },
+      __key: "testimonials"
+    },
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-sharp",
