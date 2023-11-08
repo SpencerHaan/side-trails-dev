@@ -31,7 +31,7 @@ const Testimonial = ({image, contact, role, company, children}: TestimonialPrope
           {children}
         </div>
       </div>
-      <div className="italic text-center text-base 3xl:text-lg text-gray-400">
+      <div className="italic text-center text-base 3xl:text-lg text-zinc-400">
         {contact}, {role} {company ? `- ${company} ` : ""}
       </div>
     </div>

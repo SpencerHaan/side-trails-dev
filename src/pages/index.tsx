@@ -35,13 +35,13 @@ const ProcessTile = ({image, imageOrientation, title, text, subtext}: ProcessTil
       image={image}
       imageOrientation={imageOrientation}
     >
-        <p className="text-lg 3xl:text-xl text-gray-400">
+        <p className="text-lg 3xl:text-xl text-zinc-400">
           {title}
         </p>
         <p className="text-xl 3xl:text-2xl">
           {text}
         </p>
-        <p className="test-base 3xl:text-lg text-gray-400">
+        <p className="test-base 3xl:text-lg text-zinc-400">
           {subtext}
         </p>
     </ListCard.Item>
@@ -160,7 +160,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <Section
         title="Expertise" 
         subtitle="Some of the things I can do."
-        className="bg-gray-200"
+        className="bg-zinc-200"
       >
         <div className="grid grid-cols-2 gap-x-6 gap-y-8">
           <ExpertiseTile title="System Anaylsis" iconType={AnalysisIcon} iconOrientation={HorizontalOrientation.Left}>
@@ -209,7 +209,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <Section
         title="Let's Chat"
         subtitle="Need help with a project? Send me some details."
-        className="bg-gray-200"
+        className="bg-zinc-200"
       >
         <div className="space-y-4">
           <form className="grid grid-cols-2 gap-4">
@@ -223,7 +223,7 @@ const IndexPage: React.FC<PageProps> = () => {
               <input type="text" placeholder="Email" name="contactEmail" className="w-full p-2 rounded-md"/>
             </div>
             <div>
-              <select className="w-full h-full p-2 rounded-md bg-white text-gray-400">
+              <select className="w-full h-full p-2 rounded-md bg-white text-zinc-400">
                 <option disabled selected hidden>Budget</option>
                 <option>$25,000-$50,000</option>
                 <option>$50,000-$100,000</option>

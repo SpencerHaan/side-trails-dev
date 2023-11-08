@@ -9,7 +9,7 @@ export interface SectionProperties {
 
 const Section = ({title, subtitle, className, children}: SectionProperties) => {
   return (
-    <div className={"py-12 space-y-6 3xl:space-y-8 " + className}>
+    <div className={"py-12 space-y-6 " + className}>
       <p className="text-center text-4xl 3xl:text-5xl">
         {title}
       </p>
