@@ -22,13 +22,13 @@ const ProjectCard = ({url, image, company, title, children}: ProjectCardProperti
             {image}
           </div>
           <div className="flex flex-col gap-1 justify-center">
-            <div className="text-sm text-zinc-400">
+            <div className="text-sm 3xl:text-base text-zinc-400">
               {company}
             </div>
-            <div>
+            <div className="text-base 3xl:text-lg">
               {title}
             </div>
-            <div>
+            <div className="text-base 3xl:text-lg">
               {children}
             </div>
           </div>

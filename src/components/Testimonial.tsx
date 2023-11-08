@@ -8,11 +8,12 @@ import {
 interface TestimonialProperties {
   image?: React.ReactElement<typeof StaticImage>
   contact: string
+  role: string
   company?: string
   children: React.ReactElement | string
 }
 
-const Testimonial = ({image, contact, company, children}: TestimonialProperties) => {
+const Testimonial = ({image, contact, role, company, children}: TestimonialProperties) => {
   return (
     <div className="p-4 space-y-4 w-full col-span-2">
       { image
@@ -31,7 +32,7 @@ const Testimonial = ({image, contact, company, children}: TestimonialProperties)
         </div>
       </div>
       <div className="italic text-center text-base 3xl:text-lg text-gray-400">
-        {contact} {company ? `- ${company} ` : ""}
+        {contact}, {role} {company ? `- ${company} ` : ""}
       </div>
     </div>
   )

@@ -67,7 +67,7 @@ const ExpertiseTile = ({title, iconType: Icon, iconOrientation, children}: Exper
           : ""
       }
       <div className="flex flex-col flex-1 text-center gap-3 3xl:gap-4">
-        <div className="text-base 3xl:text-lg text-zinc-500">
+        <div className="text-lg 3xl:text-xl text-zinc-500">
           {title}
         </div>
         <div className="text-lg 3xl:text-xl">
@@ -98,6 +98,7 @@ const IndexPage: React.FC<PageProps> = () => {
             id
             company
             contact
+            role
           }
           body
         }
@@ -106,20 +107,6 @@ const IndexPage: React.FC<PageProps> = () => {
   }
   `)
 
-  const testimonials = data.allFile.nodes.map(({childMdx}: any) => {
-    return (
-      <Testimonial
-        key={childMdx.frontmatter.id}
-        image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
-        contact={childMdx.frontmatter.contact}
-        company={childMdx.frontmatter.company}
-      >
-        <MdxRenderer>
-          {childMdx.body}
-        </MdxRenderer>
-      </Testimonial>
-    )
-  })
   return (
     <Layout hero={{
       image: <StaticImage src="../images/hero.jpeg" alt="" layout="constrained"/>,
@@ -137,7 +124,7 @@ const IndexPage: React.FC<PageProps> = () => {
     }}>
       <Section
         title="Side Trailing"
-        description="The Side Trails Software Development process."
+        subtitle="The Side Trails Software Development process."
       >
         <p className="text-lg 3xl:text-xl">
           A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
@@ -172,7 +159,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </Section>
       <Section
         title="Expertise" 
-        description="Some of the things I can do."
+        subtitle="Some of the things I can do."
         className="bg-gray-200"
       >
         <div className="grid grid-cols-2 gap-x-6 gap-y-8">
@@ -198,7 +185,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </Section>
       <Section
         title="What Clients Think"
-        description="And colleagues, too!"
+        subtitle="And colleagues, too!"
         >
         <Carousel>
           {data.allFile.nodes.map(({childMdx}: any) => {
@@ -207,6 +194,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <Testimonial
                 image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
                 contact={childMdx.frontmatter.contact}
+                role={childMdx.frontmatter.role}
                 company={childMdx.frontmatter.company}
                 >
                   <MdxRenderer>
@@ -220,7 +208,7 @@ const IndexPage: React.FC<PageProps> = () => {
       </Section>
       <Section
         title="Let's Chat"
-        description="Need help with a project? Send me some details."
+        subtitle="Need help with a project? Send me some details."
         className="bg-gray-200"
       >
         <div className="space-y-4">
