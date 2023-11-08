@@ -20,6 +20,7 @@ import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
 import Button from "../components/Button"
 import MdxRenderer from "../components/MdxRenderer"
+import Icon from "../components/Icon"
 
 interface ProcessTileProperties {
   image: React.ReactElement
@@ -55,15 +56,11 @@ interface ExpertiseProperties {
   children: string
 }
 
-const ExpertiseTile = ({title, iconType: Icon, iconOrientation, children}: ExpertiseProperties) => {
+const ExpertiseTile = ({title, iconType, iconOrientation, children}: ExpertiseProperties) => {
   return (
     <div className="flex flex-row gap-6">
       { iconOrientation === HorizontalOrientation.Left
-          ? <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <Icon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
+          ? <div className="m-auto"><Icon type={iconType} /></div>
           : ""
       }
       <div className="flex flex-col flex-1 text-center gap-3 3xl:gap-4">
@@ -75,11 +72,7 @@ const ExpertiseTile = ({title, iconType: Icon, iconOrientation, children}: Exper
         </div>
       </div>
       { iconOrientation === HorizontalOrientation.Right
-          ? <div className="my-auto">
-              <div className="p-6 bg-zinc-300 rounded-full drop-shadow border border-zinc-400">
-                <Icon size={32} className="text-zinc-500"/>
-              </div>
-            </div>
+          ? <div className="m-auto"><Icon type={iconType} /></div>
           : ""
       }
     </div>
