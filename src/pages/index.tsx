@@ -223,7 +223,7 @@ const IndexPage: React.FC<PageProps> = () => {
               <input type="text" placeholder="Email" name="contactEmail" className="w-full p-2 rounded-md"/>
             </div>
             <div>
-              <select className="w-full p-2 rounded-md bg-white text-gray-400">
+              <select className="w-full h-full p-2 rounded-md bg-white text-gray-400">
                 <option disabled selected hidden>Budget</option>
                 <option>$25,000-$50,000</option>
                 <option>$50,000-$100,000</option>
