@@ -1,15 +1,14 @@
 import * as React from 'react'
 
-export interface SectionProperties {
+interface ItemProperties {
   title: string
   subtitle?: string
-  className?: string
-  children: React.ReactElement | React.ReactElement[]
+  children?: React.ReactElement | React.ReactElement[]
 }
 
-const Section = ({title, subtitle, className, children}: SectionProperties) => {
+const Item = ({title, subtitle, children}: ItemProperties) => {
   return (
-    <div className={"py-12 space-y-6 " + className}>
+    <>
       <p className="text-center text-4xl 3xl:text-5xl">
         {title}
       </p>
@@ -20,8 +19,42 @@ const Section = ({title, subtitle, className, children}: SectionProperties) => {
         }
         {children}
       </div>
+    </>
+  )
+}
+
+interface ListProperties {
+  children?: React.ReactElement<typeof Item> | React.ReactElement<typeof Item>[]
+}
+
+const List = ({children}: ListProperties) => {
+  return (
+    <div>
+      {Array.isArray(children)
+        ? children.map((child, i) => <div className={`py-12 space-y-6 ${i % 2 === 0 ? "bg-white" : "bg-zinc-200"}`}>{child}</div>)
+        : <div className="py-12 space-y-6 bg-white">{children}</div>
+      }
     </div>
   )
 }
+
+interface SectionProperties {
+  title: string
+  subtitle?: string
+  children?: React.ReactElement | React.ReactElement[]
+}
+
+const Section = ({title, subtitle, children}: SectionProperties) => {
+  return (
+    <List>
+      <Item title={title} subtitle={subtitle}>
+        {children}
+      </Item>        
+    </List>
+  )
+}
+
+Section.Item = Item
+Section.List = List
 
 export default Section

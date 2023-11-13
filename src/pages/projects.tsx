@@ -41,9 +41,7 @@ const ProjectCard = ({url, image, company, title, children}: ProjectCardProperti
 const ProjectsPage: React.FC<PageProps> = () => {
   return (
     <Layout>
-      <Section
-        title="Projects"
-      >
+      <Section title="Projects">
         <div className="flex flex-col gap-4">
           <ProjectCard
             url="/project"
