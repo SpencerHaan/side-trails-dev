@@ -1,6 +1,6 @@
 import * as React from "react"
 import { evaluateSync } from "@mdx-js/mdx"
-import { MDXProps } from "mdx/types"
+import { MDXProps, MDXComponents } from "mdx/types"
 import * as runtime from "react/jsx-runtime"
 
 interface FragmentProperties extends MDXProps {
@@ -16,10 +16,11 @@ const Fragment = ({children}: FragmentProperties) => {
 }
 
 interface MDXRendererProperties {
+  components?: MDXComponents
   children?: string
 }
 
-const MDXRenderer = ({children}: MDXRendererProperties) => {
+const MDXRenderer = ({children, components}: MDXRendererProperties) => {
   if (!children) {
     return
   }
@@ -30,7 +31,7 @@ const MDXRenderer = ({children}: MDXRendererProperties) => {
   const Content = exports.default
   return(
     <>
-      <Content/>
+      <Content components={components}/>
     </>
   )
 }
