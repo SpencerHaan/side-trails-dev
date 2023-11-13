@@ -15,11 +15,11 @@ const Fragment = ({children}: FragmentProperties) => {
   )
 }
 
-interface MdxRendererProperties {
+interface MDXRendererProperties {
   children?: string
 }
 
-const MdxRenderer = ({children}: MdxRendererProperties) => {
+const MDXRenderer = ({children}: MDXRendererProperties) => {
   if (!children) {
     return
   }
@@ -35,4 +35,4 @@ const MdxRenderer = ({children}: MdxRendererProperties) => {
   )
 }
 
-export default MdxRenderer
+export default MDXRenderer

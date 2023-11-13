@@ -19,7 +19,7 @@ import {
 import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
 import Button from "../components/Button"
-import MdxRenderer from "../components/MdxRenderer"
+import MDXRenderer from "../components/MDXRenderer"
 import Icon from "../components/Icon"
 
 interface ProcessTileProperties {
@@ -190,9 +190,9 @@ const IndexPage: React.FC<PageProps> = () => {
                 role={childMdx.frontmatter.role}
                 company={childMdx.frontmatter.company}
                 >
-                  <MdxRenderer>
+                  <MDXRenderer>
                     {childMdx.body}
-                  </MdxRenderer>
+                  </MDXRenderer>
                 </Testimonial>
               </Carousel.Item>
             )
