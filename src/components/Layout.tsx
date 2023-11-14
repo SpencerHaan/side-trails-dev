@@ -64,17 +64,17 @@ const Layout = ({hero, children}: LayoutProperties) => {
         }
         {children}
       </main>
-      <footer className="p-4 grid grid-cols-3 bg-zinc-800 text-white">
-        <div>
+      <footer className="flex flex-row items-center p-4 bg-zinc-800 text-white">
+        <div className="hidden md:block">
           <a href="https://github.com/SpencerHaan/side-trails-dev">
             <SourceIcon size={24}/>
           </a>
         </div>
-        <div className="text-center text-sm italic">
+        <div className="flex-1 text-center text-xs md:text-sm italic">
           &copy; 2023 Side Trails Software Development, Spencer Haan. All rights reserved.
         </div>
-        <div className="ml-auto">
-          <ul className="flex gap-x-3">
+        <div className="hidden md:block">
+          <ul className="flex flex-row gap-3">
             <li>
               <Link to="https://www.linkedin.com/in/spencerhaan/">
                 <LinkedInIcon size={24}/>
