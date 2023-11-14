@@ -101,20 +101,21 @@ const IndexPage: React.FC<PageProps> = () => {
   `)
 
   return (
-    <Layout hero={{
-      image: <StaticImage src="../images/hero.jpeg" alt="" layout="constrained"/>,
-      content: 
-        <div className="h-full flex flex-col">
-          <p className="m-auto mt-32 3xl:mt-48 text-white text-center text-5xl 3xl:text-6xl uppercase font-extrabold leading-relaxed">
-            Building, and Rebuilding,
-            <br/>
-            Software Systems
-          </p>
-          <div className="mx-auto mb-8 3xl:mb-24 text-center">
-            <Button label="Let's Chat"/>
-          </div>
-        </div>
-    }}>
+    // <Layout hero={{
+    //   image: <StaticImage src="../images/hero.jpeg" alt="" layout="constrained"/>,
+    //   content: 
+    //     <div className="h-full flex flex-col">
+    //       <p className="m-auto mt-32 3xl:mt-48 text-white text-center text-5xl 3xl:text-6xl uppercase font-extrabold leading-relaxed">
+    //         Building, and Rebuilding,
+    //         <br/>
+    //         Software Systems
+    //       </p>
+    //       <div className="mx-auto mb-8 3xl:mb-24 text-center">
+    //         <Button label="Let's Chat"/>
+    //       </div>
+    //     </div>
+    // }}>
+    <Layout>
       <Section.List>
         <Section.Item
           title="Side Trailing"
