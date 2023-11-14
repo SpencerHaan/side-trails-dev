@@ -20,10 +20,13 @@ export function Navigator({className, overlay = false}: NavigatorProperties) {
             }
           </Link>
         </li>
-        <li className="w-24 hover:font-bold text-center">
+        <li className="hover:font-bold text-center">
           <Link to="/projects">Projects</Link>
         </li>
-        <li className="w-24 hover:font-bold text-center">
+        <li className="hover:font-bold text-center">
+          <Link to="/philosophy">Philosophy</Link>
+        </li>
+        <li className="hover:font-bold text-center">
           <Link to="/about">About</Link>
         </li>
       </ul>
