@@ -9,12 +9,12 @@ interface ItemProperties {
 const Item = ({title, subtitle, children}: ItemProperties) => {
   return (
     <>
-      <p className="text-center text-4xl 3xl:text-5xl">
+      <div className="text-center text-2xl md:text-4xl 3xl:text-5xl">
         {title}
-      </p>
-      <div className="w-3/5 3xl:w-1/2 m-auto space-y-8">
+      </div>
+      <div className="m-3 md:m-auto md:w-3/5 3xl:w-1/2 space-y-3 md:space-y-8">
         { subtitle
-          ? <p className="pb-2 3xl:pb-4 text-base 3xl:text-lg text-center text-zinc-400">{subtitle}</p>
+          ? <div className="pb-2 3xl:pb-4 text-xs md:text-base 3xl:text-lg text-center text-zinc-400">{subtitle}</div>
           : ""
         }
         {children}
@@ -31,8 +31,8 @@ const List = ({children}: ListProperties) => {
   return (
     <div>
       {Array.isArray(children)
-        ? children.map((child, i) => <div className={`py-12 space-y-6 ${i % 2 === 0 ? "bg-white" : "bg-zinc-200"}`}>{child}</div>)
-        : <div className="py-12 space-y-6 bg-white">{children}</div>
+        ? children.map((child, i) => <div className={`py-8 space-y-3 md:space-y-6 ${i % 2 === 0 ? "bg-white" : "bg-zinc-200"}`}>{child}</div>)
+        : <div className="py-12 space-y-3 md:space-y-6 bg-white">{children}</div>
       }
     </div>
   )
