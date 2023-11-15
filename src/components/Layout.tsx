@@ -46,7 +46,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
           transition ease-in-out duration-200
         `}
       >
-        <Navigator overlay={overlayNavigator} className="w-3/5 3xl:w-1/2 mx-auto py-5 text-xl"/>
+        <Navigator overlay={overlayNavigator}/>
       </header>
       <main className="flex flex-col flex-1">
         {hero

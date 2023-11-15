@@ -79,8 +79,8 @@ const MobileNavigator = () => {
 
 const DesktopNavigator = ({className, overlay = false}: NavigatorProperties) => {
   return (
-    <nav className={`${className}`}>
-      <ul className="flex flex-row gap-10 items-center text-xl 3xl:text-2xl">
+    <nav className="sm:w-5/6 md:w-5/6 lg:w-3/4 2xl:w-3/5 3xl:w-1/2 mx-auto py-5">
+      <ul className="flex flex-row gap-10 items-center text-lg lg:text-xl 3xl:text-2xl">
         <li className="flex-1">
           <Link to="/">
             {
