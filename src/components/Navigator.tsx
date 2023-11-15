@@ -57,17 +57,17 @@ const MobileNavigator = () => {
             <Link onClick={menuItemHandler} to="/about">About</Link>
           </li>
           <li>
-            <Link to="https://www.linkedin.com/in/spencerhaan/">
+            <Link to="https://www.linkedin.com/in/spencerhaan/" target="_blank">
               <LinkedInIcon size={24}/>
             </Link>
           </li>
           <li>
-            <Link to="https://github.com/SpencerHaan">
+            <Link to="https://github.com/SpencerHaan" target="_blank">
               <GithubIcon size={24}/>
             </Link>
           </li>
           <li>
-            <Link to="https://github.com/SpencerHaan/side-trails-dev">
+            <Link to="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
               <SourceIcon size={24}/>
             </Link>
           </li>

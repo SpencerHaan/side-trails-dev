@@ -66,9 +66,9 @@ const Layout = ({hero, children}: LayoutProperties) => {
       </main>
       <footer className="flex flex-row items-center p-4 bg-zinc-800 text-white">
         <div className="hidden md:block">
-          <a href="https://github.com/SpencerHaan/side-trails-dev">
+          <Link to="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
             <SourceIcon size={24}/>
-          </a>
+          </Link>
         </div>
         <div className="flex-1 text-center text-xs md:text-sm italic">
           &copy; 2023 Side Trails Software Development, Spencer Haan. All rights reserved.
@@ -76,12 +76,12 @@ const Layout = ({hero, children}: LayoutProperties) => {
         <div className="hidden md:block">
           <ul className="flex flex-row gap-3">
             <li>
-              <Link to="https://www.linkedin.com/in/spencerhaan/">
+              <Link to="https://www.linkedin.com/in/spencerhaan/" target="_blank">
                 <LinkedInIcon size={24}/>
               </Link>
             </li>
             <li>
-              <Link to="https://github.com/SpencerHaan">
+              <Link to="https://github.com/SpencerHaan" target="_blank">
                 <GithubIcon size={24}/>
               </Link>
             </li>
