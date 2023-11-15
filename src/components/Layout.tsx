@@ -60,7 +60,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
                 </div>
               </div>
             </div>
-          : ""
+          : null
         }
         {children}
       </main>
