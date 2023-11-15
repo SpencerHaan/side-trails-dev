@@ -34,11 +34,11 @@ const Item = ({image, imageOrientation, children}: ItemProperties) => {
           ? <div className="flex justify-center max-w-[256px]">{image}</div>
           : ""
       }
-      <div className="flex flex-col flex-1 justify-center gap-4">
+      <div className="flex flex-col flex-1 justify-center gap-4 min-w-[256px]">
         {children}
       </div>
       { imageOrientation === HorizontalOrientation.Right
-          ? <div className="flex justify-center max-w-fit">{image}</div>
+          ? <div className="flex justify-center max-w-[256px]">{image}</div>
           : ""
       }
     </div>
