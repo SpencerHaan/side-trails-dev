@@ -96,9 +96,9 @@ const DesktopNavigator = ({className, overlay = false}: NavigatorProperties) => 
         <li className="hover:font-bold text-center">
           <Link to="/philosophy">Philosophy</Link>
         </li>
-        <li className="hover:font-bold text-center">
+        {/* <li className="hover:font-bold text-center">
           <Link to="/about">About</Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   )
