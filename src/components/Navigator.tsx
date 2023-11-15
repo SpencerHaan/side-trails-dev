@@ -35,10 +35,10 @@ const MobileNavigator = () => {
   return (
     <nav className={`${expanded ? "fixed top-0 w-full min-h-screen overflow-hidden" : ""} bg-white`}>
       <div className="grid">
-        <div className="flex items-center justify-center col-start-1 col-end-1 row-start-1 row-end-1">
+        <div className="flex items-center justify-center p-2 col-start-1 col-end-1 row-start-1 row-end-1">
           <StaticImage src="../images/logo.png" alt="" height={32} layout="fixed" placeholder="none"/>
         </div>
-        <div onClick={menuClickHandler} className="p-2 col-start-1 col-end-1 row-start-1 row-end-1 cursor-pointer">
+        <div onClick={menuClickHandler} className="absolute flex flex-col justify-center h-full p-2 col-start-1 col-end-1 row-start-1 row-end-1 cursor-pointer">
           <MenuIcon size={28}/>
         </div>
       </div>
