@@ -215,13 +215,13 @@ const IndexPage: React.FC<PageProps> = () => {
           <div className="space-y-8">
             <form className="flex flex-wrap -m-2 text-sm">
               <div className="w-full md:max-w-[50%] p-2">
-                <input type="text" placeholder="Name" name="contactName" className="w-full p-2 rounded-md"/>
+                <input type="text" placeholder="Name" name="contactName" className="w-full h-10 p-2 rounded-md"/>
               </div>
               <div className="w-full md:max-w-[50%] p-2">
-                <input type="text" placeholder="Company" name="contactCompany" className="w-full p-2 rounded-md"/>
+                <input type="text" placeholder="Company" name="contactCompany" className="w-full h-10 p-2 rounded-md"/>
               </div>
               <div className="w-full md:max-w-[50%] p-2">
-                <input type="text" placeholder="Email" name="contactEmail" className="w-full p-2 rounded-md"/>
+                <input type="text" placeholder="Email" name="contactEmail" className="w-full h-10 p-2 rounded-md"/>
               </div>
               <div className="w-full md:max-w-[50%] p-2">
                 <select className="w-full h-10 p-2 rounded-md bg-white text-zinc-400">
