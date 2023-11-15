@@ -33,7 +33,7 @@ const MobileNavigator = () => {
     setExpanded(false)
   }
   return (
-    <nav className={`${expanded ? "fixed top-0 w-full" : ""} bg-white`}>
+    <nav className={`${expanded ? "fixed top-0 w-full min-h-screen overflow-hidden" : ""} bg-white`}>
       <div className="grid">
         <div className="flex items-center justify-center col-start-1 col-end-1 row-start-1 row-end-1">
           <StaticImage src="../images/logo.png" alt="" height={32} layout="fixed" placeholder="none"/>
@@ -42,7 +42,7 @@ const MobileNavigator = () => {
           <MenuIcon size={28}/>
         </div>
       </div>
-      <div hidden={!expanded} className="min-h-screen overflow-hidden bg-white p-4">
+      <div hidden={!expanded} className="overflow-hidden bg-white p-4">
         <ul className="flex flex-col gap-2 text-xl">
           <li className="hover:font-bold">
             <Link onClick={menuItemHandler} to="/">Home</Link>
