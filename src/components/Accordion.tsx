@@ -69,12 +69,12 @@ const Accordion = ({summary, children}: AccordionProperties) => {
   }
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3 md:gap-4">
       <div className="flex flex-row gap-2" onClick={clickHandler}>
-        <div className="flex-1 text-xl">
+        <div className="flex-1 md:text-xl">
           {summary}
         </div>
-        <div className="m-auto text-3xl cursor-pointer transition-transform duration-200">
+        <div className="m-auto text-2xl md:text-3xl cursor-pointer transition-transform duration-200">
           {phase === Phase.Expanding || phase === Phase.Expanded
             ? <UpArrow/>
             : <DownArrow/>
@@ -88,7 +88,7 @@ const Accordion = ({summary, children}: AccordionProperties) => {
         style={{maxHeight: `${contentHeight}px`}}
         hidden
       >
-        <div className="p-2 text-justify text-base bg-zinc-200 rounded-b-xl shadow-inner">
+        <div className="p-2 text-justify text-sm md:text-base bg-zinc-200 rounded-b-lg md:rounded-b-xl shadow-inner">
           {children}
         </div>
       </div>

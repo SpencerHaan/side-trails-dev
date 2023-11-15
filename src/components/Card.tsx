@@ -6,7 +6,7 @@ interface CardProperties {
 
 const Card = ({children}: CardProperties) => {
   return (
-    <div className="p-4 space-y-4 rounded-xl drop-shadow-lg bg-zinc-100">
+    <div className="py-4 md:p-4 md:space-y-4 rounded-lg md:rounded-xl drop-shadow-lg bg-zinc-100">
       {children}
     </div>
   )
