@@ -70,8 +70,13 @@ const Layout = ({hero, children}: LayoutProperties) => {
             <SourceIcon size={24}/>
           </Link>
         </div>
-        <div className="flex-1 text-center text-xs md:text-sm italic">
-          &copy; 2023 Side Trails Software Development, Spencer Haan. All rights reserved.
+        <div className="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm italic">
+          <p>
+            &copy; 2023 Side Trails Software Development, Spencer Haan.
+          </p>
+          <p>
+            All rights reserved.
+          </p>
         </div>
         <div className="hidden md:block">
           <ul className="flex flex-row gap-3">
