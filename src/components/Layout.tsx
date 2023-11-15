@@ -38,7 +38,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
   }, [overlayNavigator, setOverlayNavigator, heroReference])
 
   return (
-    <div className="min-h-screen font-base flex flex-col">
+    <div className="flex flex-col min-h-screen overflow-x-hidden font-base">
       <header
         className={`w-full z-50 shadow-xl
           ${hero ? "fixed" : "sticky"} top-0
