@@ -12,7 +12,7 @@ const Item = ({title, subtitle, children}: ItemProperties) => {
       <div className="text-center text-2xl md:text-4xl 3xl:text-5xl">
         {title}
       </div>
-      <div className="m-3 md:m-auto md:w-3/5 3xl:w-1/2 space-y-3 md:space-y-8">
+      <div className="m-3 sm:m-auto sm:w-5/6 md:w-3/4 2xl:w-3/5 3xl:w-1/2 space-y-3 md:space-y-8">
         { subtitle
           ? <div className="pb-2 3xl:pb-4 text-xs md:text-base 3xl:text-lg text-center text-zinc-400">{subtitle}</div>
           : ""

@@ -36,15 +36,15 @@ const ProcessTile = ({image, imageOrientation, title, text, subtext}: ProcessTil
       image={image}
       imageOrientation={imageOrientation}
     >
-        <p className="text-lg 3xl:text-xl text-zinc-400">
+        <div className="text-sm md:text-lg 3xl:text-xl text-center md:text-left text-zinc-400">
           {title}
-        </p>
-        <p className="text-xl 3xl:text-2xl">
+        </div>
+        <div className="text-base md:text-xl 3xl:text-2xl text-center md:text-left">
           {text}
-        </p>
-        <p className="test-base 3xl:text-lg text-zinc-400">
+        </div>
+        <div className="text-xs md:text-base 3xl:text-lg text-zinc-400">
           {subtext}
-        </p>
+        </div>
     </ListCard.Item>
   )
 }
@@ -121,13 +121,15 @@ const IndexPage: React.FC<PageProps> = () => {
           title="Side Trailing"
           subtitle="The Side Trails Software Development process."
         >
-          <p className="text-lg 3xl:text-xl">
-            A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
-            In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
-          </p>
-          <p className="text-lg 3xl:text-xl">
-            Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
-          </p>
+          <div className="flex flex-col text-sm md:text-lg 3xl:text-xl gap-4">
+            <p>
+              A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
+              In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
+            </p>
+            <p>
+              Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
+            </p>
+          </div>
           <ListCard title="Process">
             <ProcessTile
               image={<StaticImage src="../images/discover.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
