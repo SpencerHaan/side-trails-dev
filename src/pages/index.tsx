@@ -58,7 +58,6 @@ interface ExpertiseProperties {
 
 const ExpertiseTile = ({title, iconType, iconOrientation, children}: ExpertiseProperties) => {
   return (
-    // <div className={`flex flex-wrap-reverse ${iconOrientation === HorizontalOrientation.Right ? "md:flex-wrap-reverse" : ""} gap-4`}>
     <div
       className={
         `flex ${iconOrientation === HorizontalOrientation.Left ? "flex-wrap" : "flex-wrap-reverse"} justify-center
@@ -81,17 +80,6 @@ const ExpertiseTile = ({title, iconType, iconOrientation, children}: ExpertisePr
         ? <div className="flex flex-col justify-center"><Icon type={iconType}/></div>
         : null
       }
-      {/* <div className="flex justify-center">
-        <Icon type={iconType}/>
-      </div>
-      <div className="flex flex-col justify-center gap-4 max-w-sm text-center">
-        <div className="text-zinc-500">
-          {title}
-        </div>
-        <div>
-          {children}
-        </div>
-      </div> */}
     </div>
   )
 }
