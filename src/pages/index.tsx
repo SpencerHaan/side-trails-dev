@@ -58,23 +58,40 @@ interface ExpertiseProperties {
 
 const ExpertiseTile = ({title, iconType, iconOrientation, children}: ExpertiseProperties) => {
   return (
-    <div className="flex flex-row gap-6">
-      { iconOrientation === HorizontalOrientation.Left
-          ? <div className="m-auto"><Icon type={iconType} /></div>
-          : ""
+    // <div className={`flex flex-wrap-reverse ${iconOrientation === HorizontalOrientation.Right ? "md:flex-wrap-reverse" : ""} gap-4`}>
+    <div
+      className={
+        `flex ${iconOrientation === HorizontalOrientation.Left ? "flex-wrap" : "flex-wrap-reverse"} justify-center
+        min-w-full md:min-w-[45%] gap-4 flex-1`
+    }
+    >
+      {iconOrientation === HorizontalOrientation.Left
+        ? <div className="flex flex-col justify-center"><Icon type={iconType}/></div>
+        : null
       }
-      <div className="flex flex-col flex-1 text-center gap-3 3xl:gap-4">
-        <div className="text-lg 3xl:text-xl text-zinc-500">
+      <div className="flex flex-col flex-1 min-w-full sm:min-w-[640px] md:min-w-[128px] md:min-h-[100px] text-center gap-2">
+        <div className="text-base xl:text-lg text-zinc-500">
           {title}
         </div>
-        <div className="text-lg 3xl:text-xl">
+        <div className="text-sm xl:text-base">
           {children}
         </div>
       </div>
-      { iconOrientation === HorizontalOrientation.Right
-          ? <div className="m-auto"><Icon type={iconType} /></div>
-          : ""
+      {iconOrientation === HorizontalOrientation.Right
+        ? <div className="flex flex-col justify-center"><Icon type={iconType}/></div>
+        : null
       }
+      {/* <div className="flex justify-center">
+        <Icon type={iconType}/>
+      </div>
+      <div className="flex flex-col justify-center gap-4 max-w-sm text-center">
+        <div className="text-zinc-500">
+          {title}
+        </div>
+        <div>
+          {children}
+        </div>
+      </div> */}
     </div>
   )
 }
@@ -158,7 +175,8 @@ const IndexPage: React.FC<PageProps> = () => {
           title="Expertise" 
           subtitle="Some of the things I can do."
         >
-          <div className="grid grid-cols-2 gap-x-6 gap-y-8">
+          {/* <div className="flex flex-wrap"> */}
+          <div className="flex flex-wrap justify-center gap-4">
             <ExpertiseTile title="System Anaylsis" iconType={AnalysisIcon} iconOrientation={HorizontalOrientation.Left}>
               Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts.
             </ExpertiseTile>
