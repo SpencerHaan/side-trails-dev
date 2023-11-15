@@ -74,7 +74,7 @@ const Accordion = ({summary, children}: AccordionProperties) => {
         <div className="flex-1 md:text-xl">
           {summary}
         </div>
-        <div className="m-auto text-2xl md:text-3xl cursor-pointer transition-transform duration-200">
+        <div className="m-auto text-2xl md:text-3xl text-zinc-600 cursor-pointer transition-transform duration-200">
           {phase === Phase.Expanding || phase === Phase.Expanded
             ? <UpArrow/>
             : <DownArrow/>
@@ -88,7 +88,7 @@ const Accordion = ({summary, children}: AccordionProperties) => {
         style={{maxHeight: `${contentHeight}px`}}
         hidden
       >
-        <div className="p-2 text-justify text-sm md:text-base bg-zinc-200 rounded-b-lg md:rounded-b-xl shadow-inner">
+        <div className="p-2 text-sm md:text-base">
           {children}
         </div>
       </div>

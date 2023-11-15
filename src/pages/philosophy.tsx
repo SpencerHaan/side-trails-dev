@@ -15,11 +15,11 @@ const PrincipleItem = ({ordinal, summary, children}: PrincipleItemProperties) =>
   return (
     <li>
       <Accordion summary={
-        <div className="flex flex-row gap-4 items-center">
-          <div className="flex flex-col text-center justify-center w-8 h-8 md:w-10 md:h-10 p-2 rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
+        <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
+          <div className="flex flex-col text-center justify-center w-8 h-8 md:w-10 md:h-10 p-2 rounded-xl md:rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
             {ordinal}
           </div>
-          <div className="flex flex-col flex-1">
+          <div className="flex flex-col flex-1 justify-center">
             {summary}
           </div>
         </div>
@@ -41,7 +41,7 @@ const Philosophy: React.FC<PageProps> = () => {
           <div className="text-center text-xl md:text-3xl 3xl:text-4xl">
             12 Principles
           </div>
-          <ol className="flex flex-col p-2 md:p-4 gap-4">
+          <ol className="flex flex-col p-2 md:p-4">
             <PrincipleItem ordinal={1} summary="Customer satisfaction through valuable software">
               Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
             </PrincipleItem>
