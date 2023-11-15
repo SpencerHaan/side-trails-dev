@@ -236,7 +236,7 @@ const IndexPage: React.FC<PageProps> = () => {
               </div>
             </form>
             <div className="text-center">
-              <Button label="Submit"/>
+              <Button disabled={true} label="Submit"/>
             </div>
           </div>
         </Section.Item>
