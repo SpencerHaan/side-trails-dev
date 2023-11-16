@@ -23,7 +23,6 @@ query MenuLinks {
 
 const MobileNavigator = () => {
   const {site: {siteMetadata: {menuLinks}}} = useStaticQuery(menuLinksQuery)
-  const {pathname} = useLocation()
   const [expanded, setExpanded] = React.useState(false)
 
   React.useEffect(() => {
@@ -32,12 +31,6 @@ const MobileNavigator = () => {
       ? html?.classList.add("overflow-hidden")
       : html?.classList.remove("overflow-hidden")
   }, [expanded])
-
-  const handlePageLink = (link: string) => {
-    if (pathname.endsWith(link)) {
-      setExpanded(false)
-    }
-  }
 
   return (
     <nav className={`flex flex-col sticky ${expanded ? "min-h-screen" : "shadow"} z-50 top-0 w-full bg-white`}>
@@ -51,33 +44,31 @@ const MobileNavigator = () => {
         >
           {expanded
             ? <CloseIcon size={32}/>
-            : <MenuIcon size={32}/>
+            : <MenuIcon size={32}/> 
           }
         </div>
       </div>
-      <div hidden={!expanded} className={`${expanded ? "flex flex-col justify-between" : null} flex-1 p-4`}>
-        <div className="flex flex-col gap-8">
-          <div className="flex flex-col text-2xl gap-4">
-            {menuLinks.map((item: { name: string, link: string }) =>
-              <div key={item.name}>
-                <Link to={item.link} onClick={() => handlePageLink(item.link)}>
-                  {item.name}
-                </Link>
-              </div>
-            )}
-          </div>
+      <div hidden={!expanded} className={`${expanded ? "flex flex-col justify-between" : null} flex-1 p-4 pt-8`}>
+        <div className="flex flex-col text-3xl gap-6">
+          {menuLinks.map((item: { name: string, link: string }) =>
+            <div key={item.name}>
+              <Link to={item.link} onClick={() => setExpanded(false)}>
+                {item.name}
+              </Link>
+            </div>
+          )}
         </div>
         <div className="flex flex-col gap-2">
-          <div className="text-xl text-zinc-400">
+          <div className="text-2xl text-zinc-400">
             Social Media
           </div>
           <hr/>
           <div className="flex justify-between">
             <div className="flex flex-row gap-4">
-              <div><MediaLinks.LinkedIn size={32}/></div>
-              <div><MediaLinks.GitHub size={32}/></div>
+              <div><MediaLinks.LinkedIn size={36}/></div>
+              <div><MediaLinks.GitHub size={36}/></div>
             </div>
-            <div><MediaLinks.Source size={32}/></div>
+            <div><MediaLinks.Source size={36}/></div>
           </div>
         </div>
       </div>

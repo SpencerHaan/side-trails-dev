@@ -1,6 +1,5 @@
 import * as React from "react"
 import { Link, type HeadFC, type PageProps } from "gatsby"
-import Layout from "../components/Layout"
 import Section from "../components/Section"
 import Card from "../components/Card"
 import { StaticImage } from "gatsby-plugin-image"
@@ -40,20 +39,18 @@ const ProjectCard = ({url, image, company, title, children}: ProjectCardProperti
 
 const ProjectsPage: React.FC<PageProps> = () => {
   return (
-    <Layout>
-      <Section title="Projects">
-        <div className="flex flex-col gap-4">
-          <ProjectCard
-            url="/project"
-            image={<StaticImage src="https://placehold.co/128/png" alt="" width={128} height={128} layout="fixed"/>}
-            company="Company Inc."
-            title="Project Title"
-          >
-            Accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit.
-          </ProjectCard>
-        </div>
-      </Section>
-    </Layout>
+    <Section title="Projects">
+      <div className="flex flex-col gap-4">
+        <ProjectCard
+          url="/project"
+          image={<StaticImage src="https://placehold.co/128/png" alt="" width={128} height={128} layout="fixed"/>}
+          company="Company Inc."
+          title="Project Title"
+        >
+          Accumsan lacus vel facilisis volutpat est velit egestas dui id ornare arcu odio ut sem nulla pharetra diam sit amet nisl suscipit adipiscing bibendum est ultricies integer quis auctor elit sed vulputate mi sit.
+        </ProjectCard>
+      </div>
+    </Section>
   )
 }
 
