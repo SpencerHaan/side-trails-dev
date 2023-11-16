@@ -7,6 +7,7 @@ import {
   FaLinkedin as LinkedInIcon,
   FaSquareGithub as GithubIcon,
 } from "react-icons/fa6"
+import MobileNavigator from './navigators/MobileNavigator'
 
 export interface LayoutProperties {
   hero?: HeroProperties
@@ -39,7 +40,8 @@ const Layout = ({hero, children}: LayoutProperties) => {
 
   return (
     <div className="flex flex-col min-h-screen font-base">
-      <header
+      <MobileNavigator/>
+      {/* <header
         className={`w-full z-50 shadow-xl
           ${hero ? "fixed" : "sticky"} top-0
           ${overlayNavigator ? "backdrop-blur-[1px] text-white" : "bg-white"}
@@ -47,7 +49,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
         `}
       >
         <Navigator overlay={overlayNavigator}/>
-      </header>
+      </header> */}
       <main className="flex flex-col flex-1">
         {hero
           ?  <div ref={heroReference} className="grid shadow-xl">
@@ -64,7 +66,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
         }
         {children}
       </main>
-      <footer className="flex flex-row items-center py-4 px-8 bg-zinc-800 text-white">
+      <footer className="flex flex-row items-center py-2 md:py-4 md:px-8 bg-zinc-800 text-white">
         <div className="hidden md:block">
           <Link to="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
             <SourceIcon size={24}/>

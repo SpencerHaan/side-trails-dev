@@ -3,7 +3,17 @@ import type { GatsbyConfig } from "gatsby";
 const config: GatsbyConfig = {
   siteMetadata: {
     title: `Side Trails Software Development`,
-    siteUrl: `https://www.yourdomain.tld`
+    siteUrl: `https://www.yourdomain.tld`,
+    menuLinks: [
+      {
+        name: "Home",
+        link: "/",
+      },
+      {
+        name: "Philosophy",
+        link: "/philosophy",
+      },
+    ]
   },
   pathPrefix: "/side-trails-dev-live",
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
