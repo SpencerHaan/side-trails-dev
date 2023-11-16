@@ -34,7 +34,7 @@ const MobileNavigator = () => {
   }, [expanded])
 
   const handlePageLink = (link: string) => {
-    if (pathname.startsWith(link)) {
+    if (pathname.endsWith(link)) {
       setExpanded(false)
     }
   }
