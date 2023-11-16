@@ -7,7 +7,7 @@ import {
   FaLinkedin as LinkedInIcon,
   FaSquareGithub as GithubIcon,
 } from "react-icons/fa6"
-import MobileNavigator from './navigators/MobileNavigator'
+import MobileNavigator from './navigation/MobileNavigator'
 
 export interface LayoutProperties {
   hero?: HeroProperties
