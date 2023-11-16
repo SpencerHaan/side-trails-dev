@@ -8,6 +8,7 @@ import {
   FaSquareGithub as GithubIcon,
 } from "react-icons/fa6"
 import MobileNavigator from './navigation/MobileNavigator'
+import MediaLinks from './navigation/MediaLinks'
 
 export interface LayoutProperties {
   hero?: HeroProperties
@@ -68,9 +69,7 @@ const Layout = ({hero, children}: LayoutProperties) => {
       </main>
       <footer className="flex flex-row items-center py-2 md:py-4 md:px-8 bg-zinc-800 text-white">
         <div className="hidden md:block">
-          <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
-            <SourceIcon size={24}/>
-          </a>
+          <MediaLinks.Source size={24}/>
         </div>
         <div className="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm italic">
           <p>
@@ -81,18 +80,10 @@ const Layout = ({hero, children}: LayoutProperties) => {
           </p>
         </div>
         <div className="hidden md:block">
-          <ul className="flex flex-row gap-2">
-            <li>
-              <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank">
-                <LinkedInIcon size={24}/>
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/SpencerHaan" target="_blank">
-                <GithubIcon size={24}/>
-              </a>
-            </li>
-          </ul>
+          <div className="flex flex-row gap-2">
+            <MediaLinks.LinkedIn size={24}/>
+            <MediaLinks.GitHub size={24}/>
+          </div>
         </div>
       </footer>
     </div>
