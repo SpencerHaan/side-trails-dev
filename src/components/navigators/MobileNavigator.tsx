@@ -32,6 +32,12 @@ const MobileNavigator = () => {
       : html?.classList.remove("overflow-hidden")
   }, [expanded])
 
+  const handlePageLink = (link: string) => {
+    if (pathname.startsWith(link)) {
+      setExpanded(false)
+    }
+  }
+
   return (
     <nav className={`sticky ${expanded ? "min-h-screen" : "shadow"} z-50 top-0 w-full bg-white`}>
       <div className="grid">
@@ -49,14 +55,10 @@ const MobileNavigator = () => {
         </div>
       </div>
       <div hidden={!expanded} className="p-4">
-        <div className="flex flex-col text-xl gap-3">
+        <div className="flex flex-col text-2xl gap-3">
           {menuLinks.map((item: { name: string, link: string }) =>
-            <div>
-              <Link to={item.link} onClick={() => {
-                if (item.link === pathname) {
-                  setExpanded(false)}
-                }
-              }>
+            <div key={item.name}>
+              <Link to={item.link} onClick={() => handlePageLink(item.link)}>
                 {item.name}
               </Link>
             </div>

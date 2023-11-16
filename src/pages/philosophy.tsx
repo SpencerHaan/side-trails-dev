@@ -35,7 +35,7 @@ const Philosophy: React.FC<PageProps> = () => {
     <Layout>
       <Section title="Philosophy" subtitle='"Plans are worthless, but planning is everything." - Dwight D. Eisenhower'>
         <p className="text-justify">
-          The <Link to="https://agilemanifesto.org/" target="_blank" className="text-lion">Agile Manifesto</Link> was created in the early 2000s by prominent members of the software industry, such as Martin Fowler. This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these existing processes misunderstand the intention behind the manifesto. Instead, I choose to follow these principles directly.
+          The <a href="https://agilemanifesto.org/" target="_blank" className="text-lion">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry, such as Martin Fowler. This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these existing processes misunderstand the intention behind the manifesto. Instead, I choose to follow these principles directly.
         </p>
         <Card>
           <div className="text-center text-xl md:text-3xl 3xl:text-4xl">

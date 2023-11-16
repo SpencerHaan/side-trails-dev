@@ -68,9 +68,9 @@ const Layout = ({hero, children}: LayoutProperties) => {
       </main>
       <footer className="flex flex-row items-center py-2 md:py-4 md:px-8 bg-zinc-800 text-white">
         <div className="hidden md:block">
-          <Link to="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
+          <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
             <SourceIcon size={24}/>
-          </Link>
+          </a>
         </div>
         <div className="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm italic">
           <p>
@@ -83,14 +83,14 @@ const Layout = ({hero, children}: LayoutProperties) => {
         <div className="hidden md:block">
           <ul className="flex flex-row gap-2">
             <li>
-              <Link to="https://www.linkedin.com/in/spencerhaan/" target="_blank">
+              <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank">
                 <LinkedInIcon size={24}/>
-              </Link>
+              </a>
             </li>
             <li>
-              <Link to="https://github.com/SpencerHaan" target="_blank">
+              <a href="https://github.com/SpencerHaan" target="_blank">
                 <GithubIcon size={24}/>
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
