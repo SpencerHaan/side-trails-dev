@@ -1,16 +1,9 @@
 import * as React from "react"
-import { IconType } from "react-icons"
 import {
   TbSquareRoundedChevronUpFilled as UpArrow,
   TbSquareRoundedChevronDownFilled as DownArrow,
 } from "react-icons/tb"
-
-enum Phase {
-  Collapsed,
-  Collapsing,
-  Expanded,
-  Expanding
-}
+import Collapsible from "./Collapsible"
 
 interface AccordionProperties {
   summary: string | React.ReactElement
@@ -18,55 +11,9 @@ interface AccordionProperties {
 }
 
 const Accordion = ({summary, children}: AccordionProperties) => {
-  const [phase, setPhase] = React.useState(Phase.Collapsed)
-  const [contentHeight, setContentHeight] = React.useState(0)
-  const contentRef = React.useRef<HTMLDivElement>(null)
+  const [expand, setExpand] = React.useState(false)
 
-  React.useEffect(() => {
-    const resizeHandler = () => {
-      if (phase === Phase.Expanded) {
-        setContentHeight(contentRef.current?.scrollHeight || 0)
-      }
-    }
-    window.addEventListener("resize", resizeHandler)
-    return () => window.removeEventListener("resize", resizeHandler)
-  })
-  
-  const clickHandler = () => {
-    const content = contentRef.current
-    if (!content) {
-      return
-    }
-
-    switch(phase) {
-      case Phase.Collapsed:
-        content.hidden = false
-        setPhase(Phase.Expanding)
-        setContentHeight(content.scrollHeight)
-        break
-      case Phase.Expanded:
-        setPhase(Phase.Collapsing)
-        setContentHeight(0)
-        break
-    }
-  }
-
-  const transitionEndHandler = (event: React.TransitionEvent<HTMLDivElement>) => {
-    const content = contentRef.current
-    if (!content || content !== event.currentTarget) {
-      return
-    }
-
-    switch(phase) {
-      case Phase.Collapsing:
-        content.hidden = true
-        setPhase(Phase.Collapsed)
-        break
-      case Phase.Expanding:
-        setPhase(Phase.Expanded)
-        break
-    }
-  }
+  const clickHandler = () => setExpand(!expand)
 
   return (
     <div className="flex flex-col gap-3 md:gap-4">
@@ -75,23 +22,17 @@ const Accordion = ({summary, children}: AccordionProperties) => {
           {summary}
         </div>
         <div className="m-auto text-2xl md:text-3xl text-zinc-600 cursor-pointer transition-transform duration-200">
-          {phase === Phase.Expanding || phase === Phase.Expanded
+          {expand
             ? <UpArrow/>
             : <DownArrow/>
           }
         </div>
       </div>
-      <div
-        ref={contentRef}
-        onTransitionEnd={transitionEndHandler}
-        className="overflow-hidden transition-all duration-200 ease-in-out"
-        style={{maxHeight: `${contentHeight}px`}}
-        hidden
-      >
+      <Collapsible expand={expand}>
         <div className="p-2 text-sm md:text-base">
           {children}
         </div>
-      </div>
+      </Collapsible>
     </div>
   )
 }
