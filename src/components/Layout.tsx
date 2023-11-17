@@ -23,7 +23,7 @@ const Layout = ({children}: LayoutProperties) => {
   return (
     <div className="flex flex-col min-h-screen font-base">
       {/* <DesktopNavigator overlay={overlay}/> */}
-      <MobileNavigator/>
+      <MobileNavigator overlay={overlay}/>
       <main className="flex flex-col flex-1">
         <LayoutContext.Provider value={{ addOverlay, removeOverlay }}>
           {children}

@@ -30,8 +30,6 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
   const [visibility, setVisibility] = React.useState(false)
   const observeeRef = React.useRef(null)
 
-  console.log(overlay)
-
   React.useLayoutEffect(() => {
     const observee = overlay?.element || observeeRef.current
     if (!observee) {
