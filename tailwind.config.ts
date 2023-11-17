@@ -1,4 +1,3 @@
-import { ignore } from 'gatsby/dist/schema/infer/inference-metadata'
 import type { Config } from 'tailwindcss'
 
 export default {

@@ -21,11 +21,11 @@ export interface Overlay {
   threshold?: number
 }
 
-interface DesktopNavigatorProperties {
+interface TabletNavigatorProperties {
   overlay?: Overlay
 }
 
-const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
+const TabletNavigator = ({overlay}: TabletNavigatorProperties) => {
   const {site: {siteMetadata: {menuLinks}}} = useStaticQuery(menuLinksQuery)
   const [visibility, setVisibility] = React.useState(false)
   const observeeRef = React.useRef(null)
@@ -45,14 +45,14 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
 
   return (
     <>
-      <div ref={observeeRef} className={`${overlay ? "h-0" : "h-24" }`}/>
+      <div ref={observeeRef} className={`${overlay ? "h-0" : "h-16" }`}/>
       <nav className={`fixed w-full top-0 z-50 ${overlay && visibility ? "backdrop-blur-[1px]" : "bg-white"} ${visibility ? null : "shadow-lg"}`}>
         <Content>
-          <div className="flex justify-between items-center h-24 p-4">
+          <div className="flex justify-between items-center h-16 p-4">
             <Link to="/">
               {overlay && visibility
-                ? <StaticImage src="../../images/logo_white.png" alt="" height={56} layout="fixed" placeholder="none"/>
-                : <StaticImage src="../../images/logo.png" alt="" height={56} layout="fixed" placeholder="none"/>
+                ? <StaticImage src="../../images/logo_white.png" alt="" height={36} layout="fixed" placeholder="none"/>
+                : <StaticImage src="../../images/logo.png" alt="" height={36} layout="fixed" placeholder="none"/>
               }
             </Link>
             <div className={`flex text-lg ${overlay && visibility ? "text-white" : null}`}>
@@ -77,4 +77,4 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
   )
 }
 
-export default DesktopNavigator
+export default TabletNavigator

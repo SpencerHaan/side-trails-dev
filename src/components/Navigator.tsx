@@ -1,122 +1,36 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
 import { useMediaQuery } from "react-responsive"
-import resolveConfig from "tailwindcss/resolveConfig";
-import { Config, ScreensConfig } from "tailwindcss/types/config";
-import tailwindConfig from "../../tailwind.config";
-import { TbMenu2 as MenuIcon } from "react-icons/tb";
-import {
-  FaCode as SourceIcon,
-  FaLinkedin as LinkedInIcon,
-  FaSquareGithub as GithubIcon,
-} from "react-icons/fa6"
+import DesktopNavigator, { Overlay } from "./navigation/DesktopNavigator";
+import MobileNavigator from "./navigation/MobileNavigator";
+import TabletNavigator from "./navigation/TabletNavigator";
 
-function useTailwindBreakpoint(screen: string, defaultValue?: boolean) {
-  const { theme } = React.useMemo(() => {
-    return resolveConfig(tailwindConfig as Config)
-  }, [tailwindConfig])
-
-  const screens = theme?.screens
-  if (!screens) {
-    return defaultValue
-  }
-  return useMediaQuery({ maxWidth: `${screens[screen as keyof ScreensConfig]}`})
+const screens = {
+  "sm": "640px",
+  "md": "768px",
+  "lg": "1024px",
+  "xl": "1280px",
+  "2xl": "1536px",
+  "3xl": "2080px",
 }
 
-const MobileNavigator = () => {
-  const [expanded, setExpanded] = React.useState(false)
-  const menuClickHandler = () => {
-    setExpanded(!expanded)
-  }
-  const menuItemHandler = () => {
-    setExpanded(false)
-  }
-  return (
-    <nav className={`${expanded ? "fixed top-0 w-full min-h-screen overflow-hidden" : ""} bg-white`}>
-      <div className="grid">
-        <div className="flex items-center justify-center h-12 p-2 col-start-1 col-end-1 row-start-1 row-end-1">
-          <StaticImage src="../images/logo.png" alt="" height={32} layout="fixed" placeholder="none"/>
-        </div>
-        <div onClick={menuClickHandler} className="absolute flex flex-col justify-center h-12 p-2 col-start-1 col-end-1 row-start-1 row-end-1 cursor-pointer">
-          <MenuIcon size={28}/>
-        </div>
-      </div>
-      <div hidden={!expanded} className="overflow-hidden bg-white p-4">
-        <ul className="flex flex-col gap-2 text-xl">
-          <li className="hover:font-bold">
-            <Link onClick={menuItemHandler} to="/">Home</Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link onClick={menuItemHandler} to="/projects">Projects</Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link onClick={menuItemHandler} to="/philosophy">Philosophy</Link>
-          </li>
-          <li className="hover:font-bold">
-            <Link onClick={menuItemHandler} to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="https://www.linkedin.com/in/spencerhaan/" target="_blank">
-              <LinkedInIcon size={24}/>
-            </Link>
-          </li>
-          <li>
-            <Link to="https://github.com/SpencerHaan" target="_blank">
-              <GithubIcon size={24}/>
-            </Link>
-          </li>
-          <li>
-            <Link to="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
-              <SourceIcon size={24}/>
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  )
+interface NavigatorProperties {
+  overlay?: Overlay
 }
 
-const DesktopNavigator = ({className, overlay = false}: NavigatorProperties) => {
-  return (
-    <nav className="sm:w-5/6 md:w-5/6 lg:w-3/4 2xl:w-3/5 3xl:w-1/2 mx-auto py-5">
-      <ul className="flex flex-row gap-10 items-center text-lg lg:text-xl 3xl:text-2xl">
-        <li className="flex-1">
-          <Link to="/">
-            {
-              overlay
-                ? <StaticImage src="../images/logo_white.png" alt="" height={48} layout="fixed" placeholder="none"/>
-                : <StaticImage src="../images/logo.png" alt="" height={48} layout="fixed" placeholder="none"/>
-            }
-          </Link>
-        </li>
-        {/* <li className="hover:font-bold text-center">
-          <Link to="/projects">Projects</Link>
-        </li> */}
-        <li className="hover:font-bold text-center">
-          <Link to="/philosophy">Philosophy</Link>
-        </li>
-        {/* <li className="hover:font-bold text-center">
-          <Link to="/about">About</Link>
-        </li> */}
-      </ul>
-    </nav>
-  )
-}
+const Navigator = (props: NavigatorProperties) => {
+  const isDesktop = useMediaQuery({ query: `(min-width: ${screens["xl"]})` })
+  const isMobile = useMediaQuery({ query: `(max-width: ${screens["md"]})` })
 
-export interface NavigatorProperties {
-  className?: string
-  overlay?: boolean
-}
-
-export function Navigator(props: NavigatorProperties) {
-  const isMobile = useTailwindBreakpoint("md")
   return (
     <>
-      {isMobile
-        ? <MobileNavigator/>
-        : <DesktopNavigator {...props}/>
+      {isDesktop
+        ? <DesktopNavigator {...props}/>
+        : isMobile
+        ? <MobileNavigator {...props}/>
+        : <TabletNavigator {...props}/>
       }
     </>
   )
 }
+
+export default Navigator
