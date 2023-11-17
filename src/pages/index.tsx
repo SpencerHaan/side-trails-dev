@@ -106,7 +106,7 @@ const IndexPage: React.FC<PageProps> = () => {
   
   const heroRef = React.useRef(null)
   const layoutOptions = React.useContext(LayoutContext)
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const hero = heroRef.current
     if (!hero) {
       return

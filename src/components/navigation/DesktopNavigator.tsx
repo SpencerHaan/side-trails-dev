@@ -32,7 +32,7 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
 
   console.log(overlay)
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     const observee = overlay?.element || observeeRef.current
     if (!observee) {
       return
@@ -53,8 +53,8 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
           <div className="flex justify-between items-center h-24 p-4">
             <Link to="/">
               {overlay && visibility
-                ? <StaticImage src="../../images/logo_white.png" alt="" height={56} layout="fixed"/>
-                : <StaticImage src="../../images/logo.png" alt="" height={56} layout="fixed"/>
+                ? <StaticImage src="../../images/logo_white.png" alt="" height={56} layout="fixed" placeholder="tracedSVG"/>
+                : <StaticImage src="../../images/logo.png" alt="" height={56} layout="fixed" placeholder="tracedSVG"/>
               }
             </Link>
             <div className={`flex text-lg ${overlay && visibility ? "text-white" : null}`}>
