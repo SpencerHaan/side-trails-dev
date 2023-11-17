@@ -1,4 +1,5 @@
 import * as React from 'react'
+import Content from './Content'
 
 interface ItemProperties {
   title: string
@@ -8,18 +9,18 @@ interface ItemProperties {
 
 const Item = ({title, subtitle, children}: ItemProperties) => {
   return (
-    <>
-      <div className="text-center text-2xl md:text-4xl 3xl:text-5xl">
-        {title}
-      </div>
-      <div className="m-3 sm:m-auto sm:w-5/6 md:w-5/6 lg:w-3/4 2xl:w-3/5 3xl:w-1/2 space-y-3 md:space-y-8">
+    <Content>
+      <div className="flex flex-col gap-3 md:gap-5">
+        <div className="text-center text-2xl md:text-4xl 3xl:text-5xl">
+          {title}
+        </div>
         { subtitle
           ? <div className="pb-2 3xl:pb-4 text-xs md:text-base 3xl:text-lg text-center text-zinc-400">{subtitle}</div>
-          : ""
+          : null
         }
         {children}
       </div>
-    </>
+    </Content>
   )
 }
 

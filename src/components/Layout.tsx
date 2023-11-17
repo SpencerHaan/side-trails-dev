@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa6"
 import MobileNavigator from './navigation/MobileNavigator'
 import MediaLinks from './navigation/MediaLinks'
+import DesktopNavigator from './navigation/DesktopNavigator'
 
 export interface LayoutProperties {
   hero?: HeroProperties
@@ -41,7 +42,8 @@ const Layout = ({hero, children}: LayoutProperties) => {
 
   return (
     <div className="flex flex-col min-h-screen font-base">
-      <MobileNavigator/>
+      <DesktopNavigator/>
+      {/* <MobileNavigator/> */}
       {/* <header
         className={`w-full z-50 shadow-xl
           ${hero ? "fixed" : "sticky"} top-0
