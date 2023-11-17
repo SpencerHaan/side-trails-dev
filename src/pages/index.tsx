@@ -125,14 +125,14 @@ const IndexPage: React.FC<PageProps> = () => {
         <div className="grid">
           <StaticImage src="../images/hero.jpeg" alt="" objectFit="cover" className="col-start-1 col-end-1 row-start-1 row-end-1"/>
           <div className="col-start-1 col-end-1 row-start-1 row-end-1 relative">
-            <div className="flex flex-col items-center justify-center p-2 gap-8 pt-14 pb-8">
+            <div className="flex flex-col items-center justify-center p-2 gap-8 pt-20 pb-8">
               <div className="flex flex-col text-center gap-4">
-                <div className="uppercase text-white/75">
+                <div className="uppercase text-white/90">
                   <p className="text-3xl ">Side Trails</p>
                   <p className="text-xl">Software Development</p>
 
                 </div>
-                <p className="text-zinc-200/75">Building + Rebuilding Software Systems</p>
+                <p className="text-zinc-200/90">Building + Rebuilding Software Systems</p>
               </div>
               <Button label="Let's Chat"/>
             </div>
