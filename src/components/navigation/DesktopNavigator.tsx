@@ -16,38 +16,48 @@ query MenuLinks {
 }
 `
 
-const DesktopNavigator = () => {
+export interface Overlay {
+  element: Element
+  threshold?: number
+}
+
+interface DesktopNavigatorProperties {
+  overlay?: Overlay
+}
+
+const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
   const {site: {siteMetadata: {menuLinks}}} = useStaticQuery(menuLinksQuery)
   const [visibility, setVisibility] = React.useState(false)
   const observeeRef = React.useRef(null)
 
+  console.log(overlay)
+
   React.useEffect(() => {
-    const observee = observeeRef.current
+    const observee = overlay?.element || observeeRef.current
     if (!observee) {
       return
     }
-
+    
     const observer = new IntersectionObserver(([entry]) => {
-      setVisibility(!entry.isIntersecting)
-    }, { threshold: 0.75 })
+      setVisibility(entry.isIntersecting)
+    }, { threshold: overlay?.threshold || 0.75 })
     observer.observe(observee)
     return () => observer.unobserve(observee)
-  }, [observeeRef])
+  }, [overlay, observeeRef])
 
   return (
     <>
-      <div ref={observeeRef} className="h-24"/>
-      <nav className={`fixed w-full top-0 z-50 bg-white ${visibility ? "shadow-lg" : null} transition ease-in-out duration-300`}>
+      <div ref={observeeRef} className={`${overlay ? "h-0" : "h-24" }`}/>
+      <nav className={`fixed w-full top-0 z-50 ${overlay && visibility ? "backdrop-blur-[1px]" : "bg-white"} ${visibility ? null : "shadow-lg"}`}>
         <Content>
           <div className="flex justify-between items-center h-24 p-4">
             <Link to="/">
-              <StaticImage src="../../images/logo.png" alt="" height={56} layout="fixed"/>
-              {/* {intersecting
-                ? <StaticImage src="../../images/logo.png" alt="" height={56} layout="fixed"/>
-                : <StaticImage src="../../images/logo_white.png" alt="" height={56} layout="fixed"/>
-              } */}
+              {overlay && visibility
+                ? <StaticImage src="../../images/logo_white.png" alt="" height={56} layout="fixed"/>
+                : <StaticImage src="../../images/logo.png" alt="" height={56} layout="fixed"/>
+              }
             </Link>
-            <div className="flex text-lg">
+            <div className={`flex text-lg ${overlay && visibility ? "text-white" : null}`}>
               {menuLinks
                 .filter((item: {link: string}) => item.link != "/")
                 .map((item: {name: string, link: string}) => {

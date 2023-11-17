@@ -20,6 +20,7 @@ import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
 import Button from "../components/Button"
 import MDXRenderer from "../components/MDXRenderer"
 import Icon from "../components/Icon"
+import { LayoutContext } from "../components/Layout"
 
 interface ProcessTileProperties {
   image: React.ReactElement
@@ -102,128 +103,163 @@ const IndexPage: React.FC<PageProps> = () => {
     }
   }
   `)
+  
+  const heroRef = React.useRef(null)
+  const layoutOptions = React.useContext(LayoutContext)
+  React.useEffect(() => {
+    const hero = heroRef.current
+    if (!hero) {
+      return
+    }
+
+    layoutOptions?.addOverlay({
+      element: hero,
+      threshold: 0.95
+    })
+    return () => layoutOptions?.removeOverlay()
+  }, [heroRef])
 
   return (
-    <Section.List>
-      <Section.Item
-        title="Side Trailing"
-        subtitle="The Side Trails Software Development process."
-      >
-        <div className="flex flex-col text-sm md:text-lg 3xl:text-xl gap-4">
-          <p>
-            A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
-            In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
-          </p>
-          <p>
-            Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
-          </p>
-        </div>
-        <ListCard title="Process">
-          <ProcessTile
-            image={<StaticImage src="../images/discover.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
-            imageOrientation={HorizontalOrientation.Right}
-            title="Discover"
-            text="First, let's discover what your business needs/technical challenges are all about."
-            subtext="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
-          />
-          <ProcessTile
-            image={<StaticImage src="../images/explore.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
-            imageOrientation={HorizontalOrientation.Left}
-            title="Explore"
-            text="Second, let's explore these business needs/technical challenges to establish a shared and deep understanding."
-            subtext="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
-          />
-          <ProcessTile
-            image={<StaticImage src="../images/build.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
-            imageOrientation={HorizontalOrientation.Right}
-            title="Build"
-            text="Third, let's build the solution."
-            subtext="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."
-          />
-        </ListCard>
-      </Section.Item>
-      <Section.Item
-        title="Expertise" 
-        subtitle="Some of the things I can do."
-      >
-        {/* <div className="flex flex-wrap"> */}
-        <div className="flex flex-wrap justify-center gap-4">
-          <ExpertiseTile title="System Anaylsis" iconType={AnalysisIcon} iconOrientation={HorizontalOrientation.Left}>
-            Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts.
-          </ExpertiseTile>
-          <ExpertiseTile title="System Architecture" iconType={ArchitectureIcon} iconOrientation={HorizontalOrientation.Right}>
-            Design solutions that incorporate and consider all aspects of a system.
-          </ExpertiseTile>
-          <ExpertiseTile title="Software Prototyping" iconType={PrototypeIcon} iconOrientation={HorizontalOrientation.Left}>
-            Exploratory software development to better understand the solution you want, and need.
-          </ExpertiseTile>
-          <ExpertiseTile title="Software Design and Development" iconType={DevelopmentIcon} iconOrientation={HorizontalOrientation.Right}>
-            Implement well-designed code and abstractions to enable future growth while reducing maintenance and development overhead.
-          </ExpertiseTile>
-          <ExpertiseTile title="Cloud Integration" iconType={CloudIcon} iconOrientation={HorizontalOrientation.Left}>
-            Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud.
-          </ExpertiseTile>
-          <ExpertiseTile title="Rucksack" iconType={RucksackIcon} iconOrientation={HorizontalOrientation.Right}>
-            Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…
-          </ExpertiseTile>
-        </div>
-      </Section.Item>
-      <Section.Item
-        title="What Clients Think"
-        subtitle="And colleagues, too!"
-        >
-        <Carousel>
-          {data.allFile.nodes.map(({childMdx}: any) => {
-            return (
-              <Carousel.Item key={childMdx.frontmatter.id}>
-                <Testimonial
-                image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
-                contact={childMdx.frontmatter.contact}
-                role={childMdx.frontmatter.role}
-                company={childMdx.frontmatter.company}
-                >
-                  <MDXRenderer>
-                    {childMdx.body}
-                  </MDXRenderer>
-                </Testimonial>
-              </Carousel.Item>
-            )
-          })}
-        </Carousel>
-      </Section.Item>
-      <Section.Item
-        title="Let's Chat"
-        subtitle="Need help with a project? Send me some details."
-      >
-        <div className="space-y-8">
-          <form className="flex flex-wrap -m-2 text-sm">
-            <div className="w-full md:max-w-[50%] p-2">
-              <input type="text" placeholder="Name" name="contactName" className="w-full h-10 p-2 rounded-md"/>
+    <>
+      <div ref={heroRef}>
+        <div className="grid">
+          <div className="col-start-1 col-end-1 row-start-1 row-end-1">
+            <StaticImage src="../images/hero.jpeg" alt="" layout="constrained"/>
+          </div>
+          <div className="col-start-1 col-end-1 row-start-1 row-end-1 relative">
+            <div className="h-full flex flex-col">
+              <p className="m-auto mt-32 3xl:mt-48 text-white text-center text-5xl 3xl:text-6xl uppercase font-extrabold leading-relaxed">
+                Building, and Rebuilding,
+                <br/>
+                Software Systems
+              </p>
+              <div className="mx-auto mb-8 3xl:mb-24 text-center">
+                <Button label="Let's Chat"/>
+              </div>
             </div>
-            <div className="w-full md:max-w-[50%] p-2">
-              <input type="text" placeholder="Company" name="contactCompany" className="w-full h-10 p-2 rounded-md"/>
-            </div>
-            <div className="w-full md:max-w-[50%] p-2">
-              <input type="text" placeholder="Email" name="contactEmail" className="w-full h-10 p-2 rounded-md"/>
-            </div>
-            <div className="w-full md:max-w-[50%] p-2">
-              <select className="w-full h-10 p-2 rounded-md bg-white text-zinc-400">
-                <option disabled selected hidden>Budget</option>
-                <option>$25,000-$50,000</option>
-                <option>$50,000-$100,000</option>
-                <option>$100,000+</option>
-              </select>
-            </div>
-            <div className="w-full m-2">
-              <textarea placeholder="What's your project about?" rows={10} className="w-full p-2 rounded-md"/>
-            </div>
-          </form>
-          <div className="text-center">
-            <Button disabled={true} label="Submit"/>
           </div>
         </div>
-      </Section.Item>
-    </Section.List>
+      </div>
+      <Section.List>
+        <Section.Item
+          title="Side Trailing"
+          subtitle="The Side Trails Software Development process."
+        >
+          <div className="flex flex-col text-sm md:text-lg 3xl:text-xl gap-4">
+            <p>
+              A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
+              In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
+            </p>
+            <p>
+              Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
+            </p>
+          </div>
+          <ListCard title="Process">
+            <ProcessTile
+              image={<StaticImage src="../images/discover.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+              imageOrientation={HorizontalOrientation.Right}
+              title="Discover"
+              text="First, let's discover what your business needs/technical challenges are all about."
+              subtext="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
+            />
+            <ProcessTile
+              image={<StaticImage src="../images/explore.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+              imageOrientation={HorizontalOrientation.Left}
+              title="Explore"
+              text="Second, let's explore these business needs/technical challenges to establish a shared and deep understanding."
+              subtext="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
+            />
+            <ProcessTile
+              image={<StaticImage src="../images/build.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+              imageOrientation={HorizontalOrientation.Right}
+              title="Build"
+              text="Third, let's build the solution."
+              subtext="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."
+            />
+          </ListCard>
+        </Section.Item>
+        <Section.Item
+          title="Expertise" 
+          subtitle="Some of the things I can do."
+        >
+          <div className="flex flex-wrap justify-center gap-4">
+            <ExpertiseTile title="System Anaylsis" iconType={AnalysisIcon} iconOrientation={HorizontalOrientation.Left}>
+              Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts.
+            </ExpertiseTile>
+            <ExpertiseTile title="System Architecture" iconType={ArchitectureIcon} iconOrientation={HorizontalOrientation.Right}>
+              Design solutions that incorporate and consider all aspects of a system.
+            </ExpertiseTile>
+            <ExpertiseTile title="Software Prototyping" iconType={PrototypeIcon} iconOrientation={HorizontalOrientation.Left}>
+              Exploratory software development to better understand the solution you want, and need.
+            </ExpertiseTile>
+            <ExpertiseTile title="Software Design and Development" iconType={DevelopmentIcon} iconOrientation={HorizontalOrientation.Right}>
+              Implement well-designed code and abstractions to enable future growth while reducing maintenance and development overhead.
+            </ExpertiseTile>
+            <ExpertiseTile title="Cloud Integration" iconType={CloudIcon} iconOrientation={HorizontalOrientation.Left}>
+              Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud.
+            </ExpertiseTile>
+            <ExpertiseTile title="Rucksack" iconType={RucksackIcon} iconOrientation={HorizontalOrientation.Right}>
+              Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…
+            </ExpertiseTile>
+          </div>
+        </Section.Item>
+        <Section.Item
+          title="What Clients Think"
+          subtitle="And colleagues, too!"
+          >
+          <Carousel>
+            {data.allFile.nodes.map(({childMdx}: any) => {
+              return (
+                <Carousel.Item key={childMdx.frontmatter.id}>
+                  <Testimonial
+                  image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
+                  contact={childMdx.frontmatter.contact}
+                  role={childMdx.frontmatter.role}
+                  company={childMdx.frontmatter.company}
+                  >
+                    <MDXRenderer>
+                      {childMdx.body}
+                    </MDXRenderer>
+                  </Testimonial>
+                </Carousel.Item>
+              )
+            })}
+          </Carousel>
+        </Section.Item>
+        <Section.Item
+          title="Let's Chat"
+          subtitle="Need help with a project? Send me some details."
+        >
+          <div className="space-y-8">
+            <form className="flex flex-wrap -m-2 text-sm">
+              <div className="w-full md:max-w-[50%] p-2">
+                <input type="text" placeholder="Name" name="contactName" className="w-full h-10 p-2 rounded-md"/>
+              </div>
+              <div className="w-full md:max-w-[50%] p-2">
+                <input type="text" placeholder="Company" name="contactCompany" className="w-full h-10 p-2 rounded-md"/>
+              </div>
+              <div className="w-full md:max-w-[50%] p-2">
+                <input type="text" placeholder="Email" name="contactEmail" className="w-full h-10 p-2 rounded-md"/>
+              </div>
+              <div className="w-full md:max-w-[50%] p-2">
+                <select className="w-full h-10 p-2 rounded-md bg-white text-zinc-400">
+                  <option disabled selected hidden>Budget</option>
+                  <option>$25,000-$50,000</option>
+                  <option>$50,000-$100,000</option>
+                  <option>$100,000+</option>
+                </select>
+              </div>
+              <div className="w-full m-2">
+                <textarea placeholder="What's your project about?" rows={10} className="w-full p-2 rounded-md"/>
+              </div>
+            </form>
+            <div className="text-center">
+              <Button disabled={true} label="Submit"/>
+            </div>
+          </div>
+        </Section.Item>
+      </Section.List>
+    </>
   )
 }
 
