@@ -123,19 +123,18 @@ const IndexPage: React.FC<PageProps> = () => {
     <>
       <div ref={heroRef}>
         <div className="grid">
-          <div className="col-start-1 col-end-1 row-start-1 row-end-1">
-            <StaticImage src="../images/hero.jpeg" alt="" layout="constrained"/>
-          </div>
+          <StaticImage src="../images/hero.jpeg" alt="" objectFit="cover" className="col-start-1 col-end-1 row-start-1 row-end-1"/>
           <div className="col-start-1 col-end-1 row-start-1 row-end-1 relative">
-            <div className="h-full flex flex-col">
-              <p className="m-auto mt-32 3xl:mt-48 text-white text-center text-5xl 3xl:text-6xl uppercase font-extrabold leading-relaxed">
-                Building, and Rebuilding,
-                <br/>
-                Software Systems
-              </p>
-              <div className="mx-auto mb-8 3xl:mb-24 text-center">
-                <Button label="Let's Chat"/>
+            <div className="flex flex-col items-center justify-center p-2 gap-8 pt-14 pb-8">
+              <div className="flex flex-col text-center gap-4">
+                <div className="uppercase text-white/75">
+                  <p className="text-3xl ">Side Trails</p>
+                  <p className="text-xl">Software Development</p>
+
+                </div>
+                <p className="text-zinc-200/75">Building + Rebuilding Software Systems</p>
               </div>
+              <Button label="Let's Chat"/>
             </div>
           </div>
         </div>
