@@ -8,12 +8,12 @@ enum State {
 }
 
 interface CollapsibleProperties {
-  expand?: boolean
+  expanded?: boolean
   onChange?: (expanded: boolean) => void
   children?: string | React.ReactElement | React.ReactElement[] | null
 }
 
-const Collapsible = ({ expand = false, onChange = () => {}, children }: CollapsibleProperties) => {
+const Collapsible = ({ expanded: expand = false, onChange = () => {}, children }: CollapsibleProperties) => {
   const [state, setState] = React.useState(State.Collapsed)
   const [contentHeight, setContentHeight] = React.useState(0)
   const contentRef = React.useRef<HTMLDivElement>(null)

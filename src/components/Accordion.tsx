@@ -11,9 +11,9 @@ interface AccordionProperties {
 }
 
 const Accordion = ({summary, children}: AccordionProperties) => {
-  const [expand, setExpand] = React.useState(false)
+  const [expanded, setExpanded] = React.useState(false)
 
-  const clickHandler = () => setExpand(!expand)
+  const clickHandler = () => setExpanded(!expanded)
 
   return (
     <div className="flex flex-col gap-3 md:gap-4">
@@ -22,13 +22,13 @@ const Accordion = ({summary, children}: AccordionProperties) => {
           {summary}
         </div>
         <div className="m-auto text-2xl md:text-3xl text-zinc-600 cursor-pointer transition-transform duration-200">
-          {expand
+          {expanded
             ? <UpArrow/>
             : <DownArrow/>
           }
         </div>
       </div>
-      <Collapsible expand={expand}>
+      <Collapsible expanded={expanded}>
         <div className="p-2 text-sm md:text-base">
           {children}
         </div>

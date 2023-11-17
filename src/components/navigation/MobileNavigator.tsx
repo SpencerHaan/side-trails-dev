@@ -8,6 +8,7 @@ import {
 } from "react-icons/md";
 import MediaLinks from "./MediaLinks";
 import { Overlay } from "./DesktopNavigator";
+import Collapsible from "../Collapsible";
 
 const menuLinksQuery = graphql`
 query MenuLinks {
@@ -56,7 +57,54 @@ const MobileNavigator = ({overlay}: MobileNavigatorProperties) => {
   return (
     <>
       <div ref={observeeRef} className={`${overlay ? "h-0" : "h-12" }`}/>
-      <nav className={`fixed flex flex-col ${overlay && visibility && !expanded ? "backdrop-blur-[1px]" : "bg-white"} ${expanded ? "min-h-screen" : "shadow"} z-50 top-0 w-full`}>
+      <nav className="fixed z-50 top-0 w-full">
+        <div className={`grid ${overlay && visibility && !expanded ? "backdrop-blur-[1px]" : "bg-white"} ${!visibility ? "shadow" : null}`}>
+          <div className="flex items-center justify-center h-12 p-2 col-start-1 col-end-1 row-start-1 row-end-1">
+            {overlay && visibility && !expanded
+              ? <StaticImage src="../../images/logo_white.png" alt="" height={32} layout="fixed" placeholder="none"/>
+              : <StaticImage src="../../images/logo.png" alt="" height={32} layout="fixed" placeholder="none"/>
+            }
+          </div>
+          <div
+            onClick={() => setExpanded(!expanded)}
+            className={`absolute flex flex-col justify-center h-12 p-2 col-start-1 col-end-1 row-start-1 row-end-1`}
+          >
+            {expanded
+              ? <CloseIcon size={32}/>
+              : <MenuIcon size={32} className={`${overlay && visibility ? "text-white" : null}`}/> 
+            }
+          </div>
+          <div className="col-start-1 col-end-1 row-start-1 row-end-1">
+            <Collapsible expanded={expanded}>
+              <div className="flex flex-col justify-between min-h-screen p-4 pt-20 bg-white">
+                <div className="flex flex-col text-3xl gap-6">
+                  {menuLinks.map((item: { name: string, link: string }) =>
+                    <div key={item.name}>
+                      <Link to={item.link} onClick={() => setExpanded(false)}>
+                        {item.name}
+                      </Link>
+                    </div>
+                  )}
+                </div>
+                <div className="flex flex-col gap-2">
+                  <div className="text-2xl text-zinc-400">
+                    Social Media
+                  </div>
+                  <hr/>
+                  <div className="flex justify-between">
+                    <div className="flex flex-row gap-4">
+                      <div><MediaLinks.LinkedIn size={36}/></div>
+                      <div><MediaLinks.GitHub size={36}/></div>
+                    </div>
+                    <div><MediaLinks.Source size={36}/></div>
+                  </div>
+                </div>
+              </div>
+            </Collapsible>
+          </div>
+        </div>
+      </nav>
+      {/* <nav className={`fixed flex flex-col ${overlay && visibility && !expanded ? "backdrop-blur-[1px]" : "bg-white"} ${expanded ? "min-h-screen" : "shadow"} z-50 top-0 w-full`}>
         <div className="grid">
           <div className="flex items-center justify-center h-12 p-2 col-start-1 col-end-1 row-start-1 row-end-1">
             {overlay && visibility && !expanded
@@ -98,7 +146,7 @@ const MobileNavigator = ({overlay}: MobileNavigatorProperties) => {
             </div>
           </div>
         </div>
-      </nav>
+      </nav> */}
     </>
   )
 }
