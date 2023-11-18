@@ -45,14 +45,14 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
 
   return (
     <>
-      <div ref={observeeRef} className={`${overlay ? "h-0" : "h-24" }`}/>
+      <div ref={observeeRef} className={`${overlay ? "h-0" : "h-20" }`}/>
       <nav className={`fixed w-full top-0 z-50 ${overlay && visibility ? "backdrop-blur-[1px]" : "bg-white"} ${visibility ? null : "shadow-lg"}`}>
         <Content>
-          <div className="flex justify-between items-center h-24 p-4">
+          <div className="flex justify-between items-center h-20 p-4">
             <Link to="/">
               {overlay && visibility
-                ? <StaticImage src="../../images/logo_white.png" alt="" height={56} layout="fixed" placeholder="none"/>
-                : <StaticImage src="../../images/logo.png" alt="" height={56} layout="fixed" placeholder="none"/>
+                ? <StaticImage src="../../images/logo_white.png" alt="" height={48} layout="fixed" placeholder="none"/>
+                : <StaticImage src="../../images/logo.png" alt="" height={48} layout="fixed" placeholder="none"/>
               }
             </Link>
             <div className={`flex text-lg lg:text-xl ${overlay && visibility ? "text-white" : null}`}>
