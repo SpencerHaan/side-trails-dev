@@ -11,7 +11,7 @@ const Button = ({disabled, label, onClick}: ButtonProperties) => {
     <button
       disabled={disabled}
       onClick={onClick}
-      className="w-28 p-2 rounded-full text-sm bg-zinc-300
+      className="w-28 md:w-32 p-2 md:p-3 rounded-full text-sm md:text-base bg-zinc-300
         disabled:text-zinc-400
         enabled:hover:font-extrabold enabled:hover:bg-lion
         transition ease-in-out duration-75"

@@ -11,7 +11,7 @@ const Item = ({title, subtitle, children}: ItemProperties) => {
   return (
     <Content>
       <div className="flex flex-col gap-3 md:gap-5">
-        <div className="text-center text-2xl md:text-4xl 3xl:text-5xl">
+        <div className="text-center text-2xl md:text-3xl 3xl:text-5xl">
           {title}
         </div>
         { subtitle
