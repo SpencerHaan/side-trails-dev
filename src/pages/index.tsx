@@ -128,10 +128,10 @@ const IndexPage: React.FC<PageProps> = () => {
             <div className="flex flex-col items-center justify-center p-2 gap-8 pt-20 md:pt-24 pb-8 md:pb-12">
               <div className="flex flex-col text-center gap-4">
                 <div className="uppercase text-white/90">
-                  <p className="text-3xl md:text-4xl ">Side Trails</p>
-                  <p className="text-xl md:text-2xl">Software Development</p>
+                  <p className="text-3xl md:text-4xl lg:text-5xl">Side Trails</p>
+                  <p className="text-xl md:text-2xl lg:text-3xl">Software Development</p>
                 </div>
-                <p className="md:text-lg text-zinc-200/90">Building + Rebuilding Software Systems</p>
+                <p className="text-base md:text-lg lg:text-xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
               </div>
               <Button label="Let's Chat"/>
             </div>
