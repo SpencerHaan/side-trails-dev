@@ -11,11 +11,11 @@ const Item = ({title, subtitle, children}: ItemProperties) => {
   return (
     <Content>
       <div className="flex flex-col gap-3 md:gap-5">
-        <div className="text-center text-2xl md:text-3xl 3xl:text-5xl">
+        <div className="text-center text-2xl md:text-3xl xl:text-4xl 3xl:text-5xl">
           {title}
         </div>
         { subtitle
-          ? <div className="pb-2 3xl:pb-4 text-xs md:text-base 3xl:text-lg text-center text-zinc-400">{subtitle}</div>
+          ? <div className="pb-2 xl:pb-3 3xl:pb-4 text-xs md:text-base xl:text-lg 3xl:text-xl text-center text-zinc-400">{subtitle}</div>
           : null
         }
         {children}
@@ -32,8 +32,8 @@ const List = ({children}: ListProperties) => {
   return (
     <div>
       {Array.isArray(children)
-        ? children.map((child, i) => <div className={`py-8 space-y-3 md:space-y-6 ${i % 2 === 0 ? "bg-white" : "bg-zinc-200"}`}>{child}</div>)
-        : <div className="py-8 space-y-3 md:space-y-6 bg-white">{children}</div>
+        ? children.map((child, i) => <div className={`py-8 xl:py-12 ${i % 2 === 0 ? "bg-white" : "bg-zinc-200"}`}>{child}</div>)
+        : <div className="py-8 xl:py-12 bg-white">{children}</div>
       }
     </div>
   )

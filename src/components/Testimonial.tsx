@@ -37,11 +37,11 @@ const Testimonial = ({image, contact, role, company, children}: TestimonialPrope
             </div>
           </div>
         </div>
-        <div className="space-y-4 text-center text-sm md:text-base 3xl:text-xl col-start-1 col-end-1 row-start-1 row-end-1">
+        <div className="space-y-4 text-center text-sm md:text-base xl:text-lg 3xl:text-xl col-start-1 col-end-1 row-start-1 row-end-1">
           {children}
         </div>
       </div>
-      <div className="italic text-center text-sm md:text-base 3xl:text-lg text-zinc-400">
+      <div className="italic text-center text-xs md:text-sm xl:text-base 3xl:text-lg text-zinc-400">
         <div className="flex flex-wrap justify-center gap-1">
           <div>
             {contact},
