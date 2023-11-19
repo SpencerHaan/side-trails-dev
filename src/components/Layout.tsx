@@ -1,7 +1,6 @@
 import * as React from 'react'
 import MediaLinks from './navigation/MediaLinks'
-import Navigator from './Navigator'
-import { Overlay } from './navigation/DesktopNavigator'
+import Header, { Overlay } from './Header'
 
 type LayoutOptions = {
   addOverlay: (overlay: Overlay) => void
@@ -22,7 +21,7 @@ const Layout = ({children}: LayoutProperties) => {
 
   return (
     <div className="flex flex-col min-h-screen font-base">
-      <Navigator overlay={overlay}/>
+      <Header overlay={overlay}/>
       <main className="flex flex-col flex-1">
         <LayoutContext.Provider value={{ addOverlay, removeOverlay }}>
           {children}
