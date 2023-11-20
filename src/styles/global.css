@@ -2,8 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  width: 100vw;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    @apply w-screen;
+    @apply overflow-x-hidden;
+    @apply scroll-smooth;
+    @apply bg-zinc-200;
+  }
 }
