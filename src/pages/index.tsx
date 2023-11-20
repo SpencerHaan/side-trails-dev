@@ -167,21 +167,21 @@ const IndexPage: React.FC<PageProps> = () => {
           </div>
           <ListCard title="Process">
             <ProcessTile
-              image={<StaticImage src="../images/discover.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+              image={<StaticImage src="../images/discover.png" alt="" objectFit="fill"/>}
               imageOrientation={HorizontalOrientation.Right}
               title="Discover"
               text="First, let's discover what your business needs/technical challenges are all about."
               subtext="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
             />
             <ProcessTile
-              image={<StaticImage src="../images/explore.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+              image={<StaticImage src="../images/explore.png" alt="" objectFit="fill"/>}
               imageOrientation={HorizontalOrientation.Left}
               title="Explore"
               text="Second, let's explore these business needs/technical challenges to establish a shared and deep understanding."
               subtext="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
             />
             <ProcessTile
-              image={<StaticImage src="../images/build.png" alt="" width={256} height={256} layout="fixed" className="rounded-xl bg-zinc-50"/>}
+              image={<StaticImage src="../images/build.png" alt="" objectFit="fill"/>}
               imageOrientation={HorizontalOrientation.Right}
               title="Build"
               text="Third, let's build the solution."
