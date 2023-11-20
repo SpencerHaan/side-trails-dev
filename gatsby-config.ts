@@ -71,6 +71,14 @@ const config: GatsbyConfig = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-manifest',
+      options: {
+        name: "Side Trails Software Development",
+        short_name: "Side Trails",
+        icon: "src/images/icon.png",
+      }
+    },
   ]
 };
 
