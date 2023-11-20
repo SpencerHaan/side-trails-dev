@@ -23,20 +23,28 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-postcss",
-    "gatsby-plugin-mdx", 
+    "gatsby-plugin-mdx",
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         "name": "pages",
-        "path": "./src/pages/"
+        "path": `${__dirname}/src/pages/`
       },
       __key: "pages"
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        "name": "images",
+        "path": `${__dirname}/src/images`
+      },
+      __key: "images"
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         "name": "testimonials",
-        "path": "./content/testimonials"
+        "path": `${__dirname}/content/testimonials`
       },
       __key: "testimonials"
     },
@@ -49,6 +57,7 @@ const config: GatsbyConfig = {
         }
       }
     },
+    "gatsby-transformer-sharp",
     {
       resolve: `gatsby-omni-font-loader`,
       options: {

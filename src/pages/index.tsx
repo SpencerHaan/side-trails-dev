@@ -1,6 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 import Section from "../components/Section"
 import Testimonial from "../components/Testimonial"
 import Carousel from "../components/Carousel"
@@ -86,8 +86,11 @@ const ExpertiseTile = ({title, iconType, iconOrientation, children}: ExpertisePr
 
 const IndexPage: React.FC<PageProps> = () => {
   const data = useStaticQuery(graphql`
-  query MyQuery {
-    allFile(filter: {sourceInstanceName: {eq: "testimonials"}}, sort: {name: ASC}) {
+  query TestimonialsQuery {
+    allFile(
+      filter: {sourceInstanceName: {eq: "testimonials"}, extension: {eq: "mdx"}}
+      sort: {name: ASC}
+    ) {
       nodes {
         name
         childMdx {
@@ -96,6 +99,12 @@ const IndexPage: React.FC<PageProps> = () => {
             company
             contact
             role
+            imageAlt
+            image {
+              childImageSharp {
+                gatsbyImageData(height: 128)
+              }
+            }
           }
           body
         }
@@ -207,13 +216,17 @@ const IndexPage: React.FC<PageProps> = () => {
           >
           <Carousel>
             {data.allFile.nodes.map(({childMdx}: any) => {
+              const image = getImage(childMdx.frontmatter.image)
               return (
                 <Carousel.Item key={childMdx.frontmatter.id}>
                   <Testimonial
-                  image={<StaticImage src="https://placehold.co/128.png" alt="" height={128} layout="fixed"/>}
-                  contact={childMdx.frontmatter.contact}
-                  role={childMdx.frontmatter.role}
-                  company={childMdx.frontmatter.company}
+                    image={image 
+                      ? <GatsbyImage image={image} alt={childMdx.frontmatter.imageAlt}/>
+                      : <StaticImage src="https://placehold.co/128/png?text=?" alt="" height={128}/>
+                    }
+                    contact={childMdx.frontmatter.contact}
+                    role={childMdx.frontmatter.role}
+                    company={childMdx.frontmatter.company}
                   >
                     <MDXRenderer>
                       {childMdx.body}
