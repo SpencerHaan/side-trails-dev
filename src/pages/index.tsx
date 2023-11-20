@@ -1,5 +1,5 @@
 import * as React from "react"
-import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby"
+import { useStaticQuery, type HeadFC, type PageProps, graphql, Link } from "gatsby"
 import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
 import Section from "../components/Section"
 import Testimonial from "../components/Testimonial"
@@ -21,6 +21,8 @@ import Button from "../components/Button"
 import MDXRenderer from "../components/MDXRenderer"
 import Icon from "../components/Icon"
 import { LayoutContext } from "../components/Layout"
+import { navigate } from "@reach/router"
+import Collapsible from "../components/Collapsible"
 
 interface ProcessTileProperties {
   image: React.ReactElement
@@ -142,7 +144,9 @@ const IndexPage: React.FC<PageProps> = () => {
                 </div>
                 <p className="text-base md:text-lg lg:text-xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
               </div>
-              <Button label="Let's Chat"/>
+              <Link to="#contact">
+                <Button label="Let's Chat" />
+              </Link>
             </div>
           </div>
         </div>
@@ -238,6 +242,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </Carousel>
         </Section.Item>
         <Section.Item
+          anchor="contact"
           title="Let's Chat"
           subtitle="Need help with a project? Send me some details."
         >
