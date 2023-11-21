@@ -3,8 +3,8 @@ import Content from './Content'
 
 interface ItemProperties {
   anchor?: string
-  title: string
-  subtitle?: string
+  title: string | React.ReactElement | React.ReactElement[]
+  subtitle?: string | React.ReactElement | React.ReactElement[]
   children?: React.ReactElement | React.ReactElement[]
 }
 
@@ -44,8 +44,8 @@ const List = ({children}: ListProperties) => {
 
 interface SectionProperties {
   anchor?: string
-  title: string
-  subtitle?: string
+  title: string | React.ReactElement | React.ReactElement[]
+  subtitle?: string | React.ReactElement | React.ReactElement[]
   children?: React.ReactElement | React.ReactElement[]
 }
 

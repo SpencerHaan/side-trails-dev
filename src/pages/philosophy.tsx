@@ -31,7 +31,7 @@ const PrincipleItem = ({ordinal, summary, children}: PrincipleItemProperties) =>
 
 const Philosophy: React.FC<PageProps> = () => {
   return (
-    <Section title="Philosophy" subtitle='"Plans are worthless, but planning is everything." - Dwight D. Eisenhower'>
+    <Section title="Philosophy" subtitle={[<p>"Plans are worthless, but planning is everything."</p>, <p>Dwight D. Eisenhower</p>]}>
       <p className="text-justify">
         The <a href="https://agilemanifesto.org/" target="_blank" className="text-lion">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry, such as Martin Fowler. This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these existing processes misunderstand the intention behind the manifesto. Instead, I choose to follow these principles directly.
       </p>
