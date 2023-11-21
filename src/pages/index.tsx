@@ -77,13 +77,13 @@ const IndexPage: React.FC<PageProps> = () => {
       <div ref={heroRef}>
         <Overlay>
           <StaticImage src="../images/hero.jpeg" alt="Overhead image of a trail through a forest" className="w-full h-full"/>
-          <div className="relative flex flex-col items-center justify-center p-2 gap-8 xl:gap-12 pt-20 md:pt-24 xl:pt-36 pb-8 md:pb-12 xl:pb-14">
-            <div className="flex flex-col text-center gap-4">
-              <div className="uppercase text-white/90">
-                <p className="text-3xl md:text-4xl lg:text-5xl">Side Trails</p>
-                <p className="text-xl md:text-2xl lg:text-3xl">Software Development</p>
+          <div className="relative flex flex-col items-center justify-center p-2 gap-8 xl:gap-12 3xl:gap-24 pt-20 md:pt-24 xl:pt-36 3xl:pt-48 pb-8 md:pb-12 xl:pb-14">
+            <div className="flex flex-col text-center gap-4 3xl:gap-8">
+              <div className="flex flex-col 3xl:gap-4 uppercase text-white/90">
+                <p className="text-3xl md:text-4xl lg:text-5xl 3xl:text-7xl">Side Trails</p>
+                <p className="text-xl md:text-2xl lg:text-3xl 3xl:text-5xl">Software Development</p>
               </div>
-              <p className="text-base md:text-lg lg:text-xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
+              <p className="text-base md:text-lg lg:text-xl 3xl:text-3xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
             </div>
             <Link to="#contact">
               <Button label="Let's Chat" />

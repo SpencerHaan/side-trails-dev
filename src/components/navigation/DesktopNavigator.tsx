@@ -25,14 +25,16 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
   return (
     <nav className={overlay ? "backdrop-blur-[1px]" : "bg-white"}>
       <Content>
-        <div className="flex justify-between items-center h-20 p-4">
-          <Link to="/">
-            {overlay
-              ? <StaticImage src="../../images/logo_white.png" alt="" height={48} layout="fixed" placeholder="none"/>
-              : <StaticImage src="../../images/logo.png" alt="" height={48} layout="fixed" placeholder="none"/>
-            }
-          </Link>
-          <div className={`flex text-lg lg:text-xl ${overlay ? "text-white" : null}`}>
+        <div className="flex justify-between items-center p-4">
+          <div className="w-16 3xl:w-20">
+            <Link to="/">
+                { overlay
+                  ? <StaticImage src="../../images/logo_white.png" alt="" placeholder="blurred"/>
+                  : <StaticImage src="../../images/logo.png" alt="" placeholder="blurred"/>
+                }
+            </Link>
+          </div>
+          <div className={`flex text-lg lg:text-xl 3xl:text-2xl ${overlay ? "text-white" : null}`}>
             {menuLinks
               .filter((item: {link: string}) => item.link != "/")
               .map((item: {name: string, link: string}) => {
