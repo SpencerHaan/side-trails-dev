@@ -56,8 +56,8 @@ const MobileNavigator = ({ overlay }: MobileNavigatorProperties) => {
             }
           </div>
           <Collapsible expanded={expanded}>
-            <div className="flex flex-col justify-between min-h-screen p-4 pt-20 bg-white">
-              <div className="flex flex-col text-3xl gap-6">
+            <div className="flex flex-col landscape:flex-row justify-between min-h-screen p-4 pt-20 bg-white">
+              <div className="flex flex-col text-3xl gap-4">
                 {menuLinks.map((item: { name: string, link: string }) =>
                   <div key={item.name}>
                     <Link to={item.link} onClick={() => setExpanded(false)}>
@@ -66,17 +66,22 @@ const MobileNavigator = ({ overlay }: MobileNavigatorProperties) => {
                   </div>
                 )}
               </div>
-              <div className="flex flex-col gap-2">
-                <div className="text-2xl text-zinc-400">
-                  Social Media
-                </div>
-                <hr/>
-                <div className="flex justify-between">
-                  <div className="flex flex-row gap-4">
-                    <div><MediaLinks.LinkedIn size={36}/></div>
-                    <div><MediaLinks.GitHub size={36}/></div>
+              <div className="flex gap-2">
+                <div className="w-[1px] min-h-full bg-zinc-300 portrait:hidden"/>
+                <div className="flex flex-col gap-2 w-full">
+                  <div className="min-w-full h-[1px] bg-zinc-300 landscape:hidden"/>
+                  <div className="text-2xl text-zinc-400">
+                    Social Media
                   </div>
-                  <div><MediaLinks.Source size={36}/></div>
+                  <div className="flex landscape:flex-col justify-between items-end h-full">
+                    <div className="flex flex-row flex-1 gap-4">
+                      <MediaLinks.LinkedIn size={36}/>
+                      <MediaLinks.GitHub size={36}/>
+                    </div>
+                    <div>
+                      <MediaLinks.Source size={36}/>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
