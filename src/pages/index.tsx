@@ -1,10 +1,7 @@
 import * as React from "react"
-import { useStaticQuery, type HeadFC, type PageProps, graphql, Link } from "gatsby"
-import { GatsbyImage, StaticImage, getImage } from "gatsby-plugin-image"
+import { type HeadFC, type PageProps, Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import Section from "../components/Section"
-import Testimonial from "../components/Testimonial"
-import Carousel from "../components/Carousel"
-import ListCard from "../components/ListCard"
 import {
   FaMicroscope as AnalysisIcon,
   FaCompassDrafting as ArchitectureIcon,
@@ -18,10 +15,10 @@ import {
 import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
 import Button from "../components/Button"
-import MDXRenderer from "../components/MDXRenderer"
 import Icon from "../components/Icon"
 import { LayoutContext } from "../components/Layout"
 import ProcessSection from "../sections/ProcessSection"
+import TestimonialSection from "../sections/TestimonialSection"
 
 interface ExpertiseProperties {
   title: string
@@ -59,34 +56,6 @@ const ExpertiseTile = ({title, iconType, iconOrientation, children}: ExpertisePr
 }
 
 const IndexPage: React.FC<PageProps> = () => {
-  const data = useStaticQuery(graphql`
-  query TestimonialsQuery {
-    allFile(
-      filter: {sourceInstanceName: {eq: "testimonials"}, extension: {eq: "mdx"}}
-      sort: {name: ASC}
-    ) {
-      nodes {
-        name
-        childMdx {
-          frontmatter {
-            id
-            company
-            contact
-            role
-            imageAlt
-            image {
-              childImageSharp {
-                gatsbyImageData(height: 128)
-              }
-            }
-          }
-          body
-        }
-      }
-    }
-  }
-  `)
-  
   const heroRef = React.useRef(null)
   const layoutOptions = React.useContext(LayoutContext)
   React.useLayoutEffect(() => {
@@ -150,33 +119,7 @@ const IndexPage: React.FC<PageProps> = () => {
             </ExpertiseTile>
           </div>
         </Section.Item>
-        <Section.Item
-          title="What Clients Think"
-          subtitle="And colleagues, too!"
-          >
-          <Carousel>
-            {data.allFile.nodes.map(({childMdx}: any) => {
-              const image = getImage(childMdx.frontmatter.image)
-              return (
-                <Carousel.Item key={childMdx.frontmatter.id}>
-                  <Testimonial
-                    image={image 
-                      ? <GatsbyImage image={image} alt={childMdx.frontmatter.imageAlt}/>
-                      : <StaticImage src="https://placehold.co/128/png?text=?" alt="" height={128}/>
-                    }
-                    contact={childMdx.frontmatter.contact}
-                    role={childMdx.frontmatter.role}
-                    company={childMdx.frontmatter.company}
-                  >
-                    <MDXRenderer>
-                      {childMdx.body}
-                    </MDXRenderer>
-                  </Testimonial>
-                </Carousel.Item>
-              )
-            })}
-          </Carousel>
-        </Section.Item>
+        <TestimonialSection />
         <Section.Item
           anchor="contact"
           title="Let's Chat"
