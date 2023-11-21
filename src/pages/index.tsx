@@ -19,6 +19,7 @@ import Icon from "../components/Icon"
 import { LayoutContext } from "../components/Layout"
 import ProcessSection from "../sections/ProcessSection"
 import TestimonialSection from "../sections/TestimonialSection"
+import Overlay from "../components/Overlay"
 
 interface ExpertiseProperties {
   title: string
@@ -74,23 +75,21 @@ const IndexPage: React.FC<PageProps> = () => {
   return (
     <>
       <div ref={heroRef}>
-        <div className="grid">
-          <StaticImage src="../images/hero.jpeg" alt="" objectFit="cover" className="col-start-1 col-end-1 row-start-1 row-end-1"/>
-          <div className="col-start-1 col-end-1 row-start-1 row-end-1 relative">
-            <div className="flex flex-col items-center justify-center p-2 gap-8 xl:gap-12 pt-20 md:pt-24 xl:pt-36 pb-8 md:pb-12 xl:pb-14">
-              <div className="flex flex-col text-center gap-4">
-                <div className="uppercase text-white/90">
-                  <p className="text-3xl md:text-4xl lg:text-5xl">Side Trails</p>
-                  <p className="text-xl md:text-2xl lg:text-3xl">Software Development</p>
-                </div>
-                <p className="text-base md:text-lg lg:text-xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
+        <Overlay>
+          <StaticImage src="../images/hero.jpeg" alt="Overhead image of a trail through a forest" className="w-full h-full"/>
+          <div className="relative flex flex-col items-center justify-center p-2 gap-8 xl:gap-12 pt-20 md:pt-24 xl:pt-36 pb-8 md:pb-12 xl:pb-14">
+            <div className="flex flex-col text-center gap-4">
+              <div className="uppercase text-white/90">
+                <p className="text-3xl md:text-4xl lg:text-5xl">Side Trails</p>
+                <p className="text-xl md:text-2xl lg:text-3xl">Software Development</p>
               </div>
-              <Link to="#contact">
-                <Button label="Let's Chat" />
-              </Link>
+              <p className="text-base md:text-lg lg:text-xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
             </div>
+            <Link to="#contact">
+              <Button label="Let's Chat" />
+            </Link>
           </div>
-        </div>
+        </Overlay>
       </div>
       <Section.List>
         <ProcessSection />

@@ -7,6 +7,7 @@ import {
 } from "react-icons/md";
 import MediaLinks from "./MediaLinks";
 import Collapsible from "../Collapsible";
+import Overlay from "../Overlay";
 
 const menuLinksQuery = graphql`
 query MenuLinks {
@@ -24,7 +25,7 @@ interface MobileNavigatorProperties {
   overlay?: boolean
 }
 
-const MobileNavigator = ({overlay}: MobileNavigatorProperties) => {
+const MobileNavigator = ({ overlay }: MobileNavigatorProperties) => {
   const {site: {siteMetadata: {menuLinks}}} = useStaticQuery(menuLinksQuery)
   const [expanded, setExpanded] = React.useState(false)
 
@@ -38,22 +39,22 @@ const MobileNavigator = ({overlay}: MobileNavigatorProperties) => {
   return (
     <nav>
       <div className={`grid ${overlay && !expanded ? "backdrop-blur-[1px]" : "bg-white"}`}>
-        <div className="flex items-center justify-center h-12 p-2 col-start-1 col-end-1 row-start-1 row-end-1">
-          {overlay && !expanded
-            ? <StaticImage src="../../images/logo_white.png" alt="" height={32} layout="fixed" placeholder="none"/>
-            : <StaticImage src="../../images/logo.png" alt="" height={32} layout="fixed" placeholder="none"/>
-          }
-        </div>
-        <div
-          onClick={() => setExpanded(!expanded)}
-          className={`absolute flex flex-col justify-center h-12 p-2 col-start-1 col-end-1 row-start-1 row-end-1`}
-        >
-          {expanded
-            ? <CloseIcon size={32}/>
-            : <MenuIcon size={32} className={`${overlay ? "text-white" : null}`}/> 
-          }
-        </div>
-        <div className="col-start-1 col-end-1 row-start-1 row-end-1">
+        <Overlay>
+          <div className="flex items-center justify-center h-12 p-2">
+            { overlay && !expanded
+              ? <StaticImage src="../../images/logo_white.png" alt="" height={32} layout="fixed" placeholder="blurred"/>
+              : <StaticImage src="../../images/logo.png" alt="" height={32} layout="fixed" placeholder="blurred"/>
+            }
+          </div>
+          <div
+            onClick={() => setExpanded(!expanded)}
+            className={`absolute flex flex-col justify-center h-12 p-2`}
+          >
+            { expanded
+              ? <CloseIcon size={32}/>
+              : <MenuIcon size={32} className={`${overlay ? "text-white" : null}`}/> 
+            }
+          </div>
           <Collapsible expanded={expanded}>
             <div className="flex flex-col justify-between min-h-screen p-4 pt-20 bg-white">
               <div className="flex flex-col text-3xl gap-6">
@@ -80,7 +81,7 @@ const MobileNavigator = ({overlay}: MobileNavigatorProperties) => {
               </div>
             </div>
           </Collapsible>
-        </div>
+        </Overlay>
       </div>
     </nav>
   )
