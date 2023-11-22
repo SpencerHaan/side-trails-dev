@@ -26,11 +26,11 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
     <nav className={overlay ? "backdrop-blur-[1px]" : "bg-white"}>
       <Content>
         <div className="flex justify-between items-center p-4">
-          <div className="w-16 3xl:w-20">
+          <div className="w-12 lg:w-16 3xl:w-20">
             <Link to="/">
                 { overlay
-                  ? <StaticImage src="../../images/logo_white.png" alt="" placeholder="blurred"/>
-                  : <StaticImage src="../../images/logo.png" alt="" placeholder="blurred"/>
+                  ? <StaticImage src="../../images/logo_white.png" alt="Side Trails logo" placeholder="blurred"/>
+                  : <StaticImage src="../../images/logo.png" alt="Side Trails logo" placeholder="blurred"/>
                 }
             </Link>
           </div>
@@ -41,7 +41,7 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
                 return (
                   <Link
                     to={item.link}
-                    className="w-36 text-center hover:font-bold"
+                    className="w-32 lg:w-36 text-center hover:font-bold"
                   >
                     {item.name}
                   </Link>

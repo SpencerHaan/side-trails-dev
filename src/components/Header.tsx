@@ -2,7 +2,6 @@ import * as React from "react"
 import { useMediaQuery } from "react-responsive"
 import DesktopNavigator from "./navigation/DesktopNavigator"
 import MobileNavigator from "./navigation/MobileNavigator"
-import TabletNavigator from "./navigation/TabletNavigator"
 
 const screens = {
   "sm": "640px",
@@ -45,7 +44,7 @@ const Header = ({ overlay }: HeaderProps) => {
 
   React.useEffect(() => setNavigatorHeight(navigatorRef.current?.offsetHeight || 0), [navigatorRef])
   
-  const isDesktop = useMediaQuery({ query: `(min-width: ${screens["xl"]})` })
+  const isDesktop = useMediaQuery({ query: `(min-width: ${screens["md"]})` })
   const isMobile = useMediaQuery({ query: `(max-width: ${screens["md"]})` })
 
   return (
@@ -56,7 +55,7 @@ const Header = ({ overlay }: HeaderProps) => {
           ? <DesktopNavigator overlay={overlay && !isScrolled}/>
           : isMobile
           ? <MobileNavigator  overlay={overlay && !isScrolled}/>
-          : <TabletNavigator  overlay={overlay && !isScrolled}/>
+          : null
         }
       </div>
     </>
