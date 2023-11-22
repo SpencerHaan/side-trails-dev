@@ -19,7 +19,7 @@ interface RowProperties extends ItemProperties {
 
 const Row = ({ expanded, onClick, summary, children }: RowProperties) => {
   return (
-    <div className="flex flex-col gap-3 md:gap-4">
+    <div className="flex flex-col">
       <div className="flex flex-row gap-2" onClick={onClick}>
         <div className="flex-1 md:text-xl">
           {summary}
@@ -59,7 +59,7 @@ const Accordion = ({ children }: AccordionProperties) => {
   }
 
   return (
-    <div className="flex flex-col p-2 md:p-4">
+    <div className="flex flex-col p-2 md:p-4 gap-1">
       { children ? children.map((child, i) => <Row key={i} expanded={isExpanded(i)} onClick={() => clickHandler(i)} {...child.props}/>) : null }
     </div>
   )

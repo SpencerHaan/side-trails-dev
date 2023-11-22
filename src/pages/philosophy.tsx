@@ -1,28 +1,64 @@
 import * as React from "react"
-import { type HeadFC, type PageProps } from "gatsby"
+import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby"
 import Section from "../components/Section"
 import Card from "../components/Card"
 import Accordion from "../components/Accordion"
+import MDXRenderer from "../components/MDXRenderer"
 
-interface PrincipleSummaryProperties {
-  ordinal: number
-  value: string
-}
-
-const PrincipleSummary = ({ ordinal, value}: PrincipleSummaryProperties) => {
+const PrincipleSummary = ({ ordinal, value}: { ordinal: string, value: string }) => {
   return (
     <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
-      <div className="flex flex-col text-center justify-center w-8 h-8 md:w-10 md:h-10 p-2 rounded-xl md:rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
+      <div className="flex flex-col text-center justify-center w-8 h-8 lg:w-10 lg:h-10 p-2 rounded-xl lg:rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
         {ordinal}
       </div>
-      <div className="flex flex-col flex-1 justify-center">
+      <div className="flex flex-col flex-1 justify-center text-sm md:text-lg xl:text-xl text-center md:text-left">
         {value}
       </div>
     </div>
   )
 }
 
+const PrincipleBody = ({ ideas, value }: { ideas: string[], value: string }) => {
+  return (
+    <>
+      <div className="flex flex-col gap-4">
+        <div>
+          <div className="text-base lg:text-lg pb-2">
+            Core Ideas:
+          </div>
+          <ul className="pl-6 list-disc">
+            {ideas.map((idea, i) => (
+              <li key={i}>{idea}</li>
+            ))}
+          </ul>
+        </div>
+        <MDXRenderer>{value}</MDXRenderer>
+      </div>
+    </>
+  )
+}
+
 const Philosophy: React.FC<PageProps> = () => {
+  const data = useStaticQuery(graphql`
+  query PrinciplesQuery {
+    allFile(
+      filter: {sourceInstanceName: {eq: "principles"}}
+      sort: {childMdx: {frontmatter: {ordinal: ASC}}}
+    ) {
+      nodes {
+        childMdx {
+          frontmatter {
+            ordinal
+            principle
+            ideas
+          }
+          body
+        }
+      }
+    }
+  }`
+  )
+
   return (
     <Section title="Philosophy" subtitle={[<p>"Plans are worthless, but planning is everything."</p>, <p>Dwight D. Eisenhower</p>]}>
       <p className="text-justify">
@@ -30,45 +66,21 @@ const Philosophy: React.FC<PageProps> = () => {
       </p>
       <Card>
         <div className="text-center text-xl md:text-3xl 3xl:text-4xl">
-          12 Principles
+          Principles
         </div>
         <Accordion>
-          <Accordion.Item summary={<PrincipleSummary ordinal={1} value="Customer satisfaction through valuable software"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={2} value="Changing requirements are inevitable, welcome them"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={3} value="Continuous delivery of working software, as quickly as possible"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={4} value="Daily collaboration with the client is key"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={5} value="Successful projects involve trusted and motivated individuals"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={6} value="Communication is most effective face-to-face"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={7} value="Working software is the primary measure of progress"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={8} value="Sustainable development can be maintained indefinitely"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={9} value="Enhance agility through technical excellence"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={10} value="Keep it simple"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={11} value="Self-organizing teams lead to the best architectures, requirements, and designs"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
-          <Accordion.Item summary={<PrincipleSummary ordinal={12} value="Reflect regularly, and adjust accordingly"/>}>
-            Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </Accordion.Item>
+          { data.allFile.nodes.map(({ childMdx }: any) => {
+            const { body, frontmatter } = childMdx
+            const { ordinal, principle, ideas } = frontmatter
+            return (
+              <Accordion.Item
+                key={ordinal}
+                summary={<PrincipleSummary ordinal={ordinal} value={principle}/>}
+              >
+                <PrincipleBody ideas={ideas} value={body}/>
+              </Accordion.Item>
+            )
+          })}
         </Accordion>
       </Card>
     </Section>

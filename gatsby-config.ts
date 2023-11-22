@@ -43,6 +43,14 @@ const config: GatsbyConfig = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        "name": "principles",
+        "path": `${__dirname}/content/principles`
+      },
+      __key: "principles"
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
         "name": "testimonials",
         "path": `${__dirname}/content/testimonials`
       },
