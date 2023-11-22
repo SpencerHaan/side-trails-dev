@@ -4,28 +4,21 @@ import Section from "../components/Section"
 import Card from "../components/Card"
 import Accordion from "../components/Accordion"
 
-interface PrincipleItemProperties {
+interface PrincipleSummaryProperties {
   ordinal: number
-  summary: string
-  children?: string | React.ReactElement | React.ReactElement[]
+  value: string
 }
 
-const PrincipleItem = ({ordinal, summary, children}: PrincipleItemProperties) => {
+const PrincipleSummary = ({ ordinal, value}: PrincipleSummaryProperties) => {
   return (
-    <li>
-      <Accordion summary={
-        <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
-          <div className="flex flex-col text-center justify-center w-8 h-8 md:w-10 md:h-10 p-2 rounded-xl md:rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
-            {ordinal}
-          </div>
-          <div className="flex flex-col flex-1 justify-center">
-            {summary}
-          </div>
-        </div>
-      }>
-        {children}
-      </Accordion>
-    </li>
+    <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
+      <div className="flex flex-col text-center justify-center w-8 h-8 md:w-10 md:h-10 p-2 rounded-xl md:rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
+        {ordinal}
+      </div>
+      <div className="flex flex-col flex-1 justify-center">
+        {value}
+      </div>
+    </div>
   )
 }
 
@@ -39,44 +32,44 @@ const Philosophy: React.FC<PageProps> = () => {
         <div className="text-center text-xl md:text-3xl 3xl:text-4xl">
           12 Principles
         </div>
-        <ol className="flex flex-col p-2 md:p-4">
-          <PrincipleItem ordinal={1} summary="Customer satisfaction through valuable software">
+        <Accordion>
+          <Accordion.Item summary={<PrincipleSummary ordinal={1} value="Customer satisfaction through valuable software"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={2} summary="Changing requirements are inevitable, welcome them">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={2} value="Changing requirements are inevitable, welcome them"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={3} summary="Continuous delivery of working software, as quickly as possible">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={3} value="Continuous delivery of working software, as quickly as possible"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={4} summary="Daily collaboration with the client is key">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={4} value="Daily collaboration with the client is key"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={5} summary="Successful projects involve trusted and motivated individuals">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={5} value="Successful projects involve trusted and motivated individuals"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={6} summary="Communication is most effective face-to-face">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={6} value="Communication is most effective face-to-face"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={7} summary="Working software is the primary measure of progress">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={7} value="Working software is the primary measure of progress"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={8} summary="Sustainable development can be maintained indefinitely">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={8} value="Sustainable development can be maintained indefinitely"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={9} summary="Enhance agility through technical excellence">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={9} value="Enhance agility through technical excellence"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={10} summary="Keep it simple">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={10} value="Keep it simple"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={11} summary="Self-organizing teams lead to the best architectures, requirements, and designs">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={11} value="Self-organizing teams lead to the best architectures, requirements, and designs"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-          <PrincipleItem ordinal={12} summary="Reflect regularly, and adjust accordingly">
+          </Accordion.Item>
+          <Accordion.Item summary={<PrincipleSummary ordinal={12} value="Reflect regularly, and adjust accordingly"/>}>
             Tincidunt nunc pulvinar sapien et ligula ullamcorper malesuada proin libero nunc consequat interdum varius sit amet mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan tortor posuere ac ut consequat semper viverra nam libero justo laoreet sit amet cursus sit amet dictum sit amet justo donec enim diam vulputate ut
-          </PrincipleItem>
-        </ol>
+          </Accordion.Item>
+        </Accordion>
       </Card>
     </Section>
   )

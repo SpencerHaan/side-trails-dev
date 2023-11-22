@@ -67,7 +67,7 @@ const Collapsible = ({ expanded: expand = false, onChange = () => {}, children }
     <div
       ref={contentRef}
       onTransitionEnd={transitionEndHandler}
-      className="overflow-hidden transition-all duration-200 ease-in-out"
+      className="overflow-hidden transition-all duration-500 ease-in-out"
       style={{maxHeight: `${contentHeight}px`}}
       hidden
     >
