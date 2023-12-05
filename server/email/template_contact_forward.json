@@ -1,0 +1,8 @@
+{
+  "Template": {
+    "TemplateName": "ContactForward",
+    "SubjectPart": "Message from {{contactName}}!",
+    "TextPart": "Details\r\n\r\nName: {{contactName}}\r\nCompany: {{contactCompany}}\r\nEmail: {{contactEmail}}\r\nBudget: {{contactBudget}}\r\n\r\nDescription{{contactDescription}}",
+    "HtmlPart": "<h3>Details</h3><p><b>Name:</b> {{contactName}}</p><p><b>Company:</b> {{contactCompany}}</p><p><b>Email:</b> {{contactEmail}}</p><p><b>Budget:</b> {{contactBudget}}</p><h3>Description</h3><p>{{contactDescription}}</p>"
+  }
+}
