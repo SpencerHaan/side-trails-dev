@@ -31,5 +31,7 @@ export default {
       "base": ["Montserrat", "sans-serif"],
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 } satisfies Config
