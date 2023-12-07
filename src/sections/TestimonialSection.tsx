@@ -36,10 +36,7 @@ const TestimonialSection = () => {
   `)
   
   return (
-    <Section.Item
-    title="What Clients Think"
-    subtitle="And colleagues, too!"
-    >
+    <Section.Item heading={{ title: "What Clients Think", subtitle: "And colleagues, too!" }}>
       <Carousel>
         {data.allFile.nodes.map(({childMdx}: any) => {
           const image = getImage(childMdx.frontmatter.image)

@@ -20,10 +20,7 @@ const Tag = ({text}: TagProperties) => {
 const ProjectPage: React.FC<PageProps> = () => {
   return (
     <Section.List>
-      <Section.Item
-        title="Project Title"
-        subtitle='Company Inc.'
-      >
+      <Section.Item heading={{ title: "Project Title", subtitle: 'Company Inc.' }}>
         <div className="flex gap-4 justify-center">
           <Tag text="Tag 1"/>
           <Tag text="Tag 2"/>
@@ -49,7 +46,7 @@ const ProjectPage: React.FC<PageProps> = () => {
           </div>
         </Card>
       </Section.Item>
-      <Section.Item title="Deeper Dive">
+      <Section.Item heading={{ title: "Deeper Dive" }}>
         <div className="flex flex-col gap-4">
           <p className="text-xl 3xl:text-2xl text-zinc-500">
             Company Inc.
@@ -78,7 +75,7 @@ const ProjectPage: React.FC<PageProps> = () => {
           </div>
         </div>
       </Section.Item>
-      <Section.Item title="Testimonial">
+      <Section.Item heading={{ title: "Testimonial" }}>
         <Testimonial contact="John Smith" role="Title">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies.
         </Testimonial>

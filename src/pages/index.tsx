@@ -94,8 +94,7 @@ const IndexPage: React.FC<PageProps> = () => {
       <Section.List>
         <ProcessSection />
         <Section.Item
-          title="Expertise" 
-          subtitle="Some of the things I can do."
+          heading={{ title: "Expertise", subtitle:"Some of the things I can do." }}
         >
           <div className="flex flex-wrap justify-center gap-4">
             <ExpertiseTile title="System Anaylsis" iconType={AnalysisIcon} iconOrientation={HorizontalOrientation.Left}>
@@ -121,8 +120,7 @@ const IndexPage: React.FC<PageProps> = () => {
         <TestimonialSection />
         <Section.Item
           anchor="contact"
-          title="Let's Chat"
-          subtitle="Need help with a project? Send me some details."
+          heading={{ title: "Let's Chat", subtitle: "Need help with a project? Send me some details." }}
         >
           <div className="space-y-8">
             <form className="flex flex-wrap -m-2 text-sm xl:text-base">

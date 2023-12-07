@@ -1,23 +1,33 @@
 import * as React from 'react'
 import Content from './Content'
 
+interface Heading {
+  title: string
+  subtitle?: string | string[]
+}
+
 interface ItemProperties {
   anchor?: string
-  title: string | React.ReactElement | React.ReactElement[]
-  subtitle?: string | React.ReactElement | React.ReactElement[]
+  heading?: Heading
   children?: React.ReactElement | React.ReactElement[]
 }
 
-const Item = ({anchor, title, subtitle, children}: ItemProperties) => {
+const Item = ({anchor, heading, children}: ItemProperties) => {
   return (
     <div id={anchor}>
       <Content>
         <div className="flex flex-col gap-3 md:gap-5">
-          <div className="text-center text-2xl md:text-3xl xl:text-4xl 3xl:text-5xl">
-            {title}
-          </div>
-          { subtitle
-            ? <div className="pb-2 xl:pb-3 3xl:pb-4 text-xs md:text-base xl:text-lg 3xl:text-xl text-center text-zinc-400">{subtitle}</div>
+          {heading?.title
+            ? <div className="text-center text-2xl md:text-3xl xl:text-4xl 3xl:text-5xl">{heading.title}</div>
+            : null
+          }
+          { heading?.subtitle
+            ? <div className="pb-2 xl:pb-3 3xl:pb-4 text-xs md:text-base xl:text-lg 3xl:text-xl text-center text-zinc-400">
+                { Array.isArray(heading.subtitle)
+                    ? heading.subtitle.map((s, i) => <p key={i}>{s}</p>)
+                    : heading.subtitle
+                }
+              </div>
             : null
           }
           {children}
@@ -44,15 +54,14 @@ const List = ({children}: ListProperties) => {
 
 interface SectionProperties {
   anchor?: string
-  title: string | React.ReactElement | React.ReactElement[]
-  subtitle?: string | React.ReactElement | React.ReactElement[]
+  heading?: Heading
   children?: React.ReactElement | React.ReactElement[]
 }
 
-const Section = ({anchor, title, subtitle, children}: SectionProperties) => {
+const Section = ({anchor, heading, children}: SectionProperties) => {
   return (
     <List>
-      <Item anchor={anchor} title={title} subtitle={subtitle}>
+      <Item anchor={anchor} heading={heading}>
         {children}
       </Item>        
     </List>
