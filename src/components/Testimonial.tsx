@@ -23,7 +23,7 @@ const Testimonial = ({image, contact, role, company, children}: TestimonialPrope
           <LeftQuote className="text-5xl md:text-6xl lg:text-7xl"/>
           <RightQuote className="text-5xl md:text-6xl lg:text-7xl"/>
         </div>
-        <div className="space-y-4 text-center text-sm md:text-base xl:text-lg 3xl:text-xl">
+        <div className="prose prose-sm text-center">
           {children}
         </div>
       </Overlay>

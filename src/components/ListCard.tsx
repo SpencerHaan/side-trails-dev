@@ -10,10 +10,7 @@ export interface ListCardProperties {
 
 const ListCard = ({title, children}: ListCardProperties) => {
   return (
-    <Card>
-      <div className="text-center text-xl md:text-3xl 3xl:text-4xl pb-4 md:pb-0">
-        {title}
-      </div>
+    <Card heading={title}>
       <div className="flex flex-col gap-12 lg:gap-6">
         {children}
       </div>

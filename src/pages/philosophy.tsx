@@ -5,7 +5,7 @@ import Card from "../components/Card"
 import Accordion from "../components/Accordion"
 import MDXRenderer from "../components/MDXRenderer"
 
-const PrincipleSummary = ({ ordinal, value}: { ordinal: string, value: string }) => {
+const PrincipleSummary = ({ ordinal, value}: { ordinal: number, value: string }) => {
   return (
     <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
       <div className="flex flex-col text-center justify-center w-8 h-8 lg:w-10 lg:h-10 p-2 rounded-xl lg:rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
@@ -18,39 +18,18 @@ const PrincipleSummary = ({ ordinal, value}: { ordinal: string, value: string })
   )
 }
 
-const PrincipleBody = ({ ideas, value }: { ideas: string[], value: string }) => {
-  return (
-    <>
-      <div className="flex flex-col gap-4">
-        <div>
-          <div className="text-base lg:text-lg pb-2">
-            Core Ideas:
-          </div>
-          <ul className="pl-6 list-disc">
-            {ideas.map((idea, i) => (
-              <li key={i}>{idea}</li>
-            ))}
-          </ul>
-        </div>
-        <MDXRenderer>{value}</MDXRenderer>
-      </div>
-    </>
-  )
-}
-
 const Philosophy: React.FC<PageProps> = () => {
   const data = useStaticQuery(graphql`
-  query PrinciplesQuery {
+  query {
     allFile(
       filter: {sourceInstanceName: {eq: "principles"}}
-      sort: {childMdx: {frontmatter: {ordinal: ASC}}}
+      sort: {childMdx: {frontmatter: {slug: ASC}}}
     ) {
       nodes {
         childMdx {
+          id
           frontmatter {
-            ordinal
-            principle
-            ideas
+            title
           }
           body
         }
@@ -61,23 +40,29 @@ const Philosophy: React.FC<PageProps> = () => {
 
   return (
     <Section heading={{ title: "Philosophy", subtitle: ["\"Plans are worthless, but planning is everything.\"", "Dwight D. Eisenhower"] }}>
-      <p className="text-justify">
-        The <a href="https://agilemanifesto.org/" target="_blank" className="text-lion">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry, such as Martin Fowler. This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these existing processes misunderstand the intention behind the manifesto. Instead, I choose to follow these principles directly.
-      </p>
-      <Card>
-        <div className="text-center text-xl md:text-3xl 3xl:text-4xl">
-          Principles
-        </div>
+      <div className="prose prose-sm">
+        <p>
+          The <a href="https://agilemanifesto.org/" target="_blank">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry.
+        </p>
+        <p>
+          This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these processes misunderstand the intention behind the manifesto.
+        </p>
+        <p>
+          Instead, I choose to follow these principles directly.
+        </p>
+      </div>
+      <Card heading="Principles">
         <Accordion>
-          { data.allFile.nodes.map(({ childMdx }: any) => {
-            const { body, frontmatter } = childMdx
-            const { ordinal, principle, ideas } = frontmatter
+          { data.allFile.nodes.map(({ childMdx }: any, i: number) => {
+            const { id, body, frontmatter: { title } } = childMdx
             return (
               <Accordion.Item
-                key={ordinal}
-                summary={<PrincipleSummary ordinal={ordinal} value={principle}/>}
+                key={id}
+                summary={<PrincipleSummary ordinal={i + 1} value={title}/>}
               >
-                <PrincipleBody ideas={ideas} value={body}/>
+                <div className="prose prose-sm">
+                  <MDXRenderer>{body}</MDXRenderer>
+                </div>
               </Accordion.Item>
             )
           })}

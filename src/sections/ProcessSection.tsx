@@ -34,7 +34,7 @@ const ProcessTile = ({image, imageOrientation, title, text, subtext}: ProcessTil
 const ProcessSection = () => {
   return (
     <Section.Item heading={{ title: "Side Trailing", subtitle: "The Side Trails Software Development process." }}>
-      <div className="flex flex-col text-sm md:text-base xl:text-lg 3xl:text-xl gap-4">
+      <div className="prose prose-sm">
         <p>
           A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
           In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.

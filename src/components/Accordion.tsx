@@ -59,7 +59,7 @@ const Accordion = ({ children }: AccordionProperties) => {
   }
 
   return (
-    <div className="flex flex-col p-2 md:p-4 gap-1">
+    <div className="flex flex-col gap-1">
       { children ? children.map((child, i) => <Row key={i} expanded={isExpanded(i)} onClick={() => clickHandler(i)} {...child.props}/>) : null }
     </div>
   )
