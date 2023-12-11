@@ -11,6 +11,7 @@ interface Inputs {
 }
 
 const ContactForm = () => {
+  const [data, setData] = React.useState<Inputs>()
   const {
     register,
     handleSubmit,
@@ -19,13 +20,25 @@ const ContactForm = () => {
     }
   } = useForm<Inputs>()
 
-  const onSubmit = (data: Inputs) => {
-    console.log(data)
-  }
+  React.useEffect(() => {
+    const endpoint = `${process.env.API_URL}/contact`
+    console.log("Contact endpoint", endpoint)
+    if (data) {
+      fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+       },
+      })
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error))
+    }
+  }, [data])
 
   return (
     <div className="space-y-4">
-      <form id="contact-form" onSubmit={handleSubmit(onSubmit)} className="flex flex-wrap">
+      <form id="contact-form" onSubmit={handleSubmit(setData)} className="flex flex-wrap">
         <div className="w-full md:max-w-[50%] p-2">
           <input {...register("contactName", { required: true })} type="text" placeholder="Name" className={`w-full rounded-md ${errors.contactName ? "bg-red-100" : null} border-zinc-400 focus:ring-lion focus:border-lion`}/>
         </div>
