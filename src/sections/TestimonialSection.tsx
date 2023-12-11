@@ -45,7 +45,7 @@ const TestimonialSection = () => {
               <Testimonial
                 image={image 
                   ? <GatsbyImage image={image} alt={childMdx.frontmatter.imageAlt}/>
-                  : <StaticImage src="https://placehold.co/png?text=?" alt="Missing testimonial image"/>
+                  : <StaticImage src="https://placehold.co/500/png?text=?" alt="Missing testimonial image"/>
                 }
                 contact={childMdx.frontmatter.contact}
                 role={childMdx.frontmatter.role}
