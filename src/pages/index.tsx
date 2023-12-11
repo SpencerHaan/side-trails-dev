@@ -83,7 +83,7 @@ const IndexPage: React.FC<PageProps> = () => {
                 <p className="text-3xl md:text-4xl lg:text-5xl 2xl:text-6xl 3xl:text-7xl">Side Trails</p>
                 <p className="text-xl md:text-2xl lg:text-3xl 2xl:text-4xl 3xl:text-5xl">Software Development</p>
               </div>
-              <p className="text-base md:text-lg lg:text-xl 3xl:text-3xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
+              <p className="md:text-lg lg:text-xl 3xl:text-3xl text-zinc-200/90">Building + Rebuilding Software Systems</p>
             </div>
             <Link to="#contact">
               <Button label="Let's Chat" />
@@ -122,7 +122,7 @@ const IndexPage: React.FC<PageProps> = () => {
           anchor="contact"
           heading={{ title: "Let's Chat", subtitle: "Need help with a project? Send me some details." }}
         >
-          <div className="space-y-8">
+          <div className="space-y-4">
             <form className="flex flex-wrap -m-2 text-sm xl:text-base">
               <div className="w-full md:max-w-[50%] p-2">
                 <input type="text" placeholder="Name" name="contactName" className="w-full h-10 p-2 rounded-md"/>
