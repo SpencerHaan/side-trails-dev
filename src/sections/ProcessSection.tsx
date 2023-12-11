@@ -18,10 +18,10 @@ const ProcessTile = ({image, imageOrientation, title, text, subtext}: ProcessTil
       image={image}
       imageOrientation={imageOrientation}
     >
-      <div className="text-sm md:text-base xl:text-lg 3xl:text-xl text-center md:text-left text-zinc-400">
+      <div className="text-base md:text-lg xl:text-xl 3xl:text-2xl text-center md:text-left text-zinc-500">
         {title}
       </div>
-      <div className="text-base md:text-lg xl:text-xl 3xl:text-2xl text-center md:text-left">
+      <div className="text-sm md:text-base xl:text-lg 3xl:text-xl text-center md:text-left">
         {text}
       </div>
       <div className="text-xs md:text-sm xl:text-base 3xl:text-lg text-zinc-400">
@@ -34,7 +34,7 @@ const ProcessTile = ({image, imageOrientation, title, text, subtext}: ProcessTil
 const ProcessSection = () => {
   return (
     <Section.Item heading={{ title: "Side Trailing", subtitle: "The Side Trails Software Development process." }}>
-      <div className="prose prose-sm">
+      <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg">
         <p>
           A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
           In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.

@@ -41,10 +41,12 @@ const Row = ({ expanded, onClick, summary, children }: RowProperties) => {
 }
 
 interface AccordionProperties {
-  children?: React.ReactElement<ItemProperties>[]
+  children?: React.ReactElement<ItemProperties>| React.ReactElement<ItemProperties>[]
 }
 
-const Accordion = ({ children }: AccordionProperties) => {
+const Accordion = ({ children = [] }: AccordionProperties) => {
+  children = Array.isArray(children) ? children : [children]
+  
   const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null)
 
   const isExpanded = (index: number) => {
@@ -57,10 +59,9 @@ const Accordion = ({ children }: AccordionProperties) => {
       setExpandedIndex(index)
     }
   }
-
   return (
     <div className="flex flex-col gap-1">
-      { children ? children.map((child, i) => <Row key={i} expanded={isExpanded(i)} onClick={() => clickHandler(i)} {...child.props}/>) : null }
+      {children.map((child, i) => <Row key={i} expanded={isExpanded(i)} onClick={() => clickHandler(i)} {...child.props}/>)}
     </div>
   )
 }

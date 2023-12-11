@@ -40,7 +40,7 @@ const Philosophy: React.FC<PageProps> = () => {
 
   return (
     <Section heading={{ title: "Philosophy", subtitle: ["\"Plans are worthless, but planning is everything.\"", "Dwight D. Eisenhower"] }}>
-      <div className="prose prose-sm">
+      <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg">
         <p>
           The <a href="https://agilemanifesto.org/" target="_blank">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry.
         </p>
@@ -60,7 +60,7 @@ const Philosophy: React.FC<PageProps> = () => {
                 key={id}
                 summary={<PrincipleSummary ordinal={i + 1} value={title}/>}
               >
-                <div className="prose prose-sm">
+                <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg">
                   <MDXRenderer>{body}</MDXRenderer>
                 </div>
               </Accordion.Item>

@@ -17,13 +17,16 @@ interface TestimonialProperties {
 const Testimonial = ({image, contact, role, company, children}: TestimonialProperties) => {
   return (
     <div className="pb-2 md:p-4 space-y-4 w-full">
-      { image ? <div className="w-fit m-auto rounded-2xl overflow-clip">{image}</div> : null }
+      { image
+        ? <div className="m-auto rounded-2xl overflow-clip w-[128px] h-[128px] lg:w-[144px] lg:h-[144px] 2xl:w-[160px] 2xl:h-[160px]">{image}</div>
+        : null
+      }
       <Overlay>
         <div className="flex flex-col md:flex-row h-full justify-between items-center text-zinc-200">
           <LeftQuote className="text-5xl md:text-6xl lg:text-7xl"/>
           <RightQuote className="text-5xl md:text-6xl lg:text-7xl"/>
         </div>
-        <div className="prose prose-sm text-center">
+        <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg text-center">
           {children}
         </div>
       </Overlay>

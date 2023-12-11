@@ -24,7 +24,7 @@ const TestimonialSection = () => {
             imageAlt
             image {
               childImageSharp {
-                gatsbyImageData(height: 128)
+                gatsbyImageData
               }
             }
           }
@@ -45,7 +45,7 @@ const TestimonialSection = () => {
               <Testimonial
                 image={image 
                   ? <GatsbyImage image={image} alt={childMdx.frontmatter.imageAlt}/>
-                  : <StaticImage src="https://placehold.co/128/png?text=?" alt="Missing testimonial image" height={128}/>
+                  : <StaticImage src="https://placehold.co/png?text=?" alt="Missing testimonial image"/>
                 }
                 contact={childMdx.frontmatter.contact}
                 role={childMdx.frontmatter.role}
