@@ -1,5 +1,5 @@
 import * as React from 'react'
-import Content from './Content'
+import Layout from './Layout'
 
 interface Heading {
   title: string
@@ -15,7 +15,7 @@ interface ItemProperties {
 const Item = ({anchor, heading, children}: ItemProperties) => {
   return (
     <div id={anchor}>
-      <Content>
+      <Layout.Container>
         <div className="flex flex-col gap-3 md:gap-5">
           {heading?.title
             ? <div className="text-center text-2xl md:text-3xl xl:text-4xl 3xl:text-5xl">{heading.title}</div>
@@ -32,7 +32,7 @@ const Item = ({anchor, heading, children}: ItemProperties) => {
           }
           {children}
         </div>
-      </Content>
+      </Layout.Container>
     </div>
   )
 }

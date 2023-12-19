@@ -3,6 +3,7 @@ import Section from "../components/Section"
 import { StaticImage } from "gatsby-plugin-image"
 import ListCard from "../components/ListCard"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
+import Content from "../components/Content"
 
 interface ProcessTileProperties {
   image: React.ReactElement
@@ -34,7 +35,7 @@ const ProcessTile = ({image, imageOrientation, title, text, subtext}: ProcessTil
 const ProcessSection = () => {
   return (
     <Section.Item heading={{ title: "Side Trailing", subtitle: "The Side Trails Software Development process." }}>
-      <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg">
+      <Content>
         <p>
           A process of discovery and exploration aimed at developing a deep understanding of your systems, technical challenges, and business problems.
           In order to establish this understanding, close collaboration with you is integral to the process. It is not to embarked upon alone.
@@ -42,7 +43,7 @@ const ProcessSection = () => {
         <p>
           Any development project I undertake can be loosely broken down into the following parts: Discover, Explore, and Build.
         </p>
-      </div>
+      </Content>
       <ListCard title="Process">
         <ProcessTile
           image={<StaticImage src="../images/discover.png" alt="" objectFit="fill"/>}

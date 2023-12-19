@@ -4,6 +4,7 @@ import Card from "../components/Card"
 import MDXRenderer from "../components/MDXRenderer"
 import Section from "../components/Section"
 import { useStaticQuery, graphql } from "gatsby"
+import Content from "../components/Content"
 
 const Summary = ({ ordinal, value}: { ordinal: number, value: string }) => {
   return (
@@ -43,7 +44,7 @@ const AgileSection = () => {
       title: "Agile",
       subtitle: ["\"Plans are worthless, but planning is everything.\"", "Dwight D. Eisenhower"]
     }}>
-      <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg 3xl:prose-xl">
+      <Content>
         <p>
           The <a href="https://agilemanifesto.org/" target="_blank">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry.
           This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these processes misunderstand the intention behind the manifesto.
@@ -51,7 +52,7 @@ const AgileSection = () => {
         <p>
           Instead, I choose to follow these principles directly.
         </p>
-      </div>
+      </Content>
       <Card heading="Principles">
         <Accordion>
           { data.allFile.nodes.map(({ childMdx }: any, i: number) => {
@@ -61,9 +62,9 @@ const AgileSection = () => {
                 key={id}
                 summary={<Summary ordinal={i + 1} value={title}/>}
               >
-                <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg">
+                <Content>
                   <MDXRenderer>{body}</MDXRenderer>
-                </div>
+                </Content>
               </Accordion.Item>
             )
           })}

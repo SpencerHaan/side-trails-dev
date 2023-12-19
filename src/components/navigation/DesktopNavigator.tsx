@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Content from "../Content"
+import Layout from "../Layout"
 
 const menuLinksQuery = graphql`
 query MenuLinks {
@@ -24,7 +24,7 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
   const {site: {siteMetadata: {menuLinks}}} = useStaticQuery(menuLinksQuery)
   return (
     <nav className={overlay ? "backdrop-blur-[1px]" : "bg-white"}>
-      <Content>
+      <Layout.Container>
         <div className="flex justify-between items-center p-4">
           <div className="w-12 lg:w-16 3xl:w-20">
             <Link to="/">
@@ -49,7 +49,7 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
             }
           </div>
         </div>
-      </Content>
+      </Layout.Container>
     </nav>
   )
 }

@@ -5,6 +5,7 @@ import {
   FaQuoteRight as RightQuote,
 } from "react-icons/fa6"
 import Overlay from './Overlay'
+import Content from './Content'
 
 interface TestimonialProperties {
   image?: React.ReactElement<typeof StaticImage>
@@ -26,9 +27,9 @@ const Testimonial = ({image, contact, role, company, children}: TestimonialPrope
           <LeftQuote className="text-5xl md:text-6xl lg:text-7xl"/>
           <RightQuote className="text-5xl md:text-6xl lg:text-7xl"/>
         </div>
-        <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg text-center">
+        <Content className="text-center">
           {children}
-        </div>
+        </Content>
       </Overlay>
       <div className="italic text-center text-xs md:text-sm xl:text-base 3xl:text-lg text-zinc-400">
         <div className="flex flex-wrap justify-center gap-1">

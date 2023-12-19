@@ -2,6 +2,14 @@ import * as React from 'react'
 import MediaLinks from './navigation/MediaLinks'
 import Header, { Overlay } from './Header'
 
+const Container = ({ children }: { children?: string | React.ReactElement | React.ReactElement[] | null}) => {
+  return (
+    <div className="m-3 sm:m-auto sm:w-5/6 md:w-5/6 lg:w-3/4 2xl:w-3/5 3xl:w-1/2">
+      {children}
+    </div>
+  )
+}
+
 type LayoutOptions = {
   addOverlay: (overlay: Overlay) => void
   removeOverlay: () => void
@@ -60,5 +68,7 @@ const Layout = ({children}: LayoutProperties) => {
     </div>
   )
 }
+
+Layout.Container = Container
 
 export default Layout
