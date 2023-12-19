@@ -35,11 +35,10 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
             </Link>
           </div>
           <div className={`flex text-lg lg:text-xl 3xl:text-2xl ${overlay ? "text-white" : null}`}>
-            {menuLinks
-              .filter((item: {link: string}) => item.link != "/")
-              .map((item: {name: string, link: string}) => {
+            {menuLinks.map((item: {name: string, link: string}) => {
                 return (
                   <Link
+                    key={item.name}
                     to={item.link}
                     className="w-32 lg:w-36 text-center hover:font-bold"
                   >
