@@ -1,16 +1,15 @@
 import * as React from "react"
-import { HeadFC, PageProps } from "gatsby"
+import { HeadFC } from "gatsby"
 
-
-const NotFoundPage: React.FC<PageProps> = () => {
+const NotFoundPage = () => {
   return (
-    <div className="flex flex-col flex-1 justify-center items-center gap-4">
-      <div className="text-3xl 3xl:text-4xl">
+    <div className="flex flex-col flex-1 justify-center items-center p-2 max-w-none text-center prose prose-sm md:prose-base xl:prose-lg 3xl:prose-xl">
+      <h2>
         Oops, it looks like you went down the wrong trail!
-      </div>
-      <div className="text-lg 3xl:text-xl text-zinc-400">
+      </h2>
+      <h4 className="text-zinc-400">
         Page Not Found
-      </div>
+      </h4>
     </div>
   )
 }
