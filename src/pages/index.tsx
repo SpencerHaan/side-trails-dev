@@ -16,7 +16,7 @@ import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
 import Button from "../components/Button"
 import Icon from "../components/Icon"
-import { LayoutContext } from "../components/Layout"
+import { useLayoutControls } from "../components/Layout"
 import ProcessSection from "../sections/ProcessSection"
 import TestimonialSection from "../sections/TestimonialSection"
 import Overlay from "../components/Overlay"
@@ -59,18 +59,18 @@ const ExpertiseTile = ({title, iconType, iconOrientation, children}: ExpertisePr
 
 const IndexPage: React.FC<PageProps> = () => {
   const heroRef = React.useRef(null)
-  const layoutOptions = React.useContext(LayoutContext)
+  const { addOverlay, removeOverlay } = useLayoutControls()
   React.useLayoutEffect(() => {
     const hero = heroRef.current
     if (!hero) {
       return
     }
 
-    layoutOptions?.addOverlay({
+    addOverlay({
       element: hero,
       threshold: 0.95
     })
-    return () => layoutOptions?.removeOverlay()
+    return () => removeOverlay()
   }, [heroRef])
 
   return (

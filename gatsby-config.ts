@@ -13,7 +13,7 @@ const config: GatsbyConfig = {
         name: "Philosophy",
         link: "/philosophy",
       },
-    ],
+    ]
   },
   pathPrefix: "/side-trails-dev-live",
   trailingSlash: "never",

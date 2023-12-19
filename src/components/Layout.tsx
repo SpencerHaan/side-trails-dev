@@ -7,7 +7,15 @@ type LayoutOptions = {
   removeOverlay: () => void
 }
 
-export const LayoutContext = React.createContext<LayoutOptions | null>(null)
+const LayoutContext = React.createContext<LayoutOptions | null>(null)
+
+export function useLayoutControls(): LayoutOptions {
+  const options = React.useContext(LayoutContext)
+  if (!options) {
+    throw "useLayoutControls() called outside of Layout"
+  }
+  return options;
+}
 
 interface LayoutProperties {
   children: React.ReactElement | React.ReactElement[]
