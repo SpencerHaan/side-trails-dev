@@ -1,14 +1,14 @@
 import * as React from "react"
-import { useStaticQuery, type HeadFC, type PageProps, graphql } from "gatsby"
-import Section from "../components/Section"
-import Card from "../components/Card"
 import Accordion from "../components/Accordion"
+import Card from "../components/Card"
 import MDXRenderer from "../components/MDXRenderer"
+import Section from "../components/Section"
+import { useStaticQuery, graphql } from "gatsby"
 
-const PrincipleSummary = ({ ordinal, value}: { ordinal: number, value: string }) => {
+const Summary = ({ ordinal, value}: { ordinal: number, value: string }) => {
   return (
     <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
-      <div className="flex flex-col text-center justify-center w-8 h-8 lg:w-10 lg:h-10 p-2 rounded-xl lg:rounded-2xl font-extrabold bg-zinc-500 text-zinc-50">
+      <div className="flex flex-col text-center justify-center w-7 h-7 lg:w-10 lg:h-10 p-1 lg:p-2 rounded-lg lg:rounded-xl font-extrabold bg-zinc-500 text-zinc-50">
         {ordinal}
       </div>
       <div className="flex flex-col flex-1 justify-center text-sm md:text-lg xl:text-xl text-center md:text-left">
@@ -18,7 +18,7 @@ const PrincipleSummary = ({ ordinal, value}: { ordinal: number, value: string })
   )
 }
 
-const Philosophy: React.FC<PageProps> = () => {
+const AgileSection = () => {
   const data = useStaticQuery(graphql`
   query {
     allFile(
@@ -39,12 +39,13 @@ const Philosophy: React.FC<PageProps> = () => {
   )
 
   return (
-    <Section heading={{ title: "Philosophy", subtitle: ["\"Plans are worthless, but planning is everything.\"", "Dwight D. Eisenhower"] }}>
-      <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg">
+    <Section.Item heading={{
+      title: "Agile",
+      subtitle: ["\"Plans are worthless, but planning is everything.\"", "Dwight D. Eisenhower"]
+    }}>
+      <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg 3xl:prose-xl">
         <p>
           The <a href="https://agilemanifesto.org/" target="_blank">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry.
-        </p>
-        <p>
           This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these processes misunderstand the intention behind the manifesto.
         </p>
         <p>
@@ -58,7 +59,7 @@ const Philosophy: React.FC<PageProps> = () => {
             return (
               <Accordion.Item
                 key={id}
-                summary={<PrincipleSummary ordinal={i + 1} value={title}/>}
+                summary={<Summary ordinal={i + 1} value={title}/>}
               >
                 <div className="max-w-none prose prose-sm md:prose-base xl:prose-lg">
                   <MDXRenderer>{body}</MDXRenderer>
@@ -68,10 +69,8 @@ const Philosophy: React.FC<PageProps> = () => {
           })}
         </Accordion>
       </Card>
-    </Section>
+    </Section.Item>
   )
 }
 
-export default Philosophy
-
-export const Head: HeadFC = () => <title>Philosophy - Side Trails Software Development</title>
+export default AgileSection

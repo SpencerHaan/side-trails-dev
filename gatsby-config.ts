@@ -10,8 +10,8 @@ const config: GatsbyConfig = {
         link: "/",
       },
       {
-        name: "Philosophy",
-        link: "/philosophy",
+        name: "How I Work",
+        link: "/how-i-work",
       },
     ]
   },

@@ -40,7 +40,7 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
                   <Link
                     key={item.name}
                     to={item.link}
-                    className="w-32 lg:w-36 text-center hover:font-bold"
+                    className="w-36 lg:w-40 text-center hover:font-bold"
                   >
                     {item.name}
                   </Link>
