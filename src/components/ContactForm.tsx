@@ -24,20 +24,12 @@ const ContactForm = () => {
     register,
     handleSubmit,
     reset,
-    setError,
     formState: {
-      errors,
       isValid,
       isDirty,
       isSubmitting,
-      isSubmitted
     }
   } = useForm<Inputs>()
-
-  React.useEffect(() => {
-    console.log("Submitting", isSubmitting)
-    console.log("Submitted", isSubmitted)
-  }, [isSubmitted, isSubmitting])
 
   const onSubmit = async (data: Inputs) => {
     fetch(ENDPOINT, {
@@ -49,7 +41,7 @@ const ContactForm = () => {
     })
     .then(() => setStatus(Status.Success))
     .catch((e) => {
-      console.log("Errors", e)
+      console.error("Errors", e)
       setStatus(Status.Failed)
     })
   }
