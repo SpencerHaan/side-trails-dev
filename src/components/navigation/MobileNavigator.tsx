@@ -60,7 +60,7 @@ const MobileNavigator = ({ overlay }: MobileNavigatorProperties) => {
               <div className="flex flex-col text-3xl gap-4">
                 {menuLinks.map((item: { name: string, link: string }) =>
                   <div key={item.name}>
-                    <Link to={item.link} onClick={() => setExpanded(false)}>
+                    <Link key={item.name} to={item.link} onClick={() => setExpanded(false)}>
                       {item.name}
                     </Link>
                   </div>
