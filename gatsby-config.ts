@@ -56,6 +56,14 @@ const config: GatsbyConfig = {
       },
       __key: "testimonials"
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "name": "values",
+        "path": `${__dirname}/content/values`
+      },
+      __key: "values"
+    },
     "gatsby-plugin-image",
     {
       resolve: "gatsby-plugin-sharp",

@@ -2,14 +2,26 @@ import * as React from "react"
 import Accordion from "../components/Accordion"
 import Card from "../components/Card"
 import Section from "../components/Section"
-
-import {
-  TbChartBar as CostIcon,
-  TbTelescope as LongTermIcon,
-  TbBrain as DeepUnderstandingIcon,
-  TbScale as TradeOffsIcon,
-} from "react-icons/tb"
+import { useStaticQuery, graphql } from "gatsby"
 import { IconType } from "react-icons"
+import Content from "../components/Content"
+import MDXRenderer from "../components/MDXRenderer"
+import Icons from "../utilities/Icons"
+
+interface ValuesQueryResult {
+  allFile: {
+    nodes: {
+      childMdx: {
+        id: string
+        frontmatter: {
+          title: string
+          icon: string
+        }
+        body: string
+      }
+    }[]
+  }
+}
 
 const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
   return (
@@ -25,6 +37,28 @@ const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
 }
 
 const AboutMeSection = () => {
+  const result = useStaticQuery<ValuesQueryResult>(graphql`
+  query {
+    allFile(
+      filter: {sourceInstanceName: {eq: "values"}}
+      sort: {childMdx: {frontmatter: {slug: ASC}}}
+    ) {
+      nodes {
+        childMdx {
+          id
+          frontmatter {
+            title
+            icon
+          }
+          body
+        }
+      }
+    }
+  }`
+  )
+
+  console.log("Result", result)
+  
   return (
     <Section.Item heading={{
       title: "About Me",
@@ -32,14 +66,18 @@ const AboutMeSection = () => {
     }}>
       <Card heading="Values">
         <Accordion>
-          <Accordion.Item summary={<Summary value="Results over cost and deadlines" icon={CostIcon}/>}>
-          </Accordion.Item>
-          <Accordion.Item summary={<Summary value="Building for the long-term over the short-term" icon={LongTermIcon}/>}>
-          </Accordion.Item>
-          <Accordion.Item summary={<Summary value="Deeply understand the problem, then find the solution" icon={DeepUnderstandingIcon}/>}>
-          </Accordion.Item>
-          <Accordion.Item summary={<Summary value="Consider incentives and tradeoffs, not just solutions" icon={TradeOffsIcon}/>}>
-          </Accordion.Item>
+          {result.allFile.nodes?.map(({ childMdx },) => {
+            return (
+              <Accordion.Item
+                key={childMdx.id}
+                summary={<Summary value={childMdx.frontmatter.title} icon={Icons[childMdx.frontmatter.icon]}/>}
+              >
+                <Content>
+                  <MDXRenderer>{childMdx.body}</MDXRenderer>
+                </Content>
+              </Accordion.Item>
+            )
+          })}
         </Accordion>
       </Card>
     </Section.Item>
