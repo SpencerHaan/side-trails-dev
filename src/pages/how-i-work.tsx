@@ -8,6 +8,11 @@ const HowIWorkPage = () => {
     return (
     <Section.List>
       <AboutMeSection/>
+      <Section.Item heading={{
+        title: "Why Side Trails?",
+        subtitle: ["\"Seek first to understand, then to be understood\""]
+      }}>
+      </Section.Item>
       <AgileSection/>
     </Section.List>
   )
