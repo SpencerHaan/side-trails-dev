@@ -1,9 +1,6 @@
 import * as React from "react"
-import {
-  TbSquareRoundedChevronUpFilled as UpArrow,
-  TbSquareRoundedChevronDownFilled as DownArrow,
-} from "react-icons/tb"
 import Collapsible from "./Collapsible"
+import Icons from "../utilities/Icons"
 
 interface ItemProperties {
   summary: string | React.ReactElement
@@ -24,10 +21,10 @@ const Row = ({ expanded, onClick, summary, children }: RowProperties) => {
         <div className="flex-1 md:text-xl">
           {summary}
         </div>
-        <div className="m-auto text-2xl md:text-3xl text-zinc-600 cursor-pointer transition-transform duration-200">
+        <div className="m-auto text-2xl md:text-3xl text-zinc-300 cursor-pointer transition-transform duration-200">
           {expanded
-            ? <UpArrow/>
-            : <DownArrow/>
+            ? <Icons.collapse/>
+            : <Icons.expand/>
           }
         </div>
       </div>
