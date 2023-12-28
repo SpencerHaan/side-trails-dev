@@ -11,7 +11,7 @@ interface TestimonialProperties {
   image?: React.ReactElement<typeof StaticImage>
   contact: string
   role: string
-  company?: string
+  company: string
   children: React.ReactElement | string
 }
 
@@ -40,7 +40,7 @@ const Testimonial = ({image, contact, role, company, children}: TestimonialPrope
             {role}
           </div>
         </div>
-        { company ? <div>{company}</div> : null }
+        <div>{company}</div>
       </div>
     </div>
   )

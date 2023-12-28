@@ -11,7 +11,9 @@ const Icons: IconDictionary = {
   understanding: TbIcons.TbBrain,
   tradeoffs: TbIcons.TbScale,
   expand: TbIcons.TbSquareRoundedPlusFilled,
-  collapse: TbIcons.TbSquareRoundedMinusFilled
+  collapse: TbIcons.TbSquareRoundedMinusFilled,
+  leftArrow: TbIcons.TbSquareRoundedChevronLeftFilled,
+  rightArrow: TbIcons.TbSquareRoundedChevronRightFilled,
 }
 
 export default Icons

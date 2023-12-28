@@ -1,10 +1,7 @@
 import * as React from 'react'
-import {
-  TbSquareRoundedChevronLeftFilled as LeftArrow,
-  TbSquareRoundedChevronRightFilled as RightArrow,
-} from "react-icons/tb"
 import Card from './Card'
 import { useDrag } from "@use-gesture/react"
+import Icons from '../utilities/Icons'
 
 interface ItemProperties {
   children: React.ReactElement
@@ -49,7 +46,7 @@ const Carousel = ({children}: CarouselProperties) => {
     <Card>
       <div ref={carouselRef} className="flex touch-pan-y lg:touch-none" {...bind()}>
         <button onClick={previousSlide} className="hidden md:block text-zinc-600">
-          <LeftArrow size={36}/>
+          <Icons.leftArrow size={36}/>
         </button>
         <div className="overflow-hidden relative">
           <div
@@ -85,7 +82,7 @@ const Carousel = ({children}: CarouselProperties) => {
           </div>
         </div>
         <button onClick={nextSlide} className="hidden md:block text-zinc-600">
-          <RightArrow size={36}/>
+          <Icons.rightArrow size={36}/>
         </button>
       </div>
     </Card>

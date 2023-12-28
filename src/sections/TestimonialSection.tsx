@@ -1,23 +1,40 @@
 import * as React from "react"
-import { getImage, GatsbyImage, StaticImage } from "gatsby-plugin-image"
+import { getImage, GatsbyImage, StaticImage, ImageDataLike } from "gatsby-plugin-image"
 import Carousel from "../components/Carousel"
 import MDXRenderer from "../components/MDXRenderer"
 import Section from "../components/Section"
 import Testimonial from "../components/Testimonial"
 import { useStaticQuery, graphql } from "gatsby"
 
+interface TestimonialQueryResult {
+  allFile: {
+    nodes: {
+      childMdx: {
+        id: string,
+        frontmatter: {
+          company: string
+          contact: string
+          role: string
+          imageAlt: string
+          image: ImageDataLike
+        }
+        body: string
+      }
+    }[]
+  }
+}
+
 const TestimonialSection = () => {
-  const data = useStaticQuery(graphql`
-  query TestimonialsQuery {
+  const result = useStaticQuery<TestimonialQueryResult>(graphql`
+  {
     allFile(
       filter: {sourceInstanceName: {eq: "testimonials"}, extension: {eq: "mdx"}}
-      sort: {name: ASC}
+      sort: {childMdx: {frontmatter: {slug: ASC}}}
     ) {
       nodes {
-        name
         childMdx {
+          id
           frontmatter {
-            id
             company
             contact
             role
@@ -38,10 +55,10 @@ const TestimonialSection = () => {
   return (
     <Section.Item heading={{ title: "What Clients Think", subtitle: "And colleagues, too!" }}>
       <Carousel>
-        {data.allFile.nodes.map(({childMdx}: any) => {
+        {result.allFile.nodes?.map(({ childMdx }) => {
           const image = getImage(childMdx.frontmatter.image)
           return (
-            <Carousel.Item key={childMdx.frontmatter.id}>
+            <Carousel.Item key={childMdx.id}>
               <Testimonial
                 image={image 
                   ? <GatsbyImage image={image} alt={childMdx.frontmatter.imageAlt}/>
