@@ -6,6 +6,11 @@ interface IconDictionary {
 }
 
 const Icons: IconDictionary = {
+  number1: TbIcons.TbNumber1,
+  number2: TbIcons.TbNumber2,
+  number3: TbIcons.TbNumber3,
+  number4: TbIcons.TbNumber4,
+  number5: TbIcons.TbNumber5,
   cost: TbIcons.TbChartBar,
   longTerm: TbIcons.TbTelescope,
   understanding: TbIcons.TbBrain,

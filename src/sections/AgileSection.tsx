@@ -5,12 +5,14 @@ import MDXRenderer from "../components/MDXRenderer"
 import Section from "../components/Section"
 import { useStaticQuery, graphql } from "gatsby"
 import Content from "../components/Content"
+import { IconType } from "react-icons"
+import Icons from "../utilities/Icons"
 
-const Summary = ({ ordinal, value}: { ordinal: number, value: string }) => {
+const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
   return (
-    <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
+    <div className="flex flex-row gap-4 items-center min-h-[72px]">
       <div className="flex flex-col text-center justify-center w-7 h-7 lg:w-10 lg:h-10 p-1 lg:p-2 rounded-lg lg:rounded-xl font-extrabold bg-zinc-500 text-zinc-50">
-        {ordinal}
+        <Icon className="h-full w-full"/>
       </div>
       <div className="flex flex-col flex-1 justify-center md:text-lg xl:text-xl 3xl:text-2xl text-center md:text-left">
         {value}
@@ -19,8 +21,23 @@ const Summary = ({ ordinal, value}: { ordinal: number, value: string }) => {
   )
 }
 
+interface PrinciplesQueryResult {
+  allFile: {
+    nodes: {
+      childMdx: {
+        id: string
+        frontmatter: {
+          title: string
+          icon: string
+        }
+        body: string
+      }
+    }[]
+  }
+}
+
 const AgileSection = () => {
-  const data = useStaticQuery(graphql`
+  const result = useStaticQuery<PrinciplesQueryResult>(graphql`
   query {
     allFile(
       filter: {sourceInstanceName: {eq: "principles"}}
@@ -31,6 +48,7 @@ const AgileSection = () => {
           id
           frontmatter {
             title
+            icon
           }
           body
         }
@@ -46,23 +64,23 @@ const AgileSection = () => {
     }}>
       <Content>
         <p>
-          The <a href="https://agilemanifesto.org/" target="_blank">Agile Manifesto</a> was created in the early 2000s by prominent members of the software industry.
+          The Agile Manifesto was created in the early 2000s by prominent members of the software industry.
           This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these processes misunderstand the intention behind the manifesto.
         </p>
         <p>
-          Instead, I choose to follow these principles directly.
+          The following principles are a condensed version of my understanding of manifestos original twelve:
         </p>
       </Content>
       <Card heading="Principles">
         <Accordion>
-          { data.allFile.nodes.map(({ childMdx }: any, i: number) => {
-            const { id, body, frontmatter: { title } } = childMdx
+          { result.allFile.nodes.map(({ childMdx }: any, i: number) => {
+            const { id, body, frontmatter: { title, icon } } = childMdx
             return (
               <Accordion.Item
                 key={id}
-                summary={<Summary ordinal={i + 1} value={title}/>}
+                summary={<Summary value={title} icon={Icons[childMdx.frontmatter.icon]}/>}
               >
-                <Content>
+                <Content className="mb-4">
                   <MDXRenderer>{body}</MDXRenderer>
                 </Content>
               </Accordion.Item>
@@ -70,6 +88,13 @@ const AgileSection = () => {
           })}
         </Accordion>
       </Card>
+      <Content>
+        <center>
+          <sup>
+            Check out the <a href="https://agilemanifesto.org/principles.html" target="_blank">Principles behind the Agile Manifesto</a> for the originals.
+          </sup>
+        </center>
+      </Content>
     </Section.Item>
   )
 }

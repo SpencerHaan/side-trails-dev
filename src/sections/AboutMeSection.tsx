@@ -26,7 +26,7 @@ interface ValuesQueryResult {
 
 const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
   return (
-    <div className="flex flex-row gap-3 md:gap-4 items-center min-h-[72px]">
+    <div className="flex flex-row gap-4 items-center min-h-[72px]">
       <div className="flex flex-col text-center justify-center w-7 h-7 lg:w-10 lg:h-10 p-1 lg:p-2 rounded-lg lg:rounded-xl font-extrabold bg-zinc-500 text-zinc-50">
         <Icon className="h-full w-full"/>
       </div>
@@ -105,7 +105,7 @@ const AboutMeSection = () => {
                     key={childMdx.id}
                     summary={<Summary value={childMdx.frontmatter.title} icon={Icons[childMdx.frontmatter.icon]}/>}
                   >
-                    <Content>
+                    <Content className="mb-4">
                       <MDXRenderer>{childMdx.body}</MDXRenderer>
                     </Content>
                   </Accordion.Item>
