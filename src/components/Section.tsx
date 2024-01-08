@@ -45,7 +45,7 @@ const List = ({children}: ListProperties) => {
   return (
     <div>
       {Array.isArray(children)
-        ? children.map((child, i) => <div key={i} className={`py-8 xl:py-12 ${i % 2 === 0 ? "bg-white" : "bg-zinc-200"}`}>{child}</div>)
+        ? children.map((child, i) => <div key={i} className={`py-8 xl:py-12 ${i % 2 === 0 ? "bg-white" : "bg-zinc-50"}`}>{child}</div>)
         : <div className="py-8 xl:py-12 bg-white">{children}</div>
       }
     </div>
