@@ -1,17 +1,8 @@
 import * as React from "react"
-import {
-  FaMicroscope as AnalysisIcon,
-  FaCompassDrafting as ArchitectureIcon,
-  FaMap as PrototypeIcon,
-  FaCode as DevelopmentIcon,
-  FaCloud as CloudIcon,
-} from "react-icons/fa6"
-import {
-  BiSolidBackpack as RucksackIcon
-} from "react-icons/bi"
 import { IconBaseProps } from "react-icons"
 import { Icon, Section } from "../components"
 import { Orientation } from "../utilities"
+import { useExpertise } from "../data/Expertise"
 
 interface ExpertiseProperties {
   title: string
@@ -49,29 +40,23 @@ const Tile = ({title, iconType, iconOrientation, children}: ExpertiseProperties)
 }
 
 const ExpertiseSection = () => {
+  const expertise = useExpertise()
+
   return (
     <Section.Item
       heading={{ title: "Expertise", subtitle:"Some of the things I can do." }}
     >
       <div className="flex flex-wrap justify-center gap-4">
-        <Tile title="System Anaylsis" iconType={AnalysisIcon} iconOrientation={Orientation.Horizontal.Left}>
-          Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts.
-        </Tile>
-        <Tile title="System Architecture" iconType={ArchitectureIcon} iconOrientation={Orientation.Horizontal.Right}>
-          Design solutions that incorporate and consider all aspects of a system.
-        </Tile>
-        <Tile title="Software Prototyping" iconType={PrototypeIcon} iconOrientation={Orientation.Horizontal.Left}>
-          Exploratory software development to better understand the solution you want, and need.
-        </Tile>
-        <Tile title="Software Design and Development" iconType={DevelopmentIcon} iconOrientation={Orientation.Horizontal.Right}>
-          Implement well-designed code and abstractions to enable future growth while reducing maintenance and development overhead.
-        </Tile>
-        <Tile title="Cloud Integration" iconType={CloudIcon} iconOrientation={Orientation.Horizontal.Left}>
-          Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud.
-        </Tile>
-        <Tile title="Rucksack" iconType={RucksackIcon} iconOrientation={Orientation.Horizontal.Right}>
-          Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…
-        </Tile>
+        {expertise.map((e, i) => (
+          <Tile
+            key={e.id}
+            title={e.title}
+            iconType={e.icon}
+            iconOrientation={i % 2 === 0 ? Orientation.Horizontal.Left : Orientation.Horizontal.Right}
+          >
+            {e.body}
+          </Tile>
+        ))}
       </div>
     </Section.Item>
   )
