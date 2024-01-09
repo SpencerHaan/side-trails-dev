@@ -1,6 +1,6 @@
 import * as React from "react"
 import { IconType } from "react-icons"
-import { Icon, Section } from "../components"
+import { RoundGlyph, Section } from "../components"
 import { Orientation } from "../utilities"
 import { useExpertise } from "../data/Expertise"
 
@@ -22,7 +22,7 @@ const Tile = ({title, icon, children}: ExpertiseProperties) => {
     }
     >
       {icon.orientation === Orientation.Horizontal.Left
-        ? <div className="flex flex-col justify-center"><Icon type={icon.type}/></div>
+        ? <div className="flex flex-col justify-center"><RoundGlyph iconType={icon.type}/></div>
         : null
       }
       <div className="flex flex-col flex-1 min-w-full sm:min-w-[640px] md:min-w-[128px] md:min-h-[100px] text-center gap-2">
@@ -34,7 +34,7 @@ const Tile = ({title, icon, children}: ExpertiseProperties) => {
         </div>
       </div>
       {icon.orientation === Orientation.Horizontal.Right
-        ? <div className="flex flex-col justify-center"><Icon type={icon.type}/></div>
+        ? <div className="flex flex-col justify-center"><RoundGlyph iconType={icon.type}/></div>
         : null
       }
     </div>

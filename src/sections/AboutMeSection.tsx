@@ -1,15 +1,13 @@
 import * as React from "react"
 import { IconType } from "react-icons"
 import { StaticImage } from "gatsby-plugin-image"
-import { Accordion, Card, Content, MDXRenderer, Section } from "../components"
+import { Accordion, Card, Content, MDXRenderer, Section, SquareGlyph } from "../components"
 import { useValues } from "../data/Values"
 
-const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
+const Summary = ({ value, iconType }: { value: string, iconType: IconType }) => {
   return (
     <div className="flex flex-row gap-4 items-center min-h-[72px]">
-      <div className="flex flex-col text-center justify-center w-7 h-7 lg:w-10 lg:h-10 p-1 lg:p-2 rounded-lg lg:rounded-xl font-extrabold bg-zinc-500 text-zinc-50">
-        <Icon className="h-full w-full"/>
-      </div>
+      <SquareGlyph iconType={iconType}/>
       <div className="flex flex-col flex-1 justify-center md:text-lg xl:text-xl 3xl:text-2xl text-center md:text-left">
         {value}
       </div>
@@ -63,7 +61,7 @@ const AboutMeSection = () => {
                 return (
                   <Accordion.Item
                     key={value.id}
-                    summary={<Summary value={value.title} icon={value.icon}/>}
+                    summary={<Summary value={value.title} iconType={value.icon}/>}
                   >
                     <Content className="mb-4">
                       <MDXRenderer>{value.body}</MDXRenderer>
