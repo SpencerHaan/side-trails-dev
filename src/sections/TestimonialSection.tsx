@@ -1,72 +1,29 @@
 import * as React from "react"
-import { getImage, GatsbyImage, StaticImage, ImageDataLike } from "gatsby-plugin-image"
-import { useStaticQuery, graphql } from "gatsby"
+import { getImage, GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import { Section, Carousel, Testimonial, MDXRenderer } from "../components"
-
-interface TestimonialQueryResult {
-  allFile: {
-    nodes: {
-      childMdx: {
-        id: string,
-        frontmatter: {
-          company: string
-          contact: string
-          role: string
-          imageAlt: string
-          image: ImageDataLike
-        }
-        body: string
-      }
-    }[]
-  }
-}
+import { useTestimonials } from "../data/Testimonials"
 
 const TestimonialSection = () => {
-  const result = useStaticQuery<TestimonialQueryResult>(graphql`
-  {
-    allFile(
-      filter: {sourceInstanceName: {eq: "testimonials"}, extension: {eq: "mdx"}}
-      sort: {childMdx: {frontmatter: {slug: ASC}}}
-    ) {
-      nodes {
-        childMdx {
-          id
-          frontmatter {
-            company
-            contact
-            role
-            imageAlt
-            image {
-              childImageSharp {
-                gatsbyImageData
-              }
-            }
-          }
-          body
-        }
-      }
-    }
-  }
-  `)
+  const testimonials = useTestimonials()
   
   return (
     <Section.Item heading={{ title: "What Clients Think", subtitle: "And colleagues, too!" }}>
       <Carousel>
-        {result.allFile.nodes?.map(({ childMdx }) => {
-          const image = getImage(childMdx.frontmatter.image)
+        {testimonials.map(testimonial => {
+          const image = getImage(testimonial.image.source)
           return (
-            <Carousel.Item key={childMdx.id}>
+            <Carousel.Item key={testimonial.id}>
               <Testimonial
                 image={image 
-                  ? <GatsbyImage image={image} alt={childMdx.frontmatter.imageAlt}/>
+                  ? <GatsbyImage image={image} alt={testimonial.image.alt}/>
                   : <StaticImage src="https://placehold.co/500/png?text=?" alt="Missing testimonial image"/>
                 }
-                contact={childMdx.frontmatter.contact}
-                role={childMdx.frontmatter.role}
-                company={childMdx.frontmatter.company}
+                contact={testimonial.contact}
+                role={testimonial.role}
+                company={testimonial.company}
               >
                 <MDXRenderer>
-                  {childMdx.body}
+                  {testimonial.body}
                 </MDXRenderer>
               </Testimonial>
             </Carousel.Item>

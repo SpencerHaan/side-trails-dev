@@ -1,8 +1,7 @@
 import * as React from "react"
 import { IconType } from "react-icons"
-import { useStaticQuery, graphql } from "gatsby"
-import Icons from "../utilities/Icons"
 import { Section, Content, Card, Accordion, MDXRenderer } from "../components"
+import { usePrinciples } from "../data/Principles"
 
 const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
   return (
@@ -17,41 +16,8 @@ const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
   )
 }
 
-interface PrinciplesQueryResult {
-  allFile: {
-    nodes: {
-      childMdx: {
-        id: string
-        frontmatter: {
-          title: string
-          icon: string
-        }
-        body: string
-      }
-    }[]
-  }
-}
-
 const AgileSection = () => {
-  const result = useStaticQuery<PrinciplesQueryResult>(graphql`
-  query {
-    allFile(
-      filter: {sourceInstanceName: {eq: "principles"}}
-      sort: {childMdx: {frontmatter: {slug: ASC}}}
-    ) {
-      nodes {
-        childMdx {
-          id
-          frontmatter {
-            title
-            icon
-          }
-          body
-        }
-      }
-    }
-  }`
-  )
+  const principles = usePrinciples()
 
   return (
     <Section.Item heading={{
@@ -69,15 +35,14 @@ const AgileSection = () => {
       </Content>
       <Card heading="Principles">
         <Accordion>
-          { result.allFile.nodes.map(({ childMdx }: any, i: number) => {
-            const { id, body, frontmatter: { title, icon } } = childMdx
+          { principles.map(principle => {
             return (
               <Accordion.Item
-                key={id}
-                summary={<Summary value={title} icon={Icons[childMdx.frontmatter.icon]}/>}
+                key={principle.id}
+                summary={<Summary value={principle.title} icon={principle.icon}/>}
               >
                 <Content className="mb-4">
-                  <MDXRenderer>{body}</MDXRenderer>
+                  <MDXRenderer>{principle.body}</MDXRenderer>
                 </Content>
               </Accordion.Item>
             )

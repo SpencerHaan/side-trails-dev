@@ -1,24 +1,8 @@
 import * as React from "react"
 import { IconType } from "react-icons"
-import { useStaticQuery, graphql } from "gatsby"
-import Icons from "../utilities/Icons"
 import { StaticImage } from "gatsby-plugin-image"
 import { Accordion, Card, Content, MDXRenderer, Section } from "../components"
-
-interface ValuesQueryResult {
-  allFile: {
-    nodes: {
-      childMdx: {
-        id: string
-        frontmatter: {
-          title: string
-          icon: string
-        }
-        body: string
-      }
-    }[]
-  }
-}
+import { useValues } from "../data/Values"
 
 const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
   return (
@@ -34,28 +18,8 @@ const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
 }
 
 const AboutMeSection = () => {
-  const result = useStaticQuery<ValuesQueryResult>(graphql`
-  query {
-    allFile(
-      filter: {sourceInstanceName: {eq: "values"}}
-      sort: {childMdx: {frontmatter: {slug: ASC}}}
-    ) {
-      nodes {
-        childMdx {
-          id
-          frontmatter {
-            title
-            icon
-          }
-          body
-        }
-      }
-    }
-  }`
-  )
+  const values = useValues()
 
-  console.log("Result", result)
-  
   return (
     <Section.Item heading={{
         title: "A Little About Me",
@@ -95,14 +59,14 @@ const AboutMeSection = () => {
         <div>
           <Card heading="Values">
             <Accordion>
-              {result.allFile.nodes?.map(({ childMdx },) => {
+              {values.map(value => {
                 return (
                   <Accordion.Item
-                    key={childMdx.id}
-                    summary={<Summary value={childMdx.frontmatter.title} icon={Icons[childMdx.frontmatter.icon]}/>}
+                    key={value.id}
+                    summary={<Summary value={value.title} icon={value.icon}/>}
                   >
                     <Content className="mb-4">
-                      <MDXRenderer>{childMdx.body}</MDXRenderer>
+                      <MDXRenderer>{value.body}</MDXRenderer>
                     </Content>
                   </Accordion.Item>
                 )
