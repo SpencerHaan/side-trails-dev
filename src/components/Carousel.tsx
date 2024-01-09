@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { useDrag } from "@use-gesture/react"
 import Card from './Card'
-import Icons from '../utilities/Icons'
+import { Icons } from "../utilities"
+
 
 interface ItemProperties {
   children: React.ReactElement

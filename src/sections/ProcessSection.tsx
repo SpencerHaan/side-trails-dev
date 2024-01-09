@@ -1,11 +1,11 @@
 import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
-import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
 import { ListCard, Section, Content } from "../components"
+import { Orientation } from "../utilities"
 
 interface ProcessTileProperties {
   image: React.ReactElement
-  imageOrientation: HorizontalOrientation
+  imageOrientation: Orientation.Horizontal
   title: string
   text: string
   subtext: string
@@ -45,21 +45,21 @@ const ProcessSection = () => {
       <ListCard title="Process">
         <ProcessTile
           image={<StaticImage src="../images/discover.png" alt="" objectFit="fill"/>}
-          imageOrientation={HorizontalOrientation.Right}
+          imageOrientation={Orientation.Horizontal.Right}
           title="Discover"
           text="First, let's discover what your business needs/technical challenges are all about."
           subtext="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
         />
         <ProcessTile
           image={<StaticImage src="../images/explore.png" alt="" objectFit="fill"/>}
-          imageOrientation={HorizontalOrientation.Left}
+          imageOrientation={Orientation.Horizontal.Left}
           title="Explore"
           text="Second, let's explore these business needs/technical challenges to establish a shared and deep understanding."
           subtext="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
         />
         <ProcessTile
           image={<StaticImage src="../images/build.png" alt="" objectFit="fill"/>}
-          imageOrientation={HorizontalOrientation.Right}
+          imageOrientation={Orientation.Horizontal.Right}
           title="Build"
           text="Third, let's build the solution."
           subtext="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."

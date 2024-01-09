@@ -1,7 +1,7 @@
 import { IconType } from "react-icons"
 import { useStaticQuery, graphql } from "gatsby"
 import { AllFileQueryResult, ContentFragmentFrontmatter } from "./Types"
-import Icons from "../utilities/Icons"
+import { Icons } from "../utilities"
 
 interface Value {
   id: string

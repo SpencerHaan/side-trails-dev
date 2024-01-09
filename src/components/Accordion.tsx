@@ -1,6 +1,6 @@
 import * as React from "react"
 import Collapsible from "./Collapsible"
-import Icons from "../utilities/Icons"
+import { Icons } from "../utilities"
 
 interface ItemProperties {
   summary: string | React.ReactElement

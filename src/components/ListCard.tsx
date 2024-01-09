@@ -1,6 +1,6 @@
 import * as React from "react"
 import Card from "./Card"
-import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
+import { Orientation } from "../utilities"
 
 export interface ListCardProperties {
   title: string
@@ -19,7 +19,7 @@ const ListCard = ({title, children}: ListCardProperties) => {
 
 interface ItemProperties {
   image: React.ReactElement
-  imageOrientation: HorizontalOrientation
+  imageOrientation: Orientation.Horizontal
   children: React.ReactElement[] | string[]
 }
 
@@ -30,15 +30,15 @@ const Item = ({image, imageOrientation, children}: ItemProperties) => {
     </div>
   )
   return (
-    <div className={`flex ${imageOrientation === HorizontalOrientation.Left ? "flex-wrap" : "flex-wrap-reverse"} justify-center gap-4`}>
-      { imageOrientation === HorizontalOrientation.Left
+    <div className={`flex ${imageOrientation === Orientation.Horizontal.Left ? "flex-wrap" : "flex-wrap-reverse"} justify-center gap-4`}>
+      { imageOrientation === Orientation.Horizontal.Left
           ? <ItemImage/>
           : null
       }
       <div className="flex flex-col flex-1 justify-center gap-4 min-w-[320px]">
         {children}
       </div>
-      { imageOrientation === HorizontalOrientation.Right
+      { imageOrientation === Orientation.Horizontal.Right
           ? <ItemImage/>
           : null
       }
