@@ -2,7 +2,7 @@ import * as React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import { Section, Content } from "../components"
 
-const WhySideTrailSection = () => {
+const WhySideTrailsSection = () => {
   return (
     <Section.Item heading={{
       title: "Why Side Trails?",
@@ -26,4 +26,4 @@ const WhySideTrailSection = () => {
   )
 }
 
-export default WhySideTrailSection
+export default WhySideTrailsSection

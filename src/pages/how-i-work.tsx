@@ -1,14 +1,13 @@
 import * as React from "react"
 import { type HeadFC } from "gatsby"
 import { Section } from "../components"
-import { AboutMeSection, AgileSection } from "../sections"
-import WhySideTrailSection from "../sections/WhySideTrailsSection"
+import { AboutMeSection, AgileSection, WhySideTrailsSection } from "../sections"
 
 const HowIWorkPage = () => {
     return (
     <Section.List>
       <AboutMeSection/>
-      <WhySideTrailSection/>
+      <WhySideTrailsSection/>
       <AgileSection/>
     </Section.List>
   )
