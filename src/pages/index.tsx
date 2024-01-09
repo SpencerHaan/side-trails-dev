@@ -13,9 +13,8 @@ import {
 } from "react-icons/bi"
 import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
-import ProcessSection from "../sections/ProcessSection"
-import TestimonialSection from "../sections/TestimonialSection"
 import { Icon, Overlay, Button, Section, ContactForm, useLayoutControls } from "../components"
+import { ProcessSection, TestimonialSection } from "../sections"
 
 interface ExpertiseProperties {
   title: string

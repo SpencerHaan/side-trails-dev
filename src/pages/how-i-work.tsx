@@ -1,9 +1,8 @@
 import * as React from "react"
 import { type HeadFC } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import AgileSection from "../sections/AgileSection"
-import AboutMeSection from "../sections/AboutMeSection"
 import { Section, Content } from "../components"
+import { AboutMeSection, AgileSection } from "../sections"
 
 const HowIWorkPage = () => {
     return (
