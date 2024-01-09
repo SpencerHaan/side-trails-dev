@@ -13,8 +13,9 @@ import {
 } from "react-icons/bi"
 import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
-import { Icon, Overlay, Button, Section, ContactForm, useLayoutControls } from "../components"
+import { Icon, Overlay, Button, Section, useLayoutControls } from "../components"
 import { ProcessSection, TestimonialSection } from "../sections"
+import ContactSection from "../sections/ContactSection"
 
 interface ExpertiseProperties {
   title: string
@@ -112,13 +113,8 @@ const IndexPage: React.FC<PageProps> = () => {
             </ExpertiseTile>
           </div>
         </Section.Item>
-        <TestimonialSection />
-        <Section.Item
-          anchor="contact"
-          heading={{ title: "Let's Chat", subtitle: "Need help with a project? Send me some details." }}
-        >
-          <ContactForm/>
-        </Section.Item>
+        <TestimonialSection/>
+        <ContactSection/>
       </Section.List>
     </>
   )
