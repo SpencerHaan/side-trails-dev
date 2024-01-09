@@ -1,7 +1,6 @@
 import * as React from "react"
 import { type HeadFC, type PageProps, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Section from "../components/Section"
 import {
   FaMicroscope as AnalysisIcon,
   FaCompassDrafting as ArchitectureIcon,
@@ -14,13 +13,9 @@ import {
 } from "react-icons/bi"
 import { IconBaseProps } from "react-icons"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
-import Button from "../components/Button"
-import Icon from "../components/Icon"
-import { useLayoutControls } from "../components/Layout"
 import ProcessSection from "../sections/ProcessSection"
 import TestimonialSection from "../sections/TestimonialSection"
-import Overlay from "../components/Overlay"
-import ContactForm from "../components/ContactForm"
+import { Icon, Overlay, Button, Section, ContactForm, useLayoutControls } from "../components"
 
 interface ExpertiseProperties {
   title: string

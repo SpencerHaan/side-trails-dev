@@ -1,9 +1,7 @@
 import * as React from "react"
-import Section from "../components/Section"
 import { StaticImage } from "gatsby-plugin-image"
-import ListCard from "../components/ListCard"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"
-import Content from "../components/Content"
+import { ListCard, Section, Content } from "../components"
 
 interface ProcessTileProperties {
   image: React.ReactElement

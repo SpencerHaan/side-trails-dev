@@ -1,8 +1,7 @@
 import * as React from "react"
 import { Link, type HeadFC, type PageProps } from "gatsby"
-import Section from "../components/Section"
-import Card from "../components/Card"
 import { StaticImage } from "gatsby-plugin-image"
+import { Card, Section } from "../components"
 
 interface ProjectCardProperties {
   url: string

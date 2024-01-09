@@ -1,7 +1,7 @@
 import * as React from "react"
+import * as runtime from "react/jsx-runtime"
 import { evaluateSync } from "@mdx-js/mdx"
 import { MDXProps, MDXComponents } from "mdx/types"
-import * as runtime from "react/jsx-runtime"
 
 interface FragmentProperties extends MDXProps {
   children?: React.ReactElement

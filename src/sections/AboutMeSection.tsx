@@ -1,13 +1,9 @@
 import * as React from "react"
-import Accordion from "../components/Accordion"
-import Card from "../components/Card"
-import Section from "../components/Section"
-import { useStaticQuery, graphql } from "gatsby"
 import { IconType } from "react-icons"
-import Content from "../components/Content"
-import MDXRenderer from "../components/MDXRenderer"
+import { useStaticQuery, graphql } from "gatsby"
 import Icons from "../utilities/Icons"
 import { StaticImage } from "gatsby-plugin-image"
+import { Accordion, Card, Content, MDXRenderer, Section } from "../components"
 
 interface ValuesQueryResult {
   allFile: {

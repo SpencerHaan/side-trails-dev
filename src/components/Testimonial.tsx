@@ -4,8 +4,8 @@ import {
   FaQuoteLeft as LeftQuote,
   FaQuoteRight as RightQuote,
 } from "react-icons/fa6"
-import Overlay from './Overlay'
 import Content from './Content'
+import Overlay from './Overlay'
 
 interface TestimonialProperties {
   image?: React.ReactElement<typeof StaticImage>

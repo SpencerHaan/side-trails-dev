@@ -1,12 +1,8 @@
 import * as React from "react"
-import Accordion from "../components/Accordion"
-import Card from "../components/Card"
-import MDXRenderer from "../components/MDXRenderer"
-import Section from "../components/Section"
-import { useStaticQuery, graphql } from "gatsby"
-import Content from "../components/Content"
 import { IconType } from "react-icons"
+import { useStaticQuery, graphql } from "gatsby"
 import Icons from "../utilities/Icons"
+import { Section, Content, Card, Accordion, MDXRenderer } from "../components"
 
 const Summary = ({ value, icon: Icon }: { value: string, icon: IconType }) => {
   return (

@@ -1,9 +1,7 @@
-import { PageProps } from "gatsby"
 import * as React from "react"
-import Section from "../components/Section"
-import Card from "../components/Card"
+import { PageProps } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import Testimonial from "../components/Testimonial"
+import { Section, Card, Testimonial } from "../components"
 
 interface TagProperties {
   text: string
@@ -76,7 +74,7 @@ const ProjectPage: React.FC<PageProps> = () => {
         </div>
       </Section.Item>
       <Section.Item heading={{ title: "Testimonial" }}>
-        <Testimonial contact="John Smith" role="Title">
+        <Testimonial contact="John Smith" role="Title" company={""}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Et pharetra pharetra massa massa ultricies.
         </Testimonial>
       </Section.Item>

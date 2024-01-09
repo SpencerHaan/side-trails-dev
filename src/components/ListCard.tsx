@@ -1,4 +1,3 @@
-import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 import Card from "./Card"
 import { HorizontalOrientation } from "../utilities/HorizontalOrientation"

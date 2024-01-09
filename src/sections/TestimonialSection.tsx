@@ -1,10 +1,7 @@
 import * as React from "react"
 import { getImage, GatsbyImage, StaticImage, ImageDataLike } from "gatsby-plugin-image"
-import Carousel from "../components/Carousel"
-import MDXRenderer from "../components/MDXRenderer"
-import Section from "../components/Section"
-import Testimonial from "../components/Testimonial"
 import { useStaticQuery, graphql } from "gatsby"
+import { Section, Carousel, Testimonial, MDXRenderer } from "../components"
 
 interface TestimonialQueryResult {
   allFile: {
