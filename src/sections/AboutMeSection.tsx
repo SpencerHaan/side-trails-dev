@@ -27,31 +27,19 @@ const AboutMeSection = () => {
       <div className="flex flex-col gap-8">
         <Content className="prose-h3:mt-0">
           <div className="text-center mb-4 lg:float-left lg:mr-8">
-            <StaticImage src="../images/headshot.jpeg" alt="Picture of Spencer Haan with a beautiful beard." className="w-60 h-60 md:w-80 md:h-80 xl:w-96 xl:h-96 rounded-xl shadow-xl"/>
+            <StaticImage src="../images/headshot.jpeg" alt="Picture of Spencer Haan with a beautiful beard." className="w-60 h-60 md:w-80 md:h-80 xl:w-96 xl:h-96 rounded-xl"/>
           </div>
           <h3>
             Hey, my name is Spencer Haan and I'm Side Trails Software Development!
           </h3>
           <p>
-            Guiding principles over following rules. Accuracy over expediency. Long-term thinking over short-term thinking.
+            I’m an avid gamer, and have been for most of my life. As a kid my mind was constantly inundated with ideas on how to improve the games I was playing, or how I’d build a game with more interesting mechanics. This drove me towards software development, where I had hoped one day I’d be able to bring those ideas to life. Over the course of my career, I discovered that this behaviour wasn’t exclusive to games. I found a passion for solving interesting and complex problems, and realized that what I enjoyed was the ability to bring systems to life.
           </p>
           <p>
-            When I was 10 years old, if you had asked about my career aspirations, I would have eagerly said I wanted to be a video game developer. Little did I know that this path wouldn't necessarily place me in charge of the creative vision. The work-life balance within that industry isn’t ideal, either. Nonetheless, this dream became my guiding North Star.
+            I’ve been described as a thinker. For much of my life I had a hunch I spent more time in my head than many of my peers. It wasn’t until I started my career that I learned just how much more I think about problems. Given an interesting enough problem, my brain plugs away at it until I’m satisfied I both understand it well enough, and have an adequate solution.
           </p>
           <p>
-            Software development is like a constantly changing puzzle, with each component fitting somewhere within the bigger picture. More often than not, these components are fuzzy rather than well-defined. I enjoy figuring out what these components should be, how they can be made clearer, where they should go, and, most importantly, why they should exist in the first place.
-          </p>
-          <p>
-            I have an insatiable drive to understand interesting and complex problems. Simple problems often mask underlying complexity, and vice versa, so it is my belief that a shared, and deep, understanding of those problems is the path towards effective solutions.
-          </p>
-          <p>
-            Despite my perfectionist nature, I’ve learned that my desire isn’t to make something perfect, but to instead do things properly by following my principles of accuracy, quality, and building for the long-term.
-          </p>
-          <p>
-            I enjoy rebuilding systems and frameworks, envisioning a better, or even the best, versions of themselves. Described as a deep, lateral, and first-principles thinker, I challenge the status quo to better understand and determine if, and how, it needs to change.
-          </p>
-          <p>
-            Ultimately, I’m looking for opportunities to solve problems that I find interesting, and to do so in my own unique and creative way.
+            I like to ask a lot of questions, and often I’ll respond to questions with more questions. I want to make sure I understand the question well enough before I provide an answer. Otherwise, how can I know if the answer is actually helpful or not?
           </p>
         </Content>
         <div>
