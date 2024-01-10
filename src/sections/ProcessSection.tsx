@@ -18,22 +18,16 @@ const Item = ({ image, imageOrientation, title, text, subtext }: ItemProperties)
     </div>
   )
   return (
-    <div className={`flex ${imageOrientation === Orientation.Horizontal.Left ? "flex-wrap" : "flex-wrap-reverse"} justify-center gap-4`}>
+    <div className={`flex ${imageOrientation === Orientation.Horizontal.Left ? "flex-wrap" : "flex-wrap-reverse"} justify-center items-center gap-4`}>
       { imageOrientation === Orientation.Horizontal.Left
           ? <Image/>
           : null
       }
-      <div className="flex flex-col flex-1 justify-center gap-4 min-w-[320px]">
-        <div className="text-base md:text-lg xl:text-xl 3xl:text-2xl text-center md:text-left text-zinc-500">
-          {title}
-        </div>
-        <div className="text-sm md:text-base xl:text-lg 3xl:text-xl text-center md:text-left">
-          {text}
-        </div>
-        <div className="text-xs md:text-sm xl:text-base 3xl:text-lg text-zinc-400">
-          {subtext}
-        </div>
-      </div>
+      <Content className="flex-1 min-w-[320px] text-center md:text-left">
+        <h4>{title}</h4>
+        <p>{text}</p>
+        <p className="text-zinc-400">{subtext}</p>
+      </Content>
       { imageOrientation === Orientation.Horizontal.Right
           ? <Image/>
           : null
