@@ -1,6 +1,6 @@
 import * as React from "react"
 import { IconType } from "react-icons"
-import { RoundGlyph, Section } from "../components"
+import { Content, RoundGlyph, Section } from "../components"
 import { Orientation } from "../utilities"
 import { useExpertise } from "../data/Expertise"
 
@@ -13,7 +13,7 @@ interface ExpertiseProperties {
   children: string
 }
 
-const Tile = ({title, icon, children}: ExpertiseProperties) => {
+const Item = ({title, icon, children}: ExpertiseProperties) => {
   return (
     <div
       className={
@@ -25,14 +25,10 @@ const Tile = ({title, icon, children}: ExpertiseProperties) => {
         ? <div className="flex flex-col justify-center"><RoundGlyph iconType={icon.type}/></div>
         : null
       }
-      <div className="flex flex-col flex-1 min-w-full sm:min-w-[640px] md:min-w-[128px] md:min-h-[100px] text-center gap-2">
-        <div className="text-base xl:text-lg text-zinc-500">
-          {title}
-        </div>
-        <div className="text-sm xl:text-base">
-          {children}
-        </div>
-      </div>
+      <Content className="flex-1 min-w-full sm:min-w-[640px] md:min-w-[128px] md:min-h-[100px] text-center">
+        <h4>{title}</h4>
+        <p>{children}</p>
+      </Content>
       {icon.orientation === Orientation.Horizontal.Right
         ? <div className="flex flex-col justify-center"><RoundGlyph iconType={icon.type}/></div>
         : null
@@ -50,7 +46,7 @@ const ExpertiseSection = () => {
     >
       <div className="flex flex-wrap justify-center gap-4">
         {expertise.map((e, i) => (
-          <Tile
+          <Item
             key={e.id}
             title={e.title}
             icon={{
@@ -59,7 +55,7 @@ const ExpertiseSection = () => {
             }}
           >
             {e.body}
-          </Tile>
+          </Item>
         ))}
       </div>
     </Section.Item>
