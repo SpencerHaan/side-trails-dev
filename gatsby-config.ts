@@ -2,8 +2,9 @@ import type { GatsbyConfig } from "gatsby";
 
 const config: GatsbyConfig = {
   siteMetadata: {
-    title: `Side Trails Software Development`,
-    siteUrl: `https://sidetrails.dev`,
+    title: "Side Trails Software Development",
+    description: "I'm a software systems developer that builds, and rebuilds, systems and applications, following a dynamic, principles based agile development process.",
+    siteUrl: "https://sidetrails.dev",
     menuLinks: [
       {
         name: "Home",

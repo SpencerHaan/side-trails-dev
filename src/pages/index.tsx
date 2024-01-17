@@ -1,7 +1,7 @@
 import * as React from "react"
 import { type HeadFC, type PageProps, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import { Overlay, Button, Section, useLayoutControls } from "../components"
+import { Overlay, Button, Section, useLayoutControls, Seo } from "../components"
 import { ContactSection, ExpertiseSection, ProcessSection, TestimonialSection } from "../sections"
 
 const IndexPage: React.FC<PageProps> = () => {
@@ -51,4 +51,4 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home - Side Trails Software Development</title>
+export const Head: HeadFC = () => <Seo/>

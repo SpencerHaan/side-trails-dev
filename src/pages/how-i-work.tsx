@@ -1,6 +1,6 @@
 import * as React from "react"
 import { type HeadFC } from "gatsby"
-import { Section } from "../components"
+import { Section, Seo } from "../components"
 import { AboutMeSection, AgileSection, WhySideTrailsSection } from "../sections"
 
 const HowIWorkPage = () => {
@@ -15,4 +15,4 @@ const HowIWorkPage = () => {
 
 export default HowIWorkPage
 
-export const Head: HeadFC = () => <title>How I Work - Side Trails Software Development</title>
+export const Head: HeadFC = () => <Seo title="How I Work"/>
