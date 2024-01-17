@@ -25,4 +25,4 @@ jobs:
           gatsby clean
           gatsby build
       - name: Publish to live
-        run: gh-pages -d public -b live
+        run: gh-pages -d public -b live -u "$(git log -n 1 --pretty=format:%an) <$(git log -n 1 --pretty=format:%ae)>"
