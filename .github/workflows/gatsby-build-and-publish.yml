@@ -18,6 +18,7 @@ jobs:
         run: |
           npm install -g gatsby-cli
           npm install -g gh-pages
+          npm install
       - name: Clean and build
         run: |
           gatsby clean
