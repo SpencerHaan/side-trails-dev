@@ -1,0 +1,26 @@
+name: gatsby-build-and-publish
+run-name: Build Gatsby static site and publish to live branch
+on:
+  push:
+    branches:
+      - released
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: |
+          npm install -g gatsby-cli
+          npm install -g gh-pages
+      - name: Clean and build
+        run: |
+          gatsby clean
+          gatsby build
+      - name: Publish to live
+        run: gh-pages -d public -b live
