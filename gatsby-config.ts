@@ -24,6 +24,7 @@ const config: GatsbyConfig = {
   graphqlTypegen: true,
   plugins: [
     "gatsby-plugin-cname",
+    "gatsby-plugin-sitemap",
     "gatsby-plugin-postcss",
     "gatsby-plugin-mdx",
     {
