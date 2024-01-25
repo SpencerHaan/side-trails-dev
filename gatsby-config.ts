@@ -4,6 +4,7 @@ const config: GatsbyConfig = {
   siteMetadata: {
     title: "Side Trails Software Development",
     description: "I'm a software systems developer that builds, and rebuilds, systems and applications, following a dynamic, principles based agile development process.",
+    image: "/cover.jpg",
     siteUrl: "https://sidetrails.dev",
     menuLinks: [
       {
