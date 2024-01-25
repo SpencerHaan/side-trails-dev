@@ -52,7 +52,7 @@ const Layout = ({children}: LayoutProperties) => {
         </div>
         <div className="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm italic">
           <p>
-            &copy; 2023 Side Trails Software Development, Spencer Haan.
+            &copy; {new Date().getFullYear()} Side Trails Software Development, Spencer Haan.
           </p>
           <p>
             All rights reserved.
