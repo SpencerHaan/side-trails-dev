@@ -1,6 +1,6 @@
 import * as React from 'react'
 import MediaLinks from './navigation/MediaLinks'
-import Header, { Overlay } from './Header'
+import Header, { Hero } from './Header'
 
 const Container = ({ children }: { children?: string | React.ReactElement | React.ReactElement[] | null}) => {
   return (
@@ -11,8 +11,8 @@ const Container = ({ children }: { children?: string | React.ReactElement | Reac
 }
 
 type LayoutOptions = {
-  addOverlay: (overlay: Overlay) => void
-  removeOverlay: () => void
+  setHero: (hero: Hero) => void
+  clearHero: () => void
 }
 
 export const LayoutContext = React.createContext<LayoutOptions | null>(null)
@@ -20,11 +20,11 @@ export const LayoutContext = React.createContext<LayoutOptions | null>(null)
 export function useLayoutControls(): LayoutOptions {
   const options = React.useContext(LayoutContext)
   return options ? {
-      addOverlay: options.addOverlay,
-      removeOverlay: options.removeOverlay
+      setHero: options.setHero,
+      clearHero: options.clearHero,
     } : {
-      addOverlay: () => {},
-      removeOverlay: () => {}
+      setHero: () => {},
+      clearHero: () => {},
     }
 }
 
@@ -33,16 +33,14 @@ interface LayoutProperties {
 }
 
 const Layout = ({children}: LayoutProperties) => {
-  const [overlay, setOverlay] = React.useState<Overlay>()
-
-  const addOverlay = setOverlay
-  const removeOverlay = () => setOverlay(undefined)
+  const [hero, setHero] = React.useState<Hero>()
+  const clearHero = () => setHero(undefined)
 
   return (
     <div className="flex flex-col min-h-screen font-base">
-      <Header overlay={overlay}/>
+      <Header hero={hero}/>
       <main className="flex flex-col flex-1">
-        <LayoutContext.Provider value={{ addOverlay, removeOverlay }}>
+        <LayoutContext.Provider value={{ setHero, clearHero }}>
           {children}
         </LayoutContext.Provider>
       </main>
