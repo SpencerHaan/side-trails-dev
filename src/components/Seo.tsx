@@ -1,22 +1,23 @@
 import * as React from "react"
+import { useLocation } from "@reach/router"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 interface SeoProperties {
   title?: string
   description?: string
   imageUrl?: string
-  pathname?: string
   children?: React.ReactElement | React.ReactElement[]
 }
 
-const Seo = ({ title, description, imageUrl, pathname, children }: SeoProperties) => {
+const Seo = ({ title, description, imageUrl, children }: SeoProperties) => {
+  const location = useLocation()
   const metadata = useSiteMetadata()
   const seo = {
     ...metadata,
     title: title ? `${title} - ${metadata.title}` : metadata.title,
     description: description || metadata.description,
     image: `${metadata.siteUrl}${imageUrl || metadata.image}`,
-    url: `${metadata.siteUrl}${pathname || ""}`
+    url: `${metadata.siteUrl}${location.pathname}`
   }
 
   return (
