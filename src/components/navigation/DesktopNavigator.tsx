@@ -34,13 +34,13 @@ const DesktopNavigator = ({overlay}: DesktopNavigatorProperties) => {
                 }
             </Link>
           </div>
-          <div className={`flex text-lg lg:text-xl 3xl:text-2xl ${overlay ? "text-white" : null}`}>
+          <div className={`flex gap-8 text-lg lg:text-xl 3xl:text-2xl ${overlay ? "text-white" : null}`}>
             {menuLinks.map((item: {name: string, link: string}) => {
                 return (
                   <Link
                     key={item.name}
                     to={item.link}
-                    className="w-36 lg:w-40 text-center hover:font-bold"
+                    className="text-center font-bold hover:underline hover:underline-offset-8"
                   >
                     {item.name}
                   </Link>
