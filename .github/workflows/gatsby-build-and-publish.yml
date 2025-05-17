@@ -1,6 +1,7 @@
 name: gatsby-build-and-publish
 run-name: Build Gatsby static site and publish to live branch
 on:
+  workflow_dispatch: # manual trigger
   push:
     branches:
       - released
@@ -9,6 +10,7 @@ env:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/released'
     permissions:
       contents: write
     steps:
