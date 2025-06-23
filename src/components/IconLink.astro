@@ -1,0 +1,17 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const DEFAULT_ICON_SIZE = 24
+
+interface Props {
+  to: string
+  name: string
+  size?: number
+}
+
+const { to, name, size = DEFAULT_ICON_SIZE } = Astro.props
+---
+
+<a href={to} target="_blank">
+  <Icon name={name} size={size}/>
+</a>
