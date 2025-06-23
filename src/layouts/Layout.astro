@@ -1,26 +1,43 @@
 ---
 import "../styles/global.css";
+
+const { title } = Astro.props
 ---
 
-<!doctype html>
-<html lang="en">
+<html>
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="flex flex-col min-h-screen font-base">
+			<!-- <Header hero={hero}/> -->
+			<main class="flex flex-col flex-1">
+				<!-- <LayoutContext.Provider value={{ setHero, clearHero }}> -->
+					<slot />
+				<!-- </LayoutContext.Provider> -->
+			</main>
+			<footer class="flex flex-row items-center py-2 md:py-4 md:px-8 bg-zinc-800 text-white">
+				<div class="hidden md:block">
+					<!-- <MediaLinks.Source size={24}/> -->
+				</div>
+				<div class="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm italic">
+					<p>
+						&copy; {new Date().getFullYear()} Side Trails Software Development, Spencer Haan.
+					</p>
+					<p>
+						All rights reserved.
+					</p>
+				</div>
+				<div class="hidden md:block">
+					<div class="flex flex-row gap-2">
+						<!-- <MediaLinks.LinkedIn size={24}/>
+						<MediaLinks.GitHub size={24}/> -->
+					</div>
+				</div>
+			</footer>
+		</div>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
