@@ -16,13 +16,18 @@
     "@types/react-dom": "^19.1.6",
     "astro": "^5.10.1",
     "astro-icon": "^1.1.5",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.522.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.10"
   },
   "packageManager": "pnpm@9.13.0+sha512.beb9e2a803db336c10c9af682b58ad7181ca0fbd0d4119f2b33d5f2582e96d6c0d93c85b23869295b765170fbdaa92890c0da6ada457415039769edf3c959efe",
   "devDependencies": {
     "@iconify-json/fa6-brands": "^1.2.5",
-    "@iconify-json/tabler": "^1.2.19"
+    "@iconify-json/tabler": "^1.2.19",
+    "tw-animate-css": "^1.3.4"
   }
 }
