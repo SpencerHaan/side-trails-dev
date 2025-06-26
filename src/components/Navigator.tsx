@@ -42,18 +42,21 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
   return (
     <Popover>
       <PopoverAnchor className="w-full">
-        <div className="flex items-center px-1 bg-background">
-          <button onClick={() => setOpen(!open)} className="md:hidden p-2">
+        <div className="flex items-center py-2 bg-background shadow">
+          <button onClick={() => setOpen(!open)} className="md:hidden px-4">
             {open ? <XIcon /> : <MenuIcon />}
           </button>
-          <NavigationMenu className="mx-auto hidden md:flex">
+          <a className="md:fixed md:px-4" href="/">
+            <img className="h-8" src="../../../public/logo.png" />
+          </a>
+          <NavigationMenu className="mx-auto hidden md:flex gap-2">
             {links.map((link, i) =>
               <NavigationMenuItem key={i} asChild>
-                <NavigationMenuLink href={link.path} className="2xl:text-lg">{link.label}</NavigationMenuLink>
+                <NavigationMenuLink href={link.path} className="hover:rounded-full">{link.label}</NavigationMenuLink>
               </NavigationMenuItem>
             )}
           </NavigationMenu>
-          <div className="fixed right-0 flex p-2 gap-1">
+          <div className="fixed right-4 flex gap-2">
             <IconLink to="https://www.linkedin.com/in/spencerhaan/" name="fa6-brands:linkedin" size={24} />
             <IconLink to="https://github.com/SpencerHaan/side-trails-dev" name="fa6-brands:square-github" size={24} />
           </div>
