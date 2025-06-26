@@ -1,5 +1,5 @@
 ---
-import { Icon } from 'astro-icon/components'
+import ReactIconLink from "./icon-link"
 
 const DEFAULT_ICON_SIZE = 24
 
@@ -12,6 +12,4 @@ interface Props {
 const { to, name, size = DEFAULT_ICON_SIZE } = Astro.props
 ---
 
-<a href={to} target="_blank">
-  <Icon name={name} size={size}/>
-</a>
+<ReactIconLink to={to} name={name} size={size} client:load />

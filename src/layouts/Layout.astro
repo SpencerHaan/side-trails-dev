@@ -2,7 +2,6 @@
 import "@/styles/global.css"
 
 import { ClientRouter } from "astro:transitions";
-import IconLink from "@/components/IconLink.astro"
 import Navigator, { type NavigatorLink } from "@/components/Navigator"
 
 const navLinks: NavigatorLink[] = [
@@ -38,23 +37,14 @@ const { title } = Astro.props
 					<slot />
 				<!-- </LayoutContext.Provider> -->
 			</main>
-			<footer class="flex flex-row items-center py-2 md:py-4 md:px-8 bg-zinc-800 text-white">
-				<div class="hidden md:block">
-					<IconLink to="https://github.com/SpencerHaan/side-trails-dev" name="tabler:code" />
-				</div>
-				<div class="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm italic">
+			<footer class="flex flex-row items-center py-1 md:py-2 bg-accent text-accent-foreground">
+				<div class="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm">
 					<p>
 						&copy; {new Date().getFullYear()} Side Trails Software Development, Spencer Haan.
 					</p>
 					<p>
 						All rights reserved.
 					</p>
-				</div>
-				<div class="hidden md:block">
-					<div class="flex flex-row gap-2">
-						<IconLink to="https://www.linkedin.com/in/spencerhaan/" name="fa6-brands:linkedin" />
-						<IconLink to="https://github.com/SpencerHaan" name="fa6-brands:square-github" />
-					</div>
 				</div>
 			</footer>
 		</div>
