@@ -47,7 +47,7 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
             {open ? <XIcon /> : <MenuIcon />}
           </button>
           <a className="md:fixed md:px-4" href="/">
-            <img className="h-8" src="../../../public/logo.png" />
+            <img className="h-8" src="./logo.png" />
           </a>
           <NavigationMenu className="mx-auto hidden md:flex gap-2">
             {links.map((link, i) =>
