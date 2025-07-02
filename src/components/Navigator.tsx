@@ -46,7 +46,7 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
           <button onClick={() => setOpen(!open)} className="md:hidden px-4">
             {open ? <XIcon /> : <MenuIcon />}
           </button>
-          <a className="md:fixed md:px-4" href="/">
+          <a className="md:absolute md:px-4" href="/">
             <img className="h-8" src="./logo.png" />
           </a>
           <NavigationMenu className="mx-auto hidden md:flex gap-2">
@@ -56,7 +56,7 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
               </NavigationMenuItem>
             )}
           </NavigationMenu>
-          <div className="fixed right-4 flex gap-2">
+          <div className="absolute right-4 flex gap-2">
             <IconLink to="https://www.linkedin.com/in/spencerhaan/" name="fa6-brands:linkedin" size={24} />
             <IconLink to="https://github.com/SpencerHaan/side-trails-dev" name="fa6-brands:square-github" size={24} />
           </div>
