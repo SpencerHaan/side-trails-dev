@@ -37,14 +37,9 @@ const { title } = Astro.props
 					<slot />
 				<!-- </LayoutContext.Provider> -->
 			</main>
-			<footer class="flex flex-row items-center py-1 md:py-2 bg-accent text-accent-foreground">
-				<div class="flex flex-wrap flex-1 justify-center gap-1 text-xs md:text-sm">
-					<p>
-						&copy; {new Date().getFullYear()} Side Trails Software Development, Spencer Haan.
-					</p>
-					<p>
-						All rights reserved.
-					</p>
+			<footer class="p-2 bg-accent text-accent-foreground">
+				<div class="text-center text-xs md:text-sm">
+					&copy; {new Date().getFullYear()} Side Trails Software Development, Spencer Haan
 				</div>
 			</footer>
 		</div>
