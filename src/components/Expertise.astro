@@ -1,0 +1,61 @@
+---
+import ExpertiseItem from "./ExpertiseItem.astro"
+import Section from "./ui/section.astro"
+
+import {
+  BackpackIcon,
+  CloudCogIcon,
+  CodeIcon,
+  DraftingCompassIcon,
+  MapIcon,
+  MicroscopeIcon
+} from "lucide-react"
+---
+
+<Section
+  id="expertise"
+  title="Expertise"
+  subtitle="Some of the things I can do."
+>
+  <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
+    <ExpertiseItem
+      title="System Anaylsis"
+      description="Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts."
+    >
+      <MicroscopeIcon slot="icon" />
+    </ExpertiseItem>
+    <ExpertiseItem
+      title="System Architecture"
+      description="Design solutions that incorporate and consider all aspects of a system."
+      iconSide="right"
+    >
+      <DraftingCompassIcon slot="icon" />
+    </ExpertiseItem>
+    <ExpertiseItem
+      title="Software Prototyping"
+      description="Exploratory software development to better understand the solution you want, and really need."
+    >
+      <MapIcon slot="icon"/>
+    </ExpertiseItem>
+    <ExpertiseItem
+      title="Software Design and Development"
+      description="Implement well-designed code, enabling future growth and reducing maintenance overhead."
+      iconSide="right"
+    >
+      <CodeIcon slot="icon"/>
+    </ExpertiseItem>
+    <ExpertiseItem
+      title="Cloud Integration"
+      description=" Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud."
+    >
+      <CloudCogIcon slot="icon"/>
+    </ExpertiseItem>
+    <ExpertiseItem
+      title="Rucksack"
+      description="Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…"
+      iconSide="right"
+    >
+      <BackpackIcon slot="icon"/>
+    </ExpertiseItem>
+  </div>
+</Section>

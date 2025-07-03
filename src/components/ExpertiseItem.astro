@@ -1,0 +1,25 @@
+---
+import { cn } from '@/lib/utils'
+import Typography from './ui/typography.astro'
+
+interface Props {
+  title: string
+  description: string
+  iconSide?: "left" | "right"
+}
+
+const { title, description, iconSide = "left" } = Astro.props
+---
+
+<div class={cn(
+  "flex flex-col items-center gap-4",
+  iconSide == "left" ? "md:flex-row" : "md:flex-row-reverse"
+)}>
+  <div class="p-4 bg-muted text-muted-foreground border border-muted-foreground rounded-full">
+    <slot name="icon" />
+  </div>
+  <Typography class="text-center h-full">
+    <h4>{title}</h4>
+    <p>{description}</p>
+  </Typography>
+</div>
