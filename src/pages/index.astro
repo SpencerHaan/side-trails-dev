@@ -2,11 +2,12 @@
 import Layout from '@/layouts/Layout.astro';
 import Process from '@/components/Process.astro';
 import Expertise from '@/components/Expertise.astro';
+import SectionList from '@/components/ui/section-list.astro';
 ---
 
 <Layout title="Home">
-	<div class="flex flex-col gap-8">
+	<SectionList>
 		<Process />
 		<Expertise />
-	</div>
+	</SectionList>
 </Layout>

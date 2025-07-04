@@ -1,9 +1,14 @@
 ---
 import About from "@/components/About.astro";
+import SectionList from "@/components/ui/section-list.astro";
+import WhySideTrails from "@/components/WhySideTrails.astro";
 import Layout from "@/layouts/Layout.astro";
 
 ---
 
 <Layout title="How I Work">
-  <About />
+  <SectionList>
+    <About />
+    <WhySideTrails />
+  </SectionList>
 </Layout>
