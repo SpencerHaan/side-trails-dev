@@ -42,7 +42,7 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
   return (
     <Popover>
       <PopoverAnchor className="w-full">
-        <div className="flex items-center py-2 bg-background shadow">
+        <div className="relative flex items-center py-2 bg-background shadow">
           <button onClick={() => setOpen(!open)} className="md:hidden px-4">
             {open ? <XIcon /> : <MenuIcon />}
           </button>
