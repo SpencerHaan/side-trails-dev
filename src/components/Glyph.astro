@@ -9,7 +9,7 @@ interface Props {
 const { type, class: className = "" } = Astro.props
 ---
 <div class={cn(
-  "w-fit p-4 bg-muted text-muted-foreground border border-dashed foreground",
+  "w-fit p-4 bg-muted text-muted-foreground border foreground",
   type == "round" ? "rounded-full" : "rounded-xl",
   className
 )}>

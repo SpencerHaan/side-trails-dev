@@ -17,10 +17,11 @@ import {
   title="Expertise"
   subtitle="Some of the things I can do."
 >
-  <div class="flex flex-col gap-4 sm:grid sm:grid-cols-2">
+  <div class="flex flex-col sm:grid sm:grid-cols-2">
     <ExpertiseItem
       title="System Anaylsis"
       description="Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts."
+      class="border-b border-dashed py-4 sm:border-r sm:pr-4 xl:p-8"
     >
       <MicroscopeIcon slot="icon" />
     </ExpertiseItem>
@@ -28,25 +29,29 @@ import {
       title="System Architecture"
       description="Design solutions that incorporate and consider all aspects of a system."
       iconSide="right"
-    >
+      class="border-b border-dashed py-4 sm:pl-4 xl:p-8"
+      >
       <DraftingCompassIcon slot="icon" />
     </ExpertiseItem>
     <ExpertiseItem
       title="Software Prototyping"
       description="Exploratory software development to better understand the solution you want, and really need."
+      class="border-b border-dashed py-4 sm:pr-4 sm:border-r xl:p-8"
     >
       <MapIcon slot="icon"/>
     </ExpertiseItem>
     <ExpertiseItem
-      title="Software Design and Development"
+      title="Software Development"
       description="Implement well-designed code, enabling future growth and reducing maintenance overhead."
       iconSide="right"
+      class="border-b border-dashed py-4 sm:pl-4 xl:p-8"
     >
       <CodeIcon slot="icon"/>
     </ExpertiseItem>
     <ExpertiseItem
       title="Cloud Integration"
       description=" Introduce new cloud services into existing systems or processes, or migrate existing non-cloud systems to the cloud."
+      class="border-b border-dashed py-4 sm:border-b-0 sm:border-r sm:pr-4 xl:p-8"
     >
       <CloudCogIcon slot="icon"/>
     </ExpertiseItem>
@@ -54,6 +59,7 @@ import {
       title="Rucksack"
       description="Java, JavaScript/TypeScript, React, MySQL/SQL, AWS, and more…"
       iconSide="right"
+      class="py-4 sm:pl-4 xl:p-8"
     >
       <BackpackIcon slot="icon"/>
     </ExpertiseItem>

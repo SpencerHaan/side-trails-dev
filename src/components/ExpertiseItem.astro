@@ -1,23 +1,26 @@
 ---
 import { cn } from '@/lib/utils'
 import Typography from './ui/typography.astro'
+import Glyph from './Glyph.astro'
 
 interface Props {
   title: string
   description: string
   iconSide?: "left" | "right"
+  class?: string
 }
 
-const { title, description, iconSide = "left" } = Astro.props
+const { title, description, iconSide = "left", class: className = "" } = Astro.props
 ---
 
 <div class={cn(
   "flex flex-col items-center gap-4",
-  iconSide == "left" ? "md:flex-row" : "md:flex-row-reverse"
+  iconSide == "left" ? "md:flex-row" : "md:flex-row-reverse",
+  className
 )}>
-  <div class="p-4 bg-muted text-muted-foreground border border-muted-foreground rounded-full">
+  <Glyph type="square">
     <slot name="icon" />
-  </div>
+  </Glyph>
   <Typography class="text-center h-full">
     <h4>{title}</h4>
     <p>{description}</p>

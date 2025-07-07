@@ -15,7 +15,7 @@ const { title, subtitle, description, imagePosition } = Astro.props
 <Typography class="prose-h4:text-muted-foreground">
   <div class={cn(
     "flex border-l border-dashed ml-7 pl-8",
-    "md:grid md:grid-cols-2 md:border-none md:divide-x divide-dashed md:ml-0 md:pl-0 2xl:-mx-52",
+    "md:grid md:grid-cols-2 md:border-none md:divide-x divide-dashed md:ml-0 md:pl-0",
     imagePosition == "left" ? "flex-col" : "flex-col-reverse"
   )}>
     {imagePosition == "left"
