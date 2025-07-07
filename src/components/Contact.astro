@@ -1,0 +1,17 @@
+---
+import { ContactForm } from "./ContactForm";
+import { Card, CardContent } from "./ui/card";
+import Section from "./ui/section.astro";
+---
+
+<Section
+  id="contact"
+  title="Let's Chat"
+  subtitle="Need help with a project? Send me some details."
+>
+  <Card>
+    <CardContent>
+      <ContactForm client:only="react" />
+    </CardContent>
+  </Card>
+</Section>
