@@ -1,5 +1,6 @@
 ---
 import "@/styles/global.css"
+import "sonner/dist/styles.css" // https://github.com/withastro/astro/issues/9350
 
 import { ClientRouter } from "astro:transitions"
 import Navigator, { type NavigatorLink } from "@/components/Navigator"
@@ -19,7 +20,7 @@ const navLinks: NavigatorLink[] = [
 const { title } = Astro.props
 ---
 
-<html>
+<html lang="en" class="light">
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/png" href="/favicon.png" />
@@ -28,8 +29,8 @@ const { title } = Astro.props
 		<ClientRouter />
 	</head>
 	<body>
+		<Toaster position="top-center" theme="light" transition:persist client:load />
 		<div class="flex flex-col min-h-screen font-base">
-			<Toaster position="top-center" client:idle />
 			<header class="sticky top-0 z-50 flex justify-center">
 				<Navigator links={navLinks} transition:persist client:load />
 			</header>
