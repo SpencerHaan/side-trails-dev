@@ -1,16 +1,123 @@
 ---
-import ProcessCard from "./ProcessCard.astro"
 import Section from "./ui/section.astro"
 
 import discoverImage from "@/assets/discover.png"
 import exploreImage from "@/assets/explore.png"
 import buildImage from "@/assets/build.png"
+
+import { TentTreeIcon, LineSquiggleIcon, FlagIcon } from "lucide-react"
+import ProcessItem from "./ProcessItem.astro"
+import ProcessImage from "./ProcessImage.astro"
+import Glyph from "./Glyph.astro"
 ---
 
 <Section
   id="process"
 >
-  <ProcessCard
+  <div class="flex flex-col items-start md:items-center gap-4">
+    <Glyph type="round">
+      <TentTreeIcon />
+    </Glyph>
+    <ProcessItem
+      title="Discover"
+      subtitle="First, let's discover what your business needs/technical challenges are all about."
+      description="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
+      imagePosition="right"
+    >
+      <ProcessImage slot="image" src={discoverImage} alt="" />
+    </ProcessItem>
+    <Glyph type="round">
+      <LineSquiggleIcon className="rotate-45" />
+    </Glyph>
+    <ProcessItem
+      title="Explore"
+      subtitle="Second, let's explore these business needs/technical challenges to establish a shared and deep understanding."
+      description="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
+      imagePosition="left"
+    >
+      <ProcessImage slot="image" src={exploreImage} alt="" />
+    </ProcessItem>
+     <Glyph type="round">
+      <LineSquiggleIcon className="rotate-45" />
+    </Glyph>
+    <ProcessItem
+      title="Build"
+      subtitle="Third, let's build the solution."
+      description="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."
+      imagePosition="right"
+    >
+      <ProcessImage slot="image" src={buildImage} alt="" />
+    </ProcessItem>
+    <Glyph type="round">
+      <FlagIcon />
+    </Glyph>
+  </div>
+  <!-- <div class="flex flex-col items-center gap-4 -mx-52">
+    <div class="w-fit p-4 bg-muted text-muted-foreground border border-dashed foreground rounded-full">
+      <TentTreeIcon />
+    </div>
+    <div class="grid grid-cols-2 divide-x divide-dashed" dir="rtl">
+      <div class="pl-10 flex justify-start items-center">
+        <Image
+          src={discoverImage}
+          alt=""
+          loading="eager"
+          class="bg-muted rounded-xl h-52 w-52 shadow-sm"
+        />
+      </div>
+      <div class="pr-10">
+        <Typography class="w-fit text-right prose-h4:text-muted-foreground">
+          <h4>Discover</h4>
+          <h2>First, let's discover what your business needs/technical challenges are all about.</h2>
+          <p>What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?</p>
+        </Typography>
+      </div>
+    </div>
+    <div class="w-fit p-4 bg-muted text-muted-foreground border border-dashed foreground rounded-full">
+      <LineSquiggleIcon className="rotate-45"  />
+    </div>
+    <div class="grid grid-cols-2 divide-x divide-dashed">
+      <div class="pr-10 flex justify-end items-center">
+        <Image
+          src={exploreImage}
+          alt=""
+          loading="eager"
+          class="bg-muted rounded-xl h-52 w-52 shadow-sm"
+        />
+      </div>
+      <div class="pl-10">
+        <Typography class="w-fit text-left prose-h4:text-muted-foreground">
+          <h4>Explore</h4>
+          <h2>Second, let's explore these business needs/technical challenges to establish a shared and deep understanding.</h2>
+          <p>What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key.</p>
+        </Typography>
+      </div>
+    </div>
+    <div class="w-fit p-4 bg-muted text-muted-foreground border border-dashed foreground rounded-full">
+      <LineSquiggleIcon className="rotate-45" />
+    </div>
+    <div class="grid grid-cols-2 divide-x divide-dashed">
+      <div class="pr-10">
+        <Typography class="w-fit text-right prose-h4:text-muted-foreground">
+          <h4>Build</h4>
+          <h2>Third, let's build the solution.</h2>
+          <p>Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore.</p>
+        </Typography>
+      </div>
+      <div class="pl-10 flex justify-start items-center">
+        <Image
+          src={buildImage}
+          alt=""
+          loading="eager"
+          class="bg-muted rounded-xl h-52 w-52 shadow-sm"
+        />
+      </div>
+    </div>
+    <div class="w-fit p-4 bg-muted text-muted-foreground border border-dashed foreground rounded-full">
+      <FlagIcon />
+    </div>
+  </div> -->
+  <!-- <ProcessCard
     title="Discover"
     description="First, let's discover what your business needs/technical challenges are all about."
     footer="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
@@ -31,5 +138,5 @@ import buildImage from "@/assets/build.png"
     footer="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."
     image={buildImage}
     imageAlt="Illustraion of a map and a drawing compass"
-  />
+  /> -->
 </Section>

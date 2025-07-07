@@ -1,0 +1,12 @@
+---
+import { Image, type LocalImageProps, type RemoteImageProps } from "astro:assets"
+
+type Props = LocalImageProps | RemoteImageProps
+
+const props = Astro.props
+---
+
+<Image
+  {...props}
+  class="bg-muted rounded-xl h-52 w-52 shadow-sm"
+/>

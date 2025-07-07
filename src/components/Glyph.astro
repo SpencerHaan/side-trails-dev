@@ -1,0 +1,17 @@
+---
+import { cn } from '@/lib/utils'
+
+interface Props {
+  type: "round" | "square"
+  class?: string
+}
+
+const { type, class: className = "" } = Astro.props
+---
+<div class={cn(
+  "w-fit p-4 bg-muted text-muted-foreground border border-dashed foreground",
+  type == "round" ? "rounded-full" : "rounded-xl",
+  className
+)}>
+  <slot />
+</div>
