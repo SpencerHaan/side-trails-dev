@@ -42,12 +42,9 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
   return (
     <Popover>
       <PopoverAnchor className="w-full">
-        <div className="relative flex items-center py-2 bg-background shadow">
-          <button onClick={() => setOpen(!open)} className="md:hidden px-4">
-            {open ? <XIcon /> : <MenuIcon />}
-          </button>
-          <a className="md:absolute md:px-4" href="/">
-            <img className="h-8" src="./logo.png" />
+        <div className="relative h-12 flex items-center bg-background shadow">
+          <a className="absolute left-2 lg:left-4" href="/">
+            <img className="h-6" src="./logo.png" />
           </a>
           <NavigationMenu className="mx-auto hidden md:flex gap-2">
             {links.map((link, i) =>
@@ -56,9 +53,12 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
               </NavigationMenuItem>
             )}
           </NavigationMenu>
-          <div className="absolute right-4 flex gap-2">
+          <div className="absolute right-2 lg:right-4 flex gap-2 text-muted-foreground">
             <IconLink to="https://www.linkedin.com/in/spencerhaan/" name="fa6-brands:linkedin" size={24} />
             <IconLink to="https://github.com/SpencerHaan/side-trails-dev" name="fa6-brands:square-github" size={24} />
+            <button onClick={() => setOpen(!open)} className="md:hidden ml-2">
+              {open ? <XIcon /> : <MenuIcon />}
+            </button>
           </div>
         </div>
       </PopoverAnchor>
