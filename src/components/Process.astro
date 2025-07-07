@@ -24,7 +24,12 @@ import Glyph from "./Glyph.astro"
       description="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
       imagePosition="right"
     >
-      <ProcessImage slot="image" src={discoverImage} alt="" />
+      <ProcessImage
+        slot="image"
+        src={discoverImage}
+        alt="Illustraion of a map and a drawing compass"
+        loading="eager"
+      />
     </ProcessItem>
     <Glyph type="round">
       <LineSquiggleIcon className="rotate-45" />
@@ -35,7 +40,12 @@ import Glyph from "./Glyph.astro"
       description="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
       imagePosition="left"
     >
-      <ProcessImage slot="image" src={exploreImage} alt="" />
+      <ProcessImage
+        slot="image"
+        src={exploreImage}
+        alt="Illustration of a hiking backpack."
+        loading="eager"
+      />
     </ProcessItem>
      <Glyph type="round">
       <LineSquiggleIcon className="rotate-45" />
@@ -46,7 +56,12 @@ import Glyph from "./Glyph.astro"
       description="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."
       imagePosition="right"
     >
-      <ProcessImage slot="image" src={buildImage} alt="" />
+      <ProcessImage
+        slot="image"
+        src={buildImage}
+        alt="Illustration of a mountain with a flag at the peak."
+        loading="eager"
+      />
     </ProcessItem>
     <Glyph type="round">
       <FlagIcon />
