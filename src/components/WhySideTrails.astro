@@ -3,7 +3,7 @@ import Image from "astro/components/Image.astro"
 import Section from "./ui/section.astro"
 import Typography from "./ui/typography.astro"
 
-import image from "../assets/why-side-trails.jpeg"
+import image from "@/assets/why-side-trails.jpeg"
 ---
 
 <Section
@@ -12,14 +12,14 @@ import image from "../assets/why-side-trails.jpeg"
   subtitle={["\"We cannot solve our problems with the same thinking we used when we created them.\"", "Albert Einstein"]}
 >
   <div class="flex flex-col md:grid md:grid-cols-2 items-center gap-4">
-      <Image
-        src={image}
-        width={375}
-        height={250}
-        class="rounded-xl"
-        layout="constrained"
-        alt=""
-      />
+    <Image
+      src={image}
+      width={375}
+      height={250}
+      layout="constrained"
+      alt="Ground level view of a trail through a forest."
+      class="rounded-xl"
+    />
     <!-- <img src="./why-side-trails.jpeg" class="max-w-sm lg:max-w-md rounded-xl shadow-sm" /> -->
     <Typography>
       <p>

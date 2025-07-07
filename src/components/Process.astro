@@ -1,6 +1,10 @@
 ---
-import ProcessCard from "./ProcessCard.astro";
-import Section from "./ui/section.astro";
+import ProcessCard from "./ProcessCard.astro"
+import Section from "./ui/section.astro"
+
+import discoverImage from "@/assets/discover.png"
+import exploreImage from "@/assets/explore.png"
+import buildImage from "@/assets/build.png"
 ---
 
 <Section
@@ -10,19 +14,22 @@ import Section from "./ui/section.astro";
     title="Discover"
     description="First, let's discover what your business needs/technical challenges are all about."
     footer="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
-    imageSrc="./discover.png"
+    image={discoverImage}
+    imageAlt="Illustraion of a map and a drawing compass"
   />
   <ProcessCard
     title="Explore"
     description="Second, let's explore these business needs/technical challenges to establish a shared and deep understanding."
     footer="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
-    imageSrc="./explore.png"
+    image={exploreImage}
+    imageAlt="Illustraion of a map and a drawing compass"
     imagePosition="left"
   />
   <ProcessCard
     title="Build"
     description="Third, let's build the solution."
     footer="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."
-    imageSrc="./build.png"
+    image={buildImage}
+    imageAlt="Illustraion of a map and a drawing compass"
   />
 </Section>
