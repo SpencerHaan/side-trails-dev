@@ -10,10 +10,8 @@ import { toast } from "sonner";
 
 const formSchema = z.object({
   contactName: z.string().min(1).max(50),
-  contactCompany: z.string().min(1).max(50),
   contactEmail: z.string().email(),
-  contactBudget: z.string(),
-  contactDescription: z.string().min(1).max(512)
+  contactDescription: z.string().min(1).max(1024)
 })
 
 export function ContactForm() {
@@ -25,7 +23,6 @@ function BaseContactForm() {
     resolver: zodResolver(formSchema),
     defaultValues: {
       contactName: "",
-      contactCompany: "",
       contactEmail: "",
       contactDescription: ""
     }
@@ -62,26 +59,13 @@ function BaseContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="md:grid md:grid-cols-2 md:gap-x-4 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="sm:grid sm:grid-cols-2 sm:gap-x-4 space-y-6">
         <FormField
           control={form.control}
           name="contactName"
           render={({ field }) => (
             <FormItem>
               <FormLabel className="pb-2">Name</FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="contactCompany"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="pb-2">Company</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -104,31 +88,9 @@ function BaseContactForm() {
         />
         <FormField
           control={form.control}
-          name="contactBudget"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="pb-2">Budget</FormLabel>
-              <Select onValueChange={field.onChange} defaultValue={field.value}>
-                <FormControl>
-                  <SelectTrigger className="w-full">
-                    <SelectValue placeholder="Select a budget" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  <SelectItem value="$25,000-$50,000">$25,000-$50,000</SelectItem>
-                  <SelectItem value="$50,000-$100,000">$50,000-$100,000</SelectItem>
-                  <SelectItem value="$100,000+">$100,000+</SelectItem>
-                </SelectContent>
-              </Select>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
           name="contactDescription"
           render={({ field }) => (
-            <FormItem className="w-full md:col-span-2">
+            <FormItem className="w-full sm:col-span-2">
               <FormLabel className="pb-2">Description</FormLabel>
               <FormControl>
                 <Textarea rows={5} {...field} />
