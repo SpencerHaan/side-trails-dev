@@ -4,10 +4,11 @@ import {
 	NavigationMenuItem,
 	NavigationMenuLink,
 } from "./ui/navigation-menu"
-import IconLink from "./ui/icon-link";
 import { Popover, PopoverContent } from "./ui/popover";
 import { PopoverAnchor } from "@radix-ui/react-popover";
 import { XIcon, MenuIcon } from "lucide-react"
+import { LinkedInIcon, GitHubIcon } from "./ui/icons";
+import { ThemeToggle } from "./ThemeToggle";
 
 export interface NavigatorLink {
   label: string
@@ -28,7 +29,7 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
   const [isDesktop, setIsDesktop] = useState<boolean | null>(null);
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia("(min-width: 768px)")
+    const mediaQuery = window.matchMedia("(min-width: 640px)")
     const update = (e: MediaQueryListEvent | MediaQueryList) => setIsDesktop(e.matches)
 
     // Initial check
@@ -41,22 +42,27 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
 
   return (
     <Popover>
-      <PopoverAnchor className="w-full">
-        <div className="relative h-12 flex items-center bg-background shadow">
+      <PopoverAnchor className="w-5xl mx-4">
+        <div className="relative h-12 rounded-b-2xl flex items-center bg-background shadow">
           <a className="absolute left-2 lg:left-4" href="/">
             <img className="h-6" src="./logo.png" />
           </a>
-          <NavigationMenu className="mx-auto hidden md:flex gap-2">
+          <NavigationMenu className="mx-auto hidden sm:flex gap-2">
             {links.map((link, i) =>
               <NavigationMenuItem key={i} asChild>
-                <NavigationMenuLink href={link.path} className="hover:rounded-full">{link.label}</NavigationMenuLink>
+                <NavigationMenuLink href={link.path} className="text-base hover:rounded-full">{link.label}</NavigationMenuLink>
               </NavigationMenuItem>
             )}
           </NavigationMenu>
-          <div className="absolute right-2 lg:right-4 flex gap-2 text-muted-foreground">
-            <IconLink to="https://www.linkedin.com/in/spencerhaan/" name="fa6-brands:linkedin" size={24} />
-            <IconLink to="https://github.com/SpencerHaan/side-trails-dev" name="fa6-brands:square-github" size={24} />
-            <button onClick={() => setOpen(!open)} className="md:hidden ml-2">
+          <div className="absolute right-2 lg:right-4 flex gap-2 text-muted-foreground items-center">
+            <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank">
+              <LinkedInIcon size={20} />
+            </a>
+            <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
+              <GitHubIcon size={20} />
+            </a>
+            <ThemeToggle className="ml-3" />
+            <button onClick={() => setOpen(!open)} className="sm:hidden ml-2">
               {open ? <XIcon /> : <MenuIcon />}
             </button>
           </div>
@@ -65,8 +71,9 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
 
       {isDesktop ? null :
         <PopoverContent
-          sideOffset={0}
-          className="flex flex-col min-w-dvw border-0 rounded-none"
+          align="end"
+          sideOffset={8}
+          className="flex flex-col"
           style={{
             visibility: open ? "visible" : "hidden"
           }}
