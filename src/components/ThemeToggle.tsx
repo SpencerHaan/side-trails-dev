@@ -7,8 +7,8 @@ interface ThemeToggleProps {
 
 export function ThemeToggle({ className }: ThemeToggleProps) {
   return (
-    <button className={cn("border p-1 bg-muted rounded-full", className)}>
-      <MoonIcon size={20} />
+    <button onClick={() => {}} className={cn("p-1 hover:rounded-lg hover:bg-muted", className)}>
+      <SunIcon size={20} />
     </button>
   )
 }

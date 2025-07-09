@@ -1,0 +1,16 @@
+---
+import { CompassIcon } from "lucide-react"
+import Glyph from "../Glyph.astro"
+---
+
+<div class="flex items-center w-full my-4 gap-2">
+  <hr class="w-full border-dashed" />
+  <div class="flex flex-col justify-center gap-1">
+    <hr class="rotate-90 border-dashed m-2" />
+    <Glyph type="round" class="border-dashed p-1.5">
+      <CompassIcon size={12} className="-rotate-45" />
+    </Glyph>
+    <hr class="rotate-90 border-dashed m-2" />
+  </div>
+  <hr class="w-full border-dashed" />
+</div>

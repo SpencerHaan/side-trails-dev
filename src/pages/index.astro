@@ -4,12 +4,17 @@ import Process from '@/components/Process.astro';
 import Expertise from '@/components/Expertise.astro';
 import SectionList from '@/components/ui/section-list.astro';
 import Contact from '@/components/Contact.astro';
+import Hero from '@/components/Hero.astro';
+import SectionDivider from '@/components/ui/section-divider.astro';
 ---
 
 <Layout title="Home">
+	<Hero />
 	<SectionList class="max-w-7xl">
 		<Process />
+		<SectionDivider />
 		<Expertise />
+		<SectionDivider />
 		<Contact />
 	</SectionList>
 </Layout>

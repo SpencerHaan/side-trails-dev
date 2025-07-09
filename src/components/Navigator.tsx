@@ -55,13 +55,13 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
             )}
           </NavigationMenu>
           <div className="absolute right-2 lg:right-4 flex gap-2 text-muted-foreground items-center">
-            <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank">
+            <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank" className="p-1 hover:rounded-lg hover:bg-muted">
               <LinkedInIcon size={20} />
             </a>
-            <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
+            <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank" className="p-1 hover:rounded-lg hover:bg-muted">
               <GitHubIcon size={20} />
             </a>
-            <ThemeToggle className="ml-3" />
+            <ThemeToggle />
             <button onClick={() => setOpen(!open)} className="sm:hidden ml-2">
               {open ? <XIcon /> : <MenuIcon />}
             </button>
