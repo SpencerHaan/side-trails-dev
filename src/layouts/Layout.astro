@@ -35,15 +35,19 @@ const { title } = Astro.props
 			<header class="sticky top-0 z-50 flex justify-center">
 				<Navigator links={navLinks} transition:persist client:load />
 			</header>
-			<!-- <Header hero={hero}/> -->
 			<main class="flex flex-col flex-1 p-4">
-				<!-- <LayoutContext.Provider value={{ setHero, clearHero }}> -->
-					<slot />
-				<!-- </LayoutContext.Provider> -->
+				<slot />
 			</main>
-			<footer class="p-2 bg-accent text-accent-foreground">
-				<div class="font-mono text-center text-xs md:text-sm">
-					&copy; {new Date().getFullYear()} Side Trails Software Development, Spencer Haan
+			<footer class="bg-gradient-to-t from-accent to-transparent pt-10 pb-16">
+				<div class="flex flex-col sm:flex-row items-center sm:justify-center gap-2 text-accent-foreground text-sm">
+					<div>
+						&copy; {new Date().getFullYear()} Side Trails Software Development
+					</div>
+					<div class="max-sm:hidden">-</div>
+					<div>
+						Spencer Haan
+					</div>
+				</div>
 				</div>
 			</footer>
 		</div>
