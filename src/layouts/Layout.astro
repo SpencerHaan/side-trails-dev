@@ -9,11 +9,11 @@ import { Toaster } from "@/components/ui/sonner"
 const navLinks: NavigatorLink[] = [
 	{
 		label: "Home",
-		path: "/",
+		path: "",
 	},
 	{
 		label: "About",
-		path: "/about",
+		path: "about",
 	},
 ]
 
@@ -22,10 +22,11 @@ const { title } = Astro.props
 
 <html lang="en" class="light">
 	<head>
+		<base href={import.meta.env.BASE_URL} />
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
 		<title>{title}</title>
+		<link rel="icon" type="image/png" href="favicon.png" />
 		<ClientRouter />
 	</head>
 	<body>
@@ -41,7 +42,7 @@ const { title } = Astro.props
 				<!-- </LayoutContext.Provider> -->
 			</main>
 			<footer class="p-2 bg-accent text-accent-foreground">
-				<div class="text-center text-xs md:text-sm">
+				<div class="font-mono text-center text-xs md:text-sm">
 					&copy; {new Date().getFullYear()} Side Trails Software Development, Spencer Haan
 				</div>
 			</footer>

@@ -4,8 +4,7 @@ import {
 	NavigationMenuItem,
 	NavigationMenuLink,
 } from "./ui/navigation-menu"
-import { Popover, PopoverContent } from "./ui/popover";
-import { PopoverAnchor } from "@radix-ui/react-popover";
+import { Popover, PopoverAnchor, PopoverContent } from "./ui/popover";
 import { XIcon, MenuIcon } from "lucide-react"
 import { LinkedInIcon, GitHubIcon } from "./ui/icons";
 import { ThemeToggle } from "./ThemeToggle";
@@ -44,8 +43,8 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
     <Popover>
       <PopoverAnchor className="w-5xl mx-4">
         <div className="relative h-12 rounded-b-2xl flex items-center bg-background shadow">
-          <a className="absolute left-2 lg:left-4" href="/">
-            <img className="h-6" src="./logo.png" />
+          <a className="absolute left-2 lg:left-4" href="">
+            <img className="h-6" src="logo.png" />
           </a>
           <NavigationMenu className="mx-auto hidden sm:flex gap-2">
             {links.map((link, i) =>
