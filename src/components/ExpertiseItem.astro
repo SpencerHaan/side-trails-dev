@@ -14,15 +14,15 @@ const { title, description, iconSide = "left", class: className = "" } = Astro.p
 ---
 
 <div class={cn(
-  "flex flex-col items-center gap-4",
-  iconSide == "left" ? "md:flex-row" : "md:flex-row-reverse",
+  "flex flex-row items-start sm:items-center gap-6 min-h-40 sm:min-h-52",
+  iconSide == "left" ? "sm:flex-row-reverse" : null,
   className
 )}>
-  <Glyph type="square">
-    <slot name="icon" />
-  </Glyph>
-  <Typography class="text-center h-full">
+  <Typography class="h-full text-left sm:text-center grow">
     <h4>{title}</h4>
     <p>{description}</p>
   </Typography>
+  <Glyph type="square">
+    <slot name="icon" />
+  </Glyph>
 </div>
