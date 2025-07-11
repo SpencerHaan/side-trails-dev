@@ -44,7 +44,7 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
       <PopoverAnchor className="w-5xl mx-4">
         <div className="relative h-12 rounded-b-2xl flex items-center bg-background shadow">
           <a className="absolute left-2 lg:left-4" href="">
-            <img className="h-6" src="logo.png" />
+            <img className="h-6" src="logo.png" alt="Side Trails Software Development logo." />
           </a>
           <NavigationMenu className="mx-auto hidden sm:flex gap-2">
             {links.map((link, i) =>
@@ -54,10 +54,10 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
             )}
           </NavigationMenu>
           <div className="absolute right-2 lg:right-4 flex gap-2 text-muted-foreground items-center">
-            <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank" className="p-1 hover:rounded-lg hover:bg-muted">
+            <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank" className="p-1 hover:rounded-lg hover:bg-muted" aria-label="LinkedIn profile link.">
               <LinkedInIcon size={20} />
             </a>
-            <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank" className="p-1 hover:rounded-lg hover:bg-muted">
+            <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank" className="p-1 hover:rounded-lg hover:bg-muted" aria-label="GitHub website repository link.">
               <GitHubIcon size={20} />
             </a>
             <ThemeToggle />
