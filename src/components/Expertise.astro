@@ -1,7 +1,8 @@
 ---
 import ExpertiseItem from "./ExpertiseItem.astro"
+import SectionContent from "./ui/section-content.astro"
+import SectionHeader from "./ui/section-header.astro"
 import Section from "./ui/section.astro"
-import Typography from "./ui/typography.astro"
 
 import {
   BackpackIcon,
@@ -16,11 +17,13 @@ import {
 <Section
   id="expertise"
 >
-<div class="flex flex-col sm:grid sm:grid-cols-2">
-    <Typography class="col-span-2 w-full max-w-5xl mx-auto mb-8 prose-h2:mt-2 text-right">
-      <h5>Things I Can Do</h5>
-      <h2>Expertise</h2>
-    </Typography>
+  <SectionHeader
+    slot="header"
+    title="Expertise"
+    subtitle="Things I Can Do"
+    orientation="right"
+  />
+  <SectionContent slot="content" class="flex flex-col sm:grid sm:grid-cols-2 max-w-7xl">
     <ExpertiseItem
       title="System Anaylsis"
       description="Develop an understanding of the breadth and depth of your system, and the relationships and interactions between the various parts."
@@ -66,5 +69,5 @@ import {
     >
       <BackpackIcon slot="icon"/>
     </ExpertiseItem>
-  </div>
+  </SectionContent>
 </Section>

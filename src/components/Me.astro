@@ -5,30 +5,29 @@ import Values from "./Values"
 import { Image } from "astro:assets"
 
 import image from "@/assets/headshot.jpeg"
+import SectionHeader from "./ui/section-header.astro"
+import SectionContent from "./ui/section-content.astro"
 ---
 
-<Section
-  id="me"
-  title="A Little About Me"
-  subtitle={["\"The unexamined life is not worth living.\"", "Socrates"]}
->
-  <div class="flex flex-wrap gap-8">
-    <div class="flex flex-col sm:flex-row items-center gap-8">
-      <Image
-        src={image}
-        width={image.width}
-        height={image.height}
-        alt="A dashing headshot of myself."
-        loading="eager"
-        class="rounded-xl overflow-clip max-w-2xs mx-auto"
-      />
-      <div class="flex flex-col gap-4 text-2xl sm:text-4xl">
-        <hr />
-        Hey, my name is Spencer, and I'm Side Trails Software Development!
-        <hr />
-      </div>
-    </div>
-    <Typography class="">
+<Section id="me" class="max-w-4xl">
+  <SectionHeader
+    slot="header"
+    title="About Me"
+    subtitle="Hey, my name is Spencer!"
+    orientation="right"
+  >
+    <Image
+      slot="image"
+      src={image}
+      width={image.width}
+      height={image.height}
+      alt="A dashing headshot of myself."
+      loading="eager"
+      class="rounded-xl overflow-clip max-w-2xs mx-auto"
+    />
+  </SectionHeader>
+  <SectionContent slot="content" class="flex flex-wrap gap-8 mt-10">
+    <Typography>
       <p>
         I'm an avid gamer, and have been for most of my life. As a kid my mind was constantly inundated with ideas on how to improve the games I was playing, or how I'd build a game with more interesting mechanics. This drove me towards software development, where I had hoped one day I'd be able to bring those ideas to life. Over the course of my career, I discovered that this behaviour wasn't exclusive to games. I found a passion for solving interesting and complex problems, and realized that what I enjoyed was the ability to bring systems to life.
       </p>
@@ -40,5 +39,5 @@ import image from "@/assets/headshot.jpeg"
       </p>
     </Typography>
     <Values className="w-full" client:idle />
-  </div>
+  </SectionContent>
 </Section>

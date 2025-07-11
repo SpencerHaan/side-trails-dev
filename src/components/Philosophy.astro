@@ -1,13 +1,15 @@
 ---
+import SectionHeader from "./ui/section-header.astro";
 import Section from "./ui/section.astro";
 import Typography from "./ui/typography.astro";
 
 ---
 
 <Section id="philosophy">
-  <Typography class="w-full max-w-5xl mx-auto mb-8 prose-h2:mt-2">
-    <h5>Boy Scout Rule</h5>
-    <h2>Philosophy</h2>
-    <p>Leave things better than you found them.</p>
-  </Typography>
+  <SectionHeader
+    slot="header"
+    title="Philosophy"
+    subtitle="Boy Scout Rule"
+    description="Leave things better than you found them."
+  />
 </Section>

@@ -1,14 +1,12 @@
 ---
-import Me from "@/components/Me.astro";
-import SectionList from "@/components/ui/section-list.astro";
-import WhySideTrails from "@/components/WhySideTrails.astro";
-import Layout from "@/layouts/Layout.astro";
-
+import Me from "@/components/Me.astro"
+import SectionDivider from "@/components/ui/section-divider.astro"
+import WhySideTrails from "@/components/WhySideTrails.astro"
+import Layout from "@/layouts/Layout.astro"
 ---
 
 <Layout title="About">
-  <SectionList class="max-w-4xl">
-    <Me />
-    <WhySideTrails />
-  </SectionList>
+  <Me />
+  <SectionDivider />
+  <WhySideTrails />
 </Layout>

@@ -1,24 +1,27 @@
 ---
 import { ContactForm } from "./ContactForm";
 import { Card, CardContent } from "./ui/card";
+import SectionContent from "./ui/section-content.astro";
+import SectionHeader from "./ui/section-header.astro";
 import Section from "./ui/section.astro";
-import Typography from "./ui/typography.astro";
 ---
 
 <Section
   id="contact"
+  layout="right"
   class="max-w-5xl"
 >
-  <div class="flex flex-col lg:grid lg:grid-cols-2 gap-8">
-    <Typography class="prose-h2:mt-2">
-      <h5>Let's Chat</h5>
-      <h2>Contact</h2>
-      <p>Need help with a project? Send me some details.</p>
-    </Typography>
+  <SectionHeader
+    slot="header"
+    title="Contact"
+    subtitle="Let's Chat"
+    description="Need help with a project? Send me some details."
+  />
+  <SectionContent slot="content">
     <Card>
       <CardContent>
         <ContactForm client:only="react" />
       </CardContent>
     </Card>
-  </div>
+  </SectionContent>
 </Section>

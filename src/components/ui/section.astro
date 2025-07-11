@@ -3,29 +3,31 @@ import { cn } from "@/lib/utils"
 
 interface Props {
   id: string
-  title?: string
-  subtitle?: string | string[]
+  layout?: "column" | "left" | "right"
   class?: string
 }
 
-const { id, title, subtitle, class: className = "" } = Astro.props
+const { id, layout = "column", class: className = "" } = Astro.props
 ---
 
-<section id={id} class={cn("mx-auto w-full", className)}>
-  <div class="flex flex-col gap-2 md:gap-3">
-    {title
-      ? <div class="text-center text-2xl md:text-3xl">{title}</div>
+<section id={id} class={cn(
+  "mx-auto w-full px-4 first:mt-8",
+  className
+)}>
+  <div class={cn(
+    "flex flex-col items-center",
+    layout === "right" || layout === "left"
+      ? "lg:grid lg:grid-cols-2 lg:gap-x-8"
+      : null
+  )}>
+    {layout == "right" || layout == "column"
+      ? <slot name="header" />
       : null
     }
-    { subtitle
-      ? <div class="pb-2 text-xs md:text-base text-center text-muted-foreground">
-          { Array.isArray(subtitle)
-              ? subtitle.map((s) => <p>{s}</p>)
-              : subtitle
-          }
-        </div>
+    <slot name="content" />
+    {layout == "left"
+      ? <slot name="header" />
       : null
     }
-    <slot />
   </div>
 </section>

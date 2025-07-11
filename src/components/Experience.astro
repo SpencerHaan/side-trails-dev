@@ -1,23 +1,21 @@
 ---
-import { Image } from 'astro:assets'
-
-import Badge from "./Badge.astro";
 import Section from "./ui/section.astro";
-import Typography from './ui/typography.astro';
-
-import logo from "@/assets/logo-geoware.png"
 import ExperienceCarousel from './ExperienceCarousel.astro';
+import SectionHeader from "./ui/section-header.astro";
+import SectionContent from "./ui/section-content.astro";
 ---
 
-<Section id="experience" class="max-w-5xl">
-  <Typography class="w-full max-w-5xl mx-auto mb-8 prose-h2:mt-2 text-center">
-    <h5>Collected Badges</h5>
-    <h2>Experience</h2>
-    <p>Companies I've worked at and with.</p>
-  </Typography>
-  <div class="relative -mx-4">
+<Section id="experience">
+  <SectionHeader
+    slot="header"
+    title="Experience"
+    subtitle="Badges Collected"
+    description="Companies I've worked at and with."
+    orientation="center"
+  />
+  <SectionContent slot="content" class="relative -mx-4 w-full max-w-6xl">
     <div class="absolute left-0 h-full w-10 z-50 bg-gradient-to-r from-background to-transparent pointer-events-none" />
     <div class="absolute right-0 h-full w-10 z-50 bg-gradient-to-l from-background to-transparent pointer-events-none" />
     <ExperienceCarousel />
-  </div>
+  </SectionContent>
 </Section>
