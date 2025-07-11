@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets'
+
+import Badge from "./Badge.astro";
+
+import logo from "@/assets/logo-geoware.png"
+---
+
+<script>
+  import EmblaCarousel from 'embla-carousel'
+
+  const rootNode = document.querySelector('.embla') as HTMLElement
+
+  const options = { loop: true }
+  const api = EmblaCarousel(rootNode, options)
+</script>
+
+<div class="embla overflow-hidden">
+    <div class="embla__container grid grid-flow-col auto-cols-[50%] sm:auto-cols-[34%]">
+      <div class="embla__slide flex justify-center">
+        <Badge>
+          <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
+        </Badge>
+      </div>
+      <div class="embla__slide flex justify-center">
+        <Badge>
+          <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
+        </Badge>
+      </div>
+      <div class="embla__slide flex justify-center">
+        <Badge>
+          <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
+        </Badge>
+      </div>
+    </div>
+  </div>
+</div>
