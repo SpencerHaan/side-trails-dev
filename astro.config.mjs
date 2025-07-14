@@ -7,10 +7,12 @@ import mdx from '@astrojs/mdx';
 
 import tailwindcss from '@tailwindcss/vite';
 
+import sitemap from '@astrojs/sitemap';
+
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE,
-  integrations: [react(), mdx()],
+  site: process.env.SITE ?? "http://localhost:4321",
+  integrations: [react(), mdx(), sitemap()],
 
   vite: {
     plugins: [tailwindcss()]
