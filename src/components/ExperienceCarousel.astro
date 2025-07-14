@@ -1,18 +1,18 @@
 ---
 import { Image } from 'astro:assets'
-
 import Badge from "./Badge.astro";
 
 import logo from "@/assets/logo-geoware.png"
+
 ---
 
 <script>
   import EmblaCarousel from 'embla-carousel'
 
-  const rootNode = document.querySelector('.embla') as HTMLElement
-
-  const options = { loop: true }
-  const api = EmblaCarousel(rootNode, options)
+  document.addEventListener("astro:page-load", () => {
+    const rootNode = document.querySelector('.embla') as HTMLElement
+    EmblaCarousel(rootNode, { loop: true })
+  })
 </script>
 
 <div class="embla overflow-hidden">
