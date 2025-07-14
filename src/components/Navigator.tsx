@@ -43,7 +43,7 @@ function ResponsiveNavigator({ links }: NavigatorProps) {
     <Popover>
       <PopoverAnchor className="w-5xl mx-4">
         <div className="relative h-12 rounded-b-2xl flex items-center bg-background shadow">
-          <a className="absolute left-2 lg:left-4" href="">
+          <a className="absolute left-2 lg:left-4" href="/">
             <img className="h-6" src="logo.png" alt="Side Trails Software Development logo." />
           </a>
           <NavigationMenu className="mx-auto hidden sm:flex gap-2">

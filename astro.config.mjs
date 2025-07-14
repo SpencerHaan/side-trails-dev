@@ -7,14 +7,9 @@ import mdx from '@astrojs/mdx';
 
 import tailwindcss from '@tailwindcss/vite';
 
-import { loadEnv } from 'vite';
-
-const { SITE, BASE_URL } = loadEnv(process.env.TARGET_ENV ?? "", process.cwd(), "");
-
 // https://astro.build/config
 export default defineConfig({
-  site: SITE,
-  base: BASE_URL,
+  site: process.env.SITE,
   integrations: [react(), mdx()],
 
   vite: {
