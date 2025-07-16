@@ -1,0 +1,30 @@
+---
+import { cn } from "@/lib/utils"
+import DesktopNav from "./ui/deskto-nav"
+import MobileNav from "./ui/mobile-nav"
+
+const navItems: { label: string, href: string }[] = [
+	{
+		label: "Home",
+		href: "/",
+	},
+	{
+		label: "About",
+		href: "/about",
+	},
+]
+
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<header class={cn(
+  "relative w-full max-w-5xl mx-auto",
+  className
+)}>
+  <MobileNav items={navItems} className="flex sm:hidden m-2" client:visible transition:persist />
+  <DesktopNav items={navItems} className="hidden sm:flex m-2" client:visible transition:persist />
+</header>
