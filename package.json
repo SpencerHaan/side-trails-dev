@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "staging": "SITE=\"https://preview.sidetrails.dev\" astro build && pnpm gh-pages -o preview -d dist -b master --cname preview.sidetrails.dev --nojekyll",
+    "stage": "astro build --site https://preview.sidetrails.dev && pnpm gh-pages -o preview -d dist -b master --cname preview.sidetrails.dev --nojekyll",
     "astro": "astro"
   },
   "dependencies": {

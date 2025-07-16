@@ -11,7 +11,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: process.env.SITE ?? "http://localhost:4321",
+  site: "http://sidetrails.dev",
   integrations: [react(), mdx(), sitemap()],
 
   vite: {
