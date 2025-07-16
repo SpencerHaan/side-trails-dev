@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets"
+import SectionContent from "./ui/section-content.astro"
+import SectionHeader from "./ui/section-header.astro"
+import Section from "./ui/section.astro"
+
+import image from "@/assets/headshot-mitch.jpeg"
+import Typography from "./ui/typography.astro"
+---
+
+<Section id="testimonial" class="max-w-4xl">
+  <SectionHeader
+    slot="header"
+    title="Testimonial"
+    subtitle="Mitch Dickinson"
+    orientation="right"
+    description="Senior Development Manager, Shopify Inc."
+  >
+     <Image
+      slot="image"
+      src={image}
+      width={image.width}
+      height={image.height}
+      alt="Headshot of my former manager, Mitch."
+      class="rounded-xl max-w-2xs mx-auto shadow-sm"
+    />
+  </SectionHeader>
+  <SectionContent slot="content">
+    <Typography>
+      <blockquote class="mt-6 border-l-2 pl-6 italic">
+        <p>
+          I was Spencer's direct or indirect manager for approximately 5 years across 2 companies.
+        </p>
+        <p>
+          Spencer is one of the strongest and deepest thinkers I know. His drive to fully understand concepts and systems from first principles leads to his ability to spot insights and create innovative solutions that others would not. He excels at building long term solutions that can stand the test of time.
+        </p>
+        <p>
+          Spencer produces the best outcomes when the client's values align with his way of approaching problems. Values like building for the long term, striving for the highest quality and shipping solutions that are predicated on deep problem understanding. When those values are aligned, magic can happen.
+        </p>
+      </blockquote>
+    </Typography>
+  </SectionContent>
+</Section>

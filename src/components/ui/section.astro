@@ -15,7 +15,7 @@ const { id, layout = "column", class: className = "" } = Astro.props
   className
 )}>
   <div class={cn(
-    "flex flex-col items-center",
+    "flex flex-col items-center gap-2",
     layout === "right" || layout === "left"
       ? "lg:grid lg:grid-cols-2 lg:gap-x-8"
       : null
