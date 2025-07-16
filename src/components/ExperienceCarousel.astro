@@ -1,37 +1,37 @@
 ---
 import { Image } from 'astro:assets'
-import Badge from "./Badge.astro";
+import Badge from "./Badge.astro"
 
 import logo from "@/assets/logo-geoware.png"
-
 ---
 
-<script>
-  import EmblaCarousel from 'embla-carousel'
-
-  document.addEventListener("astro:page-load", () => {
-    const rootNode = document.querySelector('.embla') as HTMLElement
-    EmblaCarousel(rootNode, { loop: true })
-  })
-</script>
-
-<div class="embla overflow-hidden">
-    <div class="embla__container grid grid-flow-col auto-cols-[50%] sm:auto-cols-[34%]">
-      <div class="embla__slide flex justify-center">
-        <Badge>
-          <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
-        </Badge>
-      </div>
-      <div class="embla__slide flex justify-center">
-        <Badge>
-          <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
-        </Badge>
-      </div>
-      <div class="embla__slide flex justify-center">
-        <Badge>
-          <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
-        </Badge>
-      </div>
+<div id="experience-carousel" class="overflow-hidden mask-x-from-90% mask-x-to-100%">
+  <div class="grid grid-flow-col auto-cols-[50%] sm:auto-cols-[34%]">
+    <div class="flex justify-center">
+      <Badge>
+        <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
+      </Badge>
+    </div>
+    <div class="flex justify-center">
+      <Badge>
+        <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
+      </Badge>
+    </div>
+    <div class="flex justify-center">
+      <Badge>
+        <Image src={logo} alt="Geoware Inc. logo." class="select-none" />
+      </Badge>
     </div>
   </div>
 </div>
+
+<script>
+  import EmblaCarousel from "embla-carousel"
+
+  document.addEventListener("astro:page-load", () => {
+    const carousel = document.getElementById("experience-carousel") as HTMLElement | null
+    if (carousel) {
+      EmblaCarousel(carousel, { loop: true })
+    }
+  })
+</script>
