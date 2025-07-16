@@ -26,8 +26,7 @@ import SectionContent from "./ui/section-content.astro"
     </Glyph>
     <ProcessItem
       title="Discover"
-      subtitle="First, let's discover what your business needs/technical challenges are all about."
-      description="What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?"
+      subtitle="Uncover known-knowns and known-unknowns"
       imagePosition="right"
     >
       <ProcessImage
@@ -36,14 +35,16 @@ import SectionContent from "./ui/section-content.astro"
         alt="Illustraion of a map and a drawing compass"
         loading="eager"
       />
+      <p slot="description">
+        What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?
+      </p>
     </ProcessItem>
     <Glyph type="round" class="border-dashed">
       <LineSquiggleIcon className="rotate-45" />
     </Glyph>
     <ProcessItem
       title="Explore"
-      subtitle="Second, let's explore these business needs/technical challenges to establish a shared and deep understanding."
-      description="What are the various systems and processes? How do they interact? What are the first principles? Close collaboration is key."
+      subtitle="Deep dive and mental model building"
       imagePosition="left"
     >
       <ProcessImage
@@ -52,14 +53,16 @@ import SectionContent from "./ui/section-content.astro"
         alt="Illustration of a hiking backpack."
         loading="eager"
       />
+      <p slot="description">
+        What are the various systems and processes? How do they interact? What are the first principles?
+      </p>
     </ProcessItem>
       <Glyph type="round" class="border-dashed">
       <LineSquiggleIcon className="rotate-45" />
     </Glyph>
     <ProcessItem
       title="Build"
-      subtitle="Third, let's build the solution."
-      description="Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore."
+      subtitle="From prototype to solution"
       imagePosition="right"
     >
       <ProcessImage
@@ -68,6 +71,9 @@ import SectionContent from "./ui/section-content.astro"
         alt="Illustration of a mountain with a flag at the peak."
         loading="eager"
       />
+      <p slot="description">
+        Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore.
+      </p>
     </ProcessItem>
     <Glyph type="round" class="border-dashed">
       <FlagIcon />
