@@ -23,7 +23,7 @@ const { ordinal, principle } = Astro.props
     <h3>{principle}</h3>
   </Typography>
   <Typography slot={ordinal & 1 ? "right" : "left"}>
-    <Card>
+    <Card className="bg-accent">
       <CardContent>
         <slot />
       </CardContent>
