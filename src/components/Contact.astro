@@ -15,8 +15,11 @@ import Section from "./ui/section.astro";
     slot="header"
     title="Contact"
     subtitle="Let's Chat"
-    description="Need help with a project? Send me some details."
-  />
+  >
+    <p slot="description">
+      Need help with a project? Send me some details.
+    </p>
+  </SectionHeader>
   <SectionContent slot="content">
     <Card>
       <CardContent>

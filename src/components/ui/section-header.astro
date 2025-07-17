@@ -5,7 +5,6 @@ import Typography from "./typography.astro"
 interface Props {
   title: string
   subtitle: string
-  description?: string
   orientation?: "left" | "center" | "right"
   class?: string
 }
@@ -13,7 +12,6 @@ interface Props {
 const {
   title,
   subtitle,
-  description,
   orientation = "left",
   class: className = ""
 } = Astro.props
@@ -39,10 +37,7 @@ const {
   )}>
     <h5>{subtitle}</h5>
     <h2>{title}</h2>
-    {description
-      ? <p>{description}</p>
-      : null
-    }
+    <slot name="description" />
   </Typography>
   {Astro.slots.has("image") && orientation == "left"
     ? <slot name="image" />

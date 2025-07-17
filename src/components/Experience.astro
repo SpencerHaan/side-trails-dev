@@ -10,9 +10,12 @@ import SectionContent from "./ui/section-content.astro";
     slot="header"
     title="Experience"
     subtitle="Badges Collected"
-    description="Companies I've worked at and with."
     orientation="center"
-  />
+  >
+    <p slot="description">
+      Companies I've worked at and with.
+    </p>
+  </SectionHeader>
   <SectionContent slot="content" class="w-full max-w-6xl">
     <ExperienceCarousel />
   </SectionContent>

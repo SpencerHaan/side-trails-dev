@@ -7,6 +7,7 @@ import SectionHeader from "./ui/section-header.astro";
 import Section from "./ui/section.astro";
 
 import { ScrollIcon } from "lucide-react"
+import Typography from "./ui/typography.astro";
 ---
 
 <Section id="principles" class="max-w-5xl">
@@ -15,8 +16,21 @@ import { ScrollIcon } from "lucide-react"
     title="Principles"
     subtitle="Agile"
     class="max-w-4xl"
-  />
-  <SectionContent slot="content" class="flex flex-col items-center gap-4">
+  >
+    <blockquote slot="description">
+      <p>
+        Plans are worthless, but planning is everything.
+      </p>
+      - Dwight D. Eisenhower
+    </blockquote>
+    <p slot="description">
+      The Agile Manifesto was created in the early 2000s by prominent members of the software industry.
+    </p>
+    <p slot="description">
+      This manifesto is what underpins many of the agile processes common in the software industry today, but I believe these processes misunderstand the intention behind the manifesto.
+    </p>
+  </SectionHeader>
+  <SectionContent slot="content" class="flex flex-col md:items-center gap-4">
     <PrincipleGylph oridinal={1} />
     <PrincipleItem
       ordinal={1}
@@ -68,5 +82,10 @@ import { ScrollIcon } from "lucide-react"
     <Glyph type="square">
       <ScrollIcon />
     </Glyph>
+    <Typography class="text-center mt-4">
+      <sup>
+        Check out the <a href="https://agilemanifesto.org/principles.html" target="_blank">Principles behind the Agile Manifesto</a> for the originals.
+      </sup>
+    </Typography>
   </SectionContent>
 </Section>

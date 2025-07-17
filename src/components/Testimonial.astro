@@ -14,7 +14,6 @@ import Typography from "./ui/typography.astro"
     title="Testimonial"
     subtitle="Mitch Dickinson"
     orientation="right"
-    description="Senior Development Manager, Shopify Inc."
   >
      <Image
       slot="image"
@@ -24,6 +23,9 @@ import Typography from "./ui/typography.astro"
       alt="Headshot of my former manager, Mitch."
       class="rounded-xl max-w-2xs mx-auto shadow-sm"
     />
+    <p slot="description">
+      Senior Development Manager, Shopify Inc.
+    </p>
   </SectionHeader>
   <SectionContent slot="content">
     <Typography>
