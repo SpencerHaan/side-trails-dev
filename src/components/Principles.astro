@@ -1,0 +1,72 @@
+---
+import Glyph from "./Glyph.astro";
+import PrincipleGylph from "./PrincipleGylph.astro";
+import PrincipleItem from "./PrincipleItem.astro";
+import SectionContent from "./ui/section-content.astro";
+import SectionHeader from "./ui/section-header.astro";
+import Section from "./ui/section.astro";
+
+import { ScrollIcon } from "lucide-react"
+---
+
+<Section id="principles" class="max-w-5xl">
+  <SectionHeader
+    slot="header"
+    title="Principles"
+    subtitle="Agile"
+    class="max-w-4xl"
+  />
+  <SectionContent slot="content" class="flex flex-col items-center gap-4">
+    <PrincipleGylph oridinal={1} />
+    <PrincipleItem
+      ordinal={1}
+      principle="Continuous delivery of results leads to customer satisfaction"
+    >
+      <p>
+        By delivering frequently, you can see the value of the money you are spending immediately.
+      </p>
+      <p>
+        Adaptability is increased, providing more opportunities to pivot throughout the development process. If something isn't working as expected, it can be caught early and changed before it becomes more expensive and time consuming to do so down the road.
+      </p>
+    </PrincipleItem>
+    <PrincipleGylph oridinal={2} />
+    <PrincipleItem
+      ordinal={2}
+      principle="Value comes from frequent collaboration and communication"
+    >
+      <p>
+        Ongoing collaboration ensures we stay on the right track. You and your team know the problems you're trying to solve. You're integral to the development process.
+      </p>
+      <p>
+        Adaptability is increased, providing more opportunities to pivot throughout the development process. If something isn't working as expected, it can be caught early and changed before it becomes more expensive and time consuming to do so down the road.
+      </p>
+    </PrincipleItem>
+    <PrincipleGylph oridinal={3} />
+    <PrincipleItem
+      ordinal={3}
+      principle="Face-to-face communication increases speed and accuracy"
+    >
+      <p>
+        Preemptive explanation is unnecessary. Any missing context or understanding can instead be requested as needed, allowing everyone's understanding to develop and evolve more naturally, layer by layer.
+      </p>
+      <p>
+        Since all participants are in the same room, either in person or over video, at the same time, no one is waiting on a response. Prompts for clarification or misunderstanding can be addressed immediately.
+      </p>
+    </PrincipleItem>
+    <PrincipleGylph oridinal={4} />
+    <PrincipleItem
+      ordinal={4}
+      principle="Changing requirements are inevitable, so be flexible"
+    >
+      <p>
+        There are the known unknowns, and the unknown unknowns. The latter emerges as a solution is developed. Something may not work as expected, or a problem is either simpler or more complicated than anticipated. A willingness to change course as needed can mean the difference between a solution that solves your problem and one that does not.
+      </p>
+      <p>
+        Flexibility can be enhanced during development by keeping solutions simple. Implement solutions quickly, prove out your ideas first, then move onto the next problem. Each problem solved adds to a greater understanding of the bigger picture. You might learn that past solutions weren't right, or that future solutions need to be adjusted.
+      </p>
+    </PrincipleItem>
+    <Glyph type="square">
+      <ScrollIcon />
+    </Glyph>
+  </SectionContent>
+</Section>

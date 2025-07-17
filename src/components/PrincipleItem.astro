@@ -1,0 +1,31 @@
+---
+import { cn } from "@/lib/utils";
+import Glyph from "./Glyph.astro";
+import TrailItem from "./TrailItem.astro";
+import Typography from "./ui/typography.astro";
+
+interface Props {
+  ordinal: number
+  principle: string
+}
+
+const { ordinal, principle } = Astro.props
+---
+
+<TrailItem class={ordinal & 1 ? "flex-col" : "flex-col-reverse"}>
+  <Typography
+    slot={ordinal & 1 ? "left" : "right"}
+    class={cn(
+      "flex flex-col items-start gap-4 prose-h3:mt-0",
+      ordinal & 1 ? "md:flex-row md:text-left" : "md:flex-row-reverse md:text-right"
+    )}
+  >
+    <!-- <Glyph type="square" class="text-center text-xl font-bold font-mono min-w-14">
+      {ordinal}
+    </Glyph> -->
+    <h3>{principle}</h3>
+  </Typography>
+  <Typography slot={ordinal & 1 ? "right" : "left"}>
+    <slot />
+  </Typography>
+</TrailItem>
