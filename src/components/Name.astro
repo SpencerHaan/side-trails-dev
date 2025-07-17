@@ -17,15 +17,7 @@ import SectionContent from "./ui/section-content.astro"
     title="Name"
     subtitle="Why Side Trails?"
   />
-  <SectionContent slot="content" class="flex flex-col md:grid md:grid-cols-2 items-center gap-4">
-    <Image
-      src={image}
-      width={375}
-      height={250}
-      layout="constrained"
-      alt="Ground level view of a trail through a forest."
-      class="rounded-xl shadow-sm"
-    />
+  <SectionContent slot="content" class="flex flex-col-reverse items-center md:grid md:grid-cols-2 gap-4 md:gap-8">
     <Typography>
       <p>
         During hikes with my friends, we often come across side trails and every time we do I wonder where it'll take us and what we'll see. These side trails are more dangerous and less groomed, but are also more interesting and less travelled. I enjoy going down these side trails every opportunity I get. I'm an explorer.
@@ -37,5 +29,23 @@ import SectionContent from "./ui/section-content.astro"
         If the status quo is the main trail, the side trails represent the unconventional and unorthodox. Often it makes sense to stick with the status quo, and solve problems within it. Exploration beyond this establishes confidence in that approach, while ensuring that better solutions aren't missed.
       </p>
     </Typography>
+    <div class="flex flex-col sm:flex-row md:flex-col max-md:items-center gap-2">
+      <Image
+        src={image}
+        width={375}
+        height={250}
+        layout="constrained"
+        alt="Ground level view of a trail through a forest."
+        class="rounded-xl shadow-sm"
+      />
+      <Typography>
+        <blockquote>
+          <p>
+            We cannot solve our problems with the same thinking we used when we created them.
+          </p>
+          - Albert Einstein
+        </blockquote>
+      </Typography>
+    </div>
   </SectionContent>
 </Section>
