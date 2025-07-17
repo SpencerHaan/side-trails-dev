@@ -1,4 +1,5 @@
 ---
+import TrailItem from "./TrailItem.astro"
 import Typography from "./ui/typography.astro"
 import { cn } from "@/lib/utils"
 
@@ -11,29 +12,17 @@ interface Props {
 const { title, subtitle, imagePosition } = Astro.props
 ---
 
-<div class={cn(
-  "flex md:items-center border-l border-dashed ml-7 pl-10 gap-y-6",
-  "md:grid md:grid-cols-2 md:border-none md:divide-x divide-dashed md:ml-0 md:pl-0",
-  imagePosition == "left" ? "flex-col" : "flex-col-reverse"
-)}>
-  {imagePosition == "left"
-    ? <div class={cn("flex md:justify-end items-center md:pr-10")}>
-        <slot name="image" />
-      </div>
-    : null
-  }
-  <Typography class={cn(
-    "prose-h2:text-2xl prose-h5:text-muted-foreground",
-    imagePosition == "left" ? "md:text-left md:pl-10" : "md:text-right md:pr-10"
-  )}>
+<TrailItem class={imagePosition === "left" ? "flex-col" : "flex-col-reverse"}>
+  <slot name="image" slot={imagePosition} />
+  <Typography
+    slot={imagePosition == "left" ? "right" : "left"}
+    class={cn(
+      "prose-h2:text-2xl prose-h5:text-muted-foreground",
+      imagePosition == "left" ? "md:text-left" : "md:text-right"
+    )}
+  >
     <h5>{title}</h5>
     <h2>{subtitle}</h2>
     <slot name="description" />
   </Typography>
-  {imagePosition == "right"
-    ? <div class="flex justify-start items-center md:pl-10">
-        <slot name="image" />
-      </div>
-    : null
-  }
-</div>
+</TrailItem>
