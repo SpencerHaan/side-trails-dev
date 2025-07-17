@@ -1,8 +1,8 @@
 ---
-import { cn } from "@/lib/utils";
-import Glyph from "./Glyph.astro";
-import TrailItem from "./TrailItem.astro";
-import Typography from "./ui/typography.astro";
+import { cn } from "@/lib/utils"
+import TrailItem from "./TrailItem.astro"
+import Typography from "./ui/typography.astro"
+import { Card, CardContent } from "./ui/card"
 
 interface Props {
   ordinal: number
@@ -20,12 +20,13 @@ const { ordinal, principle } = Astro.props
       ordinal & 1 ? "md:flex-row md:text-left" : "md:flex-row-reverse md:text-right"
     )}
   >
-    <!-- <Glyph type="square" class="text-center text-xl font-bold font-mono min-w-14">
-      {ordinal}
-    </Glyph> -->
     <h3>{principle}</h3>
   </Typography>
   <Typography slot={ordinal & 1 ? "right" : "left"}>
-    <slot />
+    <Card>
+      <CardContent>
+        <slot />
+      </CardContent>
+    </Card>
   </Typography>
 </TrailItem>
