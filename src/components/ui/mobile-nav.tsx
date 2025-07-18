@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from "./popover"
 import { Button } from "./button"
 import { cn } from "@/lib/utils"
-import { ThemeToggle } from "../ThemeToggle"
 
 export default function MobileNav({
   items,
@@ -19,17 +18,16 @@ export default function MobileNav({
       className
     )}>
       <Popover open={open} onOpenChange={setOpen} modal={true}>
-        <PopoverAnchor className="flex justify-between items-center w-full">
+        <PopoverAnchor className="relative flex justify-center items-center w-full py-3">
           <PopoverTrigger asChild>
-            <Button variant="ghost">
+            <Button variant="ghost" className="absolute left-0">
               <MenuIcon open={open} />
               <span className="sr-only">Menu Toggle</span>
             </Button>
           </PopoverTrigger>
-          <a className="left-2 lg:left-4" href="/">
+          <a className="lg:left-4" href="/">
             <img className="h-5" src="/logo.png" alt="Side Trails Software Development logo." />
           </a>
-          <ThemeToggle className="px-2.5" />
         </PopoverAnchor>
         <PopoverContent
           align="start"

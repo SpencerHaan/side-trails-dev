@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink } from "./navigation-menu";
-import { ThemeToggle } from "../ThemeToggle";
 import { LinkedInIcon, GitHubIcon } from "./icons";
 
 export default function DesktopNav({
@@ -33,8 +32,6 @@ export default function DesktopNav({
         <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank" className="p-1 hover:rounded-lg hover:bg-muted" aria-label="GitHub website repository link.">
           <GitHubIcon size={20} />
         </a>
-        <hr className="h-6 mx-2 border border-dashed" />
-        <ThemeToggle className="p-1 hover:rounded-lg hover:bg-muted" />
       </div>
     </NavigationMenu>
   )
