@@ -25,6 +25,6 @@ const { class: className } = Astro.props
   "relative w-full max-w-5xl mx-auto",
   className
 )}>
-  <MobileNav items={navItems} className="flex sm:hidden m-2" client:visible transition:persist />
-  <DesktopNav items={navItems} className="hidden sm:flex m-2" client:visible transition:persist />
+  <MobileNav items={navItems} className="flex sm:hidden m-2" client:visible />
+  <DesktopNav items={navItems} className="hidden sm:flex m-2" client:visible />
 </header>

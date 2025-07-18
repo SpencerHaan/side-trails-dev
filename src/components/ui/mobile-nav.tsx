@@ -18,7 +18,7 @@ export default function MobileNav({
       "bg-background/90 backdrop-blur border rounded-lg shadow-sm",
       className
     )}>
-      <Popover open={open} onOpenChange={setOpen}>
+      <Popover open={open} onOpenChange={setOpen} modal={true}>
         <PopoverAnchor className="flex justify-between items-center w-full">
           <PopoverTrigger asChild>
             <Button variant="ghost">
@@ -39,26 +39,11 @@ export default function MobileNav({
         >
           <ul className="space-y-3">
             {items.map((item, i) => (
-              <li key={i}>
-                <a
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </a>
-              </li>
+              <MenuLinkItem key={i} {...item} />
             ))}
             <hr className="border-dashed" />
-            <li>
-              <a href="https://www.linkedin.com/in/spencerhaan/" target="_blank">
-                LinkedIn
-              </a>
-            </li>
-            <li>
-              <a href="https://github.com/SpencerHaan/side-trails-dev" target="_blank">
-                GitHub
-              </a>
-            </li>
+            <MenuLinkItem label="LinkedIn" href="https://www.linkedin.com/in/spencerhaan/" target="_blank" onClick={() => setOpen(false)} />
+            <MenuLinkItem label="GitHub" href="https://github.com/SpencerHaan/side-trails-dev" target="_blank" onClick={() => setOpen(false)} />
           </ul>
         </PopoverContent>
       </Popover>
@@ -68,7 +53,7 @@ export default function MobileNav({
 
 function MenuIcon({
   open = false
-}: {
+} : {
   open: boolean
 }) {
   return (
@@ -88,7 +73,7 @@ function MenuIcon({
 
 function MenuIconLine({
   className = ""
-}: {
+} : {
   className?: string
 }) {
   return (
@@ -96,5 +81,23 @@ function MenuIconLine({
       "absolute bg-foreground rounded w-full h-0.5 top-1/2 left-1/2 -translate-1/2 transition-all duration-300",
       className
     )} />
+  )
+}
+
+function MenuLinkItem({
+  label,
+  href,
+  target,
+  onClick
+} : {
+  label: string
+  href: string
+  target?: string
+  onClick?: () => void
+}) {
+  return (
+    <li>
+      <a href={href} onClick={onClick} target={target}>{label}</a>
+    </li>
   )
 }
