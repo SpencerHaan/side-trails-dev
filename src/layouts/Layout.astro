@@ -5,6 +5,7 @@ import "sonner/dist/styles.css" // https://github.com/withastro/astro/issues/935
 import { ClientRouter } from "astro:transitions"
 import { Toaster } from "@/components/ui/sonner"
 import SiteHeader from "@/components/SiteHeader.astro"
+import SiteFooter from "@/components/SiteFooter.astro"
 
 const { title } = Astro.props
 ---
@@ -24,18 +25,7 @@ const { title } = Astro.props
 			<main class="grow flex flex-col items-center gap-y-8">
 				<slot />
 			</main>
-			<footer class="bg-gradient-to-t from-accent to-transparent py-16">
-				<div class="flex flex-col sm:flex-row items-center sm:justify-center gap-2 text-accent-foreground text-sm">
-					<div>
-						&copy; {new Date().getFullYear()} Side Trails Software Development
-					</div>
-					<div class="max-sm:hidden">-</div>
-					<div>
-						Spencer Haan
-					</div>
-				</div>
-				</div>
-			</footer>
+			<SiteFooter />
 		</div>
 	</body>
 </html>
