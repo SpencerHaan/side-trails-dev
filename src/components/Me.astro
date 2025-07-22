@@ -24,7 +24,7 @@ import SectionContent from "./ui/section-content.astro"
       class="rounded-xl max-w-2xs mx-auto shadow-sm"
     />
   </SectionHeader>
-  <SectionContent slot="content" class="flex flex-wrap gap-8 mt-4">
+  <SectionContent slot="content" class="mt-4">
     <Typography>
       <p>
         I'm an avid gamer, and have been for most of my life. As a kid my mind was constantly inundated with ideas on how to improve the games I was playing, or how I'd build a game with more interesting mechanics. This drove me towards software development, where I had hoped one day I'd be able to bring those ideas to life. Over the course of my career, I discovered that this behaviour wasn't exclusive to games. I found a passion for solving interesting and complex problems, and realized that what I enjoyed was the ability to bring systems to life.
@@ -36,6 +36,6 @@ import SectionContent from "./ui/section-content.astro"
         I like to ask a lot of questions, and often I'll respond to questions with more questions. I want to make sure I understand the question well enough before I provide an answer. Otherwise, how can I know if the answer is actually helpful or not?
       </p>
     </Typography>
-    <Values className="w-full" client:idle />
+    <!-- <Values className="w-full" client:idle /> -->
   </SectionContent>
 </Section>
