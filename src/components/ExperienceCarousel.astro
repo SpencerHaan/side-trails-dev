@@ -33,7 +33,7 @@ import shopify from "@/assets/logo-shopify.svg"
   document.addEventListener("astro:page-load", () => {
     const carousel = document.getElementById("experience-carousel") as HTMLElement | null
     if (carousel) {
-      EmblaCarousel(carousel, { loop: true })
+      EmblaCarousel(carousel, { loop: true, startIndex: 1 })
     }
   })
 </script>
