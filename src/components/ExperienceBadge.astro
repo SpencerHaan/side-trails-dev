@@ -1,0 +1,16 @@
+---
+interface Props {
+  homepageHref: string
+}
+
+const { homepageHref } = Astro.props
+---
+
+<div class="border border-dashed border-muted-foreground rounded-full bg-muted size-40 p-3">
+  <a
+    href={homepageHref}
+    class="border border-muted-foreground border-dashed size-full bg-white rounded-full overflow-clip flex justify-center items-center"
+  >
+    <slot />
+  </a>
+</div>

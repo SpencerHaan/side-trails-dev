@@ -3,6 +3,7 @@ import Section from "./ui/section.astro";
 import ExperienceCarousel from './ExperienceCarousel.astro';
 import SectionHeader from "./ui/section-header.astro";
 import SectionContent from "./ui/section-content.astro";
+import { Badge } from "./ui/badge";
 ---
 
 <Section id="experience">
@@ -13,7 +14,7 @@ import SectionContent from "./ui/section-content.astro";
     orientation="center"
   >
     <p slot="description">
-      Companies I've worked at and with.
+      <Badge className="w-24">Employed</Badge> + <Badge className="w-24">Contracted</Badge>
     </p>
   </SectionHeader>
   <SectionContent slot="content" class="w-full max-w-6xl">
