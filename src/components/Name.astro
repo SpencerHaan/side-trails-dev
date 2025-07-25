@@ -29,14 +29,14 @@ import SectionContent from "./ui/section-content.astro"
         If the status quo is the main trail, the side trails represent the unconventional and unorthodox. Often it makes sense to stick with the status quo, and solve problems within it. Exploration beyond this establishes confidence in that approach, while ensuring that better solutions aren't missed.
       </p>
     </Typography>
-    <div class="flex flex-col sm:flex-row md:flex-col max-md:items-center gap-2">
+    <div class="flex flex-col flex-wrap max-md:items-center gap-2">
       <Image
         src={image}
         layout="constrained"
         alt="Ground level view of a trail through a forest."
         class="rounded-xl shadow-sm"
       />
-      <Typography>
+      <Typography class="w-full">
         <blockquote>
           <p>
             We cannot solve our problems with the same thinking we used when we created them.
