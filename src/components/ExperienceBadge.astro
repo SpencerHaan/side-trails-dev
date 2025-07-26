@@ -1,16 +1,27 @@
 ---
+import { cn } from '@/lib/utils'
+
 interface Props {
   homepageHref: string
+  style?: "employed" | "contracted"
+  class?: string
 }
 
-const { homepageHref } = Astro.props
+const { homepageHref, style = "employed", class: className = "" } = Astro.props
 ---
 
-<div class="border border-dashed border-muted-foreground rounded-full bg-muted size-40 p-3">
-  <a
-    href={homepageHref}
-    class="border border-muted-foreground border-dashed size-full bg-white rounded-full overflow-clip flex justify-center items-center"
-  >
+<a
+  href={homepageHref}
+  class={cn(
+    "border border-dashed rounded-full size-40 p-4",
+    style === "employed" ? "border-muted-foreground bg-muted" : "border-tertiary bg-tertiary-foreground",
+    className
+  )}
+>
+  <div class={cn(
+    "border border-dashed size-full bg-white rounded-full overflow-clip flex justify-center items-center",
+    style === "employed" ? "border-muted-foreground" : "border-tertiary"
+  )}>
     <slot />
-  </a>
-</div>
+  </div>
+</a>

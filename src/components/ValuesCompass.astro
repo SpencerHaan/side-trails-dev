@@ -12,9 +12,9 @@ const { class: className = "" } = Astro.props
   "m-6",
   className
 )}>
-  <div class="border border-dashed border-muted-foreground relative size-full rounded-full bg-accent text-muted-foreground">
+  <div class="border border-dashed border-tertiary relative size-full rounded-full bg-accent text-tertiary">
     <div class="absolute inset-0 flex items-center justify-center -z-10">
-      <div class="relative size-28 rounded-sm bg-border text-border font-mono rotate-45">
+      <div class="relative size-28 rounded-sm bg-tertiary text-tertiary font-mono rotate-45">
         <span class="absolute -left-3 -top-5 -rotate-45">N</span>
         <span class="absolute -right-3 -top-5 -rotate-45">E</span>
         <span class="absolute -right-3 -bottom-5 -rotate-45">S</span>
@@ -22,10 +22,10 @@ const { class: className = "" } = Astro.props
       </div>
     </div>
     <div class="absolute inset-0 m-2 flex justify-center items-center">
-      <hr class="border-muted-foreground border-dashed w-full -rotate-[36deg]" />
+      <hr class="border-tertiary border-dashed w-full -rotate-[36deg]" />
     </div>
     <div class="absolute inset-0 m-2 flex justify-center items-center">
-      <hr class="border-muted-foreground border-dashed w-full rotate-[36deg]" />
+      <hr class="border-tertiary border-dashed w-full rotate-[36deg]" />
     </div>
     <div class="absolute left-1/5 top-1/2 -translate-1/2">
       <slot name="icon-left" />

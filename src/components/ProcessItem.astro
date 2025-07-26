@@ -17,7 +17,7 @@ const { title, subtitle, imagePosition } = Astro.props
   <Typography
     slot={imagePosition == "left" ? "right" : "left"}
     class={cn(
-      "prose-h2:text-2xl prose-h5:text-muted-foreground",
+      "prose-h2:text-2xl",
       imagePosition == "left" ? "md:text-left" : "md:text-right"
     )}
   >
