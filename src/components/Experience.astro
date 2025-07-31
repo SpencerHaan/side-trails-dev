@@ -12,12 +12,13 @@ import { Badge } from "./ui/badge";
     title="Experience"
     subtitle="Badges Collected"
     orientation="center"
-  >
-    <p slot="description">
-      <Badge className="w-24 bg-muted text-muted-foreground">Employed</Badge> + <Badge className="w-24 bg-tertiary-foreground text-tertiary">Contracted</Badge>
-    </p>
-  </SectionHeader>
-  <SectionContent slot="content" class="w-full max-w-6xl">
-    <ExperienceCarousel />
+  />
+  <SectionContent slot="content" class="flex flex-col items-center gap-12 max-w-6xl">
+    <div class="w-full">
+      <ExperienceCarousel />
+    </div>
+    <div>
+      <Badge className="w-24 bg-primary text-primary-foreground">Employed</Badge> <Badge className="w-24 bg-secondary text-secondary-foreground">Contracted</Badge>
+    </div>
   </SectionContent>
 </Section>

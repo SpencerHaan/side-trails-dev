@@ -101,7 +101,7 @@ function BaseContactForm() {
           )}
         />
         <div className="text-center md:col-span-2">
-          <Button type="submit">Submit</Button>
+          <Button type="submit" className="w-full">Submit</Button>
         </div>
       </form>
     </Form>

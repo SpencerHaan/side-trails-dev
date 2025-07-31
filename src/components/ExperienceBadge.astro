@@ -13,14 +13,13 @@ const { homepageHref, style = "employed", class: className = "" } = Astro.props
 <a
   href={homepageHref}
   class={cn(
-    "border border-dashed rounded-full size-40 p-4",
-    style === "employed" ? "border-muted-foreground bg-muted" : "border-tertiary bg-tertiary-foreground",
+    "border rounded-full size-40 p-3 border-muted-foreground bg-muted",
     className
   )}
 >
   <div class={cn(
-    "border border-dashed size-full bg-white rounded-full overflow-clip flex justify-center items-center",
-    style === "employed" ? "border-muted-foreground" : "border-tertiary"
+    "border border-dashed border-muted-foreground size-full rounded-full overflow-clip p-2 flex justify-center items-center bg-white ring-4 ring-offset-2",
+    style === "employed" ? "ring-primary" : "ring-secondary"
   )}>
     <slot />
   </div>

@@ -18,15 +18,15 @@ export default function MobileNav({
       className
     )}>
       <Popover open={open} onOpenChange={setOpen} modal={true}>
-        <PopoverAnchor className="relative flex justify-center items-center w-full py-3">
+        <PopoverAnchor className="relative flex justify-center items-center w-full">
           <PopoverTrigger asChild>
             <Button variant="ghost" className="absolute left-0">
               <MenuIcon open={open} />
               <span className="sr-only">Menu Toggle</span>
             </Button>
           </PopoverTrigger>
-          <a className="lg:left-4" href="/">
-            <img className="h-5" src="/logo.png" alt="Side Trails Software Development logo." />
+          <a href="/">
+            <img className="h-12" src="/logo2.png" alt="Side Trails Software Development logo." />
           </a>
         </PopoverAnchor>
         <PopoverContent
