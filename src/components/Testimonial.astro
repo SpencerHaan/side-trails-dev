@@ -18,12 +18,13 @@ import image from "@/assets/headshot-mitch.jpeg"
         subtitle="Mitch Dickinson"
         orientation="right"
       >
-         <Image
-          slot="image"
-          src={image}
-          alt="Headshot of my former manager, Mitch."
-          class="rounded-xl max-w-2xs mx-auto shadow-sm"
-        />
+        <div slot="image" class="border-b border-r border-dashed border-secondary pb-2 pr-2 rounded-br-2xl">
+          <Image
+           src={image}
+           alt="Headshot of my former manager, Mitch."
+           class="rounded-xl max-w-2xs mx-auto shadow-sm"
+         />
+        </div>
         <p slot="description">
           Senior Development Manager, Shopify Inc.
         </p>
