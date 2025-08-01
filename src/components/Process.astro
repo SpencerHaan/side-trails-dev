@@ -1,16 +1,15 @@
 ---
 import Section from "./ui/section.astro"
+import SectionHeader from "./ui/section-header.astro"
+import SectionContent from "./ui/section-content.astro"
+import ProcessItem from "./ProcessItem.astro"
+import ProcessImage from "./ProcessImage.astro"
+import Glyph from "./Glyph.astro"
+import { TentTreeIcon, LineSquiggleIcon, FlagIcon } from "lucide-react"
 
 import discoverImage from "@/assets/discover.png"
 import exploreImage from "@/assets/explore.png"
 import buildImage from "@/assets/build.png"
-
-import { TentTreeIcon, LineSquiggleIcon, FlagIcon } from "lucide-react"
-import ProcessItem from "./ProcessItem.astro"
-import ProcessImage from "./ProcessImage.astro"
-import Glyph from "./Glyph.astro"
-import SectionHeader from "./ui/section-header.astro"
-import SectionContent from "./ui/section-content.astro"
 ---
 
 <Section id="process">
@@ -20,7 +19,10 @@ import SectionContent from "./ui/section-content.astro"
     subtitle="Side Trailing"
   >
     <p slot="description">
-      Deep understanding. Close collaboration. High-quality solutions.
+      Understand deeply. Work closely. Build thoughtfully.
+    </p>
+    <p slot="description">
+      Every project is a journey. From discovering where you are and where you want to go, to exploring the paths to get there, and, finally, setting up camp at the destination, together.
     </p>
   </SectionHeader>
   <SectionContent slot="content" class="flex flex-col items-start md:items-center gap-4 max-w-7xl">
@@ -30,6 +32,7 @@ import SectionContent from "./ui/section-content.astro"
     <ProcessItem
       title="Discover"
       subtitle="Uncover known-knowns and known-unknowns"
+      keywords={["Goals", "Constraints", "Budget"]}
       imagePosition="right"
     >
       <ProcessImage
@@ -39,7 +42,7 @@ import SectionContent from "./ui/section-content.astro"
         loading="eager"
       />
       <p slot="description">
-        What are you trying to achieve? What existing software solutions do you have? What are the non-negotiable vs. the nice-to-haves requirements?
+        Understand where you are now and define where you want to go. Gather any "known-knowns" and "known-unknowns".
       </p>
     </ProcessItem>
     <Glyph type="round">
@@ -48,6 +51,7 @@ import SectionContent from "./ui/section-content.astro"
     <ProcessItem
       title="Explore"
       subtitle="Deep dive and mental model building"
+      keywords={["Analyze", "Prototype", "Understand"]}
       imagePosition="left"
     >
       <ProcessImage
@@ -57,7 +61,7 @@ import SectionContent from "./ui/section-content.astro"
         loading="eager"
       />
       <p slot="description">
-        What are the various systems and processes? How do they interact? What are the first principles?
+        Scout possible paths forward. Develop a shared understanding and uncover as many "unknown-unknowns" as possible.
       </p>
     </ProcessItem>
     <Glyph type="round">
@@ -66,6 +70,7 @@ import SectionContent from "./ui/section-content.astro"
     <ProcessItem
       title="Build"
       subtitle="From prototype to solution"
+      keywords={["Develop", "Integrate", "Document"]}
       imagePosition="right"
     >
       <ProcessImage
@@ -75,7 +80,7 @@ import SectionContent from "./ui/section-content.astro"
         loading="eager"
       />
       <p slot="description">
-        Discovery and exploration remain ongoing. There will always be more questions to ask and answer throughout the process, always more side trails to explore.
+        Take the chosen path and build the solution. Realize your goals, together, while leaving room to adapt along the way.
       </p>
     </ProcessItem>
     <Glyph type="round">
