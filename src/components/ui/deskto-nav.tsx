@@ -22,9 +22,9 @@ export default function DesktopNav({
           <NavigationMenuLink href={item.href} className="hover:rounded-lg">{item.label}</NavigationMenuLink>
         </NavigationMenuItem>
       )}
-      <a className="absolute left-1 flex items-center" href="/">
-        <img className="h-12" src="/logo2.png" alt="Side Trails Software Development logo." />
-        <p className="font-bold font-heading -mb-1.5">
+      <a className="absolute left-2 flex items-center" href="/">
+        <img className="h-10" src="/logo.svg" alt="Side Trails Software Development logo." />
+        <p className="font-bold font-heading">
           Side Trails
         </p>
       </a>

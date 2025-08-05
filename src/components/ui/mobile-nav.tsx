@@ -26,7 +26,7 @@ export default function MobileNav({
             </Button>
           </PopoverTrigger>
           <a href="/">
-            <img className="h-12" src="/logo2.png" alt="Side Trails Software Development logo." />
+            <img className="h-10" src="/logo.svg" alt="Side Trails Software Development logo." />
           </a>
         </PopoverAnchor>
         <PopoverContent
