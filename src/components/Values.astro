@@ -4,10 +4,10 @@ import SectionHeader from "./ui/section-header.astro"
 import Section from "./ui/section.astro"
 
 import {
+  FlameKindlingIcon,
   HeartHandshakeIcon,
   PuzzleIcon,
-  TelescopeIcon,
-  TentIcon,
+  TelescopeIcon
 } from "lucide-react"
 import ValuesCompass from "./ValuesCompass.astro"
 import Glyph from "./Glyph.astro"
@@ -50,7 +50,7 @@ import ValueItem from "./ValueItem.astro"
       <div>
         <ValuesCompass class="size-36">
           <TelescopeIcon slot="icon-top" />
-          <TentIcon slot="icon-left" />
+          <FlameKindlingIcon slot="icon-left" />
           <PuzzleIcon slot="icon-right" />
           <HeartHandshakeIcon slot="icon-bottom" />
         </ValuesCompass>
@@ -61,7 +61,7 @@ import ValueItem from "./ValueItem.astro"
     </div>
     <div class="flex flex-col-reverse lg:flex-row-reverse items-center gap-4 lg:row-start-2 lg:col-start-1 lg:col-span-2">
       <Glyph type="square" class="lg:hidden">
-        <TentIcon />
+        <FlameKindlingIcon />
       </Glyph>
       <ValueItem heading="The Boy Scout Rule" class="text-center lg:w-md">
         <p slot="description">
