@@ -6,7 +6,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "stage": "astro build --site https://preview.sidetrails.dev && pnpm gh-pages -o preview -d dist -b master --cname preview.sidetrails.dev --nojekyll",
+    "stage": "astro build --site https://preview.sidetrails.dev && pnpm gh-pages -o preview -d dist -b master --nojekyll",
     "astro": "astro"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "@radix-ui/react-popover": "^1.1.14",
     "@radix-ui/react-select": "^2.2.5",
     "@radix-ui/react-slot": "^1.2.3",
+    "@sidetrails/astro-cname": "^0.1.0",
     "@tailwindcss/vite": "^4.1.11",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
@@ -37,7 +38,7 @@
     "tailwindcss": "^4.1.10",
     "zod": "^3.25.75"
   },
-  "packageManager": "pnpm@9.13.0+sha512.beb9e2a803db336c10c9af682b58ad7181ca0fbd0d4119f2b33d5f2582e96d6c0d93c85b23869295b765170fbdaa92890c0da6ada457415039769edf3c959efe",
+  "packageManager": "pnpm@10.14.0+sha512.ad27a79641b49c3e481a16a805baa71817a04bbe06a38d17e60e2eaee83f6a146c6a688125f5792e48dd5ba30e7da52a5cda4c3992b9ccf333f9ce223af84748",
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.10",
     "@tailwindcss/typography": "^0.5.16",
