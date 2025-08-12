@@ -10,31 +10,23 @@ import SectionContent from "./ui/section-content.astro"
 
 <Section
   id="name"
-  class="max-w-4xl"
+  class="max-w-5xl"
 >
   <SectionHeader
     slot="header"
     title="Name"
     subtitle="Why Side Trails?"
+    orientation="right"
+    class="max-w-4xl"
   />
-  <SectionContent slot="content" class="flex flex-col-reverse items-center md:grid md:grid-cols-2 gap-4 md:gap-8">
-    <Typography>
-      <p>
-        During hikes with my friends, we often come across side trails and every time we do I wonder where it'll take us and what we'll see. These side trails are more dangerous and less groomed, but are also more interesting and less travelled. I enjoy going down these side trails every opportunity I get. I'm an explorer.
-      </p>
-      <p>
-        This mindset reflects how I solve problems.
-      </p>
-      <p>
-        If the status quo is the main trail, the side trails represent the unconventional and unorthodox. Often it makes sense to stick with the status quo, and solve problems within it. Exploration beyond this establishes confidence in that approach, while ensuring that better solutions aren't missed.
-      </p>
-    </Typography>
-    <div class="flex flex-col flex-wrap max-md:items-center gap-2">
+  <SectionContent slot="content" class="flex flex-col items-start lg:grid lg:grid-cols-2 gap-4 lg:gap-8">
+    <div class="flex flex-col flex-wrap max-md:items-center gap-2 w-full">
       <Image
         src={image}
-        layout="constrained"
+        width={image.width}
+        height={image.height}
         alt="Ground level view of a trail through a forest."
-        class="rounded-xl shadow-sm"
+        class="rounded-xl shadow-sm w-full h-72 object-cover"
       />
       <Typography class="w-full">
         <blockquote>
@@ -45,5 +37,16 @@ import SectionContent from "./ui/section-content.astro"
         </blockquote>
       </Typography>
     </div>
+    <Typography>
+      <p>
+        My friends and I enjoy going on trail hikes, and sometimes we'll come across side trails. These side trails are less travelled, rougher, and more challenging, but often more interesting. I always wonder where they will take us and what we might discover.
+      </p>
+      <p>
+        In software development, these "side trails" are the unconventional solutions that can lead to unexpected discoveries, deeper understanding, and ultimately better solutions.
+      </p>
+      <p>
+        If the status quo is the main trail, then the side trails represent the unorthodox. It often makes sense to stick with the status quo, and solve problems within it, but exploring the side trails builds confidence in that decision and ensures we don't miss anything along the way.
+      </p>
+    </Typography>
   </SectionContent>
 </Section>
