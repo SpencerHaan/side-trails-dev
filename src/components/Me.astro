@@ -1,12 +1,11 @@
 ---
+import { Image } from "astro:assets"
 import Section from "./ui/section.astro"
 import Typography from "./ui/typography.astro"
-import Values from "./Values"
-import { Image } from "astro:assets"
-
-import image from "@/assets/headshot.jpeg"
 import SectionHeader from "./ui/section-header.astro"
 import SectionContent from "./ui/section-content.astro"
+
+import headshot from "@/assets/headshot.jpeg"
 ---
 
 <Section id="me" class="max-w-4xl">
@@ -16,9 +15,10 @@ import SectionContent from "./ui/section-content.astro"
     subtitle="Hey, my name is Spencer!"
     orientation="right"
   >
+    <h6 slot="description">How you do anything is how you do everything.</h6>
     <div slot="image" class="border-b border-r border-dashed border-secondary pb-2 pr-2 rounded-br-2xl max-sm:mx-auto">
       <Image
-        src={image}
+        src={headshot}
         alt="A dashing headshot of myself."
         loading="eager"
         class="rounded-xl max-w-2xs shadow-sm max-sm:ml-2"
@@ -37,6 +37,5 @@ import SectionContent from "./ui/section-content.astro"
         I like to ask a lot of questions, and often I'll respond to questions with more questions. I want to make sure I understand the question well enough before I provide an answer. Otherwise, how can I know if the answer is actually helpful or not?
       </p>
     </Typography>
-    <!-- <Values className="w-full" client:idle /> -->
   </SectionContent>
 </Section>
