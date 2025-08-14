@@ -7,15 +7,56 @@ import { Toaster } from "@/components/ui/sonner"
 import SiteHeader from "@/components/SiteHeader.astro"
 import SiteFooter from "@/components/SiteFooter.astro"
 
-const { title } = Astro.props
+interface Image {
+	url: URL
+	alt: string
+}
+
+interface Props {
+	type?: string
+	title?: string
+	description?: string
+	image?: Image
+}
+
+const {
+	type = "website",
+	title: pageTitle,
+	description = "A human-first, values-driven approach to software development. Discover. Explore. Build.",
+	image = {
+		url: new URL("cover.png", Astro.url.origin),
+		alt: "Side Trails Software Development logo showing a side trail 'S' connecting to a main trail 'T'"
+	}
+} = Astro.props
+
+const title = `Side Trails Software Development${pageTitle ? `: ${pageTitle}` : ""}`
 ---
 
 <html lang="en" class="">
 	<head>
-		<meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+		<link rel="canonical" href={Astro.url} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<!-- <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /> -->
 		<title>{title}</title>
-		<link rel="icon" type="image/png" href="/favicon.svg" />
+		<meta charset="utf-8" />
+		<meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width" />
+		<meta name="og:type" content={type} />
+		<meta name="og:title" content={title} />
+		<meta name="og:description" content={description} />
+		<meta name="og:url" content={Astro.url} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		{image
+			? <>
+				<meta name="og:image" content={image.url} />
+				<meta name="og:image:alt" content={image.alt} />
+				<meta name="twitter:image" content={image.url} />
+				<meta name="twitter:image:alt" content={image.alt} />
+			</>
+			: null
+		}
 		<ClientRouter />
 	</head>
 	<body>
