@@ -6,6 +6,7 @@ import SectionHeader from "./ui/section-header.astro"
 import SectionContent from "./ui/section-content.astro"
 
 import headshot from "@/assets/headshot.jpeg"
+import DecoratedImage from "./ui/decorated-image.astro"
 ---
 
 <Section id="me" class="max-w-4xl">
@@ -16,14 +17,12 @@ import headshot from "@/assets/headshot.jpeg"
     orientation="right"
   >
     <h6 slot="description">How you do anything is how you do everything.</h6>
-    <div slot="image" class="border-b border-r border-dashed border-secondary pb-2 pr-2 rounded-br-2xl max-sm:mx-auto">
-      <Image
-        src={headshot}
-        alt="A dashing headshot of myself."
-        loading="eager"
-        class="rounded-xl max-w-2xs shadow-sm max-sm:ml-2"
-      />
-    </div>
+    <DecoratedImage
+      slot="image"
+      src={headshot}
+      alt="A dashing headshot of myself."
+      loading="eager"
+    />
   </SectionHeader>
   <SectionContent slot="content" class="mt-4">
     <Typography>

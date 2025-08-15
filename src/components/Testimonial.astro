@@ -7,6 +7,7 @@ import Section from "./ui/section.astro"
 import Typography from "./ui/typography.astro"
 
 import image from "@/assets/headshot-mitch.jpeg"
+import DecoratedImage from "./ui/decorated-image.astro"
 ---
 
 <Card className="border-dashed border-muted-foreground shadow-none mx-2">
@@ -18,13 +19,11 @@ import image from "@/assets/headshot-mitch.jpeg"
         subtitle="Mitch Dickinson"
         orientation="right"
       >
-        <div slot="image" class="border-b border-r border-dashed border-secondary pb-2 pr-2 rounded-br-2xl max-sm:mx-auto">
-          <Image
-           src={image}
-           alt="Headshot of my former manager, Mitch."
-           class="rounded-xl max-w-2xs shadow-sm max-sm:ml-2"
-         />
-        </div>
+        <DecoratedImage
+          slot="image"
+          src={image}
+          alt="Headshot of my former manager, Mitch."
+        />
         <p slot="description">
           Senior Development Manager, Shopify Inc.
         </p>
