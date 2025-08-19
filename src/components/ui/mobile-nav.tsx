@@ -19,14 +19,14 @@ export default function MobileNav({
     )}>
       <Popover open={open} onOpenChange={setOpen} modal={true}>
         <PopoverAnchor className="flex justify-between items-center w-full">
-          <a className="left-2 flex items-center" href="/">
+          <a href="/" className="flex items-center ml-2">
             <img className="h-8" src="/logo.svg" alt="Side Trails Software Development logo." />
             <p className="font-bold font-heading mt-0.5">
               Side Trails
             </p>
           </a>
           <PopoverTrigger asChild>
-            <Button variant="ghost" className="left-0">
+            <Button variant="ghost">
               <MenuIcon open={open} />
               <span className="sr-only">Menu Toggle</span>
             </Button>
