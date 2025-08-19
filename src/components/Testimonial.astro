@@ -10,7 +10,7 @@ import image from "@/assets/headshot-mitch.jpeg"
 import DecoratedImage from "./ui/decorated-image.astro"
 ---
 
-<Card className="border-dashed border-muted-foreground shadow-none mx-2">
+<Card className="m-4 shadow-md">
   <CardContent className="max-md:p-0">
     <Section id="testimonial" class="max-w-5xl">
       <SectionHeader
@@ -24,9 +24,12 @@ import DecoratedImage from "./ui/decorated-image.astro"
           src={image}
           alt="Headshot of my former manager, Mitch."
         />
-        <p slot="description">
-          Senior Development Manager, Shopify Inc.
-        </p>
+        <div slot="description">
+          Senior Development Manager
+        </div>
+        <div slot="description">
+          Shopify Inc.
+        </div>
       </SectionHeader>
       <SectionContent slot="content">
         <Typography class="mt-4">
