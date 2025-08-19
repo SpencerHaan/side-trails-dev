@@ -23,8 +23,8 @@ export default function DesktopNav({
         </NavigationMenuItem>
       )}
       <a className="absolute left-2 flex items-center" href="/">
-        <img className="h-10" src="/logo.svg" alt="Side Trails Software Development logo." />
-        <p className="font-bold font-heading">
+        <img className="h-8" src="/logo.svg" alt="Side Trails Software Development logo." />
+        <p className="font-bold font-heading mt-0.5">
           Side Trails
         </p>
       </a>
