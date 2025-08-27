@@ -4,7 +4,7 @@ import Typography from "./typography.astro"
 
 interface Props {
   title: string
-  subtitle: string
+  subtitle?: string
   orientation?: "left" | "center" | "right"
   class?: string
 }
@@ -36,7 +36,7 @@ const {
     className
   )}>
     <hr class="border-dashed border-muted" />
-    <h5>{subtitle}</h5>
+    {subtitle ? <h5>{subtitle}</h5> : null}
     <h2>{title}</h2>
     <slot name="description" />
   </Typography>

@@ -4,7 +4,6 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { useForm } from "react-hook-form";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Textarea } from "./ui/textarea";
 import { toast } from "sonner";
 
@@ -33,25 +32,25 @@ function BaseContactForm() {
       const endpoint = `${import.meta.env.PUBLIC_API_URL}/contact`
       console.log(endpoint)
 
-       fetch(endpoint, {
-          method: "POST",
-          body: JSON.stringify(values),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
+      fetch(endpoint, {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
         },
+      })
+      .then(() => toast.success("Contact details sent!", {
+        description: "I'll get back to you as soon as possible, thank you!"
+      }))
+      .catch((e) => {
+        console.error("Errors", e)
+        toast.error("Sorry, something didn't work!", {
+          description: "Try again or email me at discovery@sidetrails.dev"
         })
-        .then(() => toast.success("Contact details sent!", {
-          description: "I'll get back to you as soon as possible, thank you!"
-        }))
-        .catch((e) => {
-          console.error("Errors", e)
-          toast.error("Sorry, something didn't work!", {
-            description: "Try again or email me at discovery@sidetrails.dev"
-          })
-        })
+      })
     } else {
       toast.success("Contact details sent!", {
-          description: "I'll get back to you as soon as possible, thank you!"
+        description: "I'll get back to you as soon as possible, thank you!"
       })
     }
     console.log(values)
@@ -59,7 +58,7 @@ function BaseContactForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="sm:grid sm:grid-cols-2 sm:gap-x-4 space-y-6">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="sm:grid sm:grid-cols-2 sm:gap-x-4 space-y-6 w-full">
         <FormField
           control={form.control}
           name="contactName"

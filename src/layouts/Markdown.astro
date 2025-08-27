@@ -1,0 +1,38 @@
+---
+import Typography from "@/components/ui/typography.astro";
+import Layout from "./Layout.astro";
+import Section from "@/components/ui/section.astro";
+import SectionContent from "@/components/ui/section-content.astro";
+import SectionHeader from "@/components/ui/section-header.astro";
+
+interface Header {
+  title: string
+  description?: string
+  orientation?: "left" | "center" | "right"
+}
+
+interface Props {
+  frontmatter: {
+    title: string
+    header: Header
+    description?: string
+  }
+}
+
+
+const { frontmatter } = Astro.props
+const { header, ...props } = frontmatter
+---
+
+<Layout {...props} >
+  <Section id="privacy" class="max-w-4xl">
+    <SectionHeader slot="header" title={header.title} orientation={header.orientation}>
+      {header.description ? <p slot="description">{header.description}</p> : null}
+    </SectionHeader>
+    <SectionContent slot="content">
+      <Typography>
+        <slot />
+      </Typography>
+    </SectionContent>
+  </Section>
+</Layout>

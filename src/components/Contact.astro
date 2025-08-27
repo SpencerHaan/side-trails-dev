@@ -22,8 +22,9 @@ import Section from "./ui/section.astro";
   </SectionHeader>
   <SectionContent slot="content">
     <Card>
-      <CardContent>
+      <CardContent className="flex flex-col items-center gap-2">
         <ContactForm client:only="react" />
+        <a href="/policies/privacy" class="text-xs text-primary hover:text-primary/75 transition-colors">Privacy Policy</a>
       </CardContent>
     </Card>
   </SectionContent>
