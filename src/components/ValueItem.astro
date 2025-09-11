@@ -1,0 +1,26 @@
+---
+import { cn } from "@/lib/utils"
+import Glyph from "./Glyph.astro"
+import Typography from "./ui/typography.astro"
+
+interface Props {
+  heading: string
+  class?: string
+}
+
+const { heading, class: className = "" } = Astro.props
+---
+
+<Typography class={cn(
+  "prose-p:last:mb-0",
+  className
+)}>
+  <!-- <h4 class="flex justify-between items-center gap-2"> -->
+  <h4>
+    {heading}
+    <!-- <Glyph type="square" class="border-muted-foreground border-dashed lg:hidden">
+      <slot name="icon" />
+    </Glyph> -->
+  </h4>
+  <slot name="description" />
+</Typography>

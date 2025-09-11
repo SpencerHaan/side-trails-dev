@@ -1,0 +1,31 @@
+---
+import { ContactForm } from "./ContactForm";
+import { Card, CardContent } from "./ui/card";
+import SectionContent from "./ui/section-content.astro";
+import SectionHeader from "./ui/section-header.astro";
+import Section from "./ui/section.astro";
+---
+
+<Section
+  id="contact"
+  layout="right"
+  class="max-w-5xl"
+>
+  <SectionHeader
+    slot="header"
+    title="Contact"
+    subtitle="Let's Chat"
+  >
+    <p slot="description">
+      Need help with a project? Send me some details.
+    </p>
+  </SectionHeader>
+  <SectionContent slot="content">
+    <Card>
+      <CardContent className="flex flex-col items-center gap-2">
+        <ContactForm client:only="react" />
+        <a href="/policies/privacy" class="text-xs text-primary hover:text-primary/75 transition-colors">Privacy Policy</a>
+      </CardContent>
+    </Card>
+  </SectionContent>
+</Section>

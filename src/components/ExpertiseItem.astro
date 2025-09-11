@@ -1,0 +1,28 @@
+---
+import { cn } from '@/lib/utils'
+import Typography from './ui/typography.astro'
+import Glyph from './Glyph.astro'
+
+interface Props {
+  title: string
+  description: string
+  iconSide?: "left" | "right"
+  class?: string
+}
+
+const { title, description, iconSide = "left", class: className = "" } = Astro.props
+---
+
+<div class={cn(
+  "flex flex-row items-start sm:items-center gap-6 min-h-40 sm:min-h-52",
+  iconSide == "left" ? "sm:flex-row-reverse" : null,
+  className
+)}>
+  <Typography class="h-full text-left sm:text-center grow prose-h4:text-primary">
+    <h4>{title}</h4>
+    <p>{description}</p>
+  </Typography>
+  <Glyph type="square">
+    <slot name="icon" />
+  </Glyph>
+</div>

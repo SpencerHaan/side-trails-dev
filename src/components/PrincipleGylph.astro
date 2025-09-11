@@ -1,0 +1,13 @@
+---
+import Glyph from "./Glyph.astro";
+
+interface Props {
+  ordinal: number
+}
+
+const { ordinal } = Astro.props
+---
+
+<Glyph type="square" class="flex justify-center text-xl font-bold font-mono size-[58px]">
+  {ordinal}
+</Glyph>

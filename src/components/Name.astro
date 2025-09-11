@@ -1,0 +1,52 @@
+---
+import Image from "astro/components/Image.astro"
+import Section from "./ui/section.astro"
+import Typography from "./ui/typography.astro"
+
+import image from "@/assets/why-side-trails.jpeg"
+import SectionHeader from "./ui/section-header.astro"
+import SectionContent from "./ui/section-content.astro"
+---
+
+<Section
+  id="name"
+  class="max-w-5xl"
+>
+  <SectionHeader
+    slot="header"
+    title="Name"
+    subtitle="Why Side Trails?"
+    orientation="right"
+    class="max-w-4xl"
+  />
+  <SectionContent slot="content" class="flex flex-col items-start lg:grid lg:grid-cols-2 gap-4 lg:gap-8">
+    <div class="flex flex-col flex-wrap max-md:items-center gap-2 w-full">
+      <Image
+        src={image}
+        width={image.width}
+        height={image.height}
+        alt="Ground level view of a trail through a forest."
+        class="rounded-xl shadow-sm w-full h-72 object-cover"
+      />
+      <Typography class="w-full">
+        <blockquote>
+          <p>
+            We cannot solve our problems with the same thinking we used when we created them.
+          </p>
+          - Albert Einstein
+        </blockquote>
+      </Typography>
+    </div>
+    <Typography>
+      <p>
+        My friends and I enjoy going on trail hikes, and sometimes we'll come across side trails. These side trails are less travelled, rougher, and more challenging, but often more interesting. I always wonder where they will take us and what we might discover.
+      </p>
+      <p>
+        In software development, these "side trails" are the unconventional solutions that can lead to unexpected discoveries, deeper understanding, and ultimately better solutions.
+      </p>
+      <p>
+        If the status quo is the main trail, then the side trails represent the unorthodox. It often makes sense to stick with the status quo, and solve problems within it, but exploring the side trails builds confidence in that decision and ensures we don't miss anything along the way.
+      </p>
+    </Typography>
+  </SectionContent>
+</Section>

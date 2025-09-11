@@ -1,111 +1,121 @@
-import * as React from "react"
-import { useForm } from "react-hook-form"
-import Button from "./Button"
-import Card from "./Card"
-import Content from "./Content"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { z } from "zod"
+import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "./ui/form";
+import { useForm } from "react-hook-form";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { toast } from "sonner";
+import { useState } from "react";
 
-const ENDPOINT = `${process.env.API_URL}/contact`
+const formSchema = z.object({
+  contactName: z.string().min(1).max(50),
+  contactEmail: z.string().email(),
+  contactDescription: z.string().min(1).max(1024)
+})
 
-enum Status {
-  Failed,
-  Success
+export function ContactForm() {
+  return <BaseContactForm />
 }
 
-interface Inputs {
-  contactName: string
-  contactCompany: string
-  contactEmail: string
-  contactBudget: string
-  contactDescription: string
-}
-
-const ContactForm = () => {
-  const [status, setStatus] = React.useState<Status>()
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: {
-      isValid,
-      isDirty,
-      isSubmitting,
+function BaseContactForm() {
+  const [submitting, setSubmitting] = useState<boolean>(false)
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      contactName: "",
+      contactEmail: "",
+      contactDescription: ""
     }
-  } = useForm<Inputs>()
+  })
 
-  const onSubmit = async (data: Inputs) => {
-    fetch(ENDPOINT, {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-     },
-    })
-    .then(() => setStatus(Status.Success))
-    .catch((e) => {
-      console.error("Errors", e)
-      setStatus(Status.Failed)
-    })
-  }
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    if (import.meta.env.PROD) {
+      setSubmitting(true)
 
-  const handleReset = () => {
-    reset({}, { keepValues: true, keepIsValid: true })
-    setStatus(undefined)
+      fetch(`${import.meta.env.PUBLIC_API_URL}/contact`, {
+        method: "POST",
+        body: JSON.stringify(values),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+      .then((r) => {
+        setSubmitting(false)
+
+        r.ok ? successToast() : errorToast()
+      })
+      .catch((e) => {
+        setSubmitting(false)
+
+        console.error("Errors", e)
+        errorToast()
+      })
+    } else {
+      console.log(values)
+      successToast()
+    }
   }
 
   return (
-    <Card>
-      {status === Status.Success
-      ? <div className="h-full flex flex-col justify-center p-2">
-          <Content className="text-center">
-              <h3>Contact details sent!</h3>
-              <p>
-                I'll get back to you as soon as possible, thank you!
-              </p>
-              <p>
-                Made a mistake? <a onClick={handleReset} className="cursor-pointer"> Try again.</a>
-              </p>
-          </Content>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="sm:grid sm:grid-cols-2 sm:gap-x-4 space-y-6 w-full">
+        <FormField
+          control={form.control}
+          name="contactName"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="pb-2">Name</FormLabel>
+              <FormControl>
+                <Input {...field} disabled={submitting} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="contactEmail"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="pb-2">Email</FormLabel>
+              <FormControl>
+                <Input {...field} disabled={submitting} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="contactDescription"
+          render={({ field }) => (
+            <FormItem className="w-full sm:col-span-2">
+              <FormLabel className="pb-2">Description</FormLabel>
+              <FormControl>
+                <Textarea rows={5} {...field} disabled={submitting} />
+              </FormControl>
+              <FormDescription>What's your project about?</FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <div className="text-center md:col-span-2">
+          <Button type="submit" className="w-full" disabled={submitting}>Submit</Button>
         </div>
-      : <div>
-          {status === Status.Failed
-          ? <div className="text-sm 3xl:text-lg border border-red-500 m-1 p-2 text-red-500 bg-red-100">
-              Sorry, something didn't work! Try again or email me at discovery@sidetrails.dev
-            </div>
-          : null
-          }
-          <form id="contact-form" onSubmit={(e) => { console.log("Clicked submit"); handleSubmit(onSubmit)(e)}} className="flex flex-wrap">
-            <label className="w-full md:max-w-[50%] p-1">
-              Name:
-              <input {...register("contactName", { required: true })} type="text" className="w-full p-2 rounded-md border border-zinc-400 focus:ring-lion focus:border-lion"/>
-            </label>
-            <label className="w-full md:max-w-[50%] p-1">
-              Company:
-              <input {...register("contactCompany", { required: true })} type="text" className="w-full rounded-md p-2 border border-zinc-400 focus:ring-lion focus:border-lion"/>
-            </label>
-            <label className="w-full md:max-w-[50%] p-1">
-              Email:
-              <input {...register("contactEmail", { required: true })} type="text" className="w-full rounded-md p-2 border border-zinc-400 focus:ring-lion focus:border-lion"/>
-            </label>
-            <label className="w-full md:max-w-[50%] p-1">
-              Budget:
-              <select {...register("contactBudget", { required: true })} className="w-full rounded-md p-2 border border-zinc-400 focus:ring-lion focus:border-lion">
-                <option>$25,000-$50,000</option>
-                <option>$50,000-$100,000</option>
-                <option>$100,000+</option>
-              </select>
-            </label>
-            <label className="w-full p-1">
-              What's your project about?
-              <textarea {...register("contactDescription", { required: true })} rows={10} className="w-full p-2 rounded-md border-zinc-400 focus:ring-lion focus:border-lion"/>
-            </label>
-          </form>
-          <div className="mt-2 text-center">
-            <Button disabled={!isValid || !isDirty || isSubmitting} label="Submit" form="contact-form"/>
-          </div>
-        </div>
-      }
-    </Card>
+      </form>
+    </Form>
   )
 }
 
-export default ContactForm
+function successToast() {
+  toast.success("Contact details sent!", {
+    description: "I'll get back to you as soon as possible, thank you!"
+  })
+}
+
+function errorToast() {
+  toast.error("Sorry, something didn't work!", {
+    description: "Try again or email me at discovery@sidetrails.dev"
+  })
+}

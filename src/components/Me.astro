@@ -1,0 +1,42 @@
+---
+import { Image } from "astro:assets"
+import Section from "./ui/section.astro"
+import Typography from "./ui/typography.astro"
+import SectionHeader from "./ui/section-header.astro"
+import SectionContent from "./ui/section-content.astro"
+
+import headshot from "@/assets/headshot.jpeg"
+import DecoratedImage from "./ui/decorated-image.astro"
+---
+
+<Section id="me" class="max-w-5xl">
+  <SectionHeader
+    slot="header"
+    title="About Me"
+    subtitle="Hey, my name is Spencer!"
+    orientation="right"
+  >
+    <DecoratedImage
+      slot="image"
+      src={headshot}
+      alt="A dashing headshot of myself."
+      loading="eager"
+    />
+  </SectionHeader>
+  <SectionContent slot="content" class="mt-4">
+    <Typography>
+      <p>
+        I love to build things and solve interesting problems. When I was little I spent a lot of time playing with Lego and K'Nex, drawing, and doing various arts and crafts. As I got older I gravitated towards video games, with my favourites involving some combination of building or optimizing something.
+      </p>
+      <p>
+        Eventually this translated into software development, where I've spent the last decade. For me, software development provides the perfect blend of creative expression and creative problem solving.
+      </p>
+      <p>
+        I like solving unconventional problems; the kind that gives me the opportunity to develop an elegant solution to an otherwise messy problem by finding the best balance between function and form. Guiding others through these problems is another source of enjoyment.
+      </p>
+      <p>
+        If you're looking for someone with a genuine passion for building things and solving interesting problems, I might be the right person, because how you do anything is how you do everything.
+      </p>
+    </Typography>
+  </SectionContent>
+</Section>

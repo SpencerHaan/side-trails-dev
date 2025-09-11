@@ -1,0 +1,83 @@
+---
+import SectionContent from "./ui/section-content.astro"
+import SectionHeader from "./ui/section-header.astro"
+import Section from "./ui/section.astro"
+
+import {
+  FlameKindlingIcon,
+  HeartHandshakeIcon,
+  PuzzleIcon,
+  TelescopeIcon
+} from "lucide-react"
+import ValuesCompass from "./ValuesCompass.astro"
+import Glyph from "./Glyph.astro"
+import ValueItem from "./ValueItem.astro"
+---
+
+<Section id="values">
+  <SectionHeader
+    slot="header"
+    title="Values"
+    subtitle="What Matters To Me"
+    class="max-w-4xl"
+    orientation="center"
+  />
+  <SectionContent slot="content" class="max-w-7xl relative flex flex-col sm:grid sm:grid-cols-2 lg:grid-cols-6 justify-center items-center gap-8 sm:gap-18">
+    <div class="lg:col-start-3 lg:col-span-2 flex flex-col lg:flex-row items-center gap-4">
+      <Glyph type="square" class="lg:hidden">
+        <TelescopeIcon />
+      </Glyph>
+      <ValueItem heading="Build for the Long-Term" class="text-center lg:w-md">
+        <p slot="description">
+          Set customers up for success in the long-term by considering more than what's required in the short-term.
+        </p>
+      </ValueItem>
+    </div>
+    <div class="lg:row-start-2 lg:col-span-2 flex flex-col lg:flex-row lg:col-start-5 items-center gap-4">
+      <Glyph type="square" class="lg:hidden">
+        <PuzzleIcon />
+      </Glyph>
+      <ValueItem heading="Solve the Right Problem" class="text-center lg:w-md">
+        <p slot="description">
+          Establish a fundamental understanding of the problem, then determine the best solution given the constraints.
+        </p>
+      </ValueItem>
+    </div>
+    <div class="flex max-sm:flex-col max-sm:w-full max-sm:items-center gap-4 justify-between lg:relative lg:justify-center sm:col-span-2 lg:row-start-2">
+      <div class="flex justify-center items-center grow max-lg:w-full lg:absolute lg:inset-0 lg:-z-10 lg:-m-96">
+        <hr class="border-muted-foreground border-dashed w-3/4 lg:-rotate-[36deg]" />
+      </div>
+      <div>
+        <ValuesCompass class="size-36">
+          <TelescopeIcon slot="icon-top" />
+          <FlameKindlingIcon slot="icon-left" />
+          <PuzzleIcon slot="icon-right" />
+          <HeartHandshakeIcon slot="icon-bottom" />
+        </ValuesCompass>
+      </div>
+      <div class="flex justify-center items-center grow max-lg:w-full lg:absolute lg:inset-0 lg:-z-10 lg:-m-96">
+        <hr class="border-muted-foreground border-dashed w-3/4 lg:rotate-[36deg]" />
+      </div>
+    </div>
+    <div class="flex flex-col-reverse lg:flex-row-reverse items-center gap-4 lg:row-start-2 lg:col-start-1 lg:col-span-2">
+      <Glyph type="square" class="lg:hidden">
+        <FlameKindlingIcon />
+      </Glyph>
+      <ValueItem heading="The Boy Scout Rule" class="text-center lg:w-md">
+        <p slot="description">
+          Leave the camp cleaner than when I found it by building solutions that are easier to use, understand, and maintain.
+        </p>
+      </ValueItem>
+    </div>
+    <div class="lg:col-start-3 lg:col-span-2 flex flex-col-reverse lg:flex-row-reverse items-center gap-4">
+      <Glyph type="square" class="lg:hidden">
+        <HeartHandshakeIcon />
+      </Glyph>
+      <ValueItem heading="Be Transparent" class="text-center lg:w-md">
+        <p slot="description">
+          Ensure stakeholders are aware of problems promptly, so that they can be addressed collaboratively and quickly.
+        </p>
+      </ValueItem>
+    </div>
+  </SectionContent>
+</Section>

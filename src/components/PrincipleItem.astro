@@ -1,0 +1,31 @@
+---
+import { cn } from "@/lib/utils"
+import TrailItem from "./TrailItem.astro"
+import Typography from "./ui/typography.astro"
+
+interface Props {
+  ordinal: number
+  principle: string
+}
+
+const { ordinal } = Astro.props
+
+const isHeaderLeft = ordinal & 1
+---
+
+<TrailItem class={ordinal & 1 ? "flex-col" : "flex-col-reverse"}>
+  <Typography
+    slot={isHeaderLeft ? "left" : "right"}
+    class={cn(
+      "flex flex-col font-heading prose-h3:my-0 prose-h3:text-primary",
+      isHeaderLeft ? "md:items-start" : "md:items-end"
+    )}
+  >
+    <slot name="heading" />
+  </Typography>
+  <Typography slot={isHeaderLeft ? "right" : "left"}
+    class={isHeaderLeft ? "md:text-left" : "md:text-right"}
+  >
+    <slot name="content" />
+  </Typography>
+</TrailItem>

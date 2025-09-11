@@ -1,0 +1,22 @@
+---
+import { cn } from "@/lib/utils"
+
+interface TrailItem {
+  class?: string
+}
+
+const { class: className = "" } = Astro.props
+---
+
+<div class={cn(
+  "flex md:items-center border-l border-dashed border-muted-foreground ml-7 pl-10 gap-y-6",
+  "md:grid md:grid-cols-2 md:border-none md:divide-x divide-dashed divide-muted-foreground md:ml-0 md:pl-0",
+  className
+)}>
+  <div class="flex items-center md:justify-end h-full md:pr-10">
+    <slot name="left" />
+  </div>
+  <div class="flex justify-start items-center h-full md:pl-10">
+    <slot name="right" />
+  </div>
+</div>

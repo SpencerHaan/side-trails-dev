@@ -1,0 +1,94 @@
+---
+import Section from "./ui/section.astro"
+import SectionHeader from "./ui/section-header.astro"
+import SectionContent from "./ui/section-content.astro"
+import ProcessItem from "./ProcessItem.astro"
+import ProcessImage from "./ProcessImage.astro"
+import Glyph from "./Glyph.astro"
+import {
+  RouteIcon,
+  PencilRulerIcon,
+  TentTreeIcon,
+} from "lucide-react"
+
+import discoverImage from "@/assets/discover.png"
+import exploreImage from "@/assets/explore.png"
+import buildImage from "@/assets/build.png"
+---
+
+<Section id="process">
+  <SectionHeader
+    slot="header"
+    title="Process"
+    subtitle="Side Trailing"
+  >
+    <p slot="description">
+      Understand deeply. Work closely. Build thoughtfully.
+    </p>
+    <p slot="description">
+      Every project is a journey. From discovering where you are and where you want to go, to exploring the paths to get there, and, finally, setting up camp at the destination, together.
+    </p>
+  </SectionHeader>
+  <SectionContent slot="content" class="flex flex-col items-start md:items-center gap-4 max-w-7xl">
+    <Glyph type="round">
+      <PencilRulerIcon />
+    </Glyph>
+    <ProcessItem
+      title="Discover"
+      subtitle="Uncover known-knowns and known-unknowns"
+      keywords={["Goals", "Constraints", "Budget"]}
+      imagePosition="right"
+    >
+      <ProcessImage
+        slot="image"
+        src={discoverImage}
+        alt="Illustraion of a map and a drawing compass"
+        loading="eager"
+      />
+      <p slot="description">
+        Understand where you are now and define where you want to go. Gather any "known-knowns" and "known-unknowns".
+      </p>
+    </ProcessItem>
+    <Glyph type="round">
+      <RouteIcon className="-rotate-45" />
+    </Glyph>
+    <ProcessItem
+      title="Explore"
+      subtitle="Deep dive and mental model building"
+      keywords={["Analyze", "Prototype", "Understand"]}
+      imagePosition="left"
+    >
+      <ProcessImage
+        slot="image"
+        src={exploreImage}
+        alt="Illustration of a hiking backpack."
+        loading="eager"
+      />
+      <p slot="description">
+        Scout possible paths forward. Develop a shared understanding and uncover as many "unknown-unknowns" as possible.
+      </p>
+    </ProcessItem>
+    <Glyph type="round">
+      <RouteIcon className="-rotate-45" />
+    </Glyph>
+    <ProcessItem
+      title="Build"
+      subtitle="From prototype to solution"
+      keywords={["Develop", "Integrate", "Document"]}
+      imagePosition="right"
+    >
+      <ProcessImage
+        slot="image"
+        src={buildImage}
+        alt="Illustration of a mountain with a flag at the peak."
+        loading="eager"
+      />
+      <p slot="description">
+        Take the chosen path and build the solution. Realize your goals, together, while leaving room to adapt along the way.
+      </p>
+    </ProcessItem>
+    <Glyph type="round">
+      <TentTreeIcon />
+    </Glyph>
+  </SectionContent>
+</Section>

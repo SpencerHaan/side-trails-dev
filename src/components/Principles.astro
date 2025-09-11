@@ -1,0 +1,124 @@
+---
+import Glyph from "./Glyph.astro"
+import PrincipleGylph from "./PrincipleGylph.astro"
+import PrincipleItem from "./PrincipleItem.astro"
+import SectionContent from "./ui/section-content.astro"
+import SectionHeader from "./ui/section-header.astro"
+import Section from "./ui/section.astro"
+
+import { BookOpenTextIcon } from "lucide-react"
+---
+
+<Section id="principles" class="max-w-5xl">
+  <SectionHeader
+    slot="header"
+    title="Principles"
+    subtitle="Agile"
+    class="max-w-4xl"
+  >
+    <Fragment slot="description">
+      <blockquote >
+        <p>
+          Plans are worthless, but planning is everything.
+        </p>
+        - Dwight D. Eisenhower
+      </blockquote>
+      <p>
+        Based on the original <a href="https://agilemanifesto.org/principles.html" target="_blank">Agile Manifesto</a>, these are the principles I use to structure and manage my projects, aiming to provide the best long-term value.
+      </p>
+    </Fragment>
+  </SectionHeader>
+  <SectionContent slot="content" class="flex flex-col md:items-center gap-4">
+    <PrincipleGylph ordinal={1} />
+    <PrincipleItem
+      ordinal={1}
+      principle="Satisfaction from Continuous Delivery"
+    >
+      <Fragment slot="heading">
+        <h3 class="text-primary font-mono">
+          Satisfaction
+        </h3>
+        <h6>
+          From Continuous Delivery
+        </h6>
+      </Fragment>
+      <Fragment slot="content">
+        <p>
+          See the value of your money spent through the frequent delivery of working software and detailed reports.
+        </p>
+        <p>
+          Something that can be used, so you know we're on the right track.
+        </p>
+      </Fragment>
+    </PrincipleItem>
+    <PrincipleGylph ordinal={2} />
+    <PrincipleItem
+      ordinal={2}
+      principle="Quality from Close Collaboration"
+    >
+      <Fragment slot="heading">
+        <h3 class="text-primary font-mono">
+          Quality
+        </h3>
+        <h6>
+          From Close Collaboration
+        </h6>
+      </Fragment>
+      <Fragment slot="content">
+        <p>
+          Close collaboration leads to building the best possible solution, with the fewest trade-offs and the lowest overhead.
+        </p>
+        <p>
+          Ensure those who need to be in the room are there to provide feedback.
+        </p>
+      </Fragment>
+    </PrincipleItem>
+    <PrincipleGylph ordinal={3} />
+    <PrincipleItem
+      ordinal={3}
+      principle="Momentum from Frequent Communication"
+    >
+      <Fragment slot="heading">
+        <h3 class="text-primary font-mono">
+          Momentum
+        </h3>
+        <h6>
+          From Frequent Communication
+        </h6>
+      </Fragment>
+      <Fragment slot="content">
+        <p>
+          Frequent communication ensures that problems are caught and addressed early.
+        </p>
+        <p>
+          Promptly resolving issues means less time wasted working on the wrong thing.
+        </p>
+      </Fragment>
+    </PrincipleItem>
+    <PrincipleGylph ordinal={4} />
+    <PrincipleItem
+      ordinal={4}
+      principle="Agility from Simplicity and Flexibility"
+    >
+      <Fragment slot="heading">
+        <h3 class="text-primary font-mono">
+          Agility
+        </h3>
+        <h6>
+          From Simplicity and Flexibility
+        </h6>
+      </Fragment>
+      <Fragment slot="content">
+        <p>
+          Simplicity, or "the art of maximizing the amount of work not done", allows us to make changes while minimizing the effect of past decisions.
+        </p>
+        <p>
+          Be flexible; requirements can change quickly.
+        </p>
+      </Fragment>
+    </PrincipleItem>
+    <Glyph type="square">
+      <BookOpenTextIcon />
+    </Glyph>
+  </SectionContent>
+</Section>

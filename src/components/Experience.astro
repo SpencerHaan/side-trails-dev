@@ -1,0 +1,24 @@
+---
+import Section from "./ui/section.astro";
+import ExperienceCarousel from './ExperienceCarousel.astro';
+import SectionHeader from "./ui/section-header.astro";
+import SectionContent from "./ui/section-content.astro";
+import { Badge } from "./ui/badge";
+---
+
+<Section id="experience">
+  <SectionHeader
+    slot="header"
+    title="Experience"
+    subtitle="Badges Collected"
+    orientation="center"
+  />
+  <SectionContent slot="content" class="flex flex-col items-center gap-12 max-w-6xl">
+    <div class="w-full">
+      <ExperienceCarousel />
+    </div>
+    <div>
+      <Badge className="w-24">Employed</Badge> <Badge variant="secondary" className="w-24">Contracted</Badge>
+    </div>
+  </SectionContent>
+</Section>
