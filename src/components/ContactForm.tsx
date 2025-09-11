@@ -6,6 +6,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { toast } from "sonner";
+import { useState } from "react";
 
 const formSchema = z.object({
   contactName: z.string().min(1).max(50),
@@ -18,6 +19,7 @@ export function ContactForm() {
 }
 
 function BaseContactForm() {
+  const [submitting, setSubmitting] = useState<boolean>(false)
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -29,31 +31,30 @@ function BaseContactForm() {
 
   function onSubmit(values: z.infer<typeof formSchema>) {
     if (import.meta.env.PROD) {
-      const endpoint = `${import.meta.env.PUBLIC_API_URL}/contact`
-      console.log(endpoint)
+      setSubmitting(true)
 
-      fetch(endpoint, {
+      fetch(`${import.meta.env.PUBLIC_API_URL}/contact`, {
         method: "POST",
         body: JSON.stringify(values),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
       })
-      .then(() => toast.success("Contact details sent!", {
-        description: "I'll get back to you as soon as possible, thank you!"
-      }))
+      .then((r) => {
+        setSubmitting(false)
+
+        r.ok ? successToast() : errorToast()
+      })
       .catch((e) => {
+        setSubmitting(false)
+
         console.error("Errors", e)
-        toast.error("Sorry, something didn't work!", {
-          description: "Try again or email me at discovery@sidetrails.dev"
-        })
+        errorToast()
       })
     } else {
-      toast.success("Contact details sent!", {
-        description: "I'll get back to you as soon as possible, thank you!"
-      })
+      console.log(values)
+      successToast()
     }
-    console.log(values)
   }
 
   return (
@@ -66,7 +67,7 @@ function BaseContactForm() {
             <FormItem>
               <FormLabel className="pb-2">Name</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} disabled={submitting} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -79,7 +80,7 @@ function BaseContactForm() {
             <FormItem>
               <FormLabel className="pb-2">Email</FormLabel>
               <FormControl>
-                <Input {...field} />
+                <Input {...field} disabled={submitting} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -92,7 +93,7 @@ function BaseContactForm() {
             <FormItem className="w-full sm:col-span-2">
               <FormLabel className="pb-2">Description</FormLabel>
               <FormControl>
-                <Textarea rows={5} {...field} />
+                <Textarea rows={5} {...field} disabled={submitting} />
               </FormControl>
               <FormDescription>What's your project about?</FormDescription>
               <FormMessage />
@@ -100,9 +101,21 @@ function BaseContactForm() {
           )}
         />
         <div className="text-center md:col-span-2">
-          <Button type="submit" className="w-full">Submit</Button>
+          <Button type="submit" className="w-full" disabled={submitting}>Submit</Button>
         </div>
       </form>
     </Form>
   )
+}
+
+function successToast() {
+  toast.success("Contact details sent!", {
+    description: "I'll get back to you as soon as possible, thank you!"
+  })
+}
+
+function errorToast() {
+  toast.error("Sorry, something didn't work!", {
+    description: "Try again or email me at discovery@sidetrails.dev"
+  })
 }
