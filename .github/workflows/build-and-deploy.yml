@@ -21,6 +21,7 @@ jobs:
       - name:
         uses: withastro/action@v3
         env:
+          PUBLIC_ALLOW_ROBOTS: ${{ vars.PUBLIC_ALLOW_ROBOTS }}
           PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
 
   deploy:
