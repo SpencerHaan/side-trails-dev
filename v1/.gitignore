@@ -1,8 +1,0 @@
-node_modules/
-.cache/
-.env.development
-public
-src/gatsby-types.d.ts
-
-# Mac
-*.DS_Store
