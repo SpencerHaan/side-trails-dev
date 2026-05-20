@@ -11,10 +11,12 @@ import sitemap from '@astrojs/sitemap';
 
 import cname from "@sidetrails/astro-cname";
 
+import vue from '@astrojs/vue';
+
 // https://astro.build/config
 export default defineConfig({
   site: "http://sidetrails.dev",
-  integrations: [react(), mdx(), sitemap(), cname()],
+  integrations: [react(), mdx(), sitemap(), cname(), vue()],
 
   vite: {
     plugins: [tailwindcss()]
