@@ -8,7 +8,7 @@ import {
   NavigationMenuItem,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
-import { GitHubIcon, LinkedInIcon } from '@/components/ui/icons';
+import { GitHubIcon, LinkedInIcon } from '@/components/icons';
 
 const props = defineProps<{
   items: NavItem[]
