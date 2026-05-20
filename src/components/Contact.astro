@@ -1,6 +1,6 @@
 ---
 import { ContactForm } from "./ContactForm";
-import { Card, CardContent } from "./ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import SectionContent from "./ui/section-content.astro";
 import SectionHeader from "./ui/section-header.astro";
 import Section from "./ui/section.astro";
@@ -22,7 +22,7 @@ import Section from "./ui/section.astro";
   </SectionHeader>
   <SectionContent slot="content">
     <Card>
-      <CardContent className="flex flex-col items-center gap-2">
+      <CardContent class="flex flex-col items-center gap-2">
         <ContactForm client:only="react" />
         <a href="/policies/privacy" class="text-xs text-primary hover:text-primary/75 transition-colors">Privacy Policy</a>
       </CardContent>

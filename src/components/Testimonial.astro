@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets"
-import { Card, CardContent } from "./ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import SectionContent from "./ui/section-content.astro"
 import SectionHeader from "./ui/section-header.astro"
 import Section from "./ui/section.astro"
@@ -10,8 +10,8 @@ import image from "@/assets/headshot-mitch.jpeg"
 import DecoratedImage from "./ui/decorated-image.astro"
 ---
 
-<Card className="m-4 shadow-md">
-  <CardContent className="max-md:p-0">
+<Card class="m-4 shadow-md">
+  <CardContent class="max-md:p-0">
     <Section id="testimonial" class="max-w-5xl">
       <SectionHeader
         slot="header"
