@@ -1,6 +1,6 @@
 ---
 import { cn } from "@/lib/utils"
-import DesktopNav from "./ui/deskto-nav"
+import { DesktopNav } from "@/components/navs"
 import MobileNav from "./ui/mobile-nav"
 
 const navItems: { label: string, href: string }[] = [
@@ -26,5 +26,5 @@ const { class: className } = Astro.props
   className
 )}>
   <MobileNav items={navItems} className="flex sm:hidden m-2" client:visible />
-  <DesktopNav items={navItems} className="hidden sm:flex m-2" client:visible />
+  <DesktopNav items={navItems} class="hidden sm:flex m-2" client:visible />
 </header>
