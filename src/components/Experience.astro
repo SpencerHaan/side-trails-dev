@@ -3,7 +3,7 @@ import Section from "./ui/section.astro";
 import ExperienceCarousel from './ExperienceCarousel.astro';
 import SectionHeader from "./ui/section-header.astro";
 import SectionContent from "./ui/section-content.astro";
-import { Badge } from "./ui/badge";
+import { Badge } from "@/components/ui/badge";
 ---
 
 <Section id="experience">
@@ -18,7 +18,7 @@ import { Badge } from "./ui/badge";
       <ExperienceCarousel />
     </div>
     <div>
-      <Badge className="w-24">Employed</Badge> <Badge variant="secondary" className="w-24">Contracted</Badge>
+      <Badge class="w-24">Employed</Badge> <Badge variant="secondary" class="w-24">Contracted</Badge>
     </div>
   </SectionContent>
 </Section>

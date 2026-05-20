@@ -15,6 +15,9 @@
       "@/components/*": [
         "./src/components/*"
       ],
+      "@/composables/*": [
+        "./src/composables/*"
+      ],
       "@/layouts/*": [
         "./src/layouts/*"
       ],
