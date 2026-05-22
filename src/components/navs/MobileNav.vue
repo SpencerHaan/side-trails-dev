@@ -9,7 +9,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover';
-import Button from '../ui/button/Button.vue';
+import { Button } from '@/components/ui/button';
 
 
 const props = defineProps<{

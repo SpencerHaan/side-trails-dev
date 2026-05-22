@@ -2,12 +2,10 @@
 import { useForm } from '@tanstack/vue-form'
 import { toast } from 'vue-sonner'
 import { z } from 'zod'
-import { Field, FieldDescription, FieldError, FieldGroup } from './ui/field'
-import Input from './ui/input/Input.vue'
-import FieldLabel from './ui/field/FieldLabel.vue'
-import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from './ui/input-group'
-import Button from './ui/button/Button.vue'
-import { h } from 'vue'
+import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
+import { Input } from '@/components/ui/input'
+import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from '@/components/ui/input-group'
+import { Button } from '@/components/ui/button'
 
 const formSchema = z.object({
   contactName: z.string()
