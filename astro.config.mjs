@@ -1,8 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 
-import react from '@astrojs/react';
-
 import mdx from '@astrojs/mdx';
 
 import tailwindcss from '@tailwindcss/vite';
@@ -16,7 +14,7 @@ import vue from '@astrojs/vue';
 // https://astro.build/config
 export default defineConfig({
   site: "http://sidetrails.dev",
-  integrations: [react(), mdx(), sitemap(), cname(), vue()],
+  integrations: [mdx(), sitemap(), cname(), vue()],
 
   vite: {
     plugins: [tailwindcss()]

@@ -142,7 +142,7 @@ const isInvalid = (field: any) => {
         </form.Field>
       </FieldGroup>
     </form>
-    <div className="text-center md:col-span-2">
+    <div class="text-center md:col-span-2">
       <Button type="submit" form="contact-form" class="w-full">Submit</Button>
     </div>
   </div>
