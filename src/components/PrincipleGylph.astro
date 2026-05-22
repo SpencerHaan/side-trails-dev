@@ -1,5 +1,5 @@
 ---
-import Glyph from "./Glyph.astro";
+import Glyph from "@/components/Glyph.astro";
 
 interface Props {
   ordinal: number
@@ -8,6 +8,6 @@ interface Props {
 const { ordinal } = Astro.props
 ---
 
-<Glyph type="square" class="flex justify-center text-xl font-bold font-mono size-[58px]">
+<Glyph type="square" class="flex justify-center text-xl font-bold font-mono size-14.5">
   {ordinal}
 </Glyph>
