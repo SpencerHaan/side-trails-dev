@@ -17,6 +17,9 @@ importers:
       '@astrojs/vue':
         specifier: 6.0.1
         version: 6.0.1(@types/node@24.10.1)(astro@6.3.3(@types/node@24.10.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.52.5))(jiti@2.7.0)(lightningcss@1.32.0)(vue@3.5.34(typescript@6.0.3))
+      '@lucide/vue':
+        specifier: 1.16.0
+        version: 1.16.0(vue@3.5.34(typescript@6.0.3))
       '@sidetrails/astro-cname':
         specifier: ^0.1.1
         version: 0.1.1(astro@6.3.3(@types/node@24.10.1)(jiti@2.7.0)(lightningcss@1.32.0)(rollup@4.52.5))
@@ -41,9 +44,6 @@ importers:
       embla-carousel:
         specifier: 8.6.0
         version: 8.6.0
-      lucide-vue-next:
-        specifier: ^1.0.0
-        version: 1.0.0(vue@3.5.34(typescript@6.0.3))
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.2.6(react@19.2.6))(react@19.2.6)
@@ -68,6 +68,9 @@ importers:
       vue-sonner:
         specifier: ^2.0.9
         version: 2.0.9
+      vue:1.16.0:
+        specifier: link:@lucide/vue:1.16.0
+        version: link:@lucide/vue:1.16.0
       zod:
         specifier: 4.3.3
         version: 4.3.3
@@ -601,6 +604,11 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.30':
     resolution: {integrity: sha512-GQ7Nw5G2lTu/BtHTKfXhKHok2WGetd4XYcVKGx00SjAk8GMwgJM3zr6zORiPGuOE+/vkc90KtTosSSvaCjKb2Q==}
+
+  '@lucide/vue@1.16.0':
+    resolution: {integrity: sha512-kiHx0fe49DMjQuvNaEOu9Jou6u9FwdqQ8xbZIKlD47sXrOI8g59kIeeQL42NBLI4AvO+UJsbaPX0hEK/4rHSBQ==}
+    peerDependencies:
+      vue: '>=3.0.1'
 
   '@mdx-js/mdx@3.1.1':
     resolution: {integrity: sha512-f6ZO2ifpwAQIpzGWaBQT2TXxPv6z3RBzQKpVftEWN78Vl/YweF1uwussDx8ECAXVtr3Rs89fKyG9YlzUs9DyGQ==}
@@ -1726,12 +1734,6 @@ packages:
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
-
-  lucide-vue-next@1.0.0:
-    resolution: {integrity: sha512-V6SPvx1IHTj/UY+FrIYWV5faISsPSb8BnWSFDxAtezWKvWc9ZZ40PDrdu1/Qb5vg4lHWr1hs1BAMGVGm6V1Xdg==}
-    deprecated: Package deprecated. Please use @lucide/vue instead.
-    peerDependencies:
-      vue: '>=3.0.1'
 
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
@@ -3140,6 +3142,10 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
+  '@lucide/vue@1.16.0(vue@3.5.34(typescript@6.0.3))':
+    dependencies:
+      vue: 3.5.34(typescript@6.0.3)
+
   '@mdx-js/mdx@3.1.1':
     dependencies:
       '@types/estree': 1.0.8
@@ -4405,10 +4411,6 @@ snapshots:
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
-
-  lucide-vue-next@1.0.0(vue@3.5.34(typescript@6.0.3)):
-    dependencies:
-      vue: 3.5.34(typescript@6.0.3)
 
   magic-string@0.30.21:
     dependencies:
