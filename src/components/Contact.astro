@@ -1,9 +1,9 @@
 ---
-import { ContactForm } from "./ContactForm";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import SectionContent from "./ui/section-content.astro";
 import SectionHeader from "./ui/section-header.astro";
 import Section from "./ui/section.astro";
+import ContactForm from "./ContactForm.vue";
 ---
 
 <Section
@@ -23,9 +23,11 @@ import Section from "./ui/section.astro";
   <SectionContent slot="content">
     <Card>
       <CardContent class="flex flex-col items-center gap-2">
-        <ContactForm client:only="react" />
-        <a href="/policies/privacy" class="text-xs text-primary hover:text-primary/75 transition-colors">Privacy Policy</a>
+        <ContactForm client:load />
       </CardContent>
+      <CardFooter class="justify-center" >
+        <a href="/policies/privacy" class="text-xs text-primary hover:text-primary/75 transition-colors">Privacy Policy</a>
+      </CardFooter>
     </Card>
   </SectionContent>
 </Section>
