@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input'
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from '@/components/ui/input-group'
 import { Button } from '@/components/ui/button'
 import { ref } from 'vue'
+import { sleep } from '@/lib/utils'
+import { Spinner } from '@/components/ui/spinner'
 
 const submitting = ref(false)
 
@@ -30,9 +32,8 @@ const form = useForm({
     onSubmit: formSchema
   },
   onSubmit: async ({ value }) => {
-     if (import.meta.env.PROD) {
-      submitting.value = true
-
+    submitting.value = true
+    if (import.meta.env.PROD) {
       fetch(`${import.meta.env.PUBLIC_API_URL}/contact`, {
         method: "POST",
         body: JSON.stringify(value),
@@ -51,8 +52,14 @@ const form = useForm({
         submitting.value = false
       })
     } else {
-      console.log(value)
-      successToast()
+      sleep(500)
+      .then(() => {
+        console.log(value)
+        successToast()
+      })
+      .finally(() => {
+        submitting.value = false
+      })
     }
   }
 })
@@ -81,6 +88,7 @@ const isInvalid = (field: any) => {
                 :name="field.name"
                 :model-value="field.state.value"
                 :aria-invalid="isInvalid(field)"
+                :disabled="submitting"
                 autocomplete="off"
                 @blur="field.handleBlur"
                 @input="field.handleChange($event.target.value)"
@@ -104,6 +112,7 @@ const isInvalid = (field: any) => {
                 :name="field.name"
                 :model-value="field.state.value"
                 :aria-invalid="isInvalid(field)"
+                :disabled="submitting"
                 type="email"
                 @blur="field.handleBlur"
                 @input="field.handleChange($event.target.value)"
@@ -129,6 +138,7 @@ const isInvalid = (field: any) => {
                   :model-value="field.state.value"
                   :rows="5"
                   :aria-invalid="isInvalid(field)"
+                  :disabled="submitting"
                   placeholder="What's your project about?"
                   @blur="field.handleBlur"
                   @input="field.handleChange($event.target.value)"
@@ -150,7 +160,13 @@ const isInvalid = (field: any) => {
       </FieldGroup>
     </form>
     <div class="text-center md:col-span-2">
-      <Button type="submit" form="contact-form" class="w-full">Submit</Button>
+      <Button :disabled="submitting" type="submit" form="contact-form" class="w-full">
+        <template v-if="submitting">
+          <Spinner />
+          Submitting
+        </template>
+        <template v-else>Submit</template>
+      </Button>
     </div>
   </div>
 </template>
