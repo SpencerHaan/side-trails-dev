@@ -1,11 +1,14 @@
 <script setup lang="ts">
+import { errorToast, successToast } from '.'
 import { useForm } from '@tanstack/vue-form'
-import { toast } from 'vue-sonner'
 import { z } from 'zod'
 import { Field, FieldError, FieldGroup, FieldLabel } from '@/components/ui/field'
 import { Input } from '@/components/ui/input'
 import { InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea } from '@/components/ui/input-group'
 import { Button } from '@/components/ui/button'
+import { ref } from 'vue'
+
+const submitting = ref(false)
 
 const formSchema = z.object({
   contactName: z.string()
@@ -27,24 +30,30 @@ const form = useForm({
     onSubmit: formSchema
   },
   onSubmit: async ({ value }) => {
-    console.log(value)
-    // toast('You submitted the following values:', {
-    //   description: h(
-    //     'pre',
-    //     {
-    //       class: 'bg-code text-code-foreground mt-2 w-[320px] overflow-x-auto rounded-md p-4',
-    //     },
-    //     h('code', JSON.stringify(value, null, 2)),
-    //   ),
-    //   position: 'bottom-right',
-    //   class: 'flex flex-col gap-2',
-    //   style: {
-    //     '--border-radius': 'calc(var(--radius)  + 4px)',
-    //   },
-    // })
-    toast.success("Contact details sent!", {
-      description: "I'll get back to you as soon as possible, thank you!"
-    })
+     if (import.meta.env.PROD) {
+      submitting.value = true
+
+      fetch(`${import.meta.env.PUBLIC_API_URL}/contact`, {
+        method: "POST",
+        body: JSON.stringify(value),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8",
+        },
+      })
+      .then((r) => {
+        r.ok ? successToast() : errorToast()
+      })
+      .catch((e) => {
+        console.error("Errors", e)
+        errorToast()
+      })
+      .finally(() => {
+        submitting.value = false
+      })
+    } else {
+      console.log(value)
+      successToast()
+    }
   }
 })
 
