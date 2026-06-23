@@ -17,9 +17,9 @@ jobs:
       name: github-pages
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - name:
-        uses: withastro/action@v3
+        uses: withastro/action@v6
         env:
           PUBLIC_ALLOW_ROBOTS: ${{ vars.PUBLIC_ALLOW_ROBOTS }}
           PUBLIC_API_URL: ${{ vars.PUBLIC_API_URL }}
